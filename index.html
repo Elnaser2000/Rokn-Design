@@ -3,76 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rokn Design | ركن ديزاين للتشطيبات</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Rokn Design | الفخامة في التفاصيل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #d4af37; --dark: #111; --light: #f5f5f5; }
+        :root { --gold: #d4af37; --dark: #0a0a0a; --glass: rgba(255, 255, 255, 0.05); }
         * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; }
-        body { background: var(--light); color: #333; line-height: 1.6; }
+        body { background: var(--dark); color: white; overflow-x: hidden; }
 
         /* Header */
         header { 
-            background: #000; padding: 15px 5%; display: flex; 
-            justify-content: space-between; align-items: center; 
-            border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000;
+            padding: 20px 5%; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 1px solid #222; background: #000;
         }
-        .header-brand { display: flex; align-items: center; gap: 12px; }
-        .logo-circle { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--gold); object-fit: cover; }
-        .brand-name { color: var(--gold); font-size: 1.4rem; font-weight: 700; text-transform: uppercase; }
+        .header-brand { display: flex; align-items: center; gap: 15px; }
+        .logo-circle { width: 55px; height: 55px; border-radius: 50%; border: 2px solid var(--gold); padding: 2px; }
+        .brand-name { color: var(--gold); font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
 
-        /* Hero Section */
-        .hero { 
-            height: 85vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-            url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px;
+        /* Hero Wrapper */
+        .main-content { padding: 20px; max-width: 600px; margin: auto; }
+
+        .hero-card { 
+            width: 100%; height: 250px; border-radius: 25px; 
+            background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000') center/cover;
+            margin-bottom: 30px; border: 1px solid #333; position: relative; overflow: hidden;
         }
-        .hero h2 { font-size: 3rem; margin-bottom: 15px; color: var(--gold); }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; max-width: 700px; }
-
-        .btn { 
-            background: var(--gold); color: #000; padding: 14px 30px; border: none; 
-            text-decoration: none; font-size: 1.1rem; border-radius: 8px; font-weight: 700; 
-            cursor: pointer; transition: 0.3s; display: inline-block; margin: 10px;
+        .hero-overlay { 
+            position: absolute; bottom: 0; width: 100%; background: linear-gradient(transparent, #000);
+            padding: 20px; text-align: center; font-weight: bold; color: var(--gold);
         }
-        .btn:hover { transform: scale(1.05); background: #b8952e; }
-        .btn-outline { background: transparent; color: white; border: 2px solid white; }
 
-        /* Services & Gallery */
-        section { padding: 70px 10%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: var(--dark); margin-bottom: 15px; }
-        .images img { width: 100%; border-radius: 12px; transition: 0.3s; cursor: pointer; }
-        .images img:hover { transform: scale(1.03); }
+        /* Modern Grid */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .action-card { 
+            background: var(--glass); border: 1px solid #222; padding: 30px 15px; 
+            border-radius: 20px; text-align: center; cursor: pointer; transition: 0.3s;
+        }
+        .action-card:active { transform: scale(0.95); background: #1a1a1a; border-color: var(--gold); }
+        .action-card i { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+        .ai-special { background: linear-gradient(145deg, var(--gold), #8e6d2e); color: black; font-weight: 800; border: none; }
 
-        /* Modal (The "Trap") */
-        .modal { 
+        /* Modal Pages */
+        .page { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.9); z-index: 2000; padding: 20px; overflow-y: auto;
+            background: var(--dark); z-index: 10000; padding: 30px; overflow-y: auto;
         }
-        .modal-content { 
-            background: #1a1a1a; max-width: 500px; margin: 40px auto; padding: 30px; 
-            border-radius: 20px; border: 1px solid var(--gold); color: white; 
+        .page.active { display: block; animation: slideUp 0.4s ease; }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+        h2 { color: var(--gold); text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
+        input, select, textarea { 
+            width: 100%; padding: 16px; margin-bottom: 20px; border-radius: 12px; 
+            border: 1px solid #333; background: #111; color: white; font-size: 1rem;
         }
-        input, select { 
-            width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; 
-            border: 1px solid #333; background: #000; color: white; font-family: 'Cairo';
+        .submit-btn { 
+            background: var(--gold); color: black; width: 100%; padding: 18px; 
+            border: none; border-radius: 12px; font-weight: 800; font-size: 1.2rem; cursor: pointer;
         }
-        .price-tag { 
-            background: #000; border: 2px dashed var(--gold); padding: 20px; 
-            border-radius: 15px; margin-top: 20px; display: none; 
+        .close-link { display: block; text-align: center; margin-top: 25px; color: #666; text-decoration: none; }
+
+        /* Price Tag */
+        .price-box { 
+            background: #000; border: 2px dashed var(--gold); padding: 25px; 
+            border-radius: 20px; margin-top: 25px; text-align: center; display: none;
         }
 
-        /* Float Buttons */
-        .whatsapp { 
-            position: fixed; bottom: 25px; left: 25px; background: #25D366; 
-            color: white; width: 60px; height: 60px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 30px; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 999;
+        .whatsapp-float {
+            position: fixed; bottom: 20px; left: 20px; background: #25d366; 
+            width: 60px; height: 60px; border-radius: 50%; display: flex; 
+            align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
-
-        @media (max-width: 768px) { .hero h2 { font-size: 2rem; } .hero p { font-size: 1rem; } }
     </style>
 </head>
 <body>
@@ -82,93 +81,95 @@
         <img src="logo.png" alt="Logo" class="logo-circle">
         <span class="brand-name">Rokn Design</span>
     </div>
-    <div style="color: white; font-size: 0.8rem; display: none;" id="nav-desk">خلى كل ركن يتكلم عنك</div>
 </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h2>ركن ديزاين للتشطيبات</h2>
-        <p>خلى كل ركن يتكلم عنك.. نحول مساحتك لواقع ملموس بأحدث تكنولوجيا التصميم وأرقى الخامات.</p>
-        <button class="btn" onclick="openModal()">📏 احسب تكلفة تشطيبك</button>
-        <a class="btn btn-outline" href="https://wa.me/201151983638">تواصل معنا</a>
+<div class="main-content">
+    <div class="hero-card">
+        <div class="hero-overlay">خلى كل ركن يتكلم عنك</div>
     </div>
-</section>
 
-<section id="services">
-    <h2>خدماتنا الاحترافية</h2>
     <div class="grid">
-        <div class="card"><h3>التصميم الداخلي</h3><p>تصميمات 3D تضمن لك رؤية بيتك قبل البدء في التنفيذ.</p></div>
-        <div class="card"><h3>التنفيذ والاشراف</h3><p>طاقم فني محترف يضمن لك أعلى جودة في أقل وقت.</p></div>
-        <div class="card"><h3>تنسيق الحدائق</h3><p>خلق مساحات خضراء تمنحك الراحة والهدوء.</p></div>
-    </div>
-</section>
-
-<section id="gallery" style="background: #eee;">
-    <h2>من أعمالنا</h2>
-    <div class="grid images">
-        <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0" alt="Work 1">
-        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Work 2">
-        <img src="https://images.unsplash.com/photo-1600566752227-8f3b8c3e9d27" alt="Work 3">
-    </div>
-</section>
-
-<div id="calcModal" class="modal">
-    <div class="modal-content">
-        <h2 style="color:var(--gold); margin-bottom: 20px;">📏 مقايسة سريعة</h2>
-        <input type="text" id="custName" placeholder="الاسم بالكامل">
-        <input type="tel" id="custPhone" placeholder="رقم الواتساب">
-        <input type="number" id="custArea" placeholder="المساحة بالمتر (م²)">
-        <select id="custPackage">
-            <option value="اقتصادية" data-price="3500">الباقة الاقتصادية (3,500 ج/م)</option>
-            <option value="فضية" data-price="5000">الباقة الفضية (5,000 ج/م)</option>
-            <option value="ذهبية" data-price="7500">الباقة الذهبية (7,500 ج/م)</option>
-            <option value="VIP" data-price="11000">باقة VIP (11,000 ج/م)</option>
-        </select>
-        <button class="btn" style="width:100%; margin:0;" id="submitBtn" onclick="sendToSheet()">حساب التكلفة وإرسال الطلب</button>
-        
-        <div id="priceResult" class="price-tag">
-            <span style="font-size: 0.9rem;">التكلفة التقديرية المبدئية</span>
-            <span id="totalPrice" style="font-size: 2rem; color: var(--gold); font-weight: 800; display: block;">0 ج.م</span>
-            <button class="btn" style="width:100%; padding:10px; font-size:0.9rem" onclick="window.open('https://wa.me/201151983638')">حجز معاينة فنية</button>
+        <div class="action-card" onclick="openPage('calcPage')">
+            <span style="font-size: 2rem;">📏</span>
+            <p style="margin-top:10px;">مقايسة فورية</p>
         </div>
-        <button onclick="closeModal()" style="background:none; border:none; color:#888; width:100%; margin-top:20px; cursor:pointer;">إغلاق النافذة</button>
+        <div class="action-card ai-special" onclick="openPage('aiPage')">
+            <span style="font-size: 2rem;">🤖</span>
+            <p style="margin-top:10px;">مصمم الـ AI</p>
+        </div>
+        <div class="action-card" onclick="window.open('https://wa.me/201151983638')">
+            <span style="font-size: 2rem; color:#25d366;">💬</span>
+            <p style="margin-top:10px;">تواصل واتساب</p>
+        </div>
+        <div class="action-card" onclick="alert('جاري تحديث الصور...')">
+            <span style="font-size: 2rem; color:var(--gold);">🖼️</span>
+            <p style="margin-top:10px;">أعمالنا</p>
+        </div>
     </div>
 </div>
 
-<footer>
-    <p>Rokn Design &copy; 2026 | خلى كل ركن يتكلم عنك</p>
-    <p>القاهرة، مصر | 01151983638</p>
-</footer>
+<div id="calcPage" class="page">
+    <h2>📐 احسب تشطيبك</h2>
+    <input type="text" id="custName" placeholder="الاسم الكريم">
+    <input type="tel" id="custPhone" placeholder="رقم الموبايل">
+    <input type="number" id="custArea" placeholder="المساحة (م²)">
+    <select id="custPackage">
+        <option value="اقتصادية" data-price="3500">الباقة الاقتصادية (3,500 ج/م)</option>
+        <option value="فضية" data-price="5000">الباقة الفضية (5,000 ج/م)</option>
+        <option value="ذهبية" data-price="7500">الباقة الذهبية (7,500 ج/م)</option>
+        <option value="VIP" data-price="11000">باقة VIP (11,000 ج/م)</option>
+    </select>
+    <button class="submit-btn" id="submitBtn" onclick="calculateAndSend()">حساب وإرسال البيانات</button>
+    
+    <div id="priceResult" class="price-box">
+        <p style="font-size: 0.9rem; color: #aaa;">التكلفة المبدئية هي</p>
+        <span id="totalPrice" style="font-size: 2.2rem; color: var(--gold); font-weight: 800;">0 ج.م</span>
+        <button class="submit-btn" style="margin-top:15px; font-size:1rem; padding:12px;" onclick="window.open('https://wa.me/201151983638')">تأكيد حجز معاينة</button>
+    </div>
+    <a href="#" class="close-link" onclick="closePage('calcPage')">إغلاق والعودة</a>
+</div>
 
-<a class="whatsapp" href="https://wa.me/201151983638">💬</a>
+<div id="aiPage" class="page">
+    <h2>🤖 المصمم الذكي</h2>
+    <textarea id="aiDesc" rows="6" placeholder="أوصف شقتك في خيالك..."></textarea>
+    <button class="submit-btn" onclick="goToAI()">ابدأ التصميم</button>
+    <a href="#" class="close-link" onclick="closePage('aiPage')">إغلاق والعودة</a>
+</div>
+
+<a href="https://wa.me/201151983638" class="whatsapp-float">🟢</a>
 
 <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqipG71EiR_X7v1L7HgfS2ZVlR_jJC3qqbkqncVsaxfgq1iH8GkSkTqhYBq7iTz79M/exec";
 
-    function openModal() { document.getElementById('calcModal').style.display = 'block'; }
-    function closeModal() { document.getElementById('calcModal').style.display = 'none'; }
+    function openPage(id) { document.getElementById(id).classList.add('active'); }
+    function closePage(id) { document.getElementById(id).classList.remove('active'); }
 
-    async function sendToSheet() {
+    function goToAI() {
+        const text = document.getElementById('aiDesc').value;
+        if(!text) return alert("اكتب وصفك");
+        window.open("https://gemini.google.com/app?prompt=" + encodeURIComponent("اقترح ديكور لـ " + text), "_blank");
+    }
+
+    async function calculateAndSend() {
         const name = document.getElementById('custName').value;
         const phone = document.getElementById('custPhone').value;
         const area = document.getElementById('custArea').value;
         const packSelect = document.getElementById('custPackage');
         const packPrice = packSelect.options[packSelect.selectedIndex].getAttribute('data-price');
 
-        if(!name || !phone || !area) return alert("برجاء إدخال البيانات كاملة");
+        if(!name || !phone || !area) return alert("أكمل البيانات");
 
         let total = area * packPrice;
         document.getElementById('totalPrice').innerText = total.toLocaleString() + " ج.م";
         document.getElementById('priceResult').style.display = "block";
-        document.getElementById('submitBtn').innerText = "تم إرسال طلبك بنجاح ✓";
+        document.getElementById('submitBtn').innerText = "تم الإرسال ✓";
 
         try {
             await fetch(SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
+                method: "POST", mode: "no-cors",
                 body: JSON.stringify({ name, phone, area, package: packSelect.value, total })
             });
-        } catch (e) { console.log("Done"); }
+        } catch (e) { }
     }
 </script>
 
