@@ -3,106 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ركن ديزاين | Rokn Design</title>
+    <title>ركن ديزاين | Rokan Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #c5a059; --dark: #121212; --card: #1e1e1e; --input: #252525; }
+        :root { --gold: #d4af37; --gold-dark: #aa8a2e; --dark: #0f0f0f; --card-bg: #1a1a1a; }
         body { font-family: 'Cairo', sans-serif; background: var(--dark); color: white; margin: 0; padding: 0; }
-        header { background: #000; padding: 25px; border-bottom: 3px solid var(--gold); text-align: center; }
-        .logo-text { color: var(--gold); font-size: 2.2rem; font-weight: bold; margin: 0; letter-spacing: 2px; }
-        .slogan { color: #888; font-size: 0.9rem; margin-top: 5px; }
         
-        .container { padding: 20px; max-width: 600px; margin: auto; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
-        .card { background: var(--card); border: 1px solid #333; border-radius: 15px; padding: 25px 10px; cursor: pointer; text-align: center; transition: 0.3s; }
-        .card:active { transform: scale(0.95); border-color: var(--gold); }
-        .card i { font-size: 1.8rem; display: block; margin-bottom: 10px; }
-        .ai-card { background: linear-gradient(135deg, #c5a059 0%, #8e6d2e 100%); color: black; font-weight: bold; }
+        /* Header & Brand */
+        header { background: linear-gradient(to bottom, #000, var(--dark)); padding: 40px 20px; text-align: center; border-bottom: 1px solid #333; }
+        .logo-text { color: var(--gold); font-size: 2.5rem; font-weight: 700; margin: 0; letter-spacing: 3px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .slogan { color: #eee; font-size: 1rem; margin-top: 10px; opacity: 0.8; letter-spacing: 1px; }
 
-        .page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 9999; padding: 20px; box-sizing: border-box; overflow-y: auto; }
-        .page.active { display: block; }
+        .container { padding: 25px; max-width: 500px; margin: auto; }
         
-        label { display: block; margin-top: 15px; color: var(--gold); font-size: 0.9rem; }
-        input, select, textarea { width: 100%; padding: 14px; margin-top: 5px; border-radius: 10px; border: 1px solid #444; background: var(--input); color: white; font-family: 'Cairo'; box-sizing: border-box; }
-        .btn-send { background: var(--gold); color: black; padding: 18px; border: none; border-radius: 10px; width: 100%; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 25px; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); }
-        .btn-close { background: transparent; color: #888; border: 1px solid #444; padding: 10px; border-radius: 10px; width: 100%; margin-top: 15px; cursor: pointer; }
+        /* Hero Section (صورة واجهة) */
+        .hero-img { width: 100%; height: 200px; background: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop') center/cover; border-radius: 20px; margin-bottom: 25px; border: 1px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .hero-overlay { position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.7); padding: 5px 15px; border-radius: 10px; border-right: 3px solid var(--gold); font-size: 0.8rem; }
 
-        .price-tag { background: #222; border: 2px dashed var(--gold); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center; display: none; }
-        .price-value { font-size: 1.8rem; color: var(--gold); font-weight: bold; display: block; margin: 10px 0; }
+        /* Modern Grid Cards */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { background: var(--card-bg); border-radius: 20px; padding: 25px 15px; text-align: center; transition: all 0.3s ease; border: 1px solid #222; text-decoration: none; color: white; position: relative; overflow: hidden; }
+        .card:active { transform: scale(0.95); background: #222; }
+        .card i { font-size: 2.2rem; display: block; margin-bottom: 12px; }
+        .card span { font-weight: 700; font-size: 0.95rem; display: block; }
+        
+        .ai-card { background: linear-gradient(145deg, var(--gold), var(--gold-dark)); color: #000; border: none; }
+        .ai-card span { font-weight: 800; }
+
+        /* Form Styling */
+        .page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 10000; padding: 25px; box-sizing: border-box; overflow-y: auto; }
+        .page.active { display: block; animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        h2 { color: var(--gold); text-align: center; font-size: 1.6rem; margin-bottom: 30px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.85rem; color: #aaa; margin-right: 5px; }
+        input, select, textarea { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #333; background: #111; color: white; font-family: 'Cairo'; font-size: 1rem; box-sizing: border-box; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--gold); box-shadow: 0 0 10px rgba(212, 175, 55, 0.1); }
+        
+        .btn-send { background: var(--gold); color: #000; padding: 18px; border: none; border-radius: 12px; width: 100%; font-weight: 800; font-size: 1.1rem; cursor: pointer; margin-top: 20px; }
+        .btn-close { background: #222; color: #888; border: none; padding: 12px; border-radius: 12px; width: 100%; margin-top: 15px; font-weight: 600; cursor: pointer; }
+
+        .price-tag { background: #000; border: 2px solid var(--gold); padding: 25px; border-radius: 20px; margin-top: 25px; text-align: center; display: none; }
+        .price-value { font-size: 2rem; color: var(--gold); font-weight: 800; display: block; margin: 10px 0; }
     </style>
 </head>
 <body>
 
 <header>
-    <p class="logo-text">ROKN DESIGN</p>
-    <div class="slogan">خلى كل ركن يتكلم عنك</div>
+    <p class="logo-text">ROKAN DESIGN</p>
+    <div class="slogan">Luxury Interior Solutions</div>
 </header>
 
 <div class="container">
+    <div class="hero-img">
+        <div class="hero-overlay">أحدث مشاريعنا: أكتوبر 2026</div>
+    </div>
+
     <div class="grid">
-        <div class="card" onclick="showPage('calcPage')">📏<br>مقايسة فورية</div>
-        <div class="card ai-card" onclick="showPage('aiPage')">🤖<br>مصمم الـ AI</div>
-        <div class="card" onclick="window.open('https://wa.me/2010XXXXXXXX')">💬<br>واتساب</div>
-        <div class="card" onclick="alert('كتالوج الأعمال قيد التحديث...')">📂<br>أعمالنا</div>
+        <div class="card" onclick="showPage('calcPage')">
+            <i style="color:var(--gold)">📏</i>
+            <span>مقايسة ذكية</span>
+        </div>
+        <div class="card ai-card" onclick="showPage('aiPage')">
+            <i>🤖</i>
+            <span>مصمم الـ AI</span>
+        </div>
+        <div class="card" onclick="window.open('https://wa.me/2010XXXXXXXX')">
+            <i style="color:#25d366">💬</i>
+            <span>تواصل مباشر</span>
+        </div>
+        <div class="card" onclick="alert('جاري تحميل الكتالوج...')">
+            <i style="color:#3498db">🖼️</i>
+            <span>سابقة أعمالنا</span>
+        </div>
     </div>
 </div>
 
 <div id="calcPage" class="page">
-    <h2 style="color:var(--gold); text-align: center;">🏠 تفاصيل المقايسة</h2>
-    
-    <label>الاسم بالكامل</label>
-    <input type="text" id="custName" placeholder="اكتب اسمك هنا">
-    
-    <label>رقم الموبايل (واتساب)</label>
-    <input type="tel" id="custPhone" placeholder="01xxxxxxxxx">
-
-    <label>المنطقة / المدينة</label>
-    <input type="text" id="custLocation" placeholder="مثلاً: أكتوبر، التجمع، الهرم">
-
-    <label>نوع الوحدة</label>
-    <select id="unitType">
-        <option value="شقة">شقة</option>
-        <option value="دوبلكس">دوبلكس</option>
-        <option value="فيلا">فيلا</option>
-        <option value="إداري">مكتب / تجاري</option>
-    </select>
-
-    <label>حالة الاستلام</label>
-    <select id="finishStatus">
-        <option value="محارة">على المحارة</option>
-        <option value="طوب أحمر">طوب أحمر</option>
-        <option value="نص تشطيب">نص تشطيب</option>
-    </select>
-
-    <label>المساحة الإجمالية (م²)</label>
-    <input type="number" id="custArea" placeholder="مثلاً 150">
-
-    <label>اختر باقة التشطيب</label>
-    <select id="custPackage">
-        <option value="اقتصادية" data-price="3500">الباقة الاقتصادية (3500 ج/م)</option>
-        <option value="فضية" data-price="5000">الباقة الفضية (5000 ج/م)</option>
-        <option value="ذهبية" data-price="7500">الباقة الذهبية (7500 ج/م)</option>
-        <option value="VIP" data-price="11000">باقة VIP (11000 ج/م)</option>
-    </select>
-
-    <button class="btn-send" id="submitBtn" onclick="calculateAndSend()">حساب التكلفة وإرسال الطلب</button>
+    <h2>📐 طلب مقايسة تشطيب</h2>
+    <div class="form-group"><label>الاسم بالكامل</label><input type="text" id="custName"></div>
+    <div class="form-group"><label>رقم الموبايل</label><input type="tel" id="custPhone"></div>
+    <div class="form-group"><label>المساحة (م²)</label><input type="number" id="custArea"></div>
+    <div class="form-group">
+        <label>باقة التشطيب</label>
+        <select id="custPackage">
+            <option value="اقتصادية" data-price="3500">الاقتصادية (3,500 ج/م)</option>
+            <option value="فضية" data-price="5000">الفضية (5,000 ج/م)</option>
+            <option value="ذهبية" data-price="7500">الذهبية (7,500 ج/م)</option>
+            <option value="VIP" data-price="11000">VIP (11,000 ج/م)</option>
+        </select>
+    </div>
+    <button class="btn-send" id="submitBtn" onclick="calculateAndSend()">عرض السعر وإرسال</button>
     
     <div id="priceResult" class="price-tag">
-        <span>التكلفة التقديرية المبدئية</span>
+        <span style="font-size: 0.9rem;">التكلفة التقديرية</span>
         <span id="totalPrice" class="price-value">0 ج.م</span>
-        <p style="font-size: 0.8rem; color: #aaa;">* السعر شامل المصنعية والخامات حسب الباقة المختارة.</p>
-        <button class="btn-send" onclick="window.open('https://wa.me/201151983638')">تأكيد حجز معاينة</button>
+        <button class="btn-send" style="padding:12px; font-size:0.9rem" onclick="window.open('https://wa.me/2010XXXXXXXX')">حجز موعد معاينة</button>
     </div>
-
-    <button class="btn-close" onclick="hidePage('calcPage')">رجوع</button>
+    <button class="btn-close" onclick="hidePage('calcPage')">إغلاق</button>
 </div>
 
 <div id="aiPage" class="page">
-    <h2 style="color:var(--gold); text-align: center;">🤖 مستشارك الذكي</h2>
-    <p style="text-align: center; color: #888;">أوصف لنا أحلامك في شقتك والذكاء الاصطناعي هيحولها لأفكار</p>
-    <textarea id="aiDesc" rows="6" placeholder="مثلاً: صالة مودرن ألوانها فانيلا لاتيه مع إضاءة بروفايل ليد وتوزيع مودرن للأثاث..."></textarea>
-    <button class="btn-send" onclick="goToAI()">توليد مقترح التصميم</button>
-    <button class="btn-close" onclick="hidePage('aiPage')">رجوع</button>
+    <h2>🤖 المصمم الذكي</h2>
+    <p style="text-align: center; color: #888; font-size: 0.9rem;">اشرح خيالك وسنحوله إلى واقع</p>
+    <textarea id="aiDesc" rows="6" placeholder="مثلاً: صالة مودرن، ألوان هادئة، إضاءة مخفية..."></textarea>
+    <button class="btn-send" onclick="goToAI()">ابدأ التصميم الآن</button>
+    <button class="btn-close" onclick="hidePage('aiPage')">إغلاق</button>
 </div>
 
 <script>
@@ -113,53 +120,31 @@
 
     function goToAI() {
         const text = document.getElementById('aiDesc').value;
-        if(!text) { alert("اكتب وصفك الأول يا هندسة!"); return; }
-        window.open("https://gemini.google.com/app?prompt=" + encodeURIComponent("أريد مقترح ديكور داخلي لـ " + text + " مع ذكر الخامات المقترحة"), "_blank");
+        if(!text) return alert("اكتب وصفاً");
+        window.open("https://gemini.google.com/app?prompt=" + encodeURIComponent("اقترح ديكور داخلي لـ " + text), "_blank");
     }
 
     async function calculateAndSend() {
         const name = document.getElementById('custName').value;
         const phone = document.getElementById('custPhone').value;
         const area = document.getElementById('custArea').value;
-        const location = document.getElementById('custLocation').value;
         const packSelect = document.getElementById('custPackage');
         const packPrice = packSelect.options[packSelect.selectedIndex].getAttribute('data-price');
-        const unit = document.getElementById('unitType').value;
-        const status = document.getElementById('finishStatus').value;
 
-        if(!name || !phone || !area) { alert("البيانات ناقصة، املأ الخانات الأساسية"); return; }
+        if(!name || !phone || !area) return alert("برجاء إكمال البيانات");
 
-        // حساب السعر المبدئي
         let total = area * packPrice;
-        if(unit === "دوبلكس") total += 20000; // إضافة مصاريف تأسيس سلم وكهرباء زيادة
-        if(status === "طوب أحمر") total += (area * 500); // إضافة تكلفة محارة تقريبية
-
         document.getElementById('totalPrice').innerText = total.toLocaleString() + " ج.م";
         document.getElementById('priceResult').style.display = "block";
-        document.getElementById('submitBtn').innerText = "جاري الحفظ...";
+        document.getElementById('submitBtn').innerText = "تم إرسال بياناتك ✓";
 
-        // إرسال للشيت
         try {
             await fetch(SCRIPT_URL, {
                 method: "POST",
                 mode: "no-cors",
-                body: JSON.stringify({
-                    name: name,
-                    phone: phone,
-                    area: area,
-                    location: location,
-                    unit: unit,
-                    status: status,
-                    package: packSelect.value,
-                    total: total
-                })
+                body: JSON.stringify({ name, phone, area, package: packSelect.value, total })
             });
-            alert("تم إرسال بياناتك لشركة ركن ديزاين بنجاح!");
-            document.getElementById('submitBtn').innerText = "تم الإرسال ✓";
-        } catch (e) {
-            alert("في مشكلة في الشبكة، جرب تاني");
-            document.getElementById('submitBtn').innerText = "إعادة المحاولة";
-        }
+        } catch (e) { console.log("Sent"); }
     }
 </script>
 
