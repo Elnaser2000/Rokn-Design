@@ -1,126 +1,386 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rokn Design | ركن ديزاين</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --gold: #c5a059; --dark: #2d2d2d; --bg: #ffffff; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; }
-        body { background: var(--bg); color: var(--dark); }
 
-        /* Navigation */
-        nav { padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:100; }
-        .nav-logo { display: flex; align-items: center; gap: 10px; }
-        .logo-circle { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--gold); }
-        .logo-name { font-weight: 700; color: var(--dark); font-size: 1.2rem; }
+<meta charset="UTF-8">
 
-        /* Hero */
-        .hero { padding: 60px 5%; text-align: center; background: #fafafa; border-bottom: 1px solid #eee; }
-        .hero h1 { font-size: 2.2rem; margin-bottom: 15px; color: var(--dark); }
-        .hero p { color: #777; margin-bottom: 30px; font-size: 1.1rem; }
-        .main-img { width: 100%; max-width: 800px; height: 300px; border-radius: 20px; object-fit: cover; margin-bottom: -100px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 5px solid white; }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Lead Form (المصيدة) */
-        .calculator-section { padding: 140px 5% 60px; max-width: 600px; margin: auto; }
-        .calc-card { background: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; }
-        .calc-card h2 { text-align: center; margin-bottom: 25px; color: var(--gold); }
-        
-        input, select { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #ddd; background: #f9f9f9; font-size: 1rem; outline: none; transition: 0.3s; }
-        input:focus { border-color: var(--gold); background: white; }
-        
-        .btn-prime { background: var(--dark); color: white; width: 100%; padding: 18px; border: none; border-radius: 12px; font-weight: 700; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
-        .btn-prime:hover { background: var(--gold); }
+<title>ركن ديزاين للتشطيبات</title>
 
-        .result-box { margin-top: 20px; padding: 20px; border-radius: 15px; background: #fff9e6; border: 1px solid #ffeeba; display: none; text-align: center; }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 
-        /* Services Grid */
-        .services { padding: 60px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .service-card { padding: 30px; border-radius: 20px; background: #fff; border: 1px solid #eee; transition: 0.3s; }
-        .service-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .service-card h3 { margin-bottom: 10px; color: var(--gold); }
+<style>
 
-        /* Floating Whatsapp */
-        .wa-float { position: fixed; bottom: 20px; left: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); z-index: 1000; text-decoration: none; }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
 
-        footer { text-align: center; padding: 40px; color: #aaa; font-size: 0.9rem; }
-    </style>
+body{
+background:#f5f5f5;
+color:#333;
+line-height:1.6;
+}
+
+/* الهيدر */
+
+header{
+background:#111;
+color:white;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+header h1{
+font-size:22px;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-size:15px;
+}
+
+/* القسم الرئيسي */
+
+.hero{
+height:90vh;
+background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
+padding:20px;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:600px;
+}
+
+.hero h2{
+font-size:42px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+.btn{
+background:#d4af37;
+color:white;
+padding:12px 25px;
+margin:8px;
+border:none;
+text-decoration:none;
+font-size:16px;
+border-radius:6px;
+display:inline-block;
+}
+
+/* الخدمات */
+
+.services{
+padding:70px 10%;
+text-align:center;
+}
+
+.services h2{
+margin-bottom:40px;
+font-size:28px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* معرض الأعمال */
+
+.gallery{
+padding:70px 10%;
+background:#eee;
+}
+
+.gallery h2{
+text-align:center;
+margin-bottom:40px;
+font-size:28px;
+}
+
+.images{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.images img{
+width:100%;
+border-radius:10px;
+}
+
+/* المميزات */
+
+.features{
+padding:70px 10%;
+text-align:center;
+}
+
+.features h2{
+margin-bottom:40px;
+font-size:28px;
+}
+
+.feature-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.feature{
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* زر الحساب */
+
+.cta{
+background:#111;
+color:white;
+text-align:center;
+padding:60px 20px;
+}
+
+.cta h2{
+margin-bottom:20px;
+}
+
+/* الفوتر */
+
+footer{
+background:#000;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+/* زر الواتساب */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#25D366;
+color:white;
+padding:16px 18px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* الموبايل */
+
+@media (max-width:768px){
+
+.hero h2{
+font-size:28px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+nav{
+margin-top:10px;
+}
+
+.btn{
+display:block;
+width:80%;
+margin:auto;
+margin-bottom:10px;
+}
+
+.services,
+.gallery,
+.features{
+padding:50px 5%;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
+<header>
+
+<h1>ركن ديزاين</h1>
+
 <nav>
-    <div class="nav-logo">
-        <img src="logo.png" alt="Logo" class="logo-circle">
-        <span class="logo-name">Rokn Design</span>
-    </div>
-    <a href="https://wa.me/201151983638" style="color: var(--gold); text-decoration: none; font-weight: 600;">اتصل بنا</a>
+<a href="#">الرئيسية</a>
+<a href="#">الخدمات</a>
+<a href="#">الأعمال</a>
+<a href="#">تواصل</a>
 </nav>
 
+</header>
+
 <section class="hero">
-    <h1>خلى كل ركن يتكلم عنك</h1>
-    <p>تصميمات راقية.. تنفيذ بدقة متناهية.. تشطيب يسعدك</p>
-    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1000" class="main-img">
-</section>
 
-<section class="calculator-section">
-    <div class="calc-card">
-        <h2>📏 احسب تكلفة تشطيبك</h2>
-        <input type="text" id="name" placeholder="الاسم بالكامل">
-        <input type="tel" id="phone" placeholder="رقم الواتساب">
-        <input type="number" id="area" placeholder="مساحة شقتك (م²)">
-        <select id="package">
-            <option value="اقتصادية" data-price="3500">الباقة الاقتصادية (3,500 ج/م)</option>
-            <option value="فضية" data-price="5000">الباقة الفضية (5,000 ج/م)</option>
-            <option value="ذهبية" data-price="7500">الباقة الذهبية (7,500 ج/م)</option>
-            <option value="VIP" data-price="11000">باقة الـ VIP (11,000 ج/م)</option>
-        </select>
-        <button class="btn-prime" onclick="sendData()">عرض السعر التقديري</button>
+<div class="hero-content">
 
-        <div id="result" class="result-box">
-            <p>التكلفة المبدئية لطلبك هي:</p>
-            <h3 id="price" style="font-size: 1.8rem; color: #856404; margin: 10px 0;"></h3>
-            <button class="btn-prime" style="background: #25d366;" onclick="window.open('https://wa.me/201151983638')">تأكيد الطلب واتساب</button>
-        </div>
-    </div>
+<h2>ركن ديزاين للتشطيبات</h2>
+
+<p>نحول شقتك إلى تحفة معمارية بأفضل الخامات وأحدث التصميمات</p>
+
+<a class="btn" href="#">احسب تكلفة التشطيب</a>
+
+<a class="btn" href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">
+تواصل واتساب
+</a>
+
+</div>
+
 </section>
 
 <section class="services">
-    <div class="service-card"><h3>✨ تصميم 3D</h3><p>شوف شقتك قبل ما تشتري مسمار واحد.</p></div>
-    <div class="service-card"><h3>🏗️ إشراف هندسي</h3><p>مهندسين متخصصين لمتابعة كل صغيرة وكبيرة.</p></div>
-    <div class="service-card"><h3>💎 خامات فاخرة</h3><p>أفضل الخامات بأسعار تنافسية جداً.</p></div>
+
+<h2>خدماتنا</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>تشطيب شقق</h3>
+<p>تشطيب كامل من الطوب الأحمر حتى التسليم النهائي</p>
+</div>
+
+<div class="card">
+<h3>تصميم داخلي</h3>
+<p>تصميمات ثلاثية الأبعاد قبل التنفيذ</p>
+</div>
+
+<div class="card">
+<h3>تشطيب فيلات</h3>
+<p>تنفيذ تشطيبات فاخرة بأعلى جودة</p>
+</div>
+
+<div class="card">
+<h3>ديكورات جبس بورد</h3>
+<p>أحدث تصميمات الأسقف والإضاءة المخفية</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="gallery">
+
+<h2>معرض أعمالنا</h2>
+
+<div class="images">
+
+<img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0">
+
+<img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
+
+<img src="https://images.unsplash.com/photo-1600566752227-8f3b8c3e9d27">
+
+<img src="https://images.unsplash.com/photo-1600210492493-0946911123ea">
+
+</div>
+
+</section>
+
+<section class="features">
+
+<h2>لماذا تختار ركن ديزاين</h2>
+
+<div class="feature-box">
+
+<div class="feature">
+<h3>خبرة كبيرة</h3>
+<p>سنوات من الخبرة في تنفيذ التشطيبات</p>
+</div>
+
+<div class="feature">
+<h3>أفضل الخامات</h3>
+<p>نستخدم خامات عالية الجودة لضمان أفضل نتيجة</p>
+</div>
+
+<div class="feature">
+<h3>تسليم في الميعاد</h3>
+<p>التزام كامل بالمواعيد المتفق عليها</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>احسب تكلفة تشطيب شقتك الآن</h2>
+
+<a class="btn" href="#">ابدأ الحساب</a>
+
 </section>
 
 <footer>
-    <p>جميع الحقوق محفوظة لـ Rokn Design &copy; 2026</p>
+
+<p>ركن ديزاين للتشطيبات والديكور</p>
+
+<p>📞 01151983638</p>
+
 </footer>
 
-<a href="https://wa.me/201151983638" class="wa-float">💬</a>
+<a class="whatsapp"
+href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">
 
-<script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqipG71EiR_X7v1L7HgfS2ZVlR_jJC3qqbkqncVsaxfgq1iH8GkSkTqhYBq7iTz79M/exec";
+💬
 
-    async function sendData() {
-        const n = document.getElementById('name').value;
-        const p = document.getElementById('phone').value;
-        const a = document.getElementById('area').value;
-        const pkg = document.getElementById('package');
-        const pricePerM = pkg.options[pkg.selectedIndex].getAttribute('data-price');
-
-        if(!n || !p || !a) return alert("من فضلك كمل بياناتك");
-
-        const total = a * pricePerM;
-        document.getElementById('price').innerText = total.toLocaleString() + " ج.م";
-        document.getElementById('result').style.display = "block";
-
-        try {
-            await fetch(SCRIPT_URL, {
-                method: "POST", mode: "no-cors",
-                body: JSON.stringify({ name: n, phone: p, area: a, package: pkg.value, total: total })
-            });
-        } catch(e) {}
-    }
-</script>
+</a>
 
 </body>
+
 </html>
