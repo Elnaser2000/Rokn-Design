@@ -6,102 +6,160 @@
     <title>ركن ديزاين | Rokan Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #c5a059; --dark: #121212; --card: #1e1e1e; }
-        body { font-family: 'Cairo', sans-serif; background: var(--dark); color: white; margin: 0; padding: 0; text-align: center; }
-        header { background: #000; padding: 20px; border-bottom: 2px solid var(--gold); }
-        .logo-text { color: var(--gold); font-size: 2rem; font-weight: bold; margin: 0; }
-        .container { padding: 20px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .card { background: var(--card); border: 1px solid #333; border-radius: 15px; padding: 20px; cursor: pointer; color: white; font-weight: bold; }
-        .ai-card { background: linear-gradient(135deg, #c5a059 0%, #8e6d2e 100%); color: black; }
+        :root { --gold: #c5a059; --dark: #121212; --card: #1e1e1e; --input: #252525; }
+        body { font-family: 'Cairo', sans-serif; background: var(--dark); color: white; margin: 0; padding: 0; }
+        header { background: #000; padding: 25px; border-bottom: 3px solid var(--gold); text-align: center; }
+        .logo-text { color: var(--gold); font-size: 2.2rem; font-weight: bold; margin: 0; letter-spacing: 2px; }
+        .slogan { color: #888; font-size: 0.9rem; margin-top: 5px; }
         
-        /* Modal Style */
+        .container { padding: 20px; max-width: 600px; margin: auto; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .card { background: var(--card); border: 1px solid #333; border-radius: 15px; padding: 25px 10px; cursor: pointer; text-align: center; transition: 0.3s; }
+        .card:active { transform: scale(0.95); border-color: var(--gold); }
+        .card i { font-size: 1.8rem; display: block; margin-bottom: 10px; }
+        .ai-card { background: linear-gradient(135deg, #c5a059 0%, #8e6d2e 100%); color: black; font-weight: bold; }
+
         .page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--dark); z-index: 9999; padding: 20px; box-sizing: border-box; overflow-y: auto; }
-        .page.active { display: block !important; }
+        .page.active { display: block; }
         
-        input, select, textarea { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #444; background: #222; color: white; font-family: 'Cairo'; }
-        .btn-send { background: var(--gold); color: black; padding: 15px; border: none; border-radius: 8px; width: 100%; font-weight: bold; cursor: pointer; }
-        .btn-close { background: #444; color: white; padding: 10px; border: none; border-radius: 8px; width: 100%; margin-top: 10px; cursor: pointer; }
+        label { display: block; margin-top: 15px; color: var(--gold); font-size: 0.9rem; }
+        input, select, textarea { width: 100%; padding: 14px; margin-top: 5px; border-radius: 10px; border: 1px solid #444; background: var(--input); color: white; font-family: 'Cairo'; box-sizing: border-box; }
+        .btn-send { background: var(--gold); color: black; padding: 18px; border: none; border-radius: 10px; width: 100%; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-top: 25px; box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); }
+        .btn-close { background: transparent; color: #888; border: 1px solid #444; padding: 10px; border-radius: 10px; width: 100%; margin-top: 15px; cursor: pointer; }
+
+        .price-tag { background: #222; border: 2px dashed var(--gold); padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center; display: none; }
+        .price-value { font-size: 1.8rem; color: var(--gold); font-weight: bold; display: block; margin: 10px 0; }
     </style>
 </head>
 <body>
 
 <header>
     <p class="logo-text">ROKAN DESIGN</p>
-    <div style="color:var(--gold); font-size: 0.8rem;">خلى كل ركن يتكلم عنك</div>
+    <div class="slogan">خلى كل ركن يتكلم عنك</div>
 </header>
 
 <div class="container">
     <div class="grid">
-        <div class="card" onclick="showPage('calcPage')">📏<br>احسب مقايستك</div>
-        <div class="card ai-card" onclick="showPage('aiPage')">🤖<br>صمم بالـ AI</div>
-        <div class="card" onclick="window.open('https://wa.me/2010XXXXXXXX')">📞<br>واتساب</div>
-        <div class="card" onclick="alert('جاري تجهيز الصور...')">📂<br>أعمالنا</div>
+        <div class="card" onclick="showPage('calcPage')">📏<br>مقايسة فورية</div>
+        <div class="card ai-card" onclick="showPage('aiPage')">🤖<br>مصمم الـ AI</div>
+        <div class="card" onclick="window.open('https://wa.me/2010XXXXXXXX')">💬<br>واتساب</div>
+        <div class="card" onclick="alert('كتالوج الأعمال قيد التحديث...')">📂<br>أعمالنا</div>
     </div>
 </div>
 
 <div id="calcPage" class="page">
-    <h2 style="color:var(--gold)">📏 احسب تشطيبك</h2>
-    <input type="text" id="custName" placeholder="الاسم">
-    <input type="tel" id="custPhone" placeholder="رقم الواتساب">
-    <input type="number" id="custArea" placeholder="المساحة بالمتر">
-    <select id="custPackage">
-        <option value="اقتصادية">الباقة الاقتصادية</option>
-        <option value="فضية">الباقة الفضية</option>
-        <option value="ذهبية">الباقة الذهبية</option>
-        <option value="VIP">باقة VIP</option>
+    <h2 style="color:var(--gold); text-align: center;">🏠 تفاصيل المقايسة</h2>
+    
+    <label>الاسم بالكامل</label>
+    <input type="text" id="custName" placeholder="اكتب اسمك هنا">
+    
+    <label>رقم الموبايل (واتساب)</label>
+    <input type="tel" id="custPhone" placeholder="01xxxxxxxxx">
+
+    <label>المنطقة / المدينة</label>
+    <input type="text" id="custLocation" placeholder="مثلاً: أكتوبر، التجمع، الهرم">
+
+    <label>نوع الوحدة</label>
+    <select id="unitType">
+        <option value="شقة">شقة</option>
+        <option value="دوبلكس">دوبلكس</option>
+        <option value="فيلا">فيلا</option>
+        <option value="إداري">مكتب / تجاري</option>
     </select>
-    <button class="btn-send" onclick="submitToSheet()">إرسال البيانات</button>
-    <button class="btn-close" onclick="hidePage('calcPage')">إغلاق</button>
+
+    <label>حالة الاستلام</label>
+    <select id="finishStatus">
+        <option value="محارة">على المحارة</option>
+        <option value="طوب أحمر">طوب أحمر</option>
+        <option value="نص تشطيب">نص تشطيب</option>
+    </select>
+
+    <label>المساحة الإجمالية (م²)</label>
+    <input type="number" id="custArea" placeholder="مثلاً 150">
+
+    <label>اختر باقة التشطيب</label>
+    <select id="custPackage">
+        <option value="اقتصادية" data-price="3500">الباقة الاقتصادية (3500 ج/م)</option>
+        <option value="فضية" data-price="5000">الباقة الفضية (5000 ج/م)</option>
+        <option value="ذهبية" data-price="7500">الباقة الذهبية (7500 ج/م)</option>
+        <option value="VIP" data-price="11000">باقة VIP (11000 ج/م)</option>
+    </select>
+
+    <button class="btn-send" id="submitBtn" onclick="calculateAndSend()">حساب التكلفة وإرسال الطلب</button>
+    
+    <div id="priceResult" class="price-tag">
+        <span>التكلفة التقديرية المبدئية</span>
+        <span id="totalPrice" class="price-value">0 ج.م</span>
+        <p style="font-size: 0.8rem; color: #aaa;">* السعر شامل المصنعية والخامات حسب الباقة المختارة.</p>
+        <button class="btn-send" onclick="window.open('https://wa.me/2010XXXXXXXX')">تأكيد حجز معاينة</button>
+    </div>
+
+    <button class="btn-close" onclick="hidePage('calcPage')">رجوع</button>
 </div>
 
 <div id="aiPage" class="page">
-    <h2 style="color:var(--gold)">🤖 مصمم ركن ديزاين</h2>
-    <textarea id="aiDesc" rows="5" placeholder="أوصف ستايل شقتك هنا..."></textarea>
-    <button class="btn-send" onclick="goToAI()">توليد الفكرة</button>
-    <button class="btn-close" onclick="hidePage('aiPage')">إغلاق</button>
+    <h2 style="color:var(--gold); text-align: center;">🤖 مستشارك الذكي</h2>
+    <p style="text-align: center; color: #888;">أوصف لنا أحلامك في شقتك والذكاء الاصطناعي هيحولها لأفكار</p>
+    <textarea id="aiDesc" rows="6" placeholder="مثلاً: صالة مودرن ألوانها فانيلا لاتيه مع إضاءة بروفايل ليد وتوزيع مودرن للأثاث..."></textarea>
+    <button class="btn-send" onclick="goToAI()">توليد مقترح التصميم</button>
+    <button class="btn-close" onclick="hidePage('aiPage')">رجوع</button>
 </div>
 
 <script>
-    function showPage(id) {
-        document.getElementById(id).classList.add('active');
-    }
-    function hidePage(id) {
-        document.getElementById(id).classList.remove('active');
-    }
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqipG71EiR_X7v1L7HgfS2ZVlR_jJC3qqbkqncVsaxfgq1iH8GkSkTqhYBq7iTz79M/exec";
+
+    function showPage(id) { document.getElementById(id).classList.add('active'); }
+    function hidePage(id) { document.getElementById(id).classList.remove('active'); }
 
     function goToAI() {
         const text = document.getElementById('aiDesc').value;
-        if(!text) { alert("من فضلك اكتب وصفاً أولاً"); return; }
-        window.open("https://gemini.google.com/app?prompt=" + encodeURIComponent("صمم لي ديكور " + text), "_blank");
+        if(!text) { alert("اكتب وصفك الأول يا هندسة!"); return; }
+        window.open("https://gemini.google.com/app?prompt=" + encodeURIComponent("أريد مقترح ديكور داخلي لـ " + text + " مع ذكر الخامات المقترحة"), "_blank");
     }
 
-    async function submitToSheet() {
-        const url = "https://script.google.com/macros/s/AKfycbyfhWJW3f0PgkXm6sekOdZ1lyO1ohMtv4sID2nuHDMUALPM1nWZgvapupbDR2KuU2BA/exec";
+    async function calculateAndSend() {
         const name = document.getElementById('custName').value;
         const phone = document.getElementById('custPhone').value;
         const area = document.getElementById('custArea').value;
-        const pack = document.getElementById('custPackage').value;
+        const location = document.getElementById('custLocation').value;
+        const packSelect = document.getElementById('custPackage');
+        const packPrice = packSelect.options[packSelect.selectedIndex].getAttribute('data-price');
+        const unit = document.getElementById('unitType').value;
+        const status = document.getElementById('finishStatus').value;
 
-        if(!name || !phone || !area) { alert("أكمل البيانات يا هندسة"); return; }
+        if(!name || !phone || !area) { alert("البيانات ناقصة، املأ الخانات الأساسية"); return; }
 
-        alert("جاري الإرسال...");
+        // حساب السعر المبدئي
+        let total = area * packPrice;
+        if(unit === "دوبلكس") total += 20000; // إضافة مصاريف تأسيس سلم وكهرباء زيادة
+        if(status === "طوب أحمر") total += (area * 500); // إضافة تكلفة محارة تقريبية
 
-        fetch(url, {
-            method: "POST",
-            mode: "no-cors",
-            body: JSON.stringify({
-                name: name,
-                phone: phone,
-                area: area,
-                package: pack
-            })
-        }).then(() => {
-            alert("تم الإرسال بنجاح! شكراً لثقتك في ركن ديزاين.");
-            hidePage('calcPage');
-        }).catch(() => {
-            alert("حدث خطأ بسيط، جرب تاني.");
-        });
+        document.getElementById('totalPrice').innerText = total.toLocaleString() + " ج.م";
+        document.getElementById('priceResult').style.display = "block";
+        document.getElementById('submitBtn').innerText = "جاري الحفظ...";
+
+        // إرسال للشيت
+        try {
+            await fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    area: area,
+                    location: location,
+                    unit: unit,
+                    status: status,
+                    package: packSelect.value,
+                    total: total
+                })
+            });
+            alert("تم إرسال بياناتك لشركة ركن ديزاين بنجاح!");
+            document.getElementById('submitBtn').innerText = "تم الإرسال ✓";
+        } catch (e) {
+            alert("في مشكلة في الشبكة، جرب تاني");
+            document.getElementById('submitBtn').innerText = "إعادة المحاولة";
+        }
     }
 </script>
 
