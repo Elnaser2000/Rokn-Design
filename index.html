@@ -106,7 +106,8 @@ label{display:block;margin-top:10px;font-weight:bold;}
 <input type="number" id="areaInput" placeholder="مثلاً: 120" required>
 
 <label>نوع الوحدة</label>
-<select id="unitType">
+<select id="unitType" required>
+<option value="">اختر نوع الوحدة</option>
 <option value="شقة">شقة</option>
 <option value="دوبلكس">دوبلكس</option>
 <option value="فيلا">فيلا</option>
@@ -115,14 +116,16 @@ label{display:block;margin-top:10px;font-weight:bold;}
 </select>
 
 <label>حالة التشطيب</label>
-<select id="finishType">
+<select id="finishType" required>
+<option value="">اختر حالة التشطيب</option>
 <option value="محارة وحلوق">محارة وحلوق</option>
 <option value="طوب احمر">طوب أحمر</option>
 <option value="تجديد">تجديد</option>
 </select>
 
 <label>المنطقة</label>
-<select id="area">
+<select id="area" required>
+<option value="">اختر المنطقة</option>
 <option>الهرم - فيصل</option>
 <option>أكتوبر</option>
 <option>حدائق اكتوبر</option>
@@ -135,15 +138,20 @@ label{display:block;margin-top:10px;font-weight:bold;}
 </select>
 
 <label>الباقة</label>
-<select id="package">
+<select id="package" required>
+<option value="">اختر الباقة</option>
 <option value="اقتصادية">اقتصادية</option>
 <option value="فضية">فضية</option>
 <option value="ذهبية">ذهبية</option>
 <option value="VIP">VIP</option>
 </select>
 
-<label>خيارات إضافية</label>
-<input type="checkbox" id="metal"> إضافة الموتال (+35,000)<br>
+<label>الموتال</label>
+<select id="metalOption" required>
+<option value="">اختر خيار</option>
+<option value="تركيب الموتال">تركيب الموتال</option>
+<option value="بدون الموتال">بدون الموتال</option>
+</select>
 
 <button class="btn" type="submit">احسب التكلفة</button>
 </form>
@@ -157,7 +165,7 @@ label{display:block;margin-top:10px;font-weight:bold;}
 <a class="whatsapp" href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">💬</a>
 
 <script>
-// روابط Google Apps Script
+// رابط Google Apps Script
 const scriptURL="ضع رابط Web App هنا";
 
 const pricing = {
@@ -172,18 +180,27 @@ const pricing = {
 "العاصمة الإدارية": {اقتصادية:4200,فضية:4900,ذهبية:5200,VIP:6800}
 };
 
-document.getElementById("costForm").addEventListener("submit",function(e){
+document.getElementById("costForm").addEventListener("submit",async function(e){
 e.preventDefault();
 
 // جمع بيانات العميل
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let areaM=document.getElementById("areaInput").value;
+let name=document.getElementById("name").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let areaM=parseFloat(document.getElementById("areaInput").value);
 let unit=document.getElementById("unitType").value;
 let finish=document.getElementById("finishType").value;
 let region=document.getElementById("area").value;
 let pack=document.getElementById("package").value;
-let metal=document.getElementById("metal").checked;
+let metal=document.getElementById("metalOption").value;
+
+// تأكيد كل الحقول مش فاضية
+if(!name||!phone||!areaM||!unit||!finish||!region||!pack||!metal){
+  alert("من فضلك اكمل كل البيانات قبل الحساب");
+  return;
+}
+
+// جلب قيمة الموتال من الشيت (هنا افتراضي 35000 لو لم يتم جلبه)
+let metalPrice=35000;
 
 // حساب سعر المتر
 let basePrice=pricing[region][pack];
@@ -197,10 +214,9 @@ if(unit=="دوبلكس") total+=70000;
 if(unit=="فيلا") total+=100000;
 if(unit=="أرضي بجنينة") total+=25000;
 if(finish=="تجديد") total+=30000;
-if(unit=="شقة تجديد") total+=30000;
-if(metal) total+=35000;
+if(metal=="تركيب الموتال") total+=metalPrice;
 
-// إرسال البيانات للشيت
+// ارسال البيانات للشيت
 fetch(scriptURL,{
 method:"POST",
 body:JSON.stringify({
@@ -211,12 +227,12 @@ unit:unit,
 finish:finish,
 region:region,
 package:pack,
-options:{metal:metal},
+metalOption:metal,
 total:total
 })
 }).then(response=>console.log("تم تسجيل البيانات")).catch(err=>console.error(err));
 
-// فتح صفحة جديدة لعرض النتائج
+// فتح صفحة جديدة للنتيجة
 let resultWindow=window.open("","_blank");
 resultWindow.document.write(`
 <html lang='ar' dir='rtl'>
@@ -240,7 +256,7 @@ h2{color:#d4af37;text-align:center;margin-bottom:30px;}
 <div class='card'><p><strong>نوع الوحدة:</strong> ${unit}</p></div>
 <div class='card'><p><strong>حالة التشطيب:</strong> ${finish}</p></div>
 <div class='card'><p><strong>المساحة:</strong> ${areaM} متر</p></div>
-<div class='card'><p><strong>الخيارات الإضافية:</strong> ${metal ? 'الموتال +35,000' : 'لا يوجد'}</p></div>
+<div class='card'><p><strong>الموتال:</strong> ${metal}</p></div>
 <div class='card'><p><strong>السعر النهائي:</strong> ${total} جنيه</p></div>
 </body>
 </html>
