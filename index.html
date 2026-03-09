@@ -327,7 +327,7 @@ input,select{
 <a class="whatsapp" href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">💬</a>
 
 <script>
-const scriptURL="ضع رابط Google Apps Script هنا";
+const scriptURL="https://script.google.com/macros/s/AKfycbzhrH0VWebHuKu9rK4YxWBO0ZnW5iLmbVmGrqX-YTlEwNO8d31in-q_e3Pnppqnw4Gs/exec";
 
 const prices={
 "الهرم - فيصل":{اقتصادية:2800,فضية:3500,ذهبية:3800,VIP:4800},
@@ -369,7 +369,7 @@ body:JSON.stringify({name, phone, area, unit, finish, region, package:pack, meta
 
 // إرسال واتساب
 let message=`طلب جديد من موقع ركن ديزاين
-الاسم: ${name}
+مرحبا يا ${name}
 الموبايل: ${phone}
 المنطقة: ${region}
 الباقة: ${pack}
@@ -378,7 +378,7 @@ let message=`طلب جديد من موقع ركن ديزاين
 الموتال: ${metal}
 المساحة: ${area} متر
 السعر المتوقع: ${total} جنيه
-تواصل مع العميل الآن`;
+لمزيد من الاستفسارات والاطلاع على نسخة من العقد تواصل معنا `;
 
 let whatsapp="https://wa.me/201151983638?text="+encodeURIComponent(message);
 window.open(whatsapp);
