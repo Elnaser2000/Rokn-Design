@@ -126,26 +126,31 @@ footer{background:#111;color:white;text-align:center;padding:30px;margin-top:50p
 </footer>
 
 <!-- نافذة الباقات -->
+<!-- فقط الجزء الخاص بنافذة الباقات -->
 <div class="package-window" id="packageWindow">
-<h2>اختيار الباقة</h2>
-<button class="package-btn" onclick="selectPackage('اقتصادية')">اقتصادية</button>
-<button class="package-btn" onclick="selectPackage('فضية')">فضية</button>
-<button class="package-btn" onclick="selectPackage('ذهبية')">ذهبية</button>
-<button class="package-btn" onclick="selectPackage('VIP')">VIP</button>
-<button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
+  <h2>اختيار الباقة</h2>
+  <button class="package-btn" onclick="openPackageLink('https://drive.google.com/file/d/ID1/view')">اقتصادية</button>
+  <button class="package-btn" onclick="openPackageLink('https://drive.google.com/file/d/ID2/view')">فضية</button>
+  <button class="package-btn" onclick="openPackageLink('https://drive.google.com/file/d/ID3/view')">ذهبية</button>
+  <button class="package-btn" onclick="openPackageLink('https://drive.google.com/file/d/ID4/view')">VIP</button>
+  <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
 </div>
 
 <script>
-// فتح نافذة الباقات
+function openPackageLink(url){
+  window.open(url, "_blank");
+}
+
+// فتح النافذة
 document.getElementById('openPackagesBtn').addEventListener('click',()=>{
   document.getElementById('packageWindow').style.display='block';
 });
 
-// اغلاق نافذة الباقات
+// اغلاق النافذة
 function closePackageWindow(){
   document.getElementById('packageWindow').style.display='none';
 }
-
+</script>
 // اختيار الباقة وحفظها
 function selectPackage(name){
   localStorage.setItem('selectedPackage',name);
