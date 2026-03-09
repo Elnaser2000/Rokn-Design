@@ -80,18 +80,22 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </div>
 </section>
 
-<section class="gallery" id="gallery">
+<section id="أعمالنا">
+
 <h2>جزء من أعمالنا</h2>
-<div class="images">
 
-<img src="https://drive.google.com/uc?export=view&id=1XS4nllAXMluJ6j138qz1_OgFDTdbBr4G">
+<div class="gallery">
 
-<img src="https://drive.google.com/uc?export=view&id=16qx6TKo3jQAL0JLHlHXbJUbuXu9SgVIv">
+<img src="1.jpg" onclick="openImage(this.src)">
+<img src="2.jpg" onclick="openImage(this.src)">
+<img src="3.jpg" onclick="openImage(this.src)">
 
-<img src="https://drive.google.com/uc?export=view&id=19bcpXzln5PRUdMoj_TZ1RTgwhNxAcuPv">
+</div>
 
-<img src="https://drive.google.com/uc?export=view&id=1CzHj4UgDh4smgSJmG-H5qaRWT3AV-2ON">
+</section>
 
+<div id="imageViewer" class="viewer" onclick="closeImage()">
+<img id="viewerImg">
 </div>
 </section>
 
