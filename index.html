@@ -1,356 +1,118 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ركن ديزاين للتشطيبات</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',sans-serif;
-}
-
-body{
-background:#f5f5f5;
-color:#333;
-line-height:1.6;
-}
-
-/* الهيدر */
-
-header{
-background:#111;
-color:white;
-padding:15px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
-
-header h1{
-font-size:22px;
-}
-
-nav a{
-color:white;
-margin:0 10px;
-text-decoration:none;
-font-size:15px;
-}
-
-/* القسم الرئيسي */
-
-.hero{
-height:90vh;
-background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0") center/cover;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-position:relative;
-padding:20px;
-}
-
-.hero::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-max-width:600px;
-}
-
-.hero h2{
-font-size:42px;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:18px;
-margin-bottom:25px;
-}
-
-.btn{
-background:#d4af37;
-color:white;
-padding:12px 25px;
-margin:8px;
-border:none;
-text-decoration:none;
-font-size:16px;
-border-radius:6px;
-display:inline-block;
-cursor:pointer;
-}
-
-/* الخدمات */
-
-.services{
-padding:70px 10%;
-text-align:center;
-}
-
-.services h2{
-margin-bottom:40px;
-font-size:28px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-/* معرض الأعمال */
-
-.gallery{
-padding:70px 10%;
-background:#eee;
-}
-
-.gallery h2{
-text-align:center;
-margin-bottom:40px;
-font-size:28px;
-}
-
-.images{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.images img{
-width:100%;
-border-radius:10px;
-}
-
-/* المميزات */
-
-.features{
-padding:70px 10%;
-text-align:center;
-}
-
-.features h2{
-margin-bottom:40px;
-font-size:28px;
-}
-
-.feature-box{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.feature{
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-/* الحاسبة */
-
-.calculator{
-padding:70px 10%;
-text-align:center;
-background:#fff;
-}
-
-form{
-background:white;
-padding:30px;
-max-width:500px;
-margin:auto;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-input,select{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:6px;
-border:1px solid #ccc;
-}
-
-/* الفوتر */
-
-footer{
-background:#000;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-/* زر الواتساب */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-left:20px;
-background:#25D366;
-color:white;
-padding:16px 18px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+body{background:#f5f5f5;color:#333;line-height:1.6;}
+header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+header h1{font-size:22px;}
+nav a{color:white;margin:0 10px;text-decoration:none;font-size:15px;}
+.hero{height:90vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;padding:20px;}
+.hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
+.hero-content{position:relative;z-index:2;max-width:600px;}
+.hero h2{font-size:42px;margin-bottom:15px;}
+.hero p{font-size:18px;margin-bottom:25px;}
+.btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;text-decoration:none;font-size:16px;border-radius:6px;display:inline-block;cursor:pointer;}
+section{padding:70px 10%;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.card{background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);transition:0.3s;}
+.card:hover{transform:translateY(-5px);}
+.images{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.images img{width:100%;border-radius:10px;}
+.feature-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.feature{background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+.packages .package-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:center;}
+.package-card{background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+form{background:white;padding:30px;max-width:500px;margin:auto;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;}
+.result-card{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);margin:10px 0;}
+footer{background:#111;color:white;text-align:center;padding:30px;margin-top:50px;}
+.whatsapp{position:fixed;bottom:20px;left:20px;background:#25D366;color:white;padding:16px 18px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
+@media (max-width:768px){.hero h2{font-size:28px;}.hero p{font-size:16px;}nav{margin-top:10px;}.btn{display:block;width:80%;margin:auto;margin-bottom:10px;}section{padding:50px 5%;}}
 </style>
-
 </head>
-
 <body>
 
 <header>
-
 <h1>ركن ديزاين</h1>
-
 <nav>
 <a href="#">الرئيسية</a>
 <a href="#services">الخدمات</a>
 <a href="#gallery">الأعمال</a>
-<a href="#calculator">احسب التكلفة</a>
+<a href="#calculator">تواصل</a>
 </nav>
-
 </header>
 
 <section class="hero">
-
 <div class="hero-content">
-
 <h2>ركن ديزاين للتشطيبات</h2>
-
 <p>نحول شقتك إلى تحفة معمارية بأفضل الخامات وأحدث التصميمات</p>
-
+<a class="btn" href="#packages">تعرف على الباقات</a>
 <a class="btn" href="#calculator">احسب تكلفة التشطيب</a>
-
-<a class="btn" href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">
-تواصل واتساب
-</a>
-
 </div>
-
 </section>
 
-<section class="services" id="services">
-
+<section id="services">
 <h2>خدماتنا</h2>
-
 <div class="cards">
-
-<div class="card">
-<h3>تشطيب شقق</h3>
-<p>تشطيب كامل من الطوب الأحمر حتى التسليم النهائي</p>
+<div class="card"><h3>تشطيب شقق</h3><p>تشطيب كامل من الطوب الأحمر حتى التسليم النهائي</p></div>
+<div class="card"><h3>تصميم داخلي</h3><p>تصميمات ثلاثية الأبعاد قبل التنفيذ</p></div>
+<div class="card"><h3>تشطيب فيلات</h3><p>تنفيذ تشطيبات فاخرة بأعلى جودة</p></div>
+<div class="card"><h3>ديكورات جبس بورد</h3><p>أحدث تصميمات الأسقف والإضاءة المخفية</p></div>
 </div>
-
-<div class="card">
-<h3>تصميم داخلي</h3>
-<p>تصميمات ثلاثية الأبعاد قبل التنفيذ</p>
-</div>
-
-<div class="card">
-<h3>تشطيب فيلات</h3>
-<p>تنفيذ تشطيبات فاخرة بأعلى جودة</p>
-</div>
-
-<div class="card">
-<h3>ديكورات جبس بورد</h3>
-<p>أحدث تصميمات الأسقف والإضاءة المخفية</p>
-</div>
-
-</div>
-
 </section>
 
-<section class="gallery" id="gallery">
-
+<section id="gallery">
 <h2>معرض أعمالنا</h2>
-
 <div class="images">
-
 <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0">
-
 <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d">
-
 <img src="https://images.unsplash.com/photo-1600566752227-8f3b8c3e9d27">
-
 <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea">
-
 </div>
-
 </section>
 
 <section class="features">
-
 <h2>لماذا تختار ركن ديزاين</h2>
-
 <div class="feature-box">
-
-<div class="feature">
-<h3>خبرة كبيرة</h3>
-<p>سنوات من الخبرة في تنفيذ التشطيبات</p>
+<div class="feature"><h3>خبرة كبيرة</h3><p>سنوات من الخبرة في تنفيذ التشطيبات</p></div>
+<div class="feature"><h3>أفضل الخامات</h3><p>نستخدم خامات عالية الجودة لضمان أفضل نتيجة</p></div>
+<div class="feature"><h3>تسليم في الميعاد</h3><p>التزام كامل بالمواعيد المتفق عليها</p></div>
 </div>
-
-<div class="feature">
-<h3>أفضل الخامات</h3>
-<p>نستخدم خامات عالية الجودة لضمان أفضل نتيجة</p>
-</div>
-
-<div class="feature">
-<h3>تسليم في الميعاد</h3>
-<p>التزام كامل بالمواعيد المتفق عليها</p>
-</div>
-
-</div>
-
 </section>
 
-<section class="calculator" id="calculator">
+<section class="packages" id="packages">
+<h2 style="text-align:center;margin-bottom:30px;">اختر الباقة المناسبة لك</h2>
+<div class="package-grid">
+<div class="package-card">
+<h3>الباقة الاقتصادية</h3>
+<a class="btn" href="economy.html">عرض التفاصيل</a>
+</div>
+<div class="package-card">
+<h3>الباقة الفضية</h3>
+<a class="btn" href="silver.html">عرض التفاصيل</a>
+</div>
+<div class="package-card">
+<h3>الباقة الذهبية</h3>
+<a class="btn" href="gold.html">عرض التفاصيل</a>
+</div>
+<div class="package-card">
+<h3>الباقة VIP</h3>
+<a class="btn" href="vip.html">عرض التفاصيل</a>
+</div>
+</div>
+</section>
 
-<h2>احسب تكلفة التشطيب</h2>
-
+<section id="calculator">
+<h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة التشطيب</h2>
 <form id="costForm">
-
 <input id="name" required placeholder="الاسم">
-
 <input id="phone" required placeholder="رقم الموبايل">
-
 <input id="area" required type="number" placeholder="المساحة بالمتر">
-
 <select id="unit" required>
 <option value="">نوع الوحدة</option>
 <option>شقة</option>
@@ -359,14 +121,12 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 <option>أرضي بجنينة</option>
 <option>مكتب إداري</option>
 </select>
-
 <select id="finish" required>
 <option value="">حالة التشطيب</option>
 <option>محارة وحلوق</option>
 <option>طوب احمر</option>
 <option>تجديد</option>
 </select>
-
 <select id="region" required>
 <option value="">المنطقة</option>
 <option>الهرم - فيصل</option>
@@ -379,7 +139,6 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 <option>الخمائل</option>
 <option>العاصمة الإدارية</option>
 </select>
-
 <select id="package" required>
 <option value="">الباقة</option>
 <option>اقتصادية</option>
@@ -387,37 +146,27 @@ box-shadow:0 4px 10px rgba(0,0,0,0.3);
 <option>ذهبية</option>
 <option>VIP</option>
 </select>
-
 <select id="metal" required>
 <option value="">الموتال</option>
 <option>تركيب الموتال</option>
 <option>بدون الموتال</option>
 </select>
-
+<br>
 <button class="btn">احسب التكلفة</button>
-
 </form>
-
 </section>
 
 <footer>
-
-<p>ركن ديزاين للتشطيبات والديكور</p>
-<p>📞 01151983638</p>
-
+ركن ديزاين للتشطيبات والديكور<br>📞 01151983638
 </footer>
 
-<a class="whatsapp"
-href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">
-💬
-</a>
+<a class="whatsapp" href="https://wa.me/201151983638?text=مرحبا اريد الاستفسار عن تشطيب شقة">💬</a>
 
 <script>
+// ضع هنا رابط Google Apps Script
+const scriptURL="ضع رابط Google Apps Script هنا";
 
-const scriptURL="ضع رابط Google Apps Script هنا"
-
-const prices={
-
+const prices = {
 "الهرم - فيصل":{اقتصادية:2800,فضية:3500,ذهبية:3800,VIP:4800},
 "أكتوبر":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
 "حدائق اكتوبر":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
@@ -427,34 +176,39 @@ const prices={
 "الفردوس":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
 "الخمائل":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
 "العاصمة الإدارية":{اقتصادية:4200,فضية:4900,ذهبية:5200,VIP:6800}
+};
 
-}
+const additions = {
+"طوب احمر":500,
+"جنينة":25000,
+"دوبلكس":70000,
+"فيلا":100000,
+"تجديد":30000,
+"موتال":35000
+};
 
 document.getElementById("costForm").addEventListener("submit",function(e){
+e.preventDefault();
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let area=Number(document.getElementById("area").value);
+let unit=document.getElementById("unit").value;
+let finish=document.getElementById("finish").value;
+let region=document.getElementById("region").value;
+let pack=document.getElementById("package").value;
+let metal=document.getElementById("metal").value;
 
-e.preventDefault()
+// حساب السعر
+let price = prices[region][pack];
+if(finish=="طوب احمر") price+=additions["طوب احمر"];
+let total = price*area;
+if(unit=="دوبلكس") total+=additions["دوبلكس"];
+if(unit=="فيلا") total+=additions["فيلا"];
+if(unit=="أرضي بجنينة") total+=additions["جنينة"];
+if(finish=="تجديد") total+=additions["تجديد"];
+if(metal=="تركيب الموتال") total+=additions["موتال"];
 
-let name=document.getElementById("name").value
-let phone=document.getElementById("phone").value
-let area=Number(document.getElementById("area").value)
-let unit=document.getElementById("unit").value
-let finish=document.getElementById("finish").value
-let region=document.getElementById("region").value
-let pack=document.getElementById("package").value
-let metal=document.getElementById("metal").value
-
-let price=prices[region][pack]
-
-if(finish=="طوب احمر") price+=500
-
-let total=price*area
-
-if(unit=="دوبلكس") total+=70000
-if(unit=="فيلا") total+=100000
-if(unit=="أرضي بجنينة") total+=25000
-if(finish=="تجديد") total+=30000
-if(metal=="تركيب الموتال") total+=35000
-
+// إرسال بيانات للـ Google Sheet
 fetch(scriptURL,{
 method:"POST",
 body:JSON.stringify({
@@ -468,34 +222,53 @@ package:pack,
 metal:metal,
 total:total
 })
-})
+});
 
+// رسالة واتساب
 let message=`طلب جديد من موقع ركن ديزاين
-
 الاسم: ${name}
-
 الموبايل: ${phone}
-
 المنطقة: ${region}
-
 الباقة: ${pack}
-
 نوع الوحدة: ${unit}
-
 حالة التشطيب: ${finish}
-
 الموتال: ${metal}
-
 المساحة: ${area} متر
+السعر المتوقع: ${total} جنيه
+تواصل مع العميل الآن`;
 
-السعر المتوقع: ${total} جنيه`
+let whatsapp="https://wa.me/201151983638?text="+encodeURIComponent(message);
+window.open(whatsapp);
 
-window.open("https://wa.me/201151983638?text="+encodeURIComponent(message))
-
-})
-
+// صفحة النتيجة
+let resultWindow=window.open("","_blank");
+resultWindow.document.write(`
+<html dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>نتيجة حساب التكلفة</title>
+<style>
+body{font-family:Cairo;background:#f5f5f5;padding:30px}
+h2{text-align:center;color:#d4af37}
+.card{background:white;padding:20px;margin:10px 0;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1)}
+</style>
+</head>
+<body>
+<h2>ملخص التكلفة</h2>
+<div class="card">الاسم: ${name}</div>
+<div class="card">الموبايل: ${phone}</div>
+<div class="card">المنطقة: ${region}</div>
+<div class="card">الباقة: ${pack}</div>
+<div class="card">نوع الوحدة: ${unit}</div>
+<div class="card">حالة التشطيب: ${finish}</div>
+<div class="card">الموتال: ${metal}</div>
+<div class="card">المساحة: ${area} متر</div>
+<div class="card">السعر النهائي: ${total} جنيه</div>
+</body>
+</html>
+`);
+});
 </script>
 
 </body>
-
 </html>
