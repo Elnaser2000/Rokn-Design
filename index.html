@@ -9,7 +9,7 @@
 <title>ركن ديزاين للتشطيبات</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  .floating-buttons{
+  .floating-buttons{
 position:fixed;
 bottom:20px;
 right:20px;
@@ -80,7 +80,27 @@ nav{margin-top:10px;}
 }
 form{background:white;padding:30px;max-width:500px;margin:auto;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);}
 input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;}
-.result-card{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);margin:10px 0;}
+
+/* تنسيق النتيجة الجديدة داخل الصفحة */
+.result-overlay {
+    display:none; 
+    margin-top:20px; 
+    background:#fff; 
+    padding:20px; 
+    border-radius:10px; 
+    border:2px solid #d4af37;
+    animation: fadeIn 0.5s;
+}
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+/* زر التثبيت */
+#installApp {
+    display:none; 
+    margin: 10px auto; 
+    background: #111; 
+    color: #d4af37; 
+    border: 1px solid #d4af37;
+}
 </style>
 </head>
 <body>
@@ -99,6 +119,7 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 <div class="hero-content">
 <h2>ركن ديزاين للتشطيبات</h2>
 <p>نحول وحدتك إلى تحفة معمارية بأفضل الخامات وأحدث التصميمات</p>
+<button id="installApp" class="btn">تثبيت التطبيق <i class="fas fa-download"></i></button><br>
 <a class="btn" href="#calculator">احسب تكلفة التشطيب</a>
 <a class="btn" id="openPackagesBtn">الاطلاع على الباقات</a>
 </div>
@@ -124,11 +145,6 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </div>
 </section>
 
-<div id="imageViewer" class="viewer" onclick="closeImage()">
-<img id="viewerImg">
-</div>
-</section>
-
 <section class="features">
 <h2>لماذا تختار ركن ديزاين</h2>
 <div class="feature-box">
@@ -138,11 +154,11 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </div>
 </section>
 
-<section id="calculator">
+<section id="calculator" style="padding-bottom:50px;">
 <h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة التشطيب</h2>
 <form id="costForm">
 <input id="name" required placeholder="الاسم">
-<input id="phone" required placeholder="رقم الموبايل">
+<input id="phone" required type="tel" pattern="[0-9]{11}" title="يرجى إدخال رقم موبايل صحيح (11 رقم)" placeholder="رقم الموبايل (11 رقم)">
 <input id="area" required type="number" placeholder="المساحة بالمتر">
 <select id="unit" required>
 <option value="">نوع الوحدة</option>
@@ -183,15 +199,15 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 <option>بدون تركيب الموتال</option>
 </select>
 <br>
-<button class="btn">احسب التكلفة</button>
-  </form>
+<button class="btn" style="width:100%; margin:10px 0;">احسب التكلفة واحصل على عرض سعر</button>
+<div id="resultArea" class="result-overlay"></div>
+</form>
 </section>
-   
+   
 <footer>
 حقوق النشر محفوظة لركن ديزاين للتشطيبات والديكور
 </footer>
 
-<!-- أيقونات ثابتة -->
 <div class="floating-buttons">
 <a href="https://wa.me/201151983638" class="whatsapp-btn" target="_blank">
 <i class="fab fa-whatsapp"></i>
@@ -201,25 +217,24 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </a>
 </div>
 
-<!-- نافذة الباقات -->
 <div class="package-window" id="packageWindow">
-  <h2>اختار الباقة المناسبة</h2>
-  <button class="package-btn economic" onclick="openPackageLink('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
-  <button class="package-btn silver" onclick="openPackageLink('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
-  <button class="package-btn gold" onclick="openPackageLink('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
-  <button class="package-btn vip" onclick="openPackageLink('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
-  <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
+  <h2>اختار الباقة المناسبة</h2>
+  <button class="package-btn economic" onclick="openPackageLink('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
+  <button class="package-btn silver" onclick="openPackageLink('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
+  <button class="package-btn gold" onclick="openPackageLink('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
+  <button class="package-btn vip" onclick="openPackageLink('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
+  <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
 </div>
 
 <script>
 // تمرير الزرار للأقسام
 function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
 // نافذة الباقات
 document.getElementById('openPackagesBtn').addEventListener('click',()=>{
-  document.getElementById('packageWindow').style.display='block';
+  document.getElementById('packageWindow').style.display='block';
 });
 function closePackageWindow(){document.getElementById('packageWindow').style.display='none';}
 function openPackageLink(url){window.open(url,"_blank");}
@@ -261,8 +276,20 @@ if(metal=="تركيب الموتال") total+=35000;
 // ارسال للـ Google Sheet
 fetch(scriptURL,{method:"POST",body:JSON.stringify({name,phone,area,unit,finish,region,package:pack,metal,total})});
 
-// رسالة واتساب
-let message=`طلب جديد من موقع ركن ديزاين
+// إظهار النتيجة داخل الصفحة (بدلاً من النافذة المنبثقة)
+const resultArea = document.getElementById("resultArea");
+resultArea.style.display = "block";
+resultArea.innerHTML = `
+    <h3 style="color:#d4af37">شكراً ثقتك يا ${name}</h3>
+    <p>التكلفة التقديرية لوحدتك في ${region}:</p>
+    <h2 style="margin:10px 0;">${total.toLocaleString()} جنيه</h2>
+    <p style="font-size:14px; color:#666;">* سيتم التواصل معك قريباً لتحديد موعد معاينة مجانية.</p>
+    <button type="button" class="btn" onclick="sendToWhatsApp('${name}','${phone}','${region}','${pack}','${unit}','${finish}','${metal}','${area}','${total}')" style="background:#25D366; width:100%;">تأكيد الطلب عبر واتساب</button>
+`;
+});
+
+function sendToWhatsApp(name, phone, region, pack, unit, finish, metal, area, total) {
+    let message=`طلب جديد من موقع ركن ديزاين
 اهلأ بك يا ${name}
 الموبايل: ${phone}
 المنطقة: ${region}
@@ -273,49 +300,31 @@ let message=`طلب جديد من موقع ركن ديزاين
 المساحة: ${area} متر
 السعر المتوقع: ${total} جنيه
 لمزيد من الاستفسارات يرجى الاتصال على 01151983638`;
-window.open("https://wa.me/201151983638?text="+encodeURIComponent(message));
-
-// صفحة النتيجة
-let resultWindow=window.open("","_blank");
-resultWindow.document.write(`
-<html dir="rtl">
-<head><meta charset="UTF-8"><title>نتيجة حساب التكلفة</title>
-<style>body{font-family:Cairo;background:#f5f5f5;padding:30px} h2{text-align:center;color:#d4af37} .card{background:white;padding:20px;margin:10px 0;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1)}</style>
-</head>
-<body>
-<h2>ملخص التكلفة</h2>
-<div class="card">الاسم: ${name}</div>
-<div class="card">الموبايل: ${phone}</div>
-<div class="card">المنطقة: ${region}</div>
-<div class="card">الباقة: ${pack}</div>
-<div class="card">نوع الوحدة: ${unit}</div>
-<div class="card">حالة التشطيب: ${finish}</div>
-<div class="card">الموتال: ${metal}</div>
-<div class="card">المساحة: ${area} متر</div>
-<div class="card">السعر النهائي: ${total} جنيه</div>
-</body></html>
-`);
-});
+    window.open("https://wa.me/201151983638?text="+encodeURIComponent(message));
+}
 </script>
 
 <script>
+// كود زر تثبيت التطبيق
 let deferredPrompt;
+const installBtn = document.getElementById("installApp");
 
 window.addEventListener('beforeinstallprompt', (e) => {
-e.preventDefault();
-deferredPrompt = e;
-
-const btn = document.getElementById("installApp");
-if(btn){
-btn.style.display = "block";
-}
-
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = "block";
 });
 
-document.getElementById("installApp").addEventListener("click", () => {
-if(deferredPrompt){
-deferredPrompt.prompt();
-}
+installBtn.addEventListener("click", () => {
+    if(deferredPrompt){
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                installBtn.style.display = 'none';
+            }
+            deferredPrompt = null;
+        });
+    }
 });
 </script>
 </body>
