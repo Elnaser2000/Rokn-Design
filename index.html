@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* سأضع هنا استايل تطبيقك الأصلي كما أرسلته أول مرة */
+        /* كود الـ CSS الأصلي الخاص بك تماماً */
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
         body{background:#f5f5f5;color:#333;}
         header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;}
@@ -24,7 +24,7 @@
         .btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-block;}
         form{background:white;padding:30px;max-width:500px;margin:20px auto;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);}
         input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;}
-        .result-overlay {display:none; margin-top:20px; background:#fff; padding:20px; border-radius:10px; border:2px solid #d4af37;}
+        .result-overlay {display:none; margin-top:20px; background:#fff; padding:20px; border-radius:10px; border:2px solid #d4af37; text-align: center;}
         footer{background:#000;color:white;text-align:center;padding:20px;}
         .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:15px;z-index:999;}
         .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.3);text-decoration:none;}
@@ -45,7 +45,7 @@
   <div class="hero-content">
     <h2>خلى كل ركن يتكلم عنك</h2>
     <p>احسب تكلفة تشطيب وحدتك بدقة واحترافية</p>
-    <button id="installApp" class="btn" style="display:none;">تثبيت التطبيق <i class="fas fa-download"></i></button>
+    <button id="installApp" class="btn" style="display:none;">تثبيت التطبيق على الشاشة <i class="fas fa-download"></i></button>
   </div>
 </section>
 
@@ -54,27 +54,33 @@
     <input id="name" required placeholder="الاسم">
     <input id="phone" required type="tel" pattern="[0-9]{11}" placeholder="رقم الموبايل">
     <input id="area" required type="number" placeholder="المساحة بالمتر">
+    
     <select id="unit" required>
       <option value="">نوع الوحدة</option>
       <option>شقة</option><option>دوبلكس</option><option>فيلا</option><option>أرضي بجنينة</option>
     </select>
+    
     <select id="finish" required>
       <option value="">حالة التشطيب</option>
       <option>محارة وحلوق</option><option>طوب احمر</option><option>تجديد</option>
     </select>
+    
     <select id="region" required>
         <option value="">المنطقة</option>
-        <option>الهرم - فيصل</option><option>أكتوبر</option><option>الشيخ زايد</option>
+        <option>الهرم - فيصل</option><option>أكتوبر</option><option>الشيخ زايد</option><option>حدائق الأهرام</option><option>العاصمة الإدارية</option>
     </select>
+    
     <select id="package" required>
         <option value="">الباقة</option>
         <option>اقتصادية</option><option>فضية</option><option>ذهبية</option><option>VIP</option>
     </select>
+    
     <select id="metal" required>
         <option value="">الموتال</option>
         <option>تركيب الموتال</option><option>بدون تركيب الموتال</option>
     </select>
-    <button class="btn" style="width:100%;">احسب التكلفة</button>
+    
+    <button type="submit" class="btn" style="width:100%;">احسب التكلفة</button>
     <div id="resultArea" class="result-overlay"></div>
   </form>
 </section>
@@ -86,12 +92,13 @@
 <footer>ركن ديزاين للتشطيبات والديكور</footer>
 
 <script>
+// رابط الـ Web App الخاص بـ Google Script
 const scriptURL = "https://script.google.com/macros/s/AKfycbzrF1nu5Sp8UyFWopDtd1U6EiRwLVYRWTPFZMmIU_gqQbnHvFUYeAZB0hRKGcBcnks5/exec";
 
 let prices = {};
 let appSettings = {};
 
-// جلب الأسعار والمتغيرات من صفحة Prices و Settings
+// جلب البيانات من شيت Prices و Settings
 async function loadAppData() {
     try {
         const response = await fetch(scriptURL);
@@ -99,13 +106,14 @@ async function loadAppData() {
         prices = data.prices;
         appSettings = data.settings;
     } catch (e) {
-        console.log("Error loading data");
+        console.error("خطأ في جلب البيانات من الشيت");
     }
 }
 loadAppData();
 
 document.getElementById("costForm").addEventListener("submit", function(e) {
     e.preventDefault();
+    
     let name = document.getElementById("name").value;
     let phone = document.getElementById("phone").value;
     let area = Number(document.getElementById("area").value);
@@ -115,8 +123,10 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
     let pack = document.getElementById("package").value;
     let metal = document.getElementById("metal").value;
 
-    // الحساب بناءً على الشيت
-    let basePrice = (prices[region] && prices[region][pack]) ? prices[region][pack] : 3000;
+    // الحسابات بناءً على بيانات الشيت
+    let basePrice = (prices[region] && prices[region][pack]) ? Number(prices[region][pack]) : 3000;
+    
+    // إضافات من شيت Settings
     if (finish == "طوب احمر") basePrice += (Number(appSettings["طوب احمر"]) || 0);
     
     let total = basePrice * area;
@@ -126,31 +136,50 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
     if (finish == "تجديد") total += (Number(appSettings["تجديد"]) || 0);
     if (metal == "تركيب الموتال") total += (Number(appSettings["موتال"]) || 0);
 
-    // تسجيل في Leads
+    // إرسال البيانات لصفحة Leads في الشيت
     fetch(scriptURL, {
         method: "POST",
-        body: JSON.stringify({name, phone, area, unit, finish, region, package: pack, metal, total})
+        body: JSON.stringify({
+            name: name,
+            phone: phone,
+            area: area,
+            unit: unit,
+            finish: finish,
+            region: region,
+            package: pack,
+            metal: metal,
+            total: total
+        })
     });
 
     const resultArea = document.getElementById("resultArea");
     resultArea.style.display = "block";
-    resultArea.innerHTML = `<h3>التكلفة: ${total.toLocaleString()} جنيه</h3>
-    <button class="btn" style="background:#25D366;width:100%;" onclick="sendWA('${name}','${total}')">تأكيد واتساب</button>`;
+    resultArea.innerHTML = `<h3>التكلفة التقديرية: ${total.toLocaleString()} جنيه</h3>
+    <button class="btn" style="background:#25D366;width:100%;margin-top:10px;" onclick="sendWA('${name}','${total}')">تأكيد عبر واتساب</button>`;
 });
 
 function sendWA(n, t) {
-    window.open("https://wa.me/201151983638?text=" + encodeURIComponent(`أهلاً ركن ديزاين، أنا ${n} وحسبت تكلفة تشطيبي وطلعت ${t} جنيه`));
+    window.open("https://wa.me/201151983638?text=" + encodeURIComponent(`أهلاً ركن ديزاين، أنا ${n} وحسبت تكلفة تشطيبي وطلعت ${t} جنيه وأريد المعاينة.`));
 }
 
-// كود التثبيت على الشاشة
+// كود التثبيت (PWA)
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     document.getElementById("installApp").style.display = "inline-block";
 });
+
 document.getElementById("installApp").addEventListener("click", () => {
-    if(deferredPrompt) { deferredPrompt.prompt(); deferredPrompt = null; }
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                document.getElementById("installApp").style.display = "none";
+            }
+            deferredPrompt = null;
+        });
+    }
 });
 </script>
 </body>
