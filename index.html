@@ -184,6 +184,7 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </select>
 <br>
 <button class="btn">احسب التكلفة</button>
+  </form>
 </section>
    
 <footer>
@@ -274,26 +275,8 @@ let message=`طلب جديد من موقع ركن ديزاين
 لمزيد من الاستفسارات يرجى الاتصال على 01151983638`;
 window.open("https://wa.me/201151983638?text="+encodeURIComponent(message));
 
-// صفحة النتيجة
-let resultWindow=window.open("","_blank");
-resultWindow.document.write(`
-<html dir="rtl">
-<head><meta charset="UTF-8"><title>نتيجة حساب التكلفة</title>
-<style>body{font-family:Cairo;background:#f5f5f5;padding:30px} h2{text-align:center;color:#d4af37} .card{background:white;padding:20px;margin:10px 0;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1)}</style>
-</head>
-<body>
-<h2>ملخص التكلفة</h2>
-<div class="card">الاسم: ${name}</div>
-<div class="card">الموبايل: ${phone}</div>
-<div class="card">المنطقة: ${region}</div>
-<div class="card">الباقة: ${pack}</div>
-<div class="card">نوع الوحدة: ${unit}</div>
-<div class="card">حالة التشطيب: ${finish}</div>
-<div class="card">الموتال: ${metal}</div>
-<div class="card">المساحة: ${area} متر</div>
-<div class="card">السعر النهائي: ${total} جنيه</div>
-</body></html>
-`);
+// مرحبا بك
+alert("تم استلام طلبك ✔️\nسيتم إرسال تكلفة التشطيب على واتساب خلال لحظات.");
 });
 </script>
 
