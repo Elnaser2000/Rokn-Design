@@ -1,20 +1,24 @@
 {
-"name": "Rokn Design",
-"short_name": "Rokn",
-"start_url": "/Rokn-Design/",
-"display": "standalone",
-"background_color": "#ffffff",
-"theme_color": "#c9a15b",
-"icons": [
-{
-"src": "icon-192.png",
-"sizes": "192x192",
-"type": "image/png"
-},
-{
-"src": "icon-512.png",
-"sizes": "512x512",
-"type": "image/png"
-}
-]
+  "short_name": "ركن ديزاين",
+  "name": "ركن ديزاين للتشطيبات والديكور",
+  "description": "تطبيق حساب تكلفة التشطيب والديكور",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/Elnaser2000/Rokn-Design/main/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/Elnaser2000/Rokn-Design/main/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#111111",
+  "background_color": "#ffffff"
 }
