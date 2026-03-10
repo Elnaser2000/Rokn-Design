@@ -60,10 +60,7 @@ nav a{color:white;margin:0 10px;text-decoration:none;font-size:15px;cursor:point
 .cta{background:#111;color:white;text-align:center;padding:60px 20px;}
 .cta h2{margin-bottom:20px;}
 footer{background:#000;color:white;text-align:center;padding:30px;}
-/* أيقونات ثابتة واتساب واتصال */
-.fixed-icons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:15px;z-index:1000;}
-.fixed-icons a{background:#111;color:white;padding:14px;border-radius:50%;font-size:20px;text-decoration:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
-.fixed-icons a.phone{background:#d32f2f;}
+
 .package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.3);z-index:1000;width:90%;max-width:400px;text-align:center;}
 .package-btn{padding:15px 20px;margin:10px;border:none;border-radius:10px;cursor:pointer;display:block;width:90%;font-size:18px;font-weight:bold;color:white;}
 .package-btn.economic{background:#8bc34a;}
@@ -71,6 +68,7 @@ footer{background:#000;color:white;text-align:center;padding:30px;}
 .package-btn.gold{background:#ffb300;}
 .package-btn.vip{background:#d32f2f;}
 .close-btn{background:#ccc;color:#111;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;margin-top:15px;}
+
 @media (max-width:768px){
 .hero h2{font-size:28px;}
 .hero p{font-size:16px;}
@@ -81,7 +79,6 @@ nav{margin-top:10px;}
 form{background:white;padding:30px;max-width:500px;margin:auto;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);}
 input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;}
 
-/* تنسيق النتيجة الجديدة داخل الصفحة */
 .result-overlay {
     display:none; 
     margin-top:20px; 
@@ -93,7 +90,6 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 }
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
-/* زر التثبيت */
 #installApp {
     display:none; 
     margin: 10px auto; 
@@ -145,16 +141,7 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </div>
 </section>
 
-<section class="features">
-<h2>لماذا تختار ركن ديزاين</h2>
-<div class="feature-box">
-<div class="feature"><h3>خبرة كبيرة</h3><p>سنوات من الخبرة في تنفيذ التشطيبات</p></div>
-<div class="feature"><h3>أفضل الخامات</h3><p>نستخدم خامات عالية الجودة لضمان أفضل نتيجة</p></div>
-<div class="feature"><h3>تسليم في الميعاد</h3><p>التزام كامل بالمواعيد المتفق عليها</p></div>
-</div>
-</section>
-
-<section id="calculator" style="padding-bottom:50px;">
+<section id="calculator" style="padding: 70px 10%;">
 <h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة التشطيب</h2>
 <form id="costForm">
 <input id="name" required placeholder="الاسم">
@@ -199,7 +186,7 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 <option>بدون تركيب الموتال</option>
 </select>
 <br>
-<button class="btn" style="width:100%; margin:10px 0;">احسب التكلفة واحصل على عرض سعر</button>
+<button class="btn" style="width:100%; margin:10px 0;">احسب التكلفة الآن</button>
 <div id="resultArea" class="result-overlay"></div>
 </form>
 </section>
@@ -209,12 +196,8 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </footer>
 
 <div class="floating-buttons">
-<a href="https://wa.me/201151983638" class="whatsapp-btn" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
-<a href="tel:+201151983638" class="call-btn">
-<i class="fas fa-phone"></i>
-</a>
+<a href="https://wa.me/201151983638" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
 </div>
 
 <div class="package-window" id="packageWindow">
@@ -227,21 +210,15 @@ input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px s
 </div>
 
 <script>
-// تمرير الزرار للأقسام
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-// نافذة الباقات
-document.getElementById('openPackagesBtn').addEventListener('click',()=>{
-  document.getElementById('packageWindow').style.display='block';
-});
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+document.getElementById('openPackagesBtn').addEventListener('click',()=>{ document.getElementById('packageWindow').style.display='block'; });
 function closePackageWindow(){document.getElementById('packageWindow').style.display='none';}
 function openPackageLink(url){window.open(url,"_blank");}
 
-// الحاسبة والـ Google Sheet
 const scriptURL="https://script.google.com/macros/s/AKfycbzhrH0VWebHuKu9rK4YxWBO0ZnW5iLmbVmGrqX-YTlEwNO8d31in-q_e3Pnppqnw4Gs/exec";
-const prices={
+
+// الأسعار الاحتياطية في حال تعذر الاتصال بالشيت
+let prices = {
 "الهرم - فيصل":{اقتصادية:2800,فضية:3500,ذهبية:3800,VIP:4800},
 "أكتوبر":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
 "حدائق اكتوبر":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
@@ -252,6 +229,21 @@ const prices={
 "الخمائل":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
 "العاصمة الإدارية":{اقتصادية:4200,فضية:4900,ذهبية:5200,VIP:6800}
 };
+
+// وظيفة جلب الأسعار الحية من جوجل شيت
+async function loadLivePrices() {
+    try {
+        const response = await fetch(scriptURL);
+        const liveData = await response.json();
+        if (liveData && Object.keys(liveData).length > 0) {
+            prices = liveData;
+            console.log("تم تحديث الأسعار من جوجل شيت بنجاح");
+        }
+    } catch (e) {
+        console.log("يتم استخدام الأسعار الافتراضية المدمجة");
+    }
+}
+loadLivePrices();
 
 document.getElementById("costForm").addEventListener("submit",function(e){
 e.preventDefault();
@@ -264,66 +256,44 @@ let region=document.getElementById("region").value;
 let pack=document.getElementById("package").value;
 let metal=document.getElementById("metal").value;
 
-let price=prices[region][pack];
-if(finish=="طوب احمر") price+=500;
-let total=price*area;
+let currentPrice = prices[region] ? prices[region][pack] : 3000; 
+if(finish=="طوب احمر") currentPrice+=500;
+let total=currentPrice*area;
 if(unit=="دوبلكس") total+=70000;
 if(unit=="فيلا") total+=100000;
 if(unit=="أرضي بجنينة") total+=25000;
 if(finish=="تجديد") total+=30000;
 if(metal=="تركيب الموتال") total+=35000;
 
-// ارسال للـ Google Sheet
 fetch(scriptURL,{method:"POST",body:JSON.stringify({name,phone,area,unit,finish,region,package:pack,metal,total})});
 
-// إظهار النتيجة داخل الصفحة (بدلاً من النافذة المنبثقة)
 const resultArea = document.getElementById("resultArea");
 resultArea.style.display = "block";
 resultArea.innerHTML = `
-    <h3 style="color:#d4af37">شكراً ثقتك يا ${name}</h3>
-    <p>التكلفة التقديرية لوحدتك في ${region}:</p>
-    <h2 style="margin:10px 0;">${total.toLocaleString()} جنيه</h2>
-    <p style="font-size:14px; color:#666;">* سيتم التواصل معك قريباً لتحديد موعد معاينة مجانية.</p>
-    <button type="button" class="btn" onclick="sendToWhatsApp('${name}','${phone}','${region}','${pack}','${unit}','${finish}','${metal}','${area}','${total}')" style="background:#25D366; width:100%;">تأكيد الطلب عبر واتساب</button>
+    <h3 style="color:#d4af37">أهلاً بك يا ${name}</h3>
+    <p>التكلفة التقديرية لوحدتك هي:</p>
+    <h2 style="margin:10px 0; color:#111;">${total.toLocaleString()} جنيه</h2>
+    <p style="font-size:13px; color:#777; margin-bottom:15px;">* السعر قد يختلف بناءً على المعاينة الفعلية.</p>
+    <button type="button" class="btn" onclick="sendWhatsApp('${name}','${phone}','${region}','${pack}','${unit}','${finish}','${metal}','${area}','${total}')" style="background:#25D366; width:100%; font-weight:bold;">تأكيد الطلب ومعرفة التفاصيل</button>
 `;
 });
 
-function sendToWhatsApp(name, phone, region, pack, unit, finish, metal, area, total) {
-    let message=`طلب جديد من موقع ركن ديزاين
-اهلأ بك يا ${name}
-الموبايل: ${phone}
-المنطقة: ${region}
-الباقة: ${pack}
-نوع الوحدة: ${unit}
-حالة التشطيب: ${finish}
-الموتال: ${metal}
-المساحة: ${area} متر
-السعر المتوقع: ${total} جنيه
-لمزيد من الاستفسارات يرجى الاتصال على 01151983638`;
-    window.open("https://wa.me/201151983638?text="+encodeURIComponent(message));
+function sendWhatsApp(n, p, r, pk, u, f, m, a, t) {
+    let msg=`طلب جديد - ركن ديزاين\nالاسم: ${n}\nالموبايل: ${p}\nالمنطقة: ${r}\nالباقة: ${pk}\nالوحدة: ${u}\nالتشطيب: ${f}\nالمساحة: ${a}م\nالسعر: ${t} ج`;
+    window.open("https://wa.me/201151983638?text="+encodeURIComponent(msg));
 }
-</script>
 
-<script>
-// كود زر تثبيت التطبيق
 let deferredPrompt;
 const installBtn = document.getElementById("installApp");
-
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
     installBtn.style.display = "block";
 });
-
 installBtn.addEventListener("click", () => {
     if(deferredPrompt){
         deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                installBtn.style.display = 'none';
-            }
-            deferredPrompt = null;
-        });
+        deferredPrompt = null;
     }
 });
 </script>
