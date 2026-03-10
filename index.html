@@ -276,9 +276,12 @@ let message=`طلب جديد من موقع ركن ديزاين
 window.open("https://wa.me/201151983638?text="+encodeURIComponent(message));
 
 // مرحبا بك
-alert("تم استلام طلبك ✔️\nسيتم إرسال تكلفة التشطيب على واتساب خلال لحظات.");
+document.getElementById("successBox").style.display="block";
 });
 </script>
+  function closeSuccess(){
+document.getElementById("successBox").style.display="none";
+}
 
 <script>
 let deferredPrompt;
@@ -300,5 +303,53 @@ deferredPrompt.prompt();
 }
 });
 </script>
+  <div id="successBox" style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+text-align:center;
+z-index:2000;
+max-width:350px;
+width:90%;
+">
+
+<h3 style="margin-bottom:10px;color:#d4af37">تم استلام طلبك ✔</h3>
+
+<p style="margin-bottom:20px">
+سيتم إرسال تكلفة التشطيب على واتساب خلال لحظات
+</p>
+
+<a href="tel:01151983638" style="
+display:inline-block;
+background:#25D366;
+color:white;
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+font-size:16px;
+margin-bottom:10px;
+">
+📞 اتصل الآن للحصول على خصم 10٪
+</a>
+
+<br>
+
+<button onclick="closeSuccess()" style="
+background:#ccc;
+border:none;
+padding:8px 15px;
+border-radius:6px;
+cursor:pointer;
+">
+إغلاق
+</button>
+
+</div>
 </body>
 </html>
