@@ -2,296 +2,199 @@
 <html lang="ar" dir="rtl">
 <head>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#c9a15b">
+<meta name="theme-color" content="#111111">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Elnaser2000/Rokn-Design/main/logo.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ركن ديزاين للتشطيبات</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  .floating-buttons{
-position:fixed;
-bottom:20px;
-right:20px;
-display:flex;
-flex-direction:column;
-gap:15px;
-z-index:999;
-}
-.floating-buttons a{
-width:55px;
-height:55px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-color:white;
-font-size:24px;
-box-shadow:0 4px 12px rgba(0,0,0,0.3);
-transition:0.3s;
-text-decoration:none;
-}
-.whatsapp-btn{
-background:#25D366;
-}
-.call-btn{
-background:#007BFF;
-}
-.floating-buttons a:hover{
-transform:scale(1.1);
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-body{background:#f5f5f5;color:#333;line-height:1.6;}
-header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
-header h1{font-size:22px;cursor:pointer;}
-nav a{color:white;margin:0 10px;text-decoration:none;font-size:15px;cursor:pointer;}
-.hero{height:90vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;padding:20px;}
-.hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
-.hero-content{position:relative;z-index:2;max-width:600px;}
-.hero h2{font-size:42px;margin-bottom:15px;}
-.hero p{font-size:18px;margin-bottom:25px;}
-.btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;text-decoration:none;font-size:16px;border-radius:6px;display:inline-block;cursor:pointer;}
-.services,.gallery,.features{padding:70px 10%;}
-.services h2,.gallery h2,.features h2{text-align:center;margin-bottom:40px;font-size:28px;}
-.cards,.feature-box,.images{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-.card,.feature{background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
-.card:hover{transform:translateY(-5px);}
-.images img{width:100%;border-radius:10px;}
-.cta{background:#111;color:white;text-align:center;padding:60px 20px;}
-.cta h2{margin-bottom:20px;}
-footer{background:#000;color:white;text-align:center;padding:30px;}
-
-.package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.3);z-index:1000;width:90%;max-width:400px;text-align:center;}
-.package-btn{padding:15px 20px;margin:10px;border:none;border-radius:10px;cursor:pointer;display:block;width:90%;font-size:18px;font-weight:bold;color:white;}
-.package-btn.economic{background:#8bc34a;}
-.package-btn.silver{background:#c0c0c0;color:#111;}
-.package-btn.gold{background:#ffb300;}
-.package-btn.vip{background:#d32f2f;}
-.close-btn{background:#ccc;color:#111;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;margin-top:15px;}
-
-@media (max-width:768px){
-.hero h2{font-size:28px;}
-.hero p{font-size:16px;}
-nav{margin-top:10px;}
-.btn{display:block;width:80%;margin:auto;margin-bottom:10px;}
-.services,.gallery,.features{padding:50px 5%;}
-}
-form{background:white;padding:30px;max-width:500px;margin:auto;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);}
-input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;}
-
-.result-overlay {
-    display:none; 
-    margin-top:20px; 
-    background:#fff; 
-    padding:20px; 
-    border-radius:10px; 
-    border:2px solid #d4af37;
-    animation: fadeIn 0.5s;
-}
-@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
-#installApp {
-    display:none; 
-    margin: 10px auto; 
-    background: #111; 
-    color: #d4af37; 
-    border: 1px solid #d4af37;
-}
+  .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:15px;z-index:999;}
+  .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:0.3s;text-decoration:none;}
+  .whatsapp-btn{background:#25D366;}.call-btn{background:#007BFF;}
+  .floating-buttons a:hover{transform:scale(1.1);}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+  body{background:#f5f5f5;color:#333;line-height:1.6;}
+  header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;}
+  header h1{font-size:22px;cursor:pointer;}
+  nav a{color:white;margin:0 10px;text-decoration:none;font-size:15px;cursor:pointer;}
+  .hero{height:60vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;padding:20px;}
+  .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
+  .hero-content{position:relative;z-index:2;max-width:600px;}
+  .hero h2{font-size:36px;margin-bottom:10px;}
+  .hero p{font-size:18px;margin-bottom:20px;}
+  .btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;border-radius:6px;text-decoration:none;font-size:16px;display:inline-block;cursor:pointer;transition:0.3s;}
+  .btn:hover{background:#b8962d;}
+  form{background:white;padding:30px;max-width:500px;margin:30px auto;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);}
+  input,select{width:100%;padding:10px;margin:8px 0;border-radius:6px;border:1px solid #ccc;font-size:14px;}
+  .result-overlay {display:none; margin-top:20px; background:#fff; padding:20px; border-radius:10px; border:2px solid #d4af37; animation:fadeIn 0.5s;}
+  @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  footer{background:#000;color:white;text-align:center;padding:25px;font-size:14px;}
+  @media (max-width:768px){ .hero h2{font-size:28px;} .btn{width:90%;} }
 </style>
 </head>
 <body>
 
 <header>
-<h1 onclick="scrollToSection('hero')">ركن ديزاين</h1>
-<nav>
-<a onclick="scrollToSection('hero')">الرئيسية</a>
-<a onclick="scrollToSection('services')">الخدمات</a>
-<a onclick="scrollToSection('gallery')">الأعمال</a>
-<a href="https://wa.me/201151983638" target="_blank">تواصل</a>
-</nav>
+  <h1 onclick="scrollToSection('hero')">ركن ديزاين</h1>
+  <nav>
+    <a onclick="scrollToSection('hero')">الرئيسية</a>
+    <a href="#calculator">الحاسبة</a>
+    <a href="https://wa.me/201151983638" target="_blank">تواصل</a>
+  </nav>
 </header>
 
 <section class="hero" id="hero">
-<div class="hero-content">
-<h2>ركن ديزاين للتشطيبات</h2>
-<p>نحول وحدتك إلى تحفة معمارية بأفضل الخامات وأحدث التصميمات</p>
-<button id="installApp" class="btn">تثبيت التطبيق <i class="fas fa-download"></i></button><br>
-<a class="btn" href="#calculator">احسب تكلفة التشطيب</a>
-<a class="btn" id="openPackagesBtn">الاطلاع على الباقات</a>
-</div>
+  <div class="hero-content">
+    <h2>خلى كل ركن يتكلم عنك</h2>
+    <p>حوّل وحدتك إلى تحفة معمارية بأفضل الأسعار</p>
+    <button id="installApp" class="btn" style="display:none;">تثبيت التطبيق <i class="fas fa-download"></i></button><br>
+    <a class="btn" href="#calculator">احسب تكلفة التشطيب</a>
+  </div>
 </section>
 
-<section class="services" id="services">
-<h2>خدماتنا</h2>
-<div class="cards">
-<div class="card"><h3>تشطيبات وديكورات</h3><p>تشطيب كامل من الطوب الأحمر حتى التسليم النهائي</p></div>
-<div class="card"><h3>تصميم داخلي</h3><p>تصميمات ثنائية الأبعاد قبل التنفيذ</p></div>
-<div class="card"><h3>تنفيذ متكامل</h3><p>تنفيذ تشطيبات فاخرة بأعلى جودة</p></div>
-<div class="card"><h3>ديكورات حديثة</h3><p>مواكبة كل ما هو جديد من الديكورات العصرية</p></div>
-</div>
+<section id="calculator" style="padding:40px 5%;">
+  <h2 style="text-align:center;margin-bottom:25px;">حاسبة تكلفة التشطيب الذكية</h2>
+  <form id="costForm">
+    <input id="name" required placeholder="الاسم الكريم">
+    <input id="phone" required type="tel" pattern="[0-9]{11}" title="يرجى إدخال 11 رقم" placeholder="رقم الموبايل (11 رقم)">
+    <input id="area" required type="number" placeholder="المساحة بالمتر (م2)">
+    
+    <select id="unit" required>
+      <option value="">نوع الوحدة</option>
+      <option>شقة</option>
+      <option>دوبلكس</option>
+      <option>فيلا</option>
+      <option>أرضي بجنينة</option>
+    </select>
+    
+    <select id="finish" required>
+      <option value="">حالة التشطيب الحالية</option>
+      <option>محارة وحلوق</option>
+      <option>طوب احمر</option>
+      <option>تجديد</option>
+    </select>
+    
+    <select id="region" required>
+      <option value="">المنطقة</option>
+      <option>الهرم - فيصل</option>
+      <option>أكتوبر</option>
+      <option>الشيخ زايد</option>
+      <option>العاصمة الإدارية</option>
+      </select>
+    
+    <select id="package" required>
+      <option value="">الباقة المطلوبة</option>
+      <option>اقتصادية</option>
+      <option>فضية</option>
+      <option>ذهبية</option>
+      <option>VIP</option>
+    </select>
+    
+    <select id="metal" required>
+      <option value="">الموتال</option>
+      <option>تركيب الموتال</option>
+      <option>بدون تركيب الموتال</option>
+    </select>
+    
+    <button class="btn" style="width:100%; margin-top:15px; font-weight:bold;">احسب التكلفة واحصل على عرض سعر</button>
+    <div id="resultArea" class="result-overlay"></div>
+  </form>
 </section>
 
-<section class="gallery" id="gallery">
-<h2>جزء من أعمالنا</h2>
-<div class="images">
-<img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg">
-<img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg">
-<img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg">
-<img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png">
-</div>
-</section>
-
-<section id="calculator" style="padding: 70px 10%;">
-<h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة التشطيب</h2>
-<form id="costForm">
-<input id="name" required placeholder="الاسم">
-<input id="phone" required type="tel" pattern="[0-9]{11}" title="يرجى إدخال رقم موبايل صحيح (11 رقم)" placeholder="رقم الموبايل (11 رقم)">
-<input id="area" required type="number" placeholder="المساحة بالمتر">
-<select id="unit" required>
-<option value="">نوع الوحدة</option>
-<option>شقة</option>
-<option>دوبلكس</option>
-<option>فيلا</option>
-<option>أرضي بجنينة</option>
-<option>مكتب إداري</option>
-</select>
-<select id="finish" required>
-<option value="">حالة التشطيب</option>
-<option>محارة وحلوق</option>
-<option>طوب احمر</option>
-<option>تجديد</option>
-</select>
-<select id="region" required>
-<option value="">المنطقة</option>
-<option>الهرم - فيصل</option>
-<option>أكتوبر</option>
-<option>حدائق اكتوبر</option>
-<option>حدائق الأهرام</option>
-<option>الشيخ زايد</option>
-<option>دريم لاند</option>
-<option>الفردوس</option>
-<option>الخمائل</option>
-<option>العاصمة الإدارية</option>
-</select>
-<select id="package" required>
-<option value="">الباقة</option>
-<option>اقتصادية</option>
-<option>فضية</option>
-<option>ذهبية</option>
-<option>VIP</option>
-</select>
-<select id="metal" required>
-<option value="">الموتال</option>
-<option>تركيب الموتال</option>
-<option>بدون تركيب الموتال</option>
-</select>
-<br>
-<button class="btn" style="width:100%; margin:10px 0;">احسب التكلفة الآن</button>
-<div id="resultArea" class="result-overlay"></div>
-</form>
-</section>
-   
 <footer>
-حقوق النشر محفوظة لركن ديزاين للتشطيبات والديكور
+  &copy; 2026 ركن ديزاين للتشطيبات والديكور - جميع الحقوق محفوظة
 </footer>
 
 <div class="floating-buttons">
-<a href="https://wa.me/201151983638" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
-</div>
-
-<div class="package-window" id="packageWindow">
-  <h2>اختار الباقة المناسبة</h2>
-  <button class="package-btn economic" onclick="openPackageLink('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
-  <button class="package-btn silver" onclick="openPackageLink('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
-  <button class="package-btn gold" onclick="openPackageLink('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
-  <button class="package-btn vip" onclick="openPackageLink('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
-  <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
+  <a href="https://wa.me/201151983638" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
 </div>
 
 <script>
 function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-document.getElementById('openPackagesBtn').addEventListener('click',()=>{ document.getElementById('packageWindow').style.display='block'; });
-function closePackageWindow(){document.getElementById('packageWindow').style.display='none';}
-function openPackageLink(url){window.open(url,"_blank");}
 
-const scriptURL="https://script.google.com/macros/s/AKfycbyUMoTddFDFKnuevlUgNv5w7ncRPVsIOViFjmnysiZwTR2QEmX617eV28vH0FihoYJo/exec";
+// الرابط الخاص بك الذي زودتني به
+const scriptURL = "https://script.google.com/macros/s/AKfycbzrF1nu5Sp8UyFWopDtd1U6EiRwLVYRWTPFZMmIU_gqQbnHvFUYeAZB0hRKGcBcnks5/exec";
 
-// الأسعار الاحتياطية في حال تعذر الاتصال بالشيت
-let prices = {
-"الهرم - فيصل":{اقتصادية:2800,فضية:3500,ذهبية:3800,VIP:4800},
-"أكتوبر":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
-"حدائق اكتوبر":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
-"حدائق الأهرام":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
-"الشيخ زايد":{اقتصادية:3500,فضية:3900,ذهبية:4200,VIP:4800},
-"دريم لاند":{اقتصادية:3500,فضية:3900,ذهبية:4200,VIP:4800},
-"الفردوس":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
-"الخمائل":{اقتصادية:3200,فضية:3700,ذهبية:4000,VIP:4800},
-"العاصمة الإدارية":{اقتصادية:4200,فضية:4900,ذهبية:5200,VIP:6800}
-};
+let prices = {};
+let appSettings = {};
 
-// وظيفة جلب الأسعار الحية من جوجل شيت
-async function loadLivePrices() {
+// جلب البيانات من شيت Prices و Settings
+async function loadData() {
     try {
         const response = await fetch(scriptURL);
-        const liveData = await response.json();
-        if (liveData && Object.keys(liveData).length > 0) {
-            prices = liveData;
-            console.log("تم تحديث الأسعار من جوجل شيت بنجاح");
-        }
+        const data = await response.json();
+        prices = data.prices;
+        appSettings = data.settings;
+        console.log("تم تحديث الأسعار والمتغيرات من الشيت");
     } catch (e) {
-        console.log("يتم استخدام الأسعار الافتراضية المدمجة");
+        console.log("فشل جلب البيانات، سيتم استخدام القيم الاحتياطية");
+        appSettings = {"طوب احمر": 500, "جنينة": 25000, "دوبلكس": 70000, "فيلا": 100000, "تجديد": 30000, "موتال": 35000};
     }
 }
-loadLivePrices();
+loadData();
 
-document.getElementById("costForm").addEventListener("submit",function(e){
-e.preventDefault();
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let area=Number(document.getElementById("area").value);
-let unit=document.getElementById("unit").value;
-let finish=document.getElementById("finish").value;
-let region=document.getElementById("region").value;
-let pack=document.getElementById("package").value;
-let metal=document.getElementById("metal").value;
+document.getElementById("costForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let area = Number(document.getElementById("area").value);
+    let unit = document.getElementById("unit").value;
+    let finish = document.getElementById("finish").value;
+    let region = document.getElementById("region").value;
+    let pack = document.getElementById("package").value;
+    let metal = document.getElementById("metal").value;
 
-let currentPrice = prices[region] ? prices[region][pack] : 3000; 
-if(finish=="طوب احمر") currentPrice+=500;
-let total=currentPrice*area;
-if(unit=="دوبلكس") total+=70000;
-if(unit=="فيلا") total+=100000;
-if(unit=="أرضي بجنينة") total+=25000;
-if(finish=="تجديد") total+=30000;
-if(metal=="تركيب الموتال") total+=35000;
+    // حساب السعر بناءً على البيانات المستلمة
+    let basePrice = (prices[region] && prices[region][pack]) ? prices[region][pack] : 3000;
+    
+    // إضافة متغير حالة التشطيب (Settings)
+    if (finish == "طوب احمر") basePrice += (Number(appSettings["طوب احمر"]) || 500);
+    
+    let total = basePrice * area;
+    
+    // إضافة إضافات نوع الوحدة والموتال (Settings)
+    if (unit == "دوبلكس") total += (Number(appSettings["دوبلكس"]) || 70000);
+    if (unit == "فيلا") total += (Number(appSettings["فيلا"]) || 100000);
+    if (unit == "أرضي بجنينة") total += (Number(appSettings["جنينة"]) || 25000);
+    if (finish == "تجديد") total += (Number(appSettings["تجديد"]) || 30000);
+    if (metal == "تركيب الموتال") total += (Number(appSettings["موتال"]) || 35000);
 
-fetch(scriptURL,{method:"POST",body:JSON.stringify({name,phone,area,unit,finish,region,package:pack,metal,total})});
+    // إرسال البيانات لصفحة Leads في الشيت
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify({name, phone, area, unit, finish, region, package: pack, metal, total})
+    });
 
-const resultArea = document.getElementById("resultArea");
-resultArea.style.display = "block";
-resultArea.innerHTML = `
-    <h3 style="color:#d4af37">أهلاً بك يا ${name}</h3>
-    <p>التكلفة التقديرية لوحدتك هي:</p>
-    <h2 style="margin:10px 0; color:#111;">${total.toLocaleString()} جنيه</h2>
-    <p style="font-size:13px; color:#777; margin-bottom:15px;">* السعر قد يختلف بناءً على المعاينة الفعلية.</p>
-    <button type="button" class="btn" onclick="sendWhatsApp('${name}','${phone}','${region}','${pack}','${unit}','${finish}','${metal}','${area}','${total}')" style="background:#25D366; width:100%; font-weight:bold;">تأكيد الطلب ومعرفة التفاصيل</button>
-`;
+    // عرض النتيجة
+    const resultArea = document.getElementById("resultArea");
+    resultArea.style.display = "block";
+    resultArea.innerHTML = `
+        <h3 style="color:#d4af37">شكراً يا ${name}</h3>
+        <p>التكلفة التقديرية لوحدتك هي:</p>
+        <h2 style="margin:10px 0;">${total.toLocaleString()} جنيه</h2>
+        <p style="font-size:13px; color:#666; margin-bottom:15px;">* سيتم التواصل معك قريباً للمعاينة.</p>
+        <button type="button" class="btn" onclick="sendToWA('${name}','${total}')" style="background:#25D366; width:100%; border:none;">تأكيد الطلب عبر واتساب</button>
+    `;
 });
 
-function sendWhatsApp(n, p, r, pk, u, f, m, a, t) {
-    let msg=`طلب جديد - ركن ديزاين\nالاسم: ${n}\nالموبايل: ${p}\nالمنطقة: ${r}\nالباقة: ${pk}\nالوحدة: ${u}\nالتشطيب: ${f}\nالمساحة: ${a}م\nالسعر: ${t} ج`;
-    window.open("https://wa.me/201151983638?text="+encodeURIComponent(msg));
+function sendToWA(n, t) {
+    let msg = `أهلاً ركن ديزاين، أنا ${n}، قمت بحساب تكلفة تشطيب وحدتي على التطبيق وطلعت التكلفة التقديرية ${t} جنيه. أريد تحديد موعد للمعاينة.`;
+    window.open("https://wa.me/201151983638?text=" + encodeURIComponent(msg));
 }
 
+// كود تثبيت التطبيق PWA
 let deferredPrompt;
 const installBtn = document.getElementById("installApp");
 window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    installBtn.style.display = "block";
+    installBtn.style.display = "inline-block";
 });
 installBtn.addEventListener("click", () => {
-    if(deferredPrompt){
+    if(deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt = null;
     }
