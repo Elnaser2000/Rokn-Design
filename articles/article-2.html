@@ -7,33 +7,49 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
+    /* التنسيق العام الموحد لركن ديزاين */
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
     body{background:#f5f5f5;color:#333;line-height:1.8;}
+    
     header{background:#111;color:white;padding:20px;text-align:center;border-bottom:3px solid #d4af37;}
     header h1{font-size:24px; color:#d4af37;}
+
     .article-container{max-width:800px; margin:30px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.1);}
     
+    /* التنسيق الجديد: العنوان فوق الصورة */
     .article-title{color:#111; font-size:28px; font-weight:700; text-align:center; margin-bottom:20px; line-height:1.4;}
+    
     .main-img{width:100%; border-radius:10px; margin-bottom:25px; border:1px solid #ddd; box-shadow:0 4px 10px rgba(0,0,0,0.05);}
     
     h2{color:#111; margin:25px 0 15px; font-size:22px; position:relative; padding-right:15px;}
     h2::before{content:""; position:absolute; right:0; top:50%; transform:translateY(-50%); width:5px; height:20px; background:#d4af37; border-radius:2px;}
+    
     p{margin-bottom:20px; font-size:16px; text-align:justify; color:#555;}
     
+    /* صندوق المعلومات باللون الذهبي لركن ديزاين */
     .info-box{background:#fffcf2; border:1px dashed #d4af37; padding:20px; border-radius:10px; margin:25px 0;}
     .info-box h3{color:#111; margin-bottom:10px; font-size:18px;}
     .info-box ul{list-style:none; padding-right:10px;}
     .info-box li{margin-bottom:8px; position:relative; padding-right:25px;}
+    /* أيقونة صح باللون الذهبي */
     .info-box li::before{content:"\f058"; font-family:"Font Awesome 5 Free"; font-weight:900; position:absolute; right:0; color:#d4af37;}
-    
+
+    /* قسم الـ CTA بالأسود والذهبي وجملة المخاطرة بيضاء */
     .cta-section{background:#111; color:white; padding:30px; border-radius:10px; text-align:center; margin-top:40px;}
     .cta-section h3{color:#d4af37; margin-bottom:10px;}
     .cta-text{color:#ffffff; margin-bottom:15px; font-size:16px; font-weight:400;}
     
     .btn{background:#d4af37; color:white; padding:12px 30px; text-decoration:none; border-radius:6px; display:inline-block; font-weight:bold; transition:0.3s;}
     .btn:hover{transform:scale(1.05); background:#c9a15b;}
+
     .back-link{display:block; text-align:center; margin-top:20px; color:#666; text-decoration:none; font-size:14px;}
-    @media (max-width:768px){ .article-container{margin:15px; padding:20px;} .article-title{font-size:22px;} }
+    .back-link:hover{color:#d4af37;}
+
+    @media (max-width:768px){
+        .article-container{margin:15px; padding:20px;}
+        .article-title{font-size:22px;}
+        h2{font-size:20px;}
+    }
 </style>
 </head>
 <body>
@@ -43,36 +59,38 @@
 </header>
 
 <div class="article-container">
-    <h1 class="article-title">لماذا يتربع لون "الفانيلا لاتيه" على عرش ديكورات 2026؟</h1>
-    
-    <img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" class="main-img" loading="lazy" alt="ديكورات فانيلا لاتيه ركن ديزاين">
-    
-    <h2>سر الجمال في البساطة</h2>
-    <p>في <b>ركن ديزاين</b>، نؤمن أن اختيار الألوان هو مرآة لشخصية صاحب المنزل. لون "الفانيلا لاتيه" (Vanilla Latte) ليس مجرد درجة من درجات البيج، بل هو مزيج عبقري يجمع بين دفيء البيج وصفاء الأبيض، مما يجعله الخيار الأول في تصاميمنا المودرن.</p>
+    <div class="article-content">
+        <h1 class="article-title">لماذا يتربع لون "الفانيلا لاتيه" على عرش ديكورات 2026؟</h1>
+        
+        <img src="https://i.ibb.co/X3H21hN/Rokn-Design-Vanilla-Latte.jpg" class="main-img" loading="lazy" alt="ديكورات فانيلا لاتيه ركن ديزاين">
+        
+        <h2>سر الجمال في البساطة</h2>
+        <p>في <b>ركن ديزاين</b>، نؤمن أن اختيار الألوان هو مرآة لشخصية صاحب المنزل. لون "الفانيلا لاتيه" (Vanilla Latte) ليس مجرد درجة من درجات البيج، بل هو مزيج عبقري يجمع بين دفيء البيج وصفاء الأبيض، مما يجعله الخيار الأول في تصاميمنا المودرن.</p>
 
-    <div class="info-box">
-        <h3>لماذا ننصح بهذا اللون في ركن ديزاين؟</h3>
-        <ul>
-            <li><b>اتساع بصري:</b> يعطي إحساساً بمضاعفة مساحة الغرف الضيقة والريسبشن.</li>
-            <li><b>مرونة التنسيق:</b> يتماشى بذكاء مع الأثاث الخشبي، المعدني (الذهبي والأسود)، وحتى الألوان الجريئة.</li>
-            <li><b>تأثير الإضاءة:</b> يتفاعل بشكل ساحر مع الإضاءة الدافئة (Warm) ليلاً، والإضاءة الطبيعية نهاراً.</li>
-            <li><b>راحة نفسية:</b> يعتبر من الألوان المحايدة التي تقلل التوتر وتوحي بالهدوء الفندقي.</li>
-        </ul>
+        <div class="info-box">
+            <h3>لماذا ننصح بهذا اللون في ركن ديزاين؟</h3>
+            <ul>
+                <li><b>اتساع بصري:</b> يعطي إحساساً بمضاعفة مساحة الغرف الضيقة والريسبشن.</li>
+                <li><b>مرونة التنسيق:</b> يتماشى بذكاء مع الأثاث الخشبي، المعدني (الذهبي والأسود)، وحتى الألوان الجريئة.</li>
+                <li><b>تأثير الإضاءة:</b> يتفاعل بشكل ساحر مع الإضاءة الدافئة (Warm) ليلاً، والإضاءة الطبيعية نهاراً.</li>
+                <li><b>راحة نفسية:</b> يعتبر من الألوان المحايدة التي تقلل التوتر وتوحي بالهدوء الفندقي.</li>
+            </ul>
+        </div>
+
+        <h2>نصيحة الخبراء من ركن ديزاين</h2>
+        <p>عند اختيار الفانيلا لاتيه، انتبه لدرجة "الإضاءة" في منزلك. نحن في ركن ديزاين نقوم بعمل "تست" للون على مساحة صغيرة من الحائط قبل الاعتماد النهائي، لأن الدرجة قد تختلف قليلاً بين إضاءة الشمس وإضاءة الليد المخفي.</p>
+
+        <div class="cta-section">
+            <h3>خلى كل ركن يتكلم عنك</h3>
+            <p class="cta-text">بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
+            <a href="../index.html#calculator" class="btn">احسب تكلفة تشطيبك الآن</a>
+        </div>
+
+        <a href="../blog.html" class="back-link"><i class="fas fa-chevron-right"></i> العودة لمجلة الأكاديمية</a>
     </div>
-
-    <h2>نصيحة الخبراء من ركن ديزاين</h2>
-    <p>عند اختيار الفانيلا لاتيه، انتبه لدرجة "الإضاءة" في منزلك. نحن في ركن ديزاين نقوم بعمل "تست" للون على مساحة صغيرة من الحائط قبل الاعتماد النهائي، لأن الدرجة قد تختلف قليلاً بين إضاءة الشمس وإضاءة الليد المخفي.</p>
-
-    <div class="cta-section">
-        <h3>خلى كل ركن يتكلم عنك</h3>
-        <p class="cta-text">بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
-        <a href="../index.html#calculator" class="btn">احسب تكلفة تشطيبك الآن</a>
-    </div>
-
-    <a href="../blog.html" class="back-link"><i class="fas fa-chevron-right"></i> العودة لمجلة الأكاديمية</a>
 </div>
 
-<footer style="text-align:center; padding:20px; color:#999; font-size:12px;">
+<footer style="text-align:center; padding:20px; color:#999; font-size:12px; position: relative; z-index: 1;">
     جميع الحقوق محفوظة لركن ديزاين © 2026
 </footer>
 
