@@ -3,106 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مجلة ركن ديزاين - أسرار التشطيب</title>
+    <title>أكاديمية ركن ديزاين - أقسام التشطيب</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #f9f9f9; margin: 0; padding-bottom: 20px; direction: rtl; }
+        body { font-family: 'Cairo', sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 80px; direction: rtl; }
         
-        header { 
-            background: #111; 
-            color: white; 
-            padding: 30px 5% 55px; 
-            text-align: center; 
-        }
+        header { background: #111; color: white; padding: 30px 5% 60px; text-align: center; }
         header h1 { color: #d4af37; margin: 0; font-size: 22px; }
         header p { margin-top: 5px; opacity: 0.7; font-size: 14px; }
 
-        /* --- تعديل البحث: عائم وفي أقصى اليمين --- */
-        .search-wrapper { 
-            max-width: 280px; /* حجم ملموم ومناسب للموبايل */
-            margin-right: 5%; /* دفع الخانة لأقصى اليمين لتتحاذى مع الحافة */
-            margin-left: auto; 
-            position: relative;
-            top: -25px;       /* الطفو فوق المقالات */
-            z-index: 100;
-            padding: 0 10px;
+        /* --- أقسام التصفية (Tabs) --- */
+        .category-tabs {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 15px 5%;
+            gap: 10px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            scrollbar-width: none; /* إخفاء سكرول بار أندرويد */
         }
-
-        .search-box { 
-            width: 100%; 
-            padding: 12px 15px 12px 45px; /* مساحة للعدسة جهة اليسار */
-            border-radius: 30px; 
-            border: 2px solid #d4af37; 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
-            font-size: 14px; 
-            outline: none; 
-            text-align: right; /* الكتابة تبدأ من اليمين بشكل طبيعي */
+        .tab-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: #eee;
+            border: none;
             font-family: 'Cairo', sans-serif;
-            background: white;
+            font-size: 13px;
+            cursor: pointer;
             transition: 0.3s;
         }
+        .tab-btn.active { background: #d4af37; color: #111; font-weight: bold; }
 
-        .search-box:focus {
-            border-color: #c5bba7;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        /* --- البحث العائم --- */
+        .search-wrapper { 
+            max-width: 280px; 
+            margin-right: 5%; 
+            margin-left: auto; 
+            position: relative;
+            top: -25px; 
+            z-index: 100;
         }
+        .search-box { 
+            width: 100%; padding: 12px 15px 12px 45px; border-radius: 30px; 
+            border: 2px solid #d4af37; box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+            font-size: 14px; outline: none; text-align: right; background: white;
+        }
+        .search-wrapper i { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); color: #d4af37; }
 
-        .search-wrapper i { 
-            position: absolute; 
-            left: 25px;         /* العدسة جهة اليسار لتعطي توازن بصري */
-            top: 50%; 
-            transform: translateY(-50%); 
-            color: #d4af37; 
-            pointer-events: none;
-        }
+        /* --- زر العودة العائم --- */
+        .back-home-fab { position: fixed; bottom: 25px; left: 25px; width: 55px; height: 55px; background: #d4af37; color: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; z-index: 1000; }
 
-        /* --- زر العودة العائم (FAB) --- */
-        .back-home-fab {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 55px;
-            height: 55px;
-            background: #d4af37;
-            color: #111;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-decoration: none;
-            z-index: 1000;
-        }
-
-        .container { 
-            padding: 10px 5% 40px; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-        }
-        
+        .container { padding: 10px 5% 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s; text-decoration: none; color: inherit; }
-        .blog-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid #d4af37; }
+        .blog-card img { width: 100%; height: 180px; object-fit: cover; border-bottom: 2px solid #d4af37; }
         .blog-card-content { padding: 15px; }
-        .blog-card-content h3 { margin: 0 0 8px; color: #111; font-size: 17px; }
-        .blog-card-content p { font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 12px; }
-        .read-more { color: #d4af37; font-weight: bold; font-size: 13px; }
+        .blog-card-content h3 { margin: 0 0 8px; font-size: 16px; color: #111; }
+        .blog-card-content p { font-size: 12px; color: #666; line-height: 1.5; height: 36px; overflow: hidden; }
         
         footer { background:#000; color:#fff; text-align:center; padding:20px; font-size:12px; }
-
-        @media (max-width: 480px) {
-            header h1 { font-size: 20px; }
-            .search-wrapper { margin-right: 5%; max-width: 220px; }
-            .container { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>ركن ديزاين .. خلى كل ركن يتكلم عنك</h1>
-    <p>دليلك الشامل لتشطيب بيتك باحترافية</p>
+    <p>أكاديمية التشطيب الاحترافي</p>
 </header>
 
 <div class="search-wrapper">
@@ -110,26 +77,29 @@
     <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن مقال..." onkeyup="filterArticles()">
 </div>
 
-<a href="index.html" class="back-home-fab" title="العودة للرئيسية">
-    <i class="fas fa-home"></i>
-</a>
+<div class="category-tabs">
+    <button class="tab-btn active" onclick="filterCategory('الكل', this)">الكل</button>
+    <button class="tab-btn" onclick="filterCategory('تأسيس', this)">تأسيس</button>
+    <button class="tab-btn" onclick="filterCategory('ديكور', this)">ديكور</button>
+    <button class="tab-btn" onclick="filterCategory('استلام', this)">استلام شقة</button>
+</div>
+
+<a href="index.html" class="back-home-fab"><i class="fas fa-home"></i></a>
 
 <div class="container" id="articlesGrid">
-    <a href="articles/article-1.html" class="blog-card" data-keywords="عزل حمامات مطابخ رطوبة هندسة">
-        <img src="https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png" alt="أسرار عزل الحمامات">
+    <a href="articles/article-1.html" class="blog-card" data-category="تأسيس" data-keywords="عزل حمامات رطوبة">
+        <img src="https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png" alt="عزل الحمامات">
         <div class="blog-card-content">
             <h3>أسرار عزل الحمامات والمطابخ</h3>
-            <p>كيف تحمي شقتك من كوارث الرشح بمعايير ركن ديزاين الهندسية...</p>
-            <span class="read-more">اقرأ المقال بالكامل ←</span>
+            <p>كيف تحمي شقتك من كوارث الرشح بمعايير هندسية...</p>
         </div>
     </a>
 
-    <a href="articles/article-2.html" class="blog-card" data-keywords="فانيلا لاتيه الوان ديكور دهانات مودرن">
-        <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png" alt="سحر الفانيلا لاتيه">
+    <a href="articles/article-2.html" class="blog-card" data-category="ديكور" data-keywords="فانيلا لاتيه الوان">
+        <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png" alt="الفانيلا لاتيه">
         <div class="blog-card-content">
             <h3>سحر لون "الفانيلا لاتيه"</h3>
             <p>لماذا يتربع هذا اللون على عرش الديكور في 2026؟</p>
-            <span class="read-more">اقرأ المقال بالكامل ←</span>
         </div>
     </a>
 </div>
@@ -137,17 +107,32 @@
 <footer>جميع الحقوق محفوظة لركن ديزاين © 2026</footer>
 
 <script>
+    // فلترة حسب القسم
+    function filterCategory(category, btn) {
+        let cards = document.getElementsByClassName('blog-card');
+        let btns = document.getElementsByClassName('tab-btn');
+        
+        for (let b of btns) b.classList.remove('active');
+        btn.classList.add('active');
+
+        for (let card of cards) {
+            let cat = card.getAttribute('data-category');
+            if (category === 'الكل' || cat === category) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+
+    // فلترة البحث (تعمل مع الأقسام)
     function filterArticles() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.getElementsByClassName('blog-card');
-        for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-            let keywords = cards[i].getAttribute('data-keywords').toLowerCase();
-            if (title.includes(input) || keywords.includes(input)) {
-                cards[i].style.display = ""; 
-            } else {
-                cards[i].style.display = "none";
-            }
+        for (let card of cards) {
+            let title = card.querySelector('h3').innerText.toLowerCase();
+            if (title.includes(input)) card.style.display = "";
+            else card.style.display = "none";
         }
     }
 </script>
