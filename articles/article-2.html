@@ -14,8 +14,20 @@
     header{background:#111;color:white;padding:20px;text-align:center;border-bottom:3px solid #d4af37;}
     header h1{font-size:24px; color:#d4af37;}
 
-    .article-container{max-width:800px; margin:30px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+    .article-container{max-width:800px; margin:30px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.1); position:relative; overflow:hidden;}
     
+    /* لمسة مصرية: زخرفة أرابيسك خفيفة جداً في الخلفية */
+    .article-container::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://www.transparenttextures.com/patterns/arabesque.png'); /* زخرفة خفيفة */
+        opacity: 0.03; /* شفافة جداً عشان متشوشرش على القراءة */
+        z-index: 0;
+    }
+    
+    .article-content { position: relative; z-index: 1; } /* عشان المحتوى يبان فوق الزخرفة */
+
     /* التنسيق الجديد: العنوان فوق الصورة */
     .article-title{color:#111; font-size:28px; font-weight:700; text-align:center; margin-bottom:20px; line-height:1.4;}
     
@@ -62,7 +74,7 @@
     <div class="article-content">
         <h1 class="article-title">لماذا يتربع لون "الفانيلا لاتيه" على عرش ديكورات 2026؟</h1>
         
-        <img src="https://i.ibb.co/X3H21hN/Rokn-Design-Vanilla-Latte.jpg" class="main-img" loading="lazy" alt="ديكورات فانيلا لاتيه ركن ديزاين">
+        <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png" class="main-img" loading="lazy" alt="ديكورات فانيلا لاتيه ركن ديزاين">
         
         <h2>سر الجمال في البساطة</h2>
         <p>في <b>ركن ديزاين</b>، نؤمن أن اختيار الألوان هو مرآة لشخصية صاحب المنزل. لون "الفانيلا لاتيه" (Vanilla Latte) ليس مجرد درجة من درجات البيج، بل هو مزيج عبقري يجمع بين دفيء البيج وصفاء الأبيض، مما يجعله الخيار الأول في تصاميمنا المودرن.</p>
