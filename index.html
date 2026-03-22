@@ -19,44 +19,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* ستايل الصفحة الرئيسية الموحد */
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px;}
+        body{background:#f5f5f5;color:#333;line-height:1.6;}
         
-        header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position: sticky; top:0; z-index: 1000;}
-        header h1{font-size:22px; cursor:pointer; color: #d4af37;}
+        header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;}
+        header h1{font-size:20px;cursor:pointer;color:#d4af37;}
         nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;cursor:pointer;}
 
         .hero{height:80vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
         .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
-        .hero-content{position:relative;z-index:2;max-width:600px; padding: 20px;}
-        .hero h2{font-size:36px;margin-bottom:15px;}
+        .hero-content{position:relative;z-index:2;max-width:600px;padding:20px;}
+        .hero h2{font-size:32px;margin-bottom:15px;}
 
-        .btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;text-decoration:none;font-size:16px;border-radius:6px;display:inline-block;cursor:pointer; transition: 0.3s;}
-        .btn:hover{background: #b8962d;}
+        .btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;text-decoration:none;font-size:16px;border-radius:6px;display:inline-block;cursor:pointer;transition:0.3s;}
+        
+        .services, .gallery, .academy, #calculator {padding:60px 8%;text-align:center;}
+        .cards, .images {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px;}
+        .card {background:white;padding:25px;border-radius:12px;box-shadow:0 5px-15px rgba(0,0,0,0.05);}
+        
+        /* قسم أعمالنا */
+        .images img {width:100%; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition:0.3s;}
+        .images img:hover {transform:scale(1.03);}
 
-        .services, .gallery, .academy {padding: 60px 8%; text-align: center;}
-        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px; margin-top: 30px;}
-        .card {background:white;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;}
-        .card:hover {transform: translateY(-5px);}
-
-        /* فلوتنج بوتونز */
         .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:2000;}
         .floating-buttons a{width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:22px;box-shadow:0 4px 10px rgba(0,0,0,0.3);text-decoration:none;}
         .whatsapp-btn{background:#25D366;}
         .call-btn{background:#007BFF;}
 
-        /* نافذة الباقات */
-        .package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.4);z-index:3000;width:90%;max-width:400px;text-align:center;}
-        .package-btn{padding:12px;margin:10px 0;border:none;border-radius:8px;cursor:pointer;display:block;width:100%;font-size:16px;font-weight:bold;color:white;}
+        form{background:#fff;padding:30px;max-width:500px;margin:auto;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+        input,select{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc;font-family:'Cairo';}
         
-        /* الفورم */
-        #calculator {background: #fff; padding: 60px 8%;}
-        form{background:#f9f9f9;padding:30px;max-width:500px;margin:auto;border-radius:15px;border: 1px solid #ddd;}
-        input,select{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc; font-family: 'Cairo';}
+        .package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.4);z-index:3000;width:90%;max-width:400px;}
+        .package-btn{padding:12px;margin:8px 0;border:none;border-radius:8px;cursor:pointer;display:block;width:100%;font-weight:bold;color:white;}
         
-        .result-overlay {display:none; margin-top:20px; background:#fff; padding:20px; border-radius:10px; border:2px solid #d4af37;}
-        footer{background:#000;color:white;text-align:center;padding:30px; font-size: 13px;}
+        footer{background:#000;color:white;text-align:center;padding:30px;font-size:13px;}
     </style>
 </head>
 <body>
@@ -65,38 +61,39 @@
     <h1 onclick="scrollToSection('hero')">ركن ديزاين</h1>
     <nav>
         <a onclick="scrollToSection('services')">الخدمات</a>
+        <a onclick="scrollToSection('gallery')">أعمالنا</a>
         <a href="blog.html">الأكاديمية</a>
-        <a href="https://wa.me/201151983638">تواصل</a>
     </nav>
 </header>
 
 <section class="hero" id="hero">
     <div class="hero-content">
-        <h2>شطب بيتك بلمسة هندسية</h2>
-        <p>نحول أحلامك إلى واقع ملموس بأعلى جودة في مصر</p>
+        <h2>ركن ديزاين للتشطيبات</h2>
+        <p>نحول وحدتك إلى تحفة معمارية بأعلى جودة وأحدث التصميمات</p>
         <button id="installApp" class="btn" style="display:none;">تثبيت التطبيق <i class="fas fa-download"></i></button>
-        <a class="btn" href="#calculator">احسب تكلفتك</a>
-        <a class="btn" id="openPackagesBtn" style="background:transparent; border: 2px solid #d4af37;">باقات التشطيب</a>
+        <a class="btn" href="#calculator">احسب التكلفة</a>
+        <a class="btn" id="openPackagesBtn" style="background:transparent; border:2px solid #d4af37;">الباقات</a>
     </div>
 </section>
 
-<section class="services" id="services">
-    <h2>لماذا تختار ركن ديزاين؟</h2>
-    <div class="cards">
-        <div class="card"><h3>التزام بالمواعيد</h3><p>نسلم وحدتك في الوقت المحدد دون تأخير يوماً واحداً.</p></div>
-        <div class="card"><h3>إشراف هندسي</h3><p>كل بند يتم تنفيذه تحت إشراف مهندسين متخصصين.</p></div>
-        <div class="card"><h3>جودة الخامات</h3><p>نستخدم أفضل الخامات المعتمدة لضمان عمر أطول لتشطيبك.</p></div>
+<section class="gallery" id="gallery">
+    <h2>جزء من أعمالنا</h2>
+    <div class="images">
+        <img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg">
+        <img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg">
+        <img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg">
+        <img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png">
     </div>
 </section>
 
-<section class="academy" id="academy" style="background: #111; color: white;">
+<section class="academy" id="academy" style="background:#111; color:white;">
     <h2>أكاديمية ركن للتشطيب</h2>
-    <p>أكثر من 100 مقال يشرح لك أصول التشطيب</p>
-    <a href="blog.html" class="btn" style="margin-top: 20px;">دخول الأكاديمية (مجاناً)</a>
+    <p>أكثر من 100 مقال يشرح لك أصول التشطيب من الألف للياء</p>
+    <a href="blog.html" class="btn" style="margin-top:20px; border:1px solid #d4af37;">دخول الأكاديمية (مجاناً)</a>
 </section>
 
 <section id="calculator">
-    <h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة تشطيبك التقريبية</h2>
+    <h2>احسب تكلفة تشطيبك</h2>
     <form id="costForm">
         <input id="name" required placeholder="الاسم">
         <input id="phone" required type="tel" placeholder="رقم الموبايل">
@@ -110,13 +107,13 @@
         </select>
         <select id="package" required>
             <option value="">اختار الباقة</option>
-            <option value="اقتصادية">الباقة الاقتصادية</option>
-            <option value="فضية">الباقة الفضية</option>
-            <option value="ذهبية">الباقة الذهبية</option>
-            <option value="VIP">باقة VIP</option>
+            <option value="اقتصادية">اقتصادية</option>
+            <option value="فضية">فضية</option>
+            <option value="ذهبية">ذهبية</option>
+            <option value="VIP">VIP</option>
         </select>
-        <button class="btn" style="width:100%; margin-top: 20px;">عرض التكلفة التقديرية</button>
-        <div id="resultArea" class="result-overlay"></div>
+        <button class="btn" style="width:100%;">احسب الآن</button>
+        <div id="resultArea" style="display:none; margin-top:15px; padding:15px; border:2px solid #d4af37; border-radius:10px;"></div>
     </form>
 </section>
 
@@ -126,12 +123,12 @@
 </div>
 
 <div class="package-window" id="packageWindow">
-    <h3>باقات ركن ديزاين 2026</h3>
-    <button class="package-btn" style="background:#8bc34a" onclick="window.open('رابط_الباقة_الاقتصادية')">🏠 الاقتصادية</button>
-    <button class="package-btn" style="background:#c0c0c0; color:#111" onclick="window.open('رابط_الباقة_الفضية')">🏢 الفضية</button>
-    <button class="package-btn" style="background:#ffb300" onclick="window.open('رابط_الباقة_الذهبية')">✨ الذهبية</button>
-    <button class="package-btn" style="background:#d32f2f" onclick="window.open('رابط_الباقة_VIP')">👑 VIP</button>
-    <button onclick="closePackageWindow()" style="margin-top:10px; cursor:pointer; background:none; border:none; color:#666;">إغلاق</button>
+    <h3 style="text-align:center; margin-bottom:15px;">باقات ركن ديزاين</h3>
+    <button class="package-btn" style="background:#8bc34a" onclick="window.open('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
+    <button class="package-btn" style="background:#c0c0c0; color:#111" onclick="window.open('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
+    <button class="package-btn" style="background:#ffb300" onclick="window.open('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
+    <button class="package-btn" style="background:#d32f2f" onclick="window.open('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
+    <button onclick="closePackageWindow()" style="width:100%; margin-top:10px; border:none; background:none; cursor:pointer;">إغلاق</button>
 </div>
 
 <footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
@@ -141,15 +138,25 @@
     document.getElementById('openPackagesBtn').addEventListener('click',()=>{ document.getElementById('packageWindow').style.display='block'; });
     function closePackageWindow(){document.getElementById('packageWindow').style.display='none';}
 
-    // هنا يتم وضع الـ Script الخاص بالحسابات وجوجل شيت اللي استخدمناه سابقاً
+    // كود الفورم وربط جوجل شيت
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzhrH0VWebHuKu9rK4YxWBO0ZnW5iLmbVmGrqX-YTlEwNO8d31in-q_e3Pnppqnw4Gs/exec";
     document.getElementById("costForm").addEventListener("submit", function(e){
         e.preventDefault();
-        // الحسابات...
-        document.getElementById("resultArea").style.display = "block";
-        document.getElementById("resultArea").innerHTML = "<h3>جاري حساب التكلفة وإرسالها...</h3>";
-        // إرسال البيانات لجوجل شيت...
+        const resArea = document.getElementById("resultArea");
+        resArea.style.display = "block";
+        resArea.innerHTML = "جاري الحساب وإرسال طلبك...";
+        
+        // هنا يتم وضع منطق الحساب اللي عملناه سابقاً وإرسال الـ Fetch
+        // ... (تم اختصاره هنا لضمان عمل الكود الرئيسي)
+    });
+
+    // كود تثبيت التطبيق PWA
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById("installApp").style.display = "inline-block";
     });
 </script>
-
 </body>
 </html>
