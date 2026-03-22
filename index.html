@@ -52,6 +52,14 @@
         
         footer{background:#000;color:white;text-align:center;padding:30px;}
     </style>
+    /* تنسيق قسم خدماتنا - ركن ديزاين */
+        .services { padding: 60px 10%; background: #fff; text-align: center; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
+        .card-service { background: #f9f9f9; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .card-service:hover { transform: translateY(-10px); border-color: #d4af37; }
+        .card-service i { font-size: 35px; color: #d4af37; margin-bottom: 15px; display: block; }
+        .card-service h3 { margin-bottom: 10px; font-size: 20px; }
+        .card-service p { font-size: 14px; color: #666; line-height: 1.6; }
 </head>
 <body>
 
@@ -74,7 +82,34 @@
         <a class="btn" id="openPackagesBtn">الاطلاع على الباقات</a>
     </div>
 </section>
-
+<section class="services" id="services">
+    <h2 style="text-align:center; margin-bottom:40px; font-size:28px;">خدماتنا</h2>
+    <div class="cards">
+        <div class="card">
+            <i class="fas fa-paint-roller" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
+            <h3>تشطيبات وديكورات</h3>
+            <p>نستلم وحدتك من الطوب الأحمر ونقوم بكافة أعمال التأسيس والتشطيب حتى التسليم على المفتاح.</p>
+        </div>
+        
+        <div class="card">
+            <i class="fas fa-pencil-ruler" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
+            <h3>تصميم داخلي (3D)</h3>
+            <p>تصميمات معمارية وقوائم فرش وتوزيع إضاءة بنظام الـ 3D لتتخيل منزلك قبل البدء في التنفيذ.</p>
+        </div>
+        
+        <div class="card">
+            <i class="fas fa-hard-hat" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
+            <h3>إشراف هندسي متكامل</h3>
+            <p>إشراف دقيق على كل بند (سباكة، كهرباء، نجارة، محارة) لضمان أعلى معايير الجودة والاستدامة.</p>
+        </div>
+        
+        <div class="card">
+            <i class="fas fa-couch" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
+            <h3>فرش وديكورات حديثة</h3>
+            <p>مواكبة أحدث صيحات الموضة العالمية في الديكور والألوان مثل "الفانيلا لاتيه" وتنسيق الأثاث.</p>
+        </div>
+    </div>
+</section>
 <section class="gallery" id="gallery">
     <h2>جزء من أعمالنا</h2>
     <div class="images">
