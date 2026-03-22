@@ -64,13 +64,46 @@
 
         .header-bottom a:hover { color: #d4af37; }
 
-        /* الهيرو */
-        .hero{height:60vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
-        .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
-        .hero-content{position:relative;z-index:2;max-width:600px;padding:20px;}
-        .hero h2{font-size:28px;margin-bottom:15px;}
-        .btn{background:#d4af37;color:white;padding:10px 20px;margin:5px;border:none;text-decoration:none;font-size:15px;border-radius:6px;display:inline-block;cursor:pointer;transition:0.3s;}
+/* خلفية الهيرو لتملأ الشاشة بالكامل */
+.hero {
+    height: 100vh; /* vh تعني ارتفاع الشاشة بالكامل */
+    width: 100%;
+    background: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
 
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* تعتيم خفيف عشان الكلام يظهر */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
+    padding: 20px;
+}
+
+/* ضبط خاص للموبايل للتأكد إنها مالية الشاشة */
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh; 
+        background-attachment: scroll; /* أفضل للموبايل عشان ميهنجش */
+    }
+    .hero h2 {
+        font-size: 24px;
+    }
+}
         /* الخدمات */
         .services {padding:50px 8%; text-align:center; background:#fff;}
         .cards {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:30px;}
