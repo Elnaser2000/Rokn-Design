@@ -10,6 +10,12 @@
         body { font-family: 'Cairo', sans-serif; background: #f9f9f9; margin: 0; direction: rtl; }
         header { background: #111; color: white; padding: 20px 8%; text-align: center; }
         header h1 { color: #d4af37; margin: 0; font-size: 24px; }
+        
+        /* تنسيق بار البحث الجديد */
+        .search-wrapper { max-width: 600px; margin: -25px auto 20px; padding: 0 20px; position: relative; z-index: 10; }
+        .search-box { width: 100%; padding: 15px 45px 15px 20px; border-radius: 30px; border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.15); font-size: 16px; outline: none; font-family: 'Cairo', sans-serif; }
+        .search-wrapper i { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); color: #d4af37; }
+
         .container { padding: 40px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
         .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; text-decoration: none; color: inherit; }
         .blog-card:hover { transform: translateY(-5px); }
@@ -28,10 +34,15 @@
     <p>دليلك الشامل لتشطيب بيتك باحترافية</p>
 </header>
 
+<div class="search-wrapper">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن مقال (عزل، ألوان، كهرباء...)" onkeyup="filterArticles()">
+</div>
+
 <a href="index.html" class="back-home"><i class="fas fa-arrow-right"></i> العودة للصفحة الرئيسية</a>
 
-<div class="container">
-    <a href="articles/article-1.html" class="blog-card">
+<div class="container" id="articlesGrid">
+    <a href="articles/article-1.html" class="blog-card" data-keywords="عزل حمامات مطابخ رطوبة هندسة">
         <img src="https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png" alt="أسرار عزل الحمامات - ركن ديزاين">
         <div class="blog-card-content">
             <h3>أسرار عزل الحمامات والمطابخ</h3>
@@ -40,7 +51,7 @@
         </div>
     </a>
 
-    <a href="articles/article-2.html" class="blog-card">
+    <a href="articles/article-2.html" class="blog-card" data-keywords="فانيلا لاتيه الوان ديكور دهانات مودرن">
         <img src="https://i.ibb.co/990mD2Dx/Gemini-Generated-Image-9e8gon9e8gon9e8g.png" alt="سحر الفانيلا لاتيه - ركن ديزاين">
         <div class="blog-card-content">
             <h3>سحر لون "الفانيلا لاتيه"</h3>
@@ -53,6 +64,24 @@
 <footer style="background:#000; color:#fff; text-align:center; padding:20px; font-size:14px;">
     جميع الحقوق محفوظة لركن ديزاين © 2026
 </footer>
+
+<script>
+    function filterArticles() {
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('blog-card');
+        
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            let keywords = cards[i].getAttribute('data-keywords').toLowerCase();
+            
+            if (title.includes(input) || keywords.includes(input)) {
+                cards[i].style.display = ""; // إظهار
+            } else {
+                cards[i].style.display = "none"; // إخفاء
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
