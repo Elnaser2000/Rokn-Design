@@ -3,30 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة تكاليف ركن ديزاين - النسخة الأصلية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>حاسبة تكاليف ركن ديزاين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background: #f5f5f5; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .calc-wrapper { background: white; padding: 30px; max-width: 500px; width: 100%; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,.1); }
-        h2 { text-align: center; margin-bottom: 25px; color: #111; font-size: 24px; border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; font-family: 'Cairo'; }
-        .btn-calc { background: #d4af37; color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
-        .btn-calc:hover { background: #b8962d; }
-        .back-link { display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none; font-size: 14px; }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+        body{background:#f5f5f5;color:#333;line-height:1.6; padding: 20px;}
+        
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.1); border-top: 5px solid #d4af37; }
+        h2 { text-align: center; margin-bottom: 25px; color: #111; font-weight: 700; }
+        
+        label { display: block; margin-top: 15px; font-weight: bold; font-size: 14px; color: #555; }
+        input, select { width: 100%; padding: 12px; margin-top: 8px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; outline: none; transition: 0.3s; }
+        input:focus, select:focus { border-color: #d4af37; box-shadow: 0 0 8px rgba(212, 175, 55, 0.2); }
+
+        .btn-calc { background: #d4af37; color: white; width: 100%; padding: 15px; margin-top: 25px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-calc:hover { background: #b8962d; transform: translateY(-2px); }
+
+        /* منطقة النتائج */
+        #resultArea { display: none; margin-top: 25px; padding: 20px; background: #fff; border: 2px solid #d4af37; border-radius: 12px; animation: slideUp 0.5s ease; }
+        .res-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #eee; }
+        .total-price { font-size: 22px; font-weight: bold; color: #111; text-align: center; margin-top: 15px; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .footer-links { text-align: center; margin-top: 20px; }
+        .footer-links a { color: #666; text-decoration: none; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<div class="calc-wrapper">
-    <h2>حاسبة تكلفة التشطيب</h2>
+<div class="container">
+    <h2><i class="fas fa-calculator" style="color: #d4af37;"></i> حاسبة المقايسة التقديرية</h2>
+    
     <form id="costForm">
-        <input id="name" required placeholder="الاسم">
-        <input id="phone" required placeholder="رقم الموبايل">
-        <input id="area" required type="number" placeholder="المساحة بالمتر">
+        <input id="name" required placeholder="الاسم بالكامل">
+        <input id="phone" required type="tel" placeholder="رقم الموبايل (واتساب)">
+        <input id="area" required type="number" placeholder="المساحة بالمتر (م2)">
         
+        <label>نوع الوحدة</label>
         <select id="unit" required>
-            <option value="">نوع الوحدة</option>
+            <option value="">اختار نوع الوحدة</option>
             <option>شقة</option>
             <option>دوبلكس</option>
             <option>فيلا</option>
@@ -34,15 +51,17 @@
             <option>مكتب إداري</option>
         </select>
 
+        <label>حالة الاستلام</label>
         <select id="finish" required>
-            <option value="">حالة التشطيب</option>
+            <option value="">اختار حالة التشطيب الحالية</option>
             <option>محارة وحلوق</option>
             <option>طوب احمر</option>
             <option>تجديد</option>
         </select>
 
+        <label>المنطقة</label>
         <select id="region" required>
-            <option value="">المنطقة</option>
+            <option value="">اختار المنطقة</option>
             <option>الهرم - فيصل</option>
             <option>أكتوبر</option>
             <option>حدائق اكتوبر</option>
@@ -54,23 +73,37 @@
             <option>العاصمة الإدارية</option>
         </select>
 
+        <label>باقة التشطيب</label>
         <select id="package" required>
-            <option value="">الباقة</option>
+            <option value="">اختار الباقة المطلوبة</option>
             <option>اقتصادية</option>
             <option>فضية</option>
             <option>ذهبية</option>
             <option>VIP</option>
         </select>
 
+        <label>الألوميتال</label>
         <select id="metal" required>
-            <option value="">الموتال</option>
+            <option value="">هل ترغب في تركيب ألوميتال؟</option>
             <option>تركيب الموتال</option>
             <option>بدون تركيب الموتال</option>
         </select>
 
-        <button class="btn-calc">احسب التكلفة</button>
+        <button type="submit" class="btn-calc">احسب المقايسة الآن</button>
     </form>
-    <a href="index.html" class="back-link">← العودة للرئيسية</a>
+
+    <div id="resultArea">
+        <div id="resDetails"></div>
+        <div class="total-price" id="resTotal"></div>
+        <p style="text-align: center; font-size: 12px; color: #888; margin-top: 10px;">* هذه التكلفة تقديرية بناءً على البيانات المدخلة.</p>
+        <button onclick="sendWhatsApp()" class="btn-calc" style="background: #25D366; margin-top: 15px;">
+            <i class="fab fa-whatsapp"></i> تأكيد الطلب عبر واتساب
+        </button>
+    </div>
+
+    <div class="footer-links">
+        <a href="index.html">← العودة للصفحة الرئيسية</a>
+    </div>
 </div>
 
 <script>
@@ -88,6 +121,8 @@ const prices = {
     "العاصمة الإدارية": {اقتصادية:4200, فضية:4900, ذهبية:5200, VIP:6800}
 };
 
+let lastCalculatedTotal = 0;
+
 document.getElementById("costForm").addEventListener("submit", function(e) {
     e.preventDefault();
     
@@ -100,7 +135,7 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
     let pack = document.getElementById("package").value;
     let metal = document.getElementById("metal").value;
 
-    // تطبيق المعادلات الأصلية
+    // المعادلات الأصلية
     let pricePerMeter = prices[region][pack];
     if(finish == "طوب احمر") pricePerMeter += 500;
     
@@ -112,44 +147,44 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
     if(finish == "تجديد") total += 30000;
     if(metal == "تركيب الموتال") total += 35000;
 
-    // 1. الإرسال للجوجل شيت (صيد الداتا)
+    lastCalculatedTotal = total;
+
+    // إظهار النتيجة في الصفحة
+    document.getElementById("resultArea").style.display = "block";
+    document.getElementById("resDetails").innerHTML = `
+        <div class="res-item"><span>الاسم:</span> <span>${name}</span></div>
+        <div class="res-item"><span>المنطقة:</span> <span>${region}</span></div>
+        <div class="res-item"><span>الباقة:</span> <span>${pack}</span></div>
+        <div class="res-item"><span>المساحة:</span> <span>${area} م2</span></div>
+    `;
+    document.getElementById("resTotal").innerText = `الإجمالي: ${total.toLocaleString()} جنيه`;
+
+    // إرسال البيانات لجوجل شيت (صيد الداتا)
     fetch(scriptURL, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify({name, phone, area, unit, finish, region, package:pack, metal, total})
-    });
+    }).then(() => console.log("Data synced to Sheets"));
 
-    // 2. إرسال واتساب بنفس التنسيق القديم
-    let message = `طلب جديد من موقع ركن ديزاين\nاهلأ بك يا ${name}\nالموبايل: ${phone}\nالمنطقة: ${region}\nالباقة: ${pack}\nنوع الوحدة: ${unit}\nحالة التشطيب: ${finish}\nالموتال: ${metal}\nالمساحة: ${area} متر\nالسعر المتوقع: ${total} جنيه\nلمزيد من الاستفسارات يرجى الاتصال على 01151983638`;
-    window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
-
-    // 3. عرض صفحة النتيجة المستقلة
-    let resultWindow = window.open("", "_blank");
-    resultWindow.document.write(`
-        <html dir="rtl">
-        <head><meta charset="UTF-8"><title>نتيجة المقايسة</title>
-        <style>
-            body{font-family:Cairo, sans-serif; background:#f5f5f5; padding:30px; text-align:right;}
-            .res-card{background:white; padding:20px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:500px; margin:auto;}
-            h2{color:#d4af37; text-align:center;}
-            .item{border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between;}
-            .total{font-size:24px; font-weight:bold; color:#111; text-align:center; margin-top:20px;}
-        </style>
-        </head>
-        <body>
-            <div class="res-card">
-                <h2>ملخص التكلفة التقديرية</h2>
-                <div class="item"><span>الاسم:</span> <span>${name}</span></div>
-                <div class="item"><span>المنطقة:</span> <span>${region}</span></div>
-                <div class="item"><span>الباقة:</span> <span>${pack}</span></div>
-                <div class="item"><span>المساحة:</span> <span>${area} م</span></div>
-                <div class="item"><span>الموتال:</span> <span>${metal}</span></div>
-                <div class="total">السعر النهائي: ${total.toLocaleString()} جنيه</div>
-                <p style="text-align:center; color:#666; margin-top:15px;">شكراً لثقتكم في ركن ديزاين</p>
-            </div>
-        </body></html>
-    `);
+    // تمرير الشاشة للنتيجة
+    document.getElementById("resultArea").scrollIntoView({behavior:'smooth'});
 });
+
+function sendWhatsApp() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let region = document.getElementById("region").value;
+    let pack = document.getElementById("package").value;
+    let unit = document.getElementById("unit").value;
+    let finish = document.getElementById("finish").value;
+    let metal = document.getElementById("metal").value;
+    let area = document.getElementById("area").value;
+
+    let message = `طلب جديد من موقع ركن ديزاين\nأهلاً بك يا ${name}\nالموبايل: ${phone}\nالمنطقة: ${region}\nالباقة: ${pack}\nنوع الوحدة: ${unit}\nحالة التشطيب: ${finish}\nالموتال: ${metal}\nالمساحة: ${area} متر\nالسعر المتوقع: ${lastCalculatedTotal.toLocaleString()} جنيه`;
+    
+    window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
+}
 </script>
+
 </body>
 </html>
