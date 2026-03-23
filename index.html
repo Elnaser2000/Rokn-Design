@@ -95,9 +95,11 @@
 <section class="gallery" id="gallery">
     <h2>من أعمالنا</h2>
     <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" alt="تصميم مودرن"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" alt="تشطيب ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77" alt="ديكورات داخلية"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="تصميم مودرن"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب ركن ديزاين"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="ديكورات داخلية"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="ديكورات داخلية"></div>
+
     </div>
 </section>
 
@@ -107,29 +109,54 @@
     <a href="blog.html" class="btn" style="margin-top: 20px;">دخول الأكاديمية (مجاناً)</a>
 </section>
 
-<section id="calculator">
-    <h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة تشطيبك التقريبية</h2>
-    <form id="costForm">
-        <input id="name" required placeholder="الاسم">
-        <input id="phone" required type="tel" placeholder="رقم الموبايل">
-        <input id="area" required type="number" placeholder="المساحة بالمتر">
-        <select id="region" required>
-            <option value="">اختار المنطقة</option>
-            <option>أكتوبر</option>
-            <option>الشيخ زايد</option>
-            <option>الهرم - فيصل</option>
-            <option>التجمع - العاصمة</option>
-        </select>
-        <select id="package" required>
-            <option value="">اختار الباقة</option>
-            <option value="اقتصادية">الباقة الاقتصادية</option>
-            <option value="فضية">الباقة الفضية</option>
-            <option value="ذهبية">الباقة الذهبية</option>
-            <option value="VIP">باقة VIP</option>
-        </select>
-        <button class="btn" style="width:100%; margin-top: 20px;">عرض التكلفة التقديرية</button>
-        <div id="resultArea" class="result-overlay"></div>
-    </form>
+<section id="calculator" style="padding: 70px 10%;">
+<h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة التشطيب</h2>
+<form id="costForm">
+<input id="name" required placeholder="الاسم">
+<input id="phone" required type="tel" pattern="[0-9]{11}" title="يرجى إدخال رقم موبايل صحيح (11 رقم)" placeholder="رقم الموبايل (11 رقم)">
+<input id="area" required type="number" placeholder="المساحة بالمتر">
+<select id="unit" required>
+<option value="">نوع الوحدة</option>
+<option>شقة</option>
+<option>دوبلكس</option>
+<option>فيلا</option>
+<option>أرضي بجنينة</option>
+<option>مكتب إداري</option>
+</select>
+<select id="finish" required>
+<option value="">حالة التشطيب</option>
+<option>محارة وحلوق</option>
+<option>طوب احمر</option>
+<option>تجديد</option>
+</select>
+<select id="region" required>
+<option value="">المنطقة</option>
+<option>الهرم - فيصل</option>
+<option>أكتوبر</option>
+<option>حدائق اكتوبر</option>
+<option>حدائق الأهرام</option>
+<option>الشيخ زايد</option>
+<option>دريم لاند</option>
+<option>الفردوس</option>
+<option>الخمائل</option>
+<option>العاصمة الإدارية</option>
+</select>
+<select id="package" required>
+<option value="">الباقة</option>
+<option>اقتصادية</option>
+<option>فضية</option>
+<option>ذهبية</option>
+<option>VIP</option>
+</select>
+<select id="metal" required>
+<option value="">الموتال</option>
+<option>تركيب الموتال</option>
+<option>بدون تركيب الموتال</option>
+</select>
+<br>
+<button class="btn" style="width:100%; margin:10px 0;">احسب التكلفة الآن</button>
+<div id="resultArea" class="result-overlay"></div>
+</form>
 </section>
 
 <div class="floating-buttons">
