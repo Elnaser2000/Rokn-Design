@@ -26,7 +26,6 @@
         header h1{font-size:22px; cursor:pointer; color: #d4af37;}
         nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;cursor:pointer;}
 
-        /* الرئيسية تملأ الشاشة */
         .hero{height:100vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
         .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
         .hero-content{position:relative;z-index:2;max-width:600px; padding: 20px;}
@@ -40,7 +39,6 @@
         .card {background:white;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;}
         .card:hover {transform: translateY(-5px);}
         
-        /* تنسيق صور معرض الأعمال */
         .gallery-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;margin-top:30px;}
         .gallery-item {height:250px;border-radius:12px;overflow:hidden;position:relative;}
         .gallery-item img {width:100%;height:100%;object-fit:cover;transition:0.5s;}
@@ -53,12 +51,8 @@
 
         .package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.4);z-index:3000;width:90%;max-width:400px;text-align:center;}
         .package-btn{padding:12px;margin:10px 0;border:none;border-radius:8px;cursor:pointer;display:block;width:100%;font-size:16px;font-weight:bold;color:white;}
-        
-        #calculator {background: #fff; padding: 60px 8%;}
-        form{background:#f9f9f9;padding:30px;max-width:500px;margin:auto;border-radius:15px;border: 1px solid #ddd;}
-        input,select{width:100%;padding:12px;margin:10px 0;border-radius:6px;border:1px solid #ccc; font-family: 'Cairo';}
-        
-        .result-overlay {display:none; margin-top:20px; background:#fff; padding:20px; border-radius:10px; border:2px solid #d4af37;}
+        .close-btn{background:#ccc;color:#111;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;margin-top:15px;}
+
         footer{background:#000;color:white;text-align:center;padding:30px; font-size: 13px;}
     </style>
 </head>
@@ -70,6 +64,7 @@
         <a onclick="scrollToSection('services')">الخدمات</a>
         <a onclick="scrollToSection('gallery')">الأعمال</a>
         <a href="blog.html">الأكاديمية</a>
+        <a href="calculator.html" style="color: #d4af37; font-weight: bold;">الحاسبة</a>
         <a href="https://wa.me/201151983638">تواصل</a>
     </nav>
 </header>
@@ -78,7 +73,7 @@
     <div class="hero-content">
         <h2>شطب بيتك بلمسة فنية</h2>
         <p>خلى كل ركن يتكلم عنك</p>
-        <a class="btn" href="#calculator">احسب تكلفتك</a>
+        <a class="btn" href="calculator.html">احسب تكلفتك</a>
         <button id="openPackagesBtn" class="btn" style="background:transparent; border: 2px solid #d4af37;">باقات التشطيب</button>
     </div>
 </section>
@@ -99,7 +94,6 @@
         <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب ركن ديزاين"></div>
         <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="ديكورات داخلية"></div>
         <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="ديكورات داخلية"></div>
-
     </div>
 </section>
 
@@ -109,111 +103,32 @@
     <a href="blog.html" class="btn" style="margin-top: 20px;">دخول الأكاديمية (مجاناً)</a>
 </section>
 
-<section id="calculator" style="padding: 70px 10%;">
-<h2 style="text-align:center;margin-bottom:30px;">احسب تكلفة التشطيب</h2>
-<form id="costForm">
-<input id="name" required placeholder="الاسم">
-<input id="phone" required type="tel" pattern="[0-9]{11}" title="يرجى إدخال رقم موبايل صحيح (11 رقم)" placeholder="رقم الموبايل (11 رقم)">
-<input id="area" required type="number" placeholder="المساحة بالمتر">
-<select id="unit" required>
-<option value="">نوع الوحدة</option>
-<option>شقة</option>
-<option>دوبلكس</option>
-<option>فيلا</option>
-<option>أرضي بجنينة</option>
-<option>مكتب إداري</option>
-</select>
-<select id="finish" required>
-<option value="">حالة التشطيب</option>
-<option>محارة وحلوق</option>
-<option>طوب احمر</option>
-<option>تجديد</option>
-</select>
-<select id="region" required>
-<option value="">المنطقة</option>
-<option>الهرم - فيصل</option>
-<option>أكتوبر</option>
-<option>حدائق اكتوبر</option>
-<option>حدائق الأهرام</option>
-<option>الشيخ زايد</option>
-<option>دريم لاند</option>
-<option>الفردوس</option>
-<option>الخمائل</option>
-<option>العاصمة الإدارية</option>
-</select>
-<select id="package" required>
-<option value="">الباقة</option>
-<option>اقتصادية</option>
-<option>فضية</option>
-<option>ذهبية</option>
-<option>VIP</option>
-</select>
-<select id="metal" required>
-<option value="">الموتال</option>
-<option>تركيب الموتال</option>
-<option>بدون تركيب الموتال</option>
-</select>
-<br>
-<button class="btn" style="width:100%; margin:10px 0;">احسب التكلفة الآن</button>
-<div id="resultArea" class="result-overlay"></div>
-</form>
-</section>
-
 <div class="floating-buttons">
     <a href="https://wa.me/201151983638" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
     <a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
 </div>
 
 <div class="package-window" id="packageWindow">
-  <h2>اختار الباقة المناسبة</h2>
-  <button class="package-btn economic" onclick="openPackageLink('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
-  <button class="package-btn silver" onclick="openPackageLink('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
-  <button class="package-btn gold" onclick="openPackageLink('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
-  <button class="package-btn vip" onclick="openPackageLink('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
-  <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
+    <h2>اختار الباقة المناسبة</h2>
+    <button class="package-btn" style="background:#8bc34a" onclick="window.open('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
+    <button class="package-btn" style="background:#c0c0c0; color:#111" onclick="window.open('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
+    <button class="package-btn" style="background:#ffb300" onclick="window.open('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
+    <button class="package-btn" style="background:#d32f2f" onclick="window.open('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
+    <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
 </div>
 
 <footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
 
 <script>
     function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-    document.getElementById('openPackagesBtn').addEventListener('click',()=>{ document.getElementById('packageWindow').style.display='block'; });
-    function closePackageWindow(){document.getElementById('packageWindow').style.display='none';}
-
-    // الحاسبة الأصلية والربط بالشيت
-    document.getElementById("costForm").addEventListener("submit", function(e){
-        e.preventDefault();
-        
-        const area = parseFloat(document.getElementById("area").value);
-        const packageType = document.getElementById("package").value;
-        let pricePerMeter = 0;
-
-        // المعادلات الأصلية
-        if(packageType === "اقتصادية") pricePerMeter = 3500;
-        else if(packageType === "فضية") pricePerMeter = 5500;
-        else if(packageType === "ذهبية") pricePerMeter = 8500;
-        else if(packageType === "VIP") pricePerMeter = 12000;
-
-        const total = area * pricePerMeter;
-        
-        const resultArea = document.getElementById("resultArea");
-        resultArea.style.display = "block";
-        resultArea.innerHTML = `<h3>التكلفة التقديرية: ${total.toLocaleString()} جنيه</h3><p>سيتم التواصل معك لتأكيد التفاصيل.</p>`;
-
-        // الربط بجوجل شيت (الـ WebApp URL الخاص بك)
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz_K5_C2fU7p3N2L9j1I-rM0L0S/exec'; // ضع رابط الـ Script هنا
-        const formData = new FormData();
-        formData.append('Name', document.getElementById("name").value);
-        formData.append('Phone', document.getElementById("phone").value);
-        formData.append('Area', area);
-        formData.append('Region', document.getElementById("region").value);
-        formData.append('Package', packageType);
-        formData.append('Total', total);
-
-        fetch(scriptURL, { method: 'POST', body: formData})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message));
+    
+    document.getElementById('openPackagesBtn').addEventListener('click',()=>{ 
+        document.getElementById('packageWindow').style.display='block'; 
     });
+    
+    function closePackageWindow(){
+        document.getElementById('packageWindow').style.display='none';
+    }
 </script>
 
 </body>
