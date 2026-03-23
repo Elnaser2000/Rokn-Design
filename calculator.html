@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة تكاليف ركن ديزاين - النسخة الأصلية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background: #f5f5f5; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .calc-wrapper { background: white; padding: 30px; max-width: 500px; width: 100%; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,.1); }
+        h2 { text-align: center; margin-bottom: 25px; color: #111; font-size: 24px; border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
+        input, select { width: 100%; padding: 12px; margin: 10px 0; border-radius: 6px; border: 1px solid #ccc; font-size: 16px; font-family: 'Cairo'; }
+        .btn-calc { background: #d4af37; color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .btn-calc:hover { background: #b8962d; }
+        .back-link { display: block; text-align: center; margin-top: 20px; color: #666; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+<div class="calc-wrapper">
+    <h2>حاسبة تكلفة التشطيب</h2>
+    <form id="costForm">
+        <input id="name" required placeholder="الاسم">
+        <input id="phone" required placeholder="رقم الموبايل">
+        <input id="area" required type="number" placeholder="المساحة بالمتر">
+        
+        <select id="unit" required>
+            <option value="">نوع الوحدة</option>
+            <option>شقة</option>
+            <option>دوبلكس</option>
+            <option>فيلا</option>
+            <option>أرضي بجنينة</option>
+            <option>مكتب إداري</option>
+        </select>
+
+        <select id="finish" required>
+            <option value="">حالة التشطيب</option>
+            <option>محارة وحلوق</option>
+            <option>طوب احمر</option>
+            <option>تجديد</option>
+        </select>
+
+        <select id="region" required>
+            <option value="">المنطقة</option>
+            <option>الهرم - فيصل</option>
+            <option>أكتوبر</option>
+            <option>حدائق اكتوبر</option>
+            <option>حدائق الأهرام</option>
+            <option>الشيخ زايد</option>
+            <option>دريم لاند</option>
+            <option>الفردوس</option>
+            <option>الخمائل</option>
+            <option>العاصمة الإدارية</option>
+        </select>
+
+        <select id="package" required>
+            <option value="">الباقة</option>
+            <option>اقتصادية</option>
+            <option>فضية</option>
+            <option>ذهبية</option>
+            <option>VIP</option>
+        </select>
+
+        <select id="metal" required>
+            <option value="">الموتال</option>
+            <option>تركيب الموتال</option>
+            <option>بدون تركيب الموتال</option>
+        </select>
+
+        <button class="btn-calc">احسب التكلفة</button>
+    </form>
+    <a href="index.html" class="back-link">← العودة للرئيسية</a>
+</div>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbzhrH0VWebHuKu9rK4YxWBO0ZnW5iLmbVmGrqX-YTlEwNO8d31in-q_e3Pnppqnw4Gs/exec";
+
+const prices = {
+    "الهرم - فيصل": {اقتصادية:2800, فضية:3500, ذهبية:3800, VIP:4800},
+    "أكتوبر": {اقتصادية:3200, فضية:3700, ذهبية:4000, VIP:4800},
+    "حدائق اكتوبر": {اقتصادية:3200, فضية:3700, ذهبية:4000, VIP:4800},
+    "حدائق الأهرام": {اقتصادية:3200, فضية:3700, ذهبية:4000, VIP:4800},
+    "الشيخ زايد": {اقتصادية:3500, فضية:3900, ذهبية:4200, VIP:4800},
+    "دريم لاند": {اقتصادية:3500, فضية:3900, ذهبية:4200, VIP:4800},
+    "الفردوس": {اقتصادية:3200, فضية:3700, ذهبية:4000, VIP:4800},
+    "الخمائل": {اقتصادية:3200, فضية:3700, ذهبية:4000, VIP:4800},
+    "العاصمة الإدارية": {اقتصادية:4200, فضية:4900, ذهبية:5200, VIP:6800}
+};
+
+document.getElementById("costForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let area = Number(document.getElementById("area").value);
+    let unit = document.getElementById("unit").value;
+    let finish = document.getElementById("finish").value;
+    let region = document.getElementById("region").value;
+    let pack = document.getElementById("package").value;
+    let metal = document.getElementById("metal").value;
+
+    // تطبيق المعادلات الأصلية
+    let pricePerMeter = prices[region][pack];
+    if(finish == "طوب احمر") pricePerMeter += 500;
+    
+    let total = pricePerMeter * area;
+    
+    if(unit == "دوبلكس") total += 70000;
+    if(unit == "فيلا") total += 100000;
+    if(unit == "أرضي بجنينة") total += 25000;
+    if(finish == "تجديد") total += 30000;
+    if(metal == "تركيب الموتال") total += 35000;
+
+    // 1. الإرسال للجوجل شيت (صيد الداتا)
+    fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({name, phone, area, unit, finish, region, package:pack, metal, total})
+    });
+
+    // 2. إرسال واتساب بنفس التنسيق القديم
+    let message = `طلب جديد من موقع ركن ديزاين\nاهلأ بك يا ${name}\nالموبايل: ${phone}\nالمنطقة: ${region}\nالباقة: ${pack}\nنوع الوحدة: ${unit}\nحالة التشطيب: ${finish}\nالموتال: ${metal}\nالمساحة: ${area} متر\nالسعر المتوقع: ${total} جنيه\nلمزيد من الاستفسارات يرجى الاتصال على 01151983638`;
+    window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
+
+    // 3. عرض صفحة النتيجة المستقلة
+    let resultWindow = window.open("", "_blank");
+    resultWindow.document.write(`
+        <html dir="rtl">
+        <head><meta charset="UTF-8"><title>نتيجة المقايسة</title>
+        <style>
+            body{font-family:Cairo, sans-serif; background:#f5f5f5; padding:30px; text-align:right;}
+            .res-card{background:white; padding:20px; border-radius:10px; box-shadow:0 5px 20px rgba(0,0,0,.1); max-width:500px; margin:auto;}
+            h2{color:#d4af37; text-align:center;}
+            .item{border-bottom:1px solid #eee; padding:10px 0; display:flex; justify-content:space-between;}
+            .total{font-size:24px; font-weight:bold; color:#111; text-align:center; margin-top:20px;}
+        </style>
+        </head>
+        <body>
+            <div class="res-card">
+                <h2>ملخص التكلفة التقديرية</h2>
+                <div class="item"><span>الاسم:</span> <span>${name}</span></div>
+                <div class="item"><span>المنطقة:</span> <span>${region}</span></div>
+                <div class="item"><span>الباقة:</span> <span>${pack}</span></div>
+                <div class="item"><span>المساحة:</span> <span>${area} م</span></div>
+                <div class="item"><span>الموتال:</span> <span>${metal}</span></div>
+                <div class="total">السعر النهائي: ${total.toLocaleString()} جنيه</div>
+                <p style="text-align:center; color:#666; margin-top:15px;">شكراً لثقتكم في ركن ديزاين</p>
+            </div>
+        </body></html>
+    `);
+});
+</script>
+</body>
+</html>
