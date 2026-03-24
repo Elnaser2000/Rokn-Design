@@ -22,7 +22,6 @@
         header h1 { color: #d4af37; margin: 0; font-size: 24px; }
         header p { margin-top: 5px; opacity: 0.7; font-size: 14px; }
 
-        /* التبويبات (Tabs) */
         .category-tabs {
             display: flex; overflow-x: auto; white-space: nowrap;
             padding: 15px 5%; gap: 10px; background: #fff;
@@ -36,7 +35,6 @@
         }
         .tab-btn.active { background: #d4af37; color: #111; font-weight: bold; }
 
-        /* البحث */
         .search-wrapper { 
             max-width: 280px; margin-right: 5%; margin-left: auto; 
             position: relative; top: -25px; z-index: 1100;
@@ -48,7 +46,6 @@
         }
         .search-wrapper i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #d4af37; }
 
-        /* شبكة المقالات */
         .container { 
             padding: 10px 5% 40px; 
             display: grid; 
@@ -83,7 +80,7 @@
     <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن موضوع..." onkeyup="runFilter()">
 </div>
 
-<div class="category-tabs">
+<div class="category-tabs" id="tabsParent">
     <button class="tab-btn active" onclick="filterByCat('الكل', this)">الكل</button>
     <button class="tab-btn" onclick="filterByCat('تأسيس', this)">تأسيس</button>
     <button class="tab-btn" onclick="filterByCat('ديكور', this)">ديكور</button>
@@ -104,10 +101,12 @@
 
     function render() {
         const grid = document.getElementById('articlesGrid');
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const searchInput = document.getElementById('searchInput');
+        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+        
         grid.innerHTML = '';
 
-        // نتأكد أولاً أن المصفوفة موجودة لتجنب الأخطاء
+        // فحص هل البيانات وصلت من الملف الخارجي
         if (typeof allArticles !== 'undefined') {
             allArticles.forEach(art => {
                 const matchesCat = (currentCategory === 'الكل' || art.cat === currentCategory);
@@ -125,8 +124,12 @@
                     `;
                 }
             });
+            
+            if (grid.innerHTML === '') {
+                grid.innerHTML = '<p style="text-align:center; padding:40px; color:#666; grid-column: 1/-1;">لم يتم العثور على مقالات بهذا البحث.</p>';
+            }
         } else {
-            grid.innerHTML = '<p style="text-align:center; padding:20px;">جاري تحميل المقالات...</p>';
+            grid.innerHTML = '<p style="text-align:center; padding:40px; color:red; grid-column: 1/-1;">⚠️ خطأ: ملف articles-data.js غير موجود في المسار الصحيح.</p>';
         }
     }
 
@@ -137,7 +140,13 @@
         render();
     }
 
-    function runFilter() { render(); }
+    function runFilter() {
+        render();
+    }
 
-    // التشغيل عند فتح الصفحة
-    window.onload = render
+    // التأكد من تشغيل الـ render بمجرد ما الصفحة والبيانات يجهزوا
+    window.addEventListener('load', render);
+</script>
+
+</body>
+</html>
