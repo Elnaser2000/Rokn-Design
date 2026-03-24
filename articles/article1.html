@@ -1,79 +1,98 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أسرار العزل الهندسي - ركن ديزاين</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-    body{background:#f5f5f5;color:#333;line-height:1.8;}
-    header{background:#111;color:white;padding:20px;text-align:center;border-bottom:3px solid #d4af37;}
-    header h1{font-size:24px; color:#d4af37;}
-    .article-container{max-width:800px; margin:30px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.1);}
-    
-    /* تنسيق العنوان فوق الصورة */
-    .article-title{color:#111; font-size:28px; font-weight:700; text-align:center; margin-bottom:20px; line-height:1.4;}
-    .main-img{width:100%; border-radius:10px; margin-bottom:25px; border:1px solid #ddd; box-shadow:0 4px 10px rgba(0,0,0,0.05);}
-    
-    h2{color:#111; margin:25px 0 15px; font-size:22px; position:relative; padding-right:15px;}
-    h2::before{content:""; position:absolute; right:0; top:50%; transform:translateY(-50%); width:5px; height:20px; background:#d4af37; border-radius:2px;}
-    p{margin-bottom:20px; font-size:16px; text-align:justify; color:#555;}
-    .info-box{background:#fffcf2; border:1px dashed #d4af37; padding:20px; border-radius:10px; margin:25px 0;}
-    .info-box h3{color:#111; margin-bottom:10px; font-size:18px;}
-    .info-box ul{list-style:none; padding-right:10px;}
-    .info-box li{margin-bottom:8px; position:relative; padding-right:25px;}
-    .info-box li::before{content:"\f058"; font-family:"Font Awesome 5 Free"; font-weight:900; position:absolute; right:0; color:#d4af37;}
-    
-    .cta-section{background:#111; color:white; padding:30px; border-radius:10px; text-align:center; margin-top:40px;}
-    .cta-section h3{color:#d4af37; margin-bottom:10px;}
-    /* الملحوظة الثانية: جملة المخاطرة باللون الأبيض */
-    .cta-text{color:#ffffff; margin-bottom:15px; font-size:16px; font-weight:400;}
-    
-    .btn{background:#d4af37; color:white; padding:12px 30px; text-decoration:none; border-radius:6px; display:inline-block; font-weight:bold; transition:0.3s;}
-    .btn:hover{transform:scale(1.05); background:#c9a15b;}
-    .back-link{display:block; text-align:center; margin-top:20px; color:#666; text-decoration:none; font-size:14px;}
-    @media (max-width:768px){ .article-container{margin:15px; padding:20px;} .article-title{font-size:22px;} }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل عزل الحمامات الهندسي - ركن ديزاين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+        body{background:#f9f9f9;color:#333;line-height:1.8;}
+        header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
+        header h1 { color: #d4af37; font-size: 26px; }
+        .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .main-img { width: 100%; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
+        h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+        
+        .check-list { background: #fdfaf0; border-right: 5px solid #d4af37; padding: 25px; border-radius: 8px; margin: 30px 0; }
+        .check-list h3 { color: #111; margin-bottom: 15px; display: flex; align-items: center; }
+        .check-list h3 i { margin-left: 10px; color: #d4af37; }
+        .check-list ul { list-style: none; }
+        .check-list li { margin-bottom: 12px; padding-right: 30px; position: relative; font-size: 16px; }
+        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #2ecc71; }
+
+        .warning-box { background: #fff5f5; border: 1px solid #feb2b2; padding: 20px; border-radius: 8px; margin: 30px 0; color: #c53030; }
+        .warning-box h4 { margin-bottom: 10px; display: flex; align-items: center; }
+        .warning-box h4 i { margin-left: 10px; }
+
+        .cta-box { background: #111; color: white; padding: 35px; border-radius: 12px; text-align: center; margin-top: 50px; }
+        .cta-box h3 { color: #d4af37; font-size: 22px; margin-bottom: 15px; }
+        .btn-wa { background: #25d366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; display: inline-flex; align-items: center; font-weight: bold; margin-top: 20px; transition: 0.3s; }
+        .btn-wa i { margin-left: 10px; font-size: 20px; }
+        .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+        
+        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { color: #d4af37; }
+    </style>
 </head>
 <body>
 
 <header>
-    <h1>أكاديمية ركن ديزاين للتشطيب</h1>
+    <h1>أكاديمية ركن ديزاين</h1>
+    <p>تعلم أصول التنفيذ قبل أن تبدأ رحلة التشطيب</p>
 </header>
 
 <div class="article-container">
-    <h1 class="article-title">أسرار العزل الهندسي: كيف تحمي منزلك من كوارث الرطوبة؟</h1>
+    <img src="https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png" class="main-img" alt="عزل مائي احترافي">
     
-<img src="https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png" class="main-img" loading="lazy" alt="عزل الحمامات والمطابخ - ركن ديزاين">    
-    <h2>لماذا العزل هو "روح" الحمام؟</h2>
-    <p>في <b>ركن ديزاين</b>، "خلى كل ركن يتكلم عنك" بجماله يبدأ من حمايته. العزل المائي ليس مجرد طبقة توضع على الأرضية، بل هو منظومة هندسية متكاملة تمنع الرطوبة من تدمير خرسانة منزلك أو إفساد دهانات الغرف المجاورة والجار بالأسفل.</p>
+    <h1 style="font-size: 32px; margin-bottom: 20px;">دليل العزل المائي الشامل: كيف تحمي استثمارك من "سرطان" المنشآت؟</h1>
+    
+    <p>يعتبر العزل المائي للحمامات والمطابخ هو "التأمين الحقيقي" لشقتك. في <b>ركن ديزاين</b>، لا نعتبر العزل مجرد مادة تدهن، بل هو "منظومة حماية" تمنع وصول المياه للخرسانة وحديد التسليح، مما يحمي عمر المبنى الافتراضي ويجنبك صراعات مع الجيران وتكاليف ترميم باهظة.</p>
 
-    <div class="info-box">
-        <h3>مراحل العمل الاحترافية:</h3>
+    <h2>1. التحضير (بند ما قبل العزل)</h2>
+    <p>أكبر خطأ يقع فيه الكثيرون هو العزل فوق أرضية غير مجهزة. التنفيذ الصحيح يبدأ بـ:</p>
+    <ul>
+        <li><b>النظافة التامة:</b> إزالة أي "رايش" خرساني أو بقايا مونة قد تثقب طبقة العزل.</li>
+        <li><b>صناعة رقبة الزجاجة:</b> عمل انحناء أسمنتي عند التقاء الحوائط بالأرضية بزاوية 45 درجة (لياسة)، لأن أغلب التسريبات تبدأ من الزوايا الحادة.</li>
+    </ul>
+
+    <div class="check-list">
+        <h3><i class="fas fa-clipboard-check"></i> قائمة استلام المهندس (بند العزل):</h3>
         <ul>
-            <li><b>تحضير الأرضية:</b> إزالة أي بروزات خرسانية وتنظيف السطح تماماً.</li>
-            <li><b>رقبة الزجاجة (Fillet):</b> عمل ميل أسمنتي عند التقاء الحوائط بالأرضية لمنع التسريب من الزوايا.</li>
-            <li><b>العزل الكيميائي:</b> دهان وجهين متعامدين بمواد أسمنتية مرنة عالية الجودة.</li>
-            <li><b>اختبار الغمر:</b> ملء المكان بالمياه لمدة 48 ساعة للتأكد من نجاح العزل بنسبة 100%.</li>
+            <li>التأكد من دهان وجهين متعامدين (أفقي ورأسي) لضمان تغطية المسام.</li>
+            <li>رفع العزل على الحوائط بارتفاع لا يقل عن 20 سم (وفي منطقة الشاور يفضل لـ 1.80 سم).</li>
+            <li>حماية العزل بطبقة "لياسة" خفيفة فور نجاح الاختبار لمنع قطعه أثناء شغل السباكة.</li>
         </ul>
     </div>
 
-    <h2>نصيحة الخبراء من ركن ديزاين</h2>
-    <p>العزل بند هندسي بحت، ويجب التأكد من عزل "عتبة الباب" جيداً لمنع تسرب الرطوبة لباركيه الريسبشن أو غرف النوم، وهو خطأ شائع يقع فيه الكثيرون ويؤدي لتلف الأخشاب والدهانات الخارجية.</p>
+    <h2>2. اختبار الـ 48 ساعة</h2>
+    <p>لا يسمح بالبدء في السيراميك إلا بعد اختبار الغمر. يتم سد الفتحات وغمر الأرضية بالمياه وتحديد منسوبها بـ "علامة". إذا لم ينخفض المنسوب بعد يومين ولم يظهر "تنشيع" في سقف الجار، يمكنك الاعتماد عليه.</p>
 
-    <div class="cta-section">
-        <h3>بيتك أمان مع ركن ديزاين</h3>
-        <p class="cta-text">بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
-        <a href="../index.html#calculator" class="btn">احسب تكلفة تشطيبك الآن</a>
+    <div class="warning-box">
+        <h4><i class="fas fa-exclamation-triangle"></i> احذر من هذا الخطأ!</h4>
+        <p>ترك مواسير الصرف (الجراب) بدون عزل حولها بـ "مادة رابطة" (سيكا لاتكس) يؤدي لتسريب المياه خلف المواسير مهما كان نوع العزل قوياً.</p>
     </div>
 
-    <a href="../blog.html" class="back-link"><i class="fas fa-chevron-right"></i> العودة لمجلة الأكاديمية</a>
+    <h2>3. نصيحة ركن ديزاين الذهبية</h2>
+    <p>لا تبخل في شراء خامات العزل (سيكا أو إديكو أو كيماويات البناء الحديث). فرق السعر بين الخامة الجيدة والرديئة في مساحة الحمام الواحد لا يتعدى ثمن "عزومة غداء"، لكن تكلفة تكسير السيراميك وإعادة العزل والسباكة قد تصل لعشرات الآلاف!</p>
+
+    <div class="cta-box">
+        <h3>لا تخاطر ببيتك.. استشر الخبراء</h3>
+        <p>فريق ركن ديزاين يوفر لك إشرافاً هندسياً دقيقاً يضمن لك جودة التنفيذ من أول مسمار وحتى فرش الأثاث.</p>
+        <a href="https://wa.me/20XXXXXXXXXX" class="btn-wa">
+            <i class="fab fa-whatsapp"></i>
+            تحدث مع مهندس ركن ديزاين الآن
+        </a>
+    </div>
+
+    <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
 
-<footer style="text-align:center; padding:20px; color:#999; font-size:12px;">
-    جميع الحقوق محفوظة لركن ديزاين © 2026
+<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
+    جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
 </footer>
 
 </body>
