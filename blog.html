@@ -72,7 +72,7 @@
 
 <header>
     <h1>ركن ديزاين .. خلى كل ركن يتكلم عنك</h1>
-    <p>أكاديمية التشطيب الاحترافي (100 مقال في أصول التنفيذ)</p>
+    <p>أكاديمية التشطيب الاحترافي (دليلك لأصول التنفيذ)</p>
 </header>
 
 <div class="search-wrapper">
@@ -84,52 +84,81 @@
     <button class="tab-btn active" onclick="filterByCat('الكل', this)">الكل</button>
     <button class="tab-btn" onclick="filterByCat('تأسيس', this)">تأسيس</button>
     <button class="tab-btn" onclick="filterByCat('ديكور', this)">ديكور</button>
-    <button class="tab-btn" onclick="filterByCat('فرش', this)">فرش</button>
-    <button class="tab-btn" onclick="filterByCat('استلام', this)">استلام</button>
 </div>
 
-<div class="container" id="articlesGrid"></div>
+<div class="container" id="articlesGrid">
+    </div>
 
 <a href="index.html" class="back-home-fab"><i class="fas fa-home"></i></a>
 
 <footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
 
-<script src="articles-data.js"></script>
-
 <script>
+    // البيانات هنا مباشرة لضمان عدم حدوث أخطاء مسارات وتسهيل الـ SEO
+    const allArticles = [
+        {
+            id: 1,
+            title: "دليل العزل المائي الشامل",
+            desc: "تعرف على أصول العزل المائي للحمامات والمطابخ وكيفية تجنب تسريبات المياه الخطيرة.",
+            img: "https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png",
+            cat: "تأسيس"
+        },
+        {
+            id: 2,
+            title: "سحر لون الفانيلا لاتيه 2026",
+            desc: "لماذا يتربع هذا اللون على عرش الدهانات وكيف تنسقه مع الإضاءة والأثاث بشكل احترافي.",
+            img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png",
+            cat: "ديكور"
+        },
+        {
+            id: 3,
+            title: "أسرار المحارة الهندسية",
+            desc: "لماذا نصر في ركن ديزاين على المحارة الهندسية لضمان زوايا قائمة وحوائط مستوية.",
+            img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f",
+            cat: "تأسيس"
+        },
+        {
+            id: 4,
+            title: "تأسيس الكهرباء وأمان منزلك",
+            desc: "دليل توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية بيتك من مخاطر الكهرباء.",
+            img: "https://images.unsplash.com/photo-1558002038-1055907df827",
+            cat: "تأسيس"
+        },
+        {
+            id: 5,
+            title: "بديل الرخام والخشب: فخامة ذكية",
+            desc: "كيف تحصل على مظهر الرخام الطبيعي ودفء الخشب بتكلفة اقتصادية ومميزات عملية.",
+            img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+            cat: "ديكور"
+        }
+    ];
+
     let currentCategory = 'الكل';
 
     function render() {
         const grid = document.getElementById('articlesGrid');
-        const searchInput = document.getElementById('searchInput');
-        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-        
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
 
-        // فحص هل البيانات وصلت من الملف الخارجي
-        if (typeof allArticles !== 'undefined') {
-            allArticles.forEach(art => {
-                const matchesCat = (currentCategory === 'الكل' || art.cat === currentCategory);
-                const matchesSearch = art.title.toLowerCase().includes(searchTerm);
+        allArticles.forEach(art => {
+            const matchesCat = (currentCategory === 'الكل' || art.cat === currentCategory);
+            const matchesSearch = art.title.toLowerCase().includes(searchTerm) || art.desc.toLowerCase().includes(searchTerm);
 
-                if (matchesCat && matchesSearch) {
-                    grid.innerHTML += `
-                        <a href="articles/article${art.id}.html" class="blog-card">
-                            <img src="${art.img}" alt="${art.title}">
-                            <div class="blog-card-content">
-                                <h3>${art.title}</h3>
-                                <p>${art.desc}</p>
-                            </div>
-                        </a>
-                    `;
-                }
-            });
-            
-            if (grid.innerHTML === '') {
-                grid.innerHTML = '<p style="text-align:center; padding:40px; color:#666; grid-column: 1/-1;">لم يتم العثور على مقالات بهذا البحث.</p>';
+            if (matchesCat && matchesSearch) {
+                grid.innerHTML += `
+                    <a href="articles/article${art.id}.html" class="blog-card">
+                        <img src="${art.img}" alt="${art.title}">
+                        <div class="blog-card-content">
+                            <h3>${art.title}</h3>
+                            <p>${art.desc}</p>
+                        </div>
+                    </a>
+                `;
             }
-        } else {
-            grid.innerHTML = '<p style="text-align:center; padding:40px; color:red; grid-column: 1/-1;">⚠️ خطأ: ملف articles-data.js غير موجود في المسار الصحيح.</p>';
+        });
+
+        if (grid.innerHTML === '') {
+            grid.innerHTML = '<p style="text-align:center; padding:40px; color:#666; grid-column: 1/-1;">لا توجد مقالات تطابق بحثك.</p>';
         }
     }
 
@@ -144,8 +173,8 @@
         render();
     }
 
-    // التأكد من تشغيل الـ render بمجرد ما الصفحة والبيانات يجهزوا
-    window.addEventListener('load', render);
+    // التنفيذ الفوري
+    window.onload = render;
 </script>
 
 </body>
