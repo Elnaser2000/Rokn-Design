@@ -3,60 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تأسيس الكهرباء وتوزيع الأحمال - ركن ديزاين</title>
+    <title>أصول تأسيس الكهرباء وتوزيع الأحمال - ركن ديزاين</title>
+    <meta name="description" content="دليل ركن ديزاين لتأسيس كهرباء المنزل: اختيار أقطار الأسلاك المناسبة، توزيع البرايز بشكل هندسي، وتأمين لوحة المفاتيح ضد الأحمال الزائدة.">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        body{background:#f5f5f5;color:#333;line-height:1.8;}
-        header{background:#111;color:white;padding:20px;text-align:center;border-bottom:3px solid #d4af37;}
-        header h1{font-size:22px; color:#d4af37;}
-        .article-container{max-width:800px; margin:30px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 5px 20px rgba(0,0,0,0.1);}
-        .article-title{color:#111; font-size:26px; font-weight:700; text-align:center; margin-bottom:20px;}
-        .main-img{width:100%; border-radius:10px; margin-bottom:25px;}
-        h2{color:#111; margin:25px 0 15px; font-size:20px; border-right:4px solid #d4af37; padding-right:10px;}
-        p{margin-bottom:20px; font-size:16px; text-align:justify; color:#555;}
-        .warning-box{background:#fff5f5; border:1px solid #ffcccc; padding:20px; border-radius:10px; margin:25px 0;}
-        .warning-box h3{color:#d93025; margin-bottom:10px;}
-        .cta-section{background:#111; color:white; padding:30px; border-radius:10px; text-align:center; margin-top:40px;}
-        .btn{background:#d4af37; color:white; padding:12px 30px; text-decoration:none; border-radius:6px; display:inline-block; font-weight:bold; margin-top:15px;}
-        .back-link{display:block; text-align:center; margin-top:20px; color:#666; text-decoration:none;}
+        body{background:#f9f9f9;color:#333;line-height:1.8;}
+        header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
+        header h1 { color: #d4af37; font-size: 26px; }
+        .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        
+        .main-img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
+            border-radius: 12px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        }
+        
+        h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+        
+        .check-list { background: #fdfaf0; border-right: 5px solid #d4af37; padding: 25px; border-radius: 8px; margin: 30px 0; }
+        .check-list h3 { color: #111; margin-bottom: 15px; display: flex; align-items: center; }
+        .check-list h3 i { margin-left: 10px; color: #d4af37; }
+        .check-list ul { list-style: none; }
+        .check-list li { margin-bottom: 12px; padding-right: 30px; position: relative; font-size: 16px; }
+        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #d4af37; }
+
+        .cta-rokn { background: #111; color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
+        .cta-rokn h3 { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
+        .cta-rokn p { color: #eee; margin-bottom: 25px; font-size: 16px; text-align: center !important; }
+        .btn-calc { background: #d4af37; color: #111; padding: 15px 40px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
+        .btn-calc:hover { transform: scale(1.05); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+        
+        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { color: #d4af37; }
+
+        @media (max-width: 768px) {
+            .main-img { height: 250px; }
+            .article-container { padding: 20px; margin: -20px 15px 30px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>أكاديمية ركن ديزاين للتشطيب</h1>
+    <h1>أكاديمية ركن ديزاين</h1>
+    <p>الأمان والجودة في أدق تفاصيل بيتك</p>
 </header>
 
 <div class="article-container">
-    <h1 class="article-title">تأسيس الكهرباء: كيف تضمن الأمان والراحة في بيتك؟</h1>
+    <img src="https://images.unsplash.com/photo-1558002038-1055907df827" class="main-img" alt="تأسيس كهرباء المنزل">
     
-    <img src="https://images.unsplash.com/photo-1558002038-1055907df827" class="main-img" alt="تأسيس كهرباء ركن ديزاين">    
+    <h1 style="font-size: 32px; margin-bottom: 20px;">تأسيس الكهرباء: كيف تتجنب السخونة الزائدة واحتراق الأسلاك؟</h1>
     
-    <h2>لماذا يعتبر توزيع الأحمال أهم من عدد الأفياش؟</h2>
-    <p>في <b>ركن ديزاين</b>، نؤمن أن الكهرباء ليست مجرد "سلك في الحائط"، بل هي نظام متكامل. الخطأ في اختيار قطر السلك (المقطع) المناسب للتكييف أو المطبخ قد يؤدي لمشاكل كبيرة مستقبلاً. يجب فصل أحمال الإضاءة عن أحمال البرايز، وتخصيص خطوط مستقلة للأجهزة الثقيلة.</p>
+    <p>في <b>ركن ديزاين</b>، نعتبر تأسيس الكهرباء هو "عصب" البيت. التأسيس الصحيح لا يقتصر فقط على توزيع أماكن "البرايز" والمفاتيح، بل يبدأ من حساب الأحمال الكهربائية بدقة لضمان عدم حدوث رعشة في الإضاءة أو فصل مفاجئ للمفاتيح الأوتوماتيكية عند تشغيل المكيفات.</p>
 
-    <div class="warning-box">
-        <h3>🚨 أخطاء شائعة تجنبها:</h3>
+    <h2>أهمية توزيع الأحمال (Power Distribution)</h2>
+    <p>أكبر خطأ هو تحميل أكثر من جهاز ثقيل (مثل المكيف والغسالة) على خط واحد. نحن نعتمد نظام "اللينيات" المنفصلة، حيث يتم سحب سلك مباشر من لوحة المفاتيح لكل جهاز ذو سحب عالي، لضمان استقرار التيار وحماية الأسلاك من السخونة.</p>
+
+    <div class="check-list">
+        <h3><i class="fas fa-bolt"></i> معايير ركن ديزاين لتأسيس الكهرباء:</h3>
         <ul>
-            <li>استخدام أسلاك مجهولة المصدر (دائماً نستخدم السويدي الأصلي).</li>
-            <li>توزيع الأفياش بشكل عشوائي قبل تحديد أماكن الفرش.</li>
-            <li>إهمال "تأريض" (Earthing) الأجهزة الحساسة.</li>
+            <li><b>أقطار الأسلاك:</b> استخدام أسلاك معتمدة (مثل السويدي) بأقطار تتناسب مع الحمل (4 ملم للتكييف، 2.5 ملم للبرايز، و1.5 ملم للإضاءة).</li>
+            <li><b>مواسير الخراطيم:</b> استخدام مواسير "علاء الدين" أو ما يماثلها لسهولة "سحب" السلك وحمايته من الرطوبة.</li>
+            <li><b>ارتفاعات هندسية:</b> توزيع المفاتيح بارتفاع 120 سم، والبرايز بارتفاع 40 سم عن الأرضية النهائية.</li>
+            <li><b>لوحة المفاتيح:</b> تقسيم اللوحة بحيث يسهل التحكم في كل غرف على حدة في حالات الطوارئ.</li>
         </ul>
     </div>
 
-    <h2>نصيحة ركن ديزاين للإضاءة الحديثة</h2>
-    <p>عند التأسيس، احرص على عمل "تجهيزات السمارت هوم" حتى لو لن تنفذها الآن. سحب سلك "النيوترال" لعلب المفاتيح سيوفر عليك الكثير مستقبلاً إذا قررت تحويل بيتك لبيت ذكي.</p>
+    <h2>نصيحة المهندس: "الفرش قبل التأسيس"</h2>
+    <p>القاعدة الذهبية في ركن ديزاين هي: لا تبدأ في تأسيس الكهرباء قبل توزيع "فرش الأثاث" على اللوحة. معرفة مكان السرير، الكومودينو، وشاشة التلفزيون بدقة يوفر عليك استخدام "المشتركات" السلكية المشوهة للديكور لاحقاً.</p>
 
-    <div class="cta-section">
-        <h3>احمِ بيتك وأسرتك بتأسيس هندسي صح</h3>
-        <p>استخدم حاسبة ركن ديزاين لمعرفة تكلفة التأسيس شاملة الخامات والمصنعيات.</p>
-        <a href="../calculator.html" class="btn">احسب تكلفة تأسيسك الآن</a>
+    <div class="cta-rokn">
+        <h3>خلى كل ركن يتكلم عنك</h3>
+        <p>بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
+        <a href="../calculator.html" class="btn-calc">
+            <i class="fas fa-calculator" style="margin-left: 8px;"></i>
+            احسب تكلفة تشطيبك الآن
+        </a>
     </div>
 
-    <a href="../blog.html" class="back-link"> <i class="fas fa-arrow-right"></i> العودة للمدونة</a>
+    <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
+
+<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
+    جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
+</footer>
 
 </body>
 </html>
