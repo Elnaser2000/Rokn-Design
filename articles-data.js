@@ -39,14 +39,15 @@ const allArticles = [
         image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
         link: "articles/article5.html",
         category: "ديكور"
-    }
+    }, // الفاصلة دي كانت ناقصة
     {
-    id: 6,
-    title: "أصول تأسيس السباكة واختبار الضغط",
-    desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة؟ تعرف على معايير ركن ديزاين في الاستلام والضمان.",
-    img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
-    cat: "تأسيس"
-},
+        id: 6,
+        title: "أصول تأسيس السباكة واختبار الضغط",
+        description: "كيف تضمن سباكة خالية من التسريبات مدى الحياة؟ تعرف على معايير ركن ديزاين في الاستلام والضمان.",
+        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
+        link: "articles/article6.html",
+        category: "تأسيس"
+    }
 ];
 
 // تصدير البيانات لتستخدمها صفحة البلوج
