@@ -19,9 +19,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
+        /* التنسيقات العامة */
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
         body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px;}
-        
         header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position: sticky; top:0; z-index: 1000; border-bottom: 1px solid #333;}
         header h1{font-size:22px; cursor:pointer; color: #d4af37;}
         nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;cursor:pointer; transition: 0.3s;}
@@ -35,29 +35,33 @@
         .btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;text-decoration:none;font-size:16px;border-radius:6px;display:inline-block;cursor:pointer; transition: 0.3s; border: 1px solid transparent;}
         .btn:hover{background: #b8962d; transform: translateY(-2px);}
 
+        /* قسم الباقات الجديد */
+        .packages-section {padding: 80px 8%; background: #fff; text-align: center;}
+        .pricing-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 40px;}
+        .price-card {background: #fff; border-radius: 15px; overflow: hidden; position: relative; transition: 0.3s; border: 1px solid #eee; display: flex; flex-direction: column;}
+        .price-card:hover {transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1);}
+        .card-header {padding: 25px; color: white; text-align: center;}
+        .p-eco {background: #8bc34a;}
+        .p-silver {background: #c0c0c0; color: #333;}
+        .p-gold {background: #d4af37;}
+        .p-vip {background: #111; border-bottom: 3px solid #d32f2f;}
+        .price-tag {font-size: 24px; font-weight: bold; margin-top: 5px;}
+        .features-list {padding: 20px; list-style: none; text-align: right; flex-grow: 1;}
+        .features-list li {padding: 8px 0; border-bottom: 1px solid #f9f9f9; font-size: 13px;}
+        .features-list li i {color: #25d366; margin-left: 8px;}
+        .select-btn {margin: 15px; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 14px;}
+
+        /* باقي الأقسام */
         .services, .gallery, .academy {padding: 80px 8%; text-align: center;}
         .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px; margin-top: 30px;}
-        .card {background:white;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 3px solid transparent;}
-        .card:hover {transform: translateY(-5px); border-color: #d4af37;}
+        .card {background:white;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05);}
         
-        .gallery-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;margin-top:30px;}
-        .gallery-item {height:250px;border-radius:12px;overflow:hidden;position:relative;}
-        .gallery-item img {width:100%;height:100%;object-fit:cover;transition:0.5s;}
-        .gallery-item:hover img {transform:scale(1.1);}
-
         .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:2000;}
-        .floating-buttons a{width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:22px;box-shadow:0 4px 10px rgba(0,0,0,0.3);text-decoration:none; transition: 0.3s;}
-        .floating-buttons a:hover{transform: scale(1.1);}
+        .floating-buttons a{width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:22px;}
         .whatsapp-btn{background:#25D366;}
         .call-btn{background:#007BFF;}
 
-        /* نافذة الباقات */
-        .package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.4);z-index:3000;width:90%;max-width:400px;text-align:center;}
-        .package-btn{padding:12px;margin:10px 0;border:none;border-radius:8px;cursor:pointer;display:block;width:100%;font-size:16px;font-weight:bold;color:white; transition: 0.2s;}
-        .package-btn:hover{filter: brightness(1.1);}
-        .close-btn{background:#eee;color:#333;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;margin-top:15px; width: 100%;}
-
-        footer{background:#000;color:#888;text-align:center;padding:40px; font-size: 13px; border-top: 1px solid #222;}
+        footer{background:#000;color:#888;text-align:center;padding:40px; font-size: 13px;}
     </style>
 </head>
 <body>
@@ -65,9 +69,9 @@
 <header>
     <h1 onclick="scrollToSection('hero')">ركن ديزاين</h1>
     <nav>
-        <a onclick="scrollToSection('services')">الخدمات</a>
+        <a onclick="scrollToSection('services')">لماذا نحن؟</a>
+        <a onclick="scrollToSection('packages')">الباقات</a>
         <a onclick="scrollToSection('gallery')">الأعمال</a>
-        <a onclick="scrollToSection('academy')">الأكاديمية</a>
         <a href="calculator.html" style="color: #d4af37; font-weight: bold;">الحاسبة</a>
     </nav>
 </header>
@@ -77,61 +81,63 @@
         <h2>شطب بيتك بلمسة فنية</h2>
         <p>خلى كل ركن يتكلم عنك</p>
         <a class="btn" href="calculator.html">إحسب تكلفتك الآن</a>
-        <button id="openPackagesBtn" class="btn" style="background:transparent; border: 2px solid #d4af37;">باقات التشطيب</button>
+        <a class="btn" onclick="scrollToSection('packages')" style="background:transparent; border: 2px solid #d4af37;">باقات التشطيب</a>
+    </div>
+</section>
+
+<section class="packages-section" id="packages">
+    <h2>باقات تشطيب ركن ديزاين</h2>
+    <p>اختار الباقة اللي تناسب طموحك وسيب الباقي علينا</p>
+    
+    <div class="pricing-container">
+        <div class="price-card">
+            <div class="card-header p-eco"><h3>اقتصادية</h3><div class="price-tag">3500 ج/م</div></div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> تأسيس السويدي و BR</li>
+                <li><i class="fas fa-check"></i> دهانات جوتن/سايبس</li>
+                <li><i class="fas fa-check"></i> سيراميك فرز أول</li>
+            </ul>
+            <a href="calculator.html?package=eco" class="select-btn p-eco" style="color:white">اختر هذه الباقة</a>
+        </div>
+
+        <div class="price-card" style="border: 2px solid #c0c0c0;">
+            <div class="card-header p-silver"><h3>فضية</h3><div class="price-tag">5500 ج/م</div></div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> كل مميزات الاقتصادية</li>
+                <li><i class="fas fa-check"></i> ريسيبشن جبس بورد</li>
+                <li><i class="fas fa-check"></i> ضمان 5 سنوات</li>
+            </ul>
+            <a href="calculator.html?package=silver" class="select-btn p-silver">اختر هذه الباقة</a>
+        </div>
+
+        <div class="price-card" style="border: 2px solid #d4af37;">
+            <div class="card-header p-gold"><h3>ذهبية</h3><div class="price-tag">8000 ج/م</div></div>
+            <ul class="features-list">
+                <li><i class="fas fa-check"></i> جبس بورد كامل الشقة</li>
+                <li><i class="fas fa-check"></i> بورسلين مستورد</li>
+                <li><i class="fas fa-check"></i> ضمان 10 سنوات</li>
+            </ul>
+            <a href="calculator.html?package=gold" class="select-btn p-gold" style="color:white">اختر هذه الباقة</a>
+        </div>
     </div>
 </section>
 
 <section class="services" id="services">
     <h2>لماذا تختار ركن ديزاين؟</h2>
     <div class="cards">
-        <div class="card">
-            <i class="fas fa-clock" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
-            <h3>التزام بالمواعيد</h3>
-            <p>نسلم وحدتك في الوقت المحدد دون تأخير يوماً واحداً.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-hard-hat" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
-            <h3>إشراف هندسي</h3>
-            <p>كل بند يتم تنفيذه تحت إشراف مهندسين متخصصين.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-award" style="font-size: 30px; color: #d4af37; margin-bottom: 15px;"></i>
-            <h3>جودة الخامات</h3>
-            <p>نستخدم أفضل الخامات المعتمدة لضمان عمر أطول لتشطيبك.</p>
-        </div>
+        <div class="card"><h3>التزام بالمواعيد</h3><p>نسلم وحدتك في الوقت المحدد دون تأخير.</p></div>
+        <div class="card"><h3>إشراف هندسي</h3><p>كل بند يتم تحت إشراف هندسي دقيق.</p></div>
+        <div class="card"><h3>جودة الخامات</h3><p>نستخدم أفضل الخامات المعتمدة عالمياً.</p></div>
     </div>
 </section>
 
-<section class="gallery" id="gallery">
-    <h2>من أعمالنا</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="تصميم مودرن"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="ديكورات داخلية"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="واجهات ركن"></div>
+<section class="academy" id="academy" style="background: #111; color: white;">
+    <h2 style="color: #d4af37;">أكاديمية ركن للتشطيب</h2>
+    <p>أكثر من 100 مقال يشرح لك أصول التشطيب</p>
+    <div style="margin-top:20px;">
+        <a href="blog.html" class="btn" style="background:transparent; border:1px solid #fff;">المقالات</a>
+        <a href="calculator.html" class="btn">ابدأ حساب تكلفتك</a>
     </div>
-</section>
-
-<section class="academy" id="academy" style="background: #111; color: white; border-top: 3px solid #d4af37;">
-    <i class="fas fa-graduation-cap" style="font-size: 40px; color: #d4af37; margin-bottom: 20px;"></i>
-    <h2 style="font-size: 28px; margin-bottom: 15px;">أكاديمية ركن للتشطيب</h2>
-    <p style="color: #ccc; max-width: 700px; margin: 0 auto 35px; font-weight: 300;">
-        أكثر من 100 مقال يشرح لك أصول التشطيب من التأسيس حتى السكن. تعلم كيف تختار خاماتك وتوفر ميزانيتك بذكاء.
-    </p>
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-        <a href="blog.html" class="btn" style="background: transparent; border: 1px solid #555; min-width: 220px;">
-            استكشف المقالات
-        </a>
-        
-        <a href="calculator.html" class="btn" style="background: #d4af37; color: #111; font-weight: bold; min-width: 220px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);">
-            <i class="fas fa-calculator" style="margin-left: 8px;"></i> احسب تكلفة شقتك الآن
-        </a>
-    </div>
-
-    <p style="margin-top: 30px; font-size: 14px; color: #d4af37; font-style: italic; opacity: 0.8;">
-        * خطط لميزانية بيتك بدقة واحترافية في أقل من دقيقة واحدة
-    </p>
 </section>
 
 <div class="floating-buttons">
@@ -139,30 +145,10 @@
     <a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
 </div>
 
-<div class="package-window" id="packageWindow">
-    <h2>اختار الباقة المناسبة</h2>
-    <button class="package-btn" style="background:#8bc34a" onclick="window.open('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 باقة اقتصادية</button>
-    <button class="package-btn" style="background:#c0c0c0; color:#111" onclick="window.open('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 باقة فضية</button>
-    <button class="package-btn" style="background:#ffb300" onclick="window.open('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ باقة ذهبية</button>
-    <button class="package-btn" style="background:#d32f2f" onclick="window.open('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 باقة VIP</button>
-    <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
-</div>
-
-<footer>
-    <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
-    <p style="margin-top:10px; opacity:0.5;">تصميم وتنفيذ المهندس ركن</p>
-</footer>
+<footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
 
 <script>
     function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-    
-    document.getElementById('openPackagesBtn').addEventListener('click',()=>{ 
-        document.getElementById('packageWindow').style.display='block'; 
-    });
-    
-    function closePackageWindow(){
-        document.getElementById('packageWindow').style.display='none';
-    }
 </script>
 
 </body>
