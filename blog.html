@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية ركن ديزاين - الموسوعة الشاملة للتشطيب 2026</title>
+    <title>أكاديمية ركن ديزاين - المرجع الهندسي للتشطيب 2026</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD62NBY3TP"></script>
     <script>
@@ -21,34 +21,34 @@
         body { font-family: 'Cairo', sans-serif; background: var(--light); margin: 0; padding-bottom: 100px; direction: rtl; color: #333; overflow-x: hidden; }
         
         /* Header */
-        header { background: var(--dark); color: var(--white); padding: 60px 5% 90px; text-align: center; border-bottom: 5px solid var(--gold); }
-        header h1 { color: var(--gold); margin: 0; font-size: 28px; font-weight: 700; }
-        header p { margin-top: 15px; color: var(--white); font-size: 16px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.7; opacity: 1; }
+        header { background: var(--dark); color: var(--white); padding: 70px 5% 100px; text-align: center; border-bottom: 5px solid var(--gold); }
+        header h1 { color: var(--gold); margin: 0; font-size: 32px; font-weight: 700; }
+        header p { margin-top: 15px; color: var(--white); font-size: 18px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; opacity: 1; }
 
-        /* Search Box Fixed */
+        /* Search Box Responsive */
         .search-wrapper { 
             width: 90%; 
-            max-width: 420px; 
+            max-width: 500px; 
             margin: 0 auto;
             position: relative; 
-            top: -35px; 
+            top: -40px; 
             z-index: 1100;
         }
         .search-box { 
             width: 100%; 
-            padding: 18px 25px 18px 55px; 
+            padding: 20px 25px 20px 60px; 
             border-radius: 50px; 
             border: 3px solid var(--gold); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2); 
-            font-size: 16px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2); 
+            font-size: 17px; 
             outline: none; 
             text-align: right; 
             background: white;
             box-sizing: border-box;
         }
-        .search-wrapper i { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 20px; }
+        .search-wrapper i { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 22px; }
 
-        /* Tabs */
+        /* Navigation Tabs */
         .category-tabs {
             display: flex; overflow-x: auto; white-space: nowrap;
             padding: 15px 5%; gap: 10px; background: #fff;
@@ -59,48 +59,49 @@
         .category-tabs::-webkit-scrollbar { display: none; }
 
         .tab-btn {
-            padding: 10px 22px; border-radius: 30px; background: #f2f2f2;
-            border: none; font-family: 'Cairo', sans-serif; font-size: 14px;
+            padding: 12px 25px; border-radius: 30px; background: #f2f2f2;
+            border: none; font-family: 'Cairo', sans-serif; font-size: 15px;
             cursor: pointer; transition: 0.3s; font-weight: 600; color: var(--dark);
         }
         .tab-btn.active { background: var(--gold); color: var(--dark); }
 
-        /* Container */
+        /* Grid System */
         .container { 
-            padding: 30px 5% 60px; 
+            padding: 40px 5% 80px; 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); 
-            gap: 25px; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
         }
 
-        /* Card */
+        /* Blog Card */
         .blog-card { 
-            background: white; border-radius: 20px; overflow: hidden; 
-            box-shadow: 0 8px 25px rgba(0,0,0,0.07); transition: 0.4s; 
+            background: white; border-radius: 25px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: 0.4s; 
             text-decoration: none; color: inherit; display: flex; flex-direction: column;
-            border-bottom: 5px solid transparent;
+            border-bottom: 6px solid transparent;
         }
-        .blog-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-        .blog-card img { width: 100%; height: 210px; object-fit: cover; }
+        .blog-card:hover { transform: translateY(-12px); border-color: var(--gold); }
+        .blog-card img { width: 100%; height: 230px; object-fit: cover; }
         
-        .blog-card-content { padding: 22px; flex-grow: 1; display: flex; flex-direction: column; }
-        .blog-card-content span { color: var(--gold); font-size: 12px; font-weight: bold; margin-bottom: 8px; display: block; }
-        .blog-card-content h3 { margin: 0 0 10px; font-size: 19px; color: var(--dark); line-height: 1.5; }
-        .blog-card-content p { font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 18px; }
+        .blog-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-card-content span { color: var(--gold); font-size: 13px; font-weight: bold; margin-bottom: 10px; display: block; text-transform: uppercase; }
+        .blog-card-content h3 { margin: 0 0 12px; font-size: 21px; color: var(--dark); line-height: 1.5; }
+        .blog-card-content p { font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 20px; }
         
-        .read-more { margin-top: auto; color: var(--gold); font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+        .read-more { margin-top: auto; color: var(--gold); font-weight: bold; font-size: 15px; display: flex; align-items: center; gap: 8px; }
 
         /* FAB */
-        .back-home-fab { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background: var(--gold); color: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); text-decoration: none; z-index: 2000; }
+        .back-home-fab { position: fixed; bottom: 30px; left: 30px; width: 65px; height: 65px; background: var(--gold); color: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-decoration: none; z-index: 2000; transition: 0.3s; }
+        .back-home-fab:hover { transform: scale(1.1); }
         
         /* Footer */
-        footer { background: var(--dark); color: var(--white); text-align: center; padding: 50px 20px; font-size: 14px; border-top: 1px solid #333; }
-        footer p { color: var(--white); margin: 8px 0; opacity: 1; }
+        footer { background: var(--dark); color: var(--white); text-align: center; padding: 60px 20px; font-size: 15px; border-top: 1px solid #333; }
+        footer p { color: var(--white); margin: 10px 0; opacity: 1; }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 24px; }
-            .container { grid-template-columns: 1fr; padding: 15px; }
-            .search-wrapper { width: 92%; top: -30px; }
+            header h1 { font-size: 26px; }
+            .container { grid-template-columns: 1fr; padding: 20px; }
+            .search-wrapper { width: 92%; top: -35px; }
         }
     </style>
 </head>
@@ -108,12 +109,12 @@
 
 <header>
     <h1>أكاديمية ركن ديزاين</h1>
-    <p>أكبر مرجع عربي متخصص في أصول التشطيب الهندسي والديكور. مقالات تعليمية دسمة لضمان جودة بيت العمر.</p>
+    <p>الموسوعة الهندسية الشاملة للتشطيب والديكور 2026. مقالات تعليمية متخصصة (1000+ كلمة) لضمان تنفيذ بيت العمر بأعلى معايير الجودة.</p>
 </header>
 
 <div class="search-wrapper">
     <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في 17 مقال تخصصي..." onkeyup="runFilter()">
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في 20 مقال هندسي (أثاث، سباكة، مطابخ...)" onkeyup="runFilter()">
 </div>
 
 <div class="category-tabs" id="tabsParent">
@@ -129,30 +130,33 @@
 <a href="index.html" class="back-home-fab"><i class="fas fa-home fa-lg"></i></a>
 
 <footer>
-    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 45px; margin-bottom: 25px; filter: brightness(0) invert(1);">
     <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
-    <p>نحن نبني حكاية لكل ركن في منزلك</p>
+    <p>نحن لا نبيع تشطيباً.. نحن نبني إرثاً يسكنه أحباؤك</p>
 </footer>
 
 <script>
     const allArticles = [
-        { id: 17, title: "فن الإكسسوارات والمرايا 2026", desc: "مرجع شامل (1000+ كلمة) عن قواعد توزيع المرايا واللوحات لإعطاء فخامة واتساع للمساحات.", img: "https://i.ibb.co/v6yXyXyX/Decor-Mirror.png", cat: "فرش" },
-        { id: 16, title: "دليل الستائر الحديثة والأنظمة الذكية", desc: "دليل فني دسم عن أقمشة الكتان وتأسيس بيت الستارة المخفي وأنظمة السمارت هوم.", img: "https://i.ibb.co/v6yXyXyX/Curtains-2026.png", cat: "ديكور" },
-        { id: 15, title: "أسرار اختيار الأثاث المودرن 2026", desc: "أكثر من 1000 كلمة تشرح كيفية اختيار الأخشاب وتوزيع الأثاث بذكاء هندسي.", img: "https://i.ibb.co/v6yXyXyX/Furniture-2026.png", cat: "فرش" },
-        { id: 14, title: "دليل الألوميتال والـ PVC العالمي", desc: "كل ما تريد معرفته عن قطاعات الجامبو والتانجو وأسرار عزل الصوت والحرارة.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Windows.png", cat: "تأسيس" },
-        { id: 13, title: "دليل ألوان 2026: باليتة السعادة", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Colors2026.png", cat: "ديكور" },
-        { id: 12, title: "دليل النقاشة والدهانات الشامل", desc: "خطوات التنفيذ من المعجون حتى الفنش النهائي وأفضل أنواع جوتن وجي ال سي.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Paint.png", cat: "ديكور" },
-        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وكيفية توزيع الليد بروفايل والسبوتات باحترافية.", img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png", cat: "ديكور" },
-        { id: 10, title: "أبواب الخشب: الزان والسويدي", desc: "كيف تفرق بين أنواع الخشب وأسرار استلام النجارة لضمان عدم تريح الأبواب.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png", cat: "فرش" },
-        { id: 9, title: "تأسيس التكييف وتجنب التكسير", desc: "دليل حماية الحوائط من تنقيط المياه وتأسيس مسارات النحاس بشكل هندسي.", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473", cat: "تأسيس" },
-        { id: 8, title: "أصول تركيب الجبس بورد", desc: "تجنب شروخ الأسقف وأهمية الهيكل المعدني في استواء السقف للأبد.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f", cat: "استلام" },
-        { id: 7, title: "السيراميك والبورسلين 2026", desc: "معايير ركن ديزاين في اختيار الأرضيات والفرق الجوهري في طرق التركيب.", img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e", cat: "ديكور" },
-        { id: 6, title: "أصول تأسيس السباكة والضغط", desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة مع شهادات الضمان.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a", cat: "تأسيس" },
-        { id: 5, title: "بديل الرخام والخشب الذكي", desc: "فخامة الرخام ودفء الخشب بتكلفة اقتصادية ومميزات عملية مذهلة.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6", cat: "ديكور" },
-        { id: 4, title: "تأسيس الكهرباء وأمان المنزل", desc: "توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية منزلك من المخاطر.", img: "https://images.unsplash.com/photo-1558002038-1055907df827", cat: "تأسيس" },
-        { id: 3, title: "أسرار المحارة الهندسية", desc: "لماذا نعتمد المحارة بالأوتار لضمان زوايا قائمة وحوائط مستوية تماماً.", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f", cat: "تأسيس" },
-        { id: 2, title: "سحر لون الفانيلا لاتيه", desc: "اللون الأكثر طلباً وكيفية تنسيقه مع الإضاءة الصفراء والبيضاء.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" },
-        { id: 1, title: "دليل العزل المائي الشامل", desc: "حماية الحمامات والمطابخ من تسريبات المياه الخطيرة بأفضل المواد.", img: "https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png", cat: "تأسيس" }
+        { id: 20, title: "دليل استلام الشقة (القائمة النهائية)", desc: "مرجع شامل (1000+ كلمة) لاختبار جودة السباكة والكهرباء والدهانات قبل التوقيع النهائي.", img: "https://images.unsplash.com/photo-1503387762-592dea58ef23", cat: "استلام" },
+        { id: 19, title: "دليل الحمامات الفندقية 2026", desc: "أسرار التأسيس المدفون وكابينات الشاور المودرن وأنظمة العزل الذكي لتجربة رفاهية مطلقة.", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14", cat: "ديكور" },
+        { id: 18, title: "دليل تصميم المطابخ المودرن 2026", desc: "أكثر من 1000 كلمة عن مثلث الحركة وخامات الـ HPL وكيفية بناء مطبخ أحلامك.", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f", cat: "ديكور" },
+        { id: 17, title: "فن الإكسسوارات والمرايا 2026", desc: "دليل هندسي حول قواعد توزيع المرايا واللوحات الفنية لإعطاء فخامة واتساع للمساحات.", img: "https://i.ibb.co/v6yXyXyX/Decor-Mirror.png", cat: "فرش" },
+        { id: 16, title: "دليل الستائر الحديثة والأنظمة الذكية", desc: "مرجع فني عن أقمشة الكتان وتأسيس بيت الستارة المخفي وأنظمة السمارت هوم المتطورة.", img: "https://i.ibb.co/v6yXyXyX/Curtains-2026.png", cat: "ديكور" },
+        { id: 15, title: "أسرار اختيار الأثاث المودرن 2026", desc: "دليل (1000+ كلمة) يشرح كيفية اختيار الأخشاب وتوزيع الأثاث بذكاء هندسي لاستغلال الفراغات.", img: "https://i.ibb.co/v6yXyXyX/Furniture-2026.png", cat: "فرش" },
+        { id: 14, title: "دليل الألوميتال والـ PVC العالمي", desc: "أسرار عزل الصوت والحرارة والفرق الجوهري بين قطاعات الجامبو والتانجو والـ PVC.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Windows.png", cat: "تأسيس" },
+        { id: 13, title: "دليل ألوان 2026: باليتة السعادة", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة لراحة نفسية.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Colors2026.png", cat: "ديكور" },
+        { id: 12, title: "دليل النقاشة والدهانات الشامل", desc: "خطوات التنفيذ الهندسي من المعجون حتى الفنش النهائي وأفضل أنواع جوتن وجي ال سي.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Paint.png", cat: "ديكور" },
+        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وكيفية توزيع الليد بروفايل والسبوتات بذكاء المعماريين.", img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png", cat: "ديكور" },
+        { id: 10, title: "أبواب الخشب: الزان والسويدي", desc: "كيف تفرق بين أنواع الخشب وأسرار استلام النجارة لضمان عدم تريح الأبواب مستقبلاً.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png", cat: "فرش" },
+        { id: 9, title: "تأسيس التكييف وتجنب التكسير", desc: "دليل حماية الحوائط من تنقيط المياه وتأسيس مسارات النحاس بشكل هندسي خفي.", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473", cat: "تأسيس" },
+        { id: 8, title: "أصول تركيب الجبس بورد", desc: "تجنب شروخ الأسقف وأهمية الهيكل المعدني في استواء السقف للأبد وفق الكود المصري.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f", cat: "استلام" },
+        { id: 7, title: "السيراميك والبورسلين 2026", desc: "معايير ركن ديزاين في اختيار الأرضيات والفرق الجوهري في طرق التركيب (المونة والكلة).", img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e", cat: "ديكور" },
+        { id: 6, title: "أصول تأسيس السباكة والضغط", desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة مع الحصول على شهادات الضمان المعتمدة.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a", cat: "تأسيس" },
+        { id: 5, title: "بديل الرخام والخشب الذكي", desc: "فخامة الرخام ودفء الخشب بتكلفة اقتصادية ومميزات عملية مذهلة لعام 2026.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6", cat: "ديكور" },
+        { id: 4, title: "تأسيس الكهرباء وأمان المنزل", desc: "توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية منزلك من مخاطر التماس الكهربائي.", img: "https://images.unsplash.com/photo-1558002038-1055907df827", cat: "تأسيس" },
+        { id: 3, title: "أسرار المحارة الهندسية", desc: "لماذا نعتمد المحارة بالأوتار والزوايا لضمان استواء الحوائط تماماً قبل الدهانات.", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f", cat: "تأسيس" },
+        { id: 2, title: "سحر لون الفانيلا لاتيه", desc: "اللون الأكثر طلباً في مصر وكيفية تنسيقه مع الإضاءة والفرش لإعطاء اتساع للمكان.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" },
+        { id: 1, title: "دليل العزل المائي الشامل", desc: "حماية الحمامات والمطابخ من تسريبات المياه الخطيرة باستخدام أحدث المواد الكيميائية.", img: "https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png", cat: "تأسيس" }
     ];
 
     let currentCategory = 'الكل';
@@ -176,7 +180,7 @@
                             <span>#${art.cat}</span>
                             <h3>${art.title}</h3>
                             <p>${art.desc}</p>
-                            <div class="read-more">إقرأ التفاصيل <i class="fas fa-chevron-left"></i></div>
+                            <div class="read-more">قراءة المرجع الهندسي (1000+ كلمة) <i class="fas fa-chevron-left"></i></div>
                         </div>
                     </a>
                 `;
@@ -184,7 +188,7 @@
         });
         
         if (grid.innerHTML === '') {
-            grid.innerHTML = '<div style="text-align:center; padding:50px; grid-column: 1/-1;"><p style="color:#666;">لا توجد نتائج بحث مطابقة.</p></div>';
+            grid.innerHTML = '<div style="text-align:center; padding:50px; grid-column: 1/-1;"><p style="color:#666; font-size:18px;">عفواً، لا توجد مقالات تطابق بحثك حالياً.</p></div>';
         }
     }
 
