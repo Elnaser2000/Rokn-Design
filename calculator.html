@@ -180,8 +180,18 @@ function sendWhatsApp() {
     let metal = document.getElementById("metal").value;
     let area = document.getElementById("area").value;
 
-    let message = `برجاء ارسال المقايسة الفنية\nأهلاً بك يا ${name}\nالموبايل: ${phone}\nالمنطقة: ${region}\nالباقة: ${pack}\nنوع الوحدة: ${unit}\nحالة التشطيب: ${finish}\nالموتال: ${metal}\nالمساحة: ${area} متر\nالسعر المتوقع: ${lastCalculatedTotal.toLocaleString()} جنيه`;
-    
+let message = `طلب معاينة جديد من موقع ركن ديزاين\n` +
+                  `أهلاً بك يا ${name}\n` +
+                  `الموبايل: ${phone}\n` +
+                  `المنطقة: ${region}\n` +
+                  `نوع الوحدة: ${unit}\n` +
+                  `المساحة: ${area} متر\n` +
+                  `حالة التشطيب: ${finish}\n` +
+                  `الموتال: ${metal}\n` +
+                  `الباقة: ${pack}\n` +
+                  `السعر المتوقع: ${lastCalculatedTotal.toLocaleString()} جنيه\n\n` +
+                  `رابط مواصفات باقة (${pack}):\n${pdfLink}\n\n` +
+                  `برجاء ارسال المقايسة الفنية`;    
     window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
 }
 </script>
