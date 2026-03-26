@@ -24,12 +24,12 @@
         /* Header Section */
         header { background: var(--dark); color: var(--white); padding: 50px 5% 80px; text-align: center; border-bottom: 4px solid var(--gold); }
         header h1 { color: var(--gold); margin: 0; font-size: 26px; font-weight: 700; }
-        header p { margin-top: 12px; color: var(--white); font-size: 15px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        header p { margin-top: 12px; color: var(--white); font-size: 15px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; opacity: 1; }
 
-        /* Search Wrapper - التعديل هنا لضبط مقاس الموبايل */
+        /* Search Wrapper - تم ضبطه للموبايل */
         .search-wrapper { 
-            width: 90%; 
-            max-width: 400px; /* لضمان عدم الكبر الزائد على الشاشات الواسعة */
+            width: 85%; 
+            max-width: 380px; 
             margin: 0 auto;
             position: relative; 
             top: -30px; 
@@ -45,7 +45,7 @@
             outline: none; 
             text-align: right; 
             background: white;
-            box-sizing: border-box; /* لضمان عدم خروج البوردر عن العرض */
+            box-sizing: border-box;
         }
         .search-wrapper i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 18px; }
 
@@ -55,10 +55,9 @@
             padding: 15px 5%; gap: 10px; background: #fff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
-            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* للهيدن في فايرفوكس */
         }
-        .category-tabs::-webkit-scrollbar { height: 4px; }
-        .category-tabs::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        .category-tabs::-webkit-scrollbar { display: none; } /* للهيدن في كروم */
 
         .tab-btn {
             padding: 8px 20px; border-radius: 25px; background: #f0f0f0;
@@ -102,7 +101,7 @@
         @media (max-width: 480px) {
             header h1 { font-size: 22px; }
             .container { grid-template-columns: 1fr; padding: 15px; }
-            .search-wrapper { top: -25px; }
+            .search-wrapper { width: 90%; top: -25px; }
         }
     </style>
 </head>
@@ -110,20 +109,20 @@
 
 <header>
     <h1>أكاديمية ركن ديزاين</h1>
-    <p>أسرار التشطيب الهندسي والديكور من خبراء التنفيذ. مقالات تفصيلية لكل ركن في منزلك.</p>
+    <p>أسرار التشطيب الهندسي والديكور من خبراء التنفيذ. دليلك الشامل لفرش وتجهيز بيت العمر.</p>
 </header>
 
 <div class="search-wrapper">
     <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن موضوع (نقاشة، سباكة...)" onkeyup="runFilter()">
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن (ألوان، ستائر، ألوميتال...)" onkeyup="runFilter()">
 </div>
 
 <div class="category-tabs" id="tabsParent">
     <button class="tab-btn active" onclick="filterByCat('الكل', this)">الكل</button>
     <button class="tab-btn" onclick="filterByCat('تأسيس', this)">تأسيس</button>
     <button class="tab-btn" onclick="filterByCat('ديكور', this)">ديكور</button>
-    <button class="tab-btn" onclick="filterByCat('استلام', this)">استلام</button>
     <button class="tab-btn" onclick="filterByCat('فرش', this)">فرش</button>
+    <button class="tab-btn" onclick="filterByCat('استلام', this)">استلام</button>
 </div>
 
 <div class="container" id="articlesGrid"></div>
@@ -139,35 +138,42 @@
 <script>
     const allArticles = [
         {
+            id: 17,
+            title: "فن الإكسسوارات والمرايا: كيف تنطق جدران منزلك؟",
+            desc: "أسرار توزيع المرايا واللوحات الفنية لإعطاء مساحة وفخامة إضافية لشقتك بعد التشطيب.",
+            img: "https://i.ibb.co/v6yXyXyX/Decor-Mirror.png",
+            cat: "فرش"
+        },
+        {
+            id: 16,
+            title: "دليل الستائر الحديثة 2026 - كيف تختار القماش والموديل؟",
+            desc: "تعرف على أحدث صيحات الستائر المخفية وأقمشة الكتان التي تمنح منزلك لمسة فندقية.",
+            img: "https://i.ibb.co/v6yXyXyX/Curtains-2026.png",
+            cat: "ديكور"
+        },
+        {
+            id: 15,
+            title: "دليل اختيار الأثاث المودرن 2026 - أسرار الخامات",
+            desc: "كيف تفرش بيتك بذكاء؟ نصائح ركن ديزاين لاختيار الأخشاب والأقمشة وتوزيع الأثاث بشكل انسيابي.",
+            img: "https://i.ibb.co/v6yXyXyX/Furniture-2026.png",
+            cat: "فرش"
+        },
+        {
             id: 14,
             title: "دليل الألوميتال والـ PVC لعام 2026 - أسرار العزل",
-            desc: "كيف تختار الشباك المناسب لمنزلك؟ الفرق بين قطاعات الجامبو والتانجو والـ PVC، وأسرار عزل الصوت والحرارة باحترافية.",
+            desc: "كيف تختار الشباك المناسب لمنزلك؟ الفرق بين قطاعات الجامبو والتانجو والـ PVC، وأسرار عزل الصوت والحرارة.",
             img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Windows.png",
             cat: "تأسيس"
         },
         {
             id: 13,
             title: "دليل ألوان 2026: باليتة السعادة والهدوء لمنزلك",
-            desc: "اكتشف أحدث صيحات ألوان الدهانات لعام 2026، من ألوان الطبيعة الدافئة إلى الـ Greige المطور، وكيفية تنسيقها مع الإضاءة.",
+            desc: "اكتشف أحدث صيحات ألوان الدهانات لعام 2026، من ألوان الطبيعة الدافئة إلى الـ Greige المطور.",
             img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Colors2026.png",
             cat: "ديكور"
         },
-        {
-            id: 12,
-            title: "دليل النقاشة والدهانات الشامل 2026 - أسرار الفنش",
-            desc: "تعرف على خطوات النقاشة الاحترافية من المعجون حتى الفنش النهائي، وأفضل أنواع الدهانات (جوتن وجي ال سي) في السوق المصري.",
-            img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Paint.png",
-            cat: "ديكور"
-        },
-        { id: 11, title: "سحر الإضاءة: كيف تحول منزلك للوحة فنية؟", desc: "تعرف على طبقات الإضاءة الثلاث وكيفية توزيع السبوتات والليد بروفايل لإبراز جمال ديكورات منزلك.", img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png", cat: "ديكور" },
-        { id: 10, title: "أبواب الخشب: كيف تفرق بين الزان والسويدي والكبس؟", desc: "دليل ركن ديزاين لاختيار أبواب الغرف، الفرق بين أنواع الخشب، وأسرار الاستلام لضمان عدم تريح الأبواب.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png", cat: "فرش" },
-        { id: 9, title: "تأسيس التكييف: تجنب التكسير وتنقيط المياه", desc: "كيف تحمي حوائط منزلك ودهاناتك من مشاكل صرف التكييف وتأسيس النحاس الخاطئ؟ دليل ركن ديزاين الشامل.", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473", cat: "تأسيس" },
-        { id: 8, title: "أصول تركيب الجبس بورد واستلام الأسقف", desc: "تعرف على كيفية تجنب شروخ الجبس بورد وأهمية الهيكل المعدني في ضمان استواء السقف للأبد.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f", cat: "استلام" },
-        { id: 7, title: "أسرار اختيار وتركيب السيراميك والبورسلين", desc: "كيف تختار الأرضية المناسبة لمنزلك؟ تعرف على الفرق بين السيراميك والبورسلين ومعايير ركن ديزاين في الاستلام.", img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e", cat: "ديكور" },
-        { id: 6, title: "أصول تأسيس السباكة واختبار الضغط", desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة؟ تعرف على معايير ركن ديزاين في الاستلام والضمان.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a", cat: "تأسيس" },
-        { id: 5, title: "بديل الرخام والخشب: فخامة ذكية", desc: "كيف تحصل على مظهر الرخام الطبيعي ودفء الخشب بتكلفة اقتصادية ومميزات عملية.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6", cat: "ديكور" },
-        { id: 4, title: "تأسيس الكهرباء وأمان منزلك", desc: "دليل توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية بيتك من مخاطر الكهرباء.", img: "https://images.unsplash.com/photo-1558002038-1055907df827", cat: "تأسيس" },
-        { id: 3, title: "أسرار المحارة الهندسية", desc: "لماذا نصر في ركن ديزاين على المحارة الهندسية لضمان زوايا قائمة وحوائط مستوية.", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f", cat: "تأسيس" },
+        { id: 12, title: "دليل النقاشة والدهانات الشامل 2026 - أسرار الفنش", desc: "تعرف على خطوات النقاشة الاحترافية من المعجون حتى الفنش النهائي وأفضل أنواع الدهانات.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Paint.png", cat: "ديكور" },
+        { id: 11, title: "سحر الإضاءة: كيف تحول منزلك للوحة فنية؟", desc: "تعرف على طبقات الإضاءة الثلاث وكيفية توزيع السبوتات والليد بروفايل لإبراز الجمال.", img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png", cat: "ديكور" },
         { id: 2, title: "سحر لون الفانيلا لاتيه 2026", desc: "لماذا يتربع هذا اللون على عرش الدهانات وكيف تنسقه مع الإضاءة والأثاث بشكل احترافي.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" },
         { id: 1, title: "دليل العزل المائي الشامل", desc: "تعرف على أصول العزل المائي للحمامات والمطابخ وكيفية تجنب تسريبات المياه الخطيرة.", img: "https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png", cat: "تأسيس" }
     ];
@@ -197,7 +203,7 @@
             }
         });
         if (grid.innerHTML === '') {
-            grid.innerHTML = '<div style="text-align:center; padding:50px; grid-column: 1/-1;"><p style="color:#666;">لم نجد نتائج بحث مطابقة.</p></div>';
+            grid.innerHTML = '<div style="text-align:center; padding:50px; grid-column: 1/-1;"><p style="color:#666;">لا توجد مقالات تطابق بحثك.</p></div>';
         }
     }
     function filterByCat(cat, btn) {
