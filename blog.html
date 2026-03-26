@@ -98,8 +98,15 @@
 <footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
 
 <script>
-    // مصفوفة البيانات: تم إضافة المقال الثامن وتوحيد المسميات
+    // مصفوفة البيانات الشاملة لجميع المقالات
     const allArticles = [
+        {
+            id: 9,
+            title: "تأسيس التكييف: تجنب التكسير وتنقيط المياه",
+            desc: "كيف تحمي حوائط منزلك ودهاناتك من مشاكل صرف التكييف وتأسيس النحاس الخاطئ؟ دليل ركن ديزاين الشامل.",
+            img: "https://images.unsplash.com/photo-1563453392212-326f5e854473",
+            cat: "تأسيس"
+        },
         {
             id: 8,
             title: "أصول تركيب الجبس بورد واستلام الأسقف",
@@ -165,7 +172,7 @@
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
 
-        // ترتيب تنازلي حسب الـ ID ليظهر الأحدث أولاً
+        // ترتيب المقالات من الأحدث للأقدم تلقائياً
         const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
 
         sortedArticles.forEach(art => {
