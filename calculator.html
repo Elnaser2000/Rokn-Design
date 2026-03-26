@@ -1,13 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة تكلفة تشطيب ركن ديزاين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root { --gold: #d4af37; --dark: #111; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background: #f4f4f4; padding: 20px; }
+        
+        .calc-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid var(--gold); }
+        h2 { text-align: center; margin-bottom: 25px; color: var(--dark); }
+        
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; color: #555; }
+        input, select { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; outline: none; transition: 0.3s; }
+        input:focus { border-color: var(--gold); background: #fffcf5; }
+        
+        .result-box { background: var(--dark); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-top: 25px; }
+        .result-box p { font-size: 14px; opacity: 0.8; margin-bottom: 10px; }
+        .result-box span { font-size: 32px; color: var(--gold); font-weight: bold; }
+        
+        .btn-whatsapp { display: block; width: 100%; background: #25d366; color: white; text-align: center; padding: 16px; text-decoration: none; border-radius: 12px; margin-top: 25px; font-weight: bold; font-size: 18px; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-whatsapp:hover { background: #1ebe57; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        
+        .note { font-size: 12px; color: #888; text-align: center; margin-top: 15px; line-height: 1.4; }
+    </style>
+</head>
+<body>
+
+<div class="calc-container">
+    <h2><i class="fas fa-calculator" style="color: var(--gold); margin-left: 10px;"></i> حاسبة تكلفة التشطيب</h2>
+    
+    <div class="input-group">
+        <label>المساحة الإجمالية (م²):</label>
+        <input type="number" id="area" placeholder="أدخل مساحة شقتك" oninput="calculate()">
+    </div>
+
+    <div class="input-group">
+        <label>اختر باقة التشطيب:</label>
+        <select id="packageSelect" onchange="calculate()">
+            <option value="3500" data-key="basic">الباقة الأساسية (3,500 ج/م)</option>
+            <option value="5500" data-key="silver">الباقة الفضية (5,500 ج/م)</option>
+            <option value="8000" data-key="gold">الباقة الذهبية (8,000 ج/م)</option>
+            <option value="12000" data-key="vip">باقة الـ VIP (12,000 ج/م)</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>موقع الوحدة (المدينة/الكمبوند):</label>
+        <input type="text" id="location" placeholder="مثلاً: القاهرة الجديدة">
+    </div>
+
+    <div class="result-box">
+        <p>التكلفة التقديرية الإجمالية</p>
+        <span id="totalPrice">0</span> <small style="color: var(--gold); font-size: 16px;">جنيه</small>
+    </div>
+
+    <button class="btn-whatsapp" onclick="sendToWhatsapp()">
+        <i class="fab fa-whatsapp"></i> إرسال المقايسة وحجز معاينة
+    </button>
+
+    <p class="note">
+        * السعر المعروض هو سعر تقديري بناءً على بنود الباقة المختارة.<br>
+        * السعر النهائي يتم تحديده بعد المعاينة الفنية الفعلية.
+    </p>
+</div>
+
 <script>
-    // روابط ملفات الـ PDF المرفوعة (المقايسات الفنية لكل باقة)
+    // روابط المقايسات الفنية (من ملفات الـ PDF الخاصة بك)
     const driveLinks = {
-        'basic': 'https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view', // الباقة الأساسية
-        'silver': 'https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view', // الباقة الفضية
-        'gold': 'https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view',   // الباقة الذهبية
-        'vip': 'https://drive.google.com/file/d/1m6Q_example_vip_link/view'               // باقة VIP (ضع الرابط هنا)
+        'basic': 'https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view',
+        'silver': 'https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view',
+        'gold': 'https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view',
+        'vip': 'https://drive.google.com/file/d/1m6Q_example_vip_link/view' // يرجى وضع رابط الـ VIP هنا
     };
 
-    // وظيفة استقبال الباقة من الرابط (URL Params) دون تغيير
+    // وظيفة استقبال الباقة من URL
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         const pkg = urlParams.get('package');
@@ -24,7 +95,7 @@
         calculate(); 
     };
 
-    // المعادلة الحسابية (كما هي بدون تغيير نهائياً)
+    // المعادلة الحسابية الأصلية
     function calculate() {
         const area = document.getElementById('area').value || 0;
         const pricePerMeter = document.getElementById('packageSelect').value;
@@ -33,13 +104,12 @@
         document.getElementById('totalPrice').innerText = total.toLocaleString();
     }
 
-    // إرسال البيانات للواتساب مع "لينك المقايسة المحددة"
+    // إرسال البيانات للواتساب مع اللينك
     function sendToWhatsapp() {
         const area = document.getElementById('area').value;
         const loc = document.getElementById('location').value;
         const total = document.getElementById('totalPrice').innerText;
         
-        // جلب الداتا الخاصة بالباقة المختارة
         const select = document.getElementById('packageSelect');
         const selectedOption = select.options[select.selectedIndex];
         const selectedKey = selectedOption.getAttribute('data-key');
@@ -51,7 +121,6 @@
             return;
         }
 
-        // صياغة الرسالة الاحترافية
         const message = `السلام عليكم ركن ديزاين،\n` +
                         `أرغب في الحصول على استشارة فنية لتشطيب وحدتي:\n\n` +
                         `📍 الموقع: ${loc}\n` +
@@ -66,3 +135,6 @@
         window.open(`https://wa.me/201151983638?text=${encodedMsg}`, '_blank');
     }
 </script>
+
+</body>
+</html>
