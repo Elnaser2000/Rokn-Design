@@ -65,6 +65,7 @@
         <a onclick="scrollToSection('gallery')">الأعمال</a>
         <a href="blog.html">الأكاديمية</a>
         <a href="calculator.html" style="color: #d4af37; font-weight: bold;">الحاسبة</a>
+        <a onclick="scrollToSection('design-tool')">ارسم شقتك</a>
         <a href="https://wa.me/201151983638">تواصل</a>
     </nav>
 </header>
@@ -90,10 +91,10 @@
 <section class="gallery" id="gallery">
     <h2>من أعمالنا</h2>
     <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="تصميم مودرن"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="ديكورات داخلية"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="ديكورات داخلية"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg"></div>
+        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png"></div>
     </div>
 </section>
 
@@ -116,6 +117,28 @@
     <button class="package-btn" style="background:#d32f2f" onclick="window.open('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
     <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
 </div>
+
+<!-- ========== أداة رسم الشقة 2D + 3D ========== -->
+<section id="design-tool" style="padding: 60px 8%; text-align:center;">
+    <h2 style="margin-bottom:25px;">ارسم شقتك بنفسك 2D و 3D</h2>
+
+    <p style="margin-bottom:25px; font-size:15px;">
+        صمّم شقتك بنفسك مباشرة داخل الموقع — ارسم الجدران، وزّع الأثاث، 
+        اختار الأرضيات والألوان، وشاهد التصميم بنسخة ثلاثية الأبعاد.
+        الأداة مجانية بالكامل وتعمل على الموبايل والكمبيوتر.
+    </p>
+
+    <div style="width:100%; height:80vh; border-radius:12px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); background:#fff;">
+        <iframe 
+            src="https://planner5d.com/editor/?key=empty"
+            width="100%" 
+            height="100%" 
+            style="border:none;" 
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+<!-- ========== نهاية أداة الرسم ========== -->
 
 <footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
 
