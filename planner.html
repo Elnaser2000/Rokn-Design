@@ -1,148 +1,187 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ركن ديزاين 3D مطور | 100 عنصر</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>مخطط ركن ديزاين 3D المطور</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
-<style>
-:root {
-  --gold: #d4af37;
-  --dark: #111;
-  --bg: #f5f5f5;
-}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-body{background:var(--bg);display:flex;flex-direction:column;height:100vh;overflow:hidden;color:#111;}
-header{background:var(--dark);padding:10px 15px;display:flex;justify-content:space-between;align-items:center;z-index:1001;}
-.logo{color:var(--gold);font-weight:bold;text-decoration:none;font-size:18px;}
-.btn-save{background:var(--gold);color:var(--dark);border:none;padding:8px 15px;border-radius:5px;font-weight:bold;cursor:pointer;}
+    <style>
+        :root { --gold: #d4af37; --dark: #111; --bg: #f5f5f5; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; }
+        body { background:var(--dark); display:flex; flex-direction:column; height:100vh; overflow:hidden; color:#111; perspective: 1500px; }
 
-.main-wrapper{flex:1;display:flex;flex-direction:column;position:relative;}
-.canvas-container{flex:1;position:relative;background:#e8e8e8;overflow:hidden;touch-action:none;}
-#designSpace{width:3000px;height:3000px;position:absolute;transform-style:preserve-3d;}
+        /* Header */
+        header { background:var(--dark); padding:10px 15px; display:flex; justify-content:space-between; align-items:center; z-index:1001; border-bottom: 2px solid var(--gold); }
+        .logo { color:var(--gold); font-weight:bold; text-decoration:none; font-size:18px; }
+        .controls { display: flex; gap: 10px; }
+        .btn-action { background:var(--gold); color:var(--dark); border:none; padding:8px 12px; border-radius:5px; font-weight:bold; cursor:pointer; font-size: 12px; transition: 0.3s; }
+        .btn-3d { background: #444; color: #fff; border: 1px solid var(--gold); }
 
-.library-panel{width:100%;background:var(--dark);border-top:2px solid var(--gold);height:240px;display:flex;flex-direction:column;z-index:1000;}
-.tabs-container{display:flex;overflow-x:auto;background:#222;border-bottom:1px solid #333;scrollbar-width:none;}
-.tab{padding:12px 25px;font-size:13px;cursor:pointer;white-space:nowrap;color:#888;transition:0.3s;}
-.tab.active{color:var(--gold);background:#2a2a2a;border-bottom:3px solid var(--gold);font-weight:bold;}
+        /* Canvas Area */
+        .main-wrapper { flex:1; display:flex; flex-direction:column; position:relative; overflow: hidden; background: #e8e8e8; }
+        #designSpace { 
+            width: 3000px; height: 3000px; position: absolute; top: 0; left: 0;
+            background-color: #fff;
+            background-image: linear-gradient(#eee 1.5px, transparent 1.5px), linear-gradient(90deg, #eee 1.5px, transparent 1.5px);
+            background-size: 50px 50px;
+            transform-origin: center center;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
 
-.items-grid{flex:1;display:flex;overflow-x:auto;padding:15px;gap:15px;align-items:flex-start;}
-.item-card{min-width:100px;background:#2a2a2a;border-radius:12px;padding:12px;text-align:center;cursor:pointer;border:1px solid #444;transition:0.2s;}
-.item-card:hover{border-color:var(--gold);transform:translateY(-5px);}
-.item-card img{width:55px;height:55px;object-fit:contain;margin-bottom:8px;filter:brightness(0) invert(1);}
-.item-card p{font-size:11px;color:#eee;}
+        /* 3D Mode Transformation */
+        body.view-3d #designSpace { transform: rotateX(55deg) rotateZ(-35deg) translate(200px, -200px); }
+        body.view-3d .placed-item img { filter: drop-shadow(15px 15px 10px rgba(0,0,0,0.4)); transform: translateZ(30px); transition: 0.5s; }
 
-.placed-item{position:absolute;touch-action:none;z-index:5;transform-style:preserve-3d;box-shadow:0 5px 15px rgba(0,0,0,0.4);}
-.placed-item img{width:100%;height:100%;pointer-events:none;border-radius:6px;transition:box-shadow 0.2s;}
-.placed-item:hover img{box-shadow:0 10px 25px rgba(0,0,0,0.6);}
-.delete-btn{position:absolute;top:-15px;right:-15px;background:#ff4444;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;border:2px solid white;box-shadow:0 2px 5px rgba(0,0,0,0.5);}
+        /* Library Panel */
+        .library-panel { width:100%; background:var(--dark); border-top:2px solid var(--gold); height:220px; display:flex; flex-direction:column; z-index: 1000; }
+        .tabs-container { display:flex; overflow-x:auto; background:#222; border-bottom:1px solid #333; scrollbar-width:none; }
+        .tab { padding:12px 20px; font-size:13px; cursor:pointer; white-space:nowrap; color:#888; transition:0.3s; }
+        .tab.active { color:var(--gold); background:#2a2a2a; border-bottom:3px solid var(--gold); font-weight:bold; }
 
-#leadModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:5000;align-items:center;justify-content:center;}
-.modal-content{background:white;color:#333;padding:30px;border-radius:20px;width:90%;max-width:400px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);}
-.modal-content h2{color:var(--gold);margin-bottom:10px;}
-.modal-content input{width:100%;padding:15px;margin:10px 0;border:1px solid #ddd;border-radius:10px;font-size:16px;outline:none;}
-</style>
+        .items-grid { flex:1; display:flex; overflow-x:auto; padding:15px; gap:15px; align-items:flex-start; }
+        .item-card { min-width:90px; background:#2a2a2a; border-radius:10px; padding:10px; text-align:center; cursor:pointer; border:1px solid #444; }
+        .item-card img { width:45px; height:45px; object-fit:contain; margin-bottom:5px; filter: brightness(0) invert(1); }
+        .item-card p { font-size:10px; color:#eee; white-space: nowrap; }
+
+        /* Items on Canvas */
+        .placed-item { position:absolute; touch-action:none; z-index:5; transform-style: preserve-3d; }
+        .placed-item img { width:100%; height:100%; pointer-events:none; border-radius:5px; }
+        .delete-btn { position:absolute; top:-15px; right:-15px; background:#ff4444; color:white; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:16px; cursor:pointer; border:2px solid white; visibility: visible !important; }
+
+        /* Modal */
+        #leadModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:5000; align-items:center; justify-content:center; }
+        .modal-content { background:white; color:#333; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center; }
+        .modal-content input { width:100%; padding:15px; margin:10px 0; border:1px solid #ddd; border-radius:10px; font-size:16px; outline:none; }
+    </style>
 </head>
 <body>
 
 <header>
-  <a href="index.html" class="logo"><i class="fas fa-home"></i> ركن ديزاين</a>
-  <button class="btn-save" onclick="openLeadModal()">إرسال للمهندس</button>
+    <a href="index.html" class="logo"><i class="fas fa-home"></i> ركن ديزاين</a>
+    <div class="controls">
+        <button class="btn-action btn-3d" id="toggle3D"><i class="fas fa-cube"></i> عرض 3D</button>
+        <button class="btn-action" onclick="openLeadModal()">حفظ التصميم</button>
+    </div>
 </header>
 
 <div class="main-wrapper">
-  <div class="canvas-container" id="container">
-    <div id="designSpace"></div>
-  </div>
-
-  <div class="library-panel">
-    <div class="tabs-container">
-      <div class="tab active" onclick="loadCategory('living', this)">المعيشة (20)</div>
-      <div class="tab" onclick="loadCategory('bedroom', this)">النوم (20)</div>
-      <div class="tab" onclick="loadCategory('kitchen', this)">المطبخ (20)</div>
-      <div class="tab" onclick="loadCategory('bathroom', this)">الحمام (20)</div>
-      <div class="tab" onclick="loadCategory('decor', this)">ديكور (20)</div>
+    <div class="canvas-container" id="container">
+        <div id="designSpace"></div>
     </div>
+</div>
+
+<div class="library-panel">
+    <div class="tabs-container" id="tabsBox">
+        </div>
     <div class="items-grid" id="itemsGrid"></div>
-  </div>
 </div>
 
 <div id="leadModal">
-  <div class="modal-content">
-    <h2>تصميم رائع! ✨</h2>
-    <p>اترك بياناتك ومهندس من <b>ركن ديزاين</b> هيراجع معاك توزيع العفش مجاناً.</p>
-    <input type="text" placeholder="الاسم">
-    <input type="tel" placeholder="رقم الواتساب">
-    <button class="btn-save" style="width:100%;padding:15px;font-size:18px;margin-top:10px;" onclick="submitLead()">إرسال التصميم الآن</button>
-    <p onclick="document.getElementById('leadModal').style.display='none'" style="margin-top:20px;font-size:13px;color:#999;cursor:pointer;">إغلاق</p>
-  </div>
+    <div class="modal-content">
+        <h2 style="color:var(--gold)">تصميم مميز! ✨</h2>
+        <p>اترك بياناتك ومهندس من <b>ركن ديزاين</b> هيراجع معاك توزيع العفش مجاناً.</p>
+        <input type="text" id="custName" placeholder="الاسم">
+        <input type="tel" id="custPhone" placeholder="رقم الواتساب">
+        <button class="btn-action" style="width:100%; padding:15px; font-size:18px; margin-top:10px;" onclick="submitLead()">إرسال التصميم الآن</button>
+        <p onclick="document.getElementById('leadModal').style.display='none'" style="margin-top:20px; font-size:13px; color:#999; cursor:pointer;">إغلاق</p>
+    </div>
 </div>
 
 <script>
-// قاعدة بيانات الـ100 عنصر
-const libraryData = {
-  "living": Array.from({length:20},(_,i)=>({name:`معيشة ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2603/26037${i%10+41}.png`})),
-  "bedroom": Array.from({length:20},(_,i)=>({name:`نوم ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2603/26037${i%10+13}.png`})),
-  "kitchen": Array.from({length:20},(_,i)=>({name:`مطبخ ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/924/9245${i%10+10}.png`})),
-  "bathroom": Array.from({length:20},(_,i)=>({name:`حمام ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2200/2200${i%10+502}.png`})),
-  "decor": Array.from({length:20},(_,i)=>({name:`ديكور ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2603/26038${i%10+0}.png`}))
-};
+    const categories = {
+        "living": { label: "المعيشة", icon: "2603741" },
+        "bedroom": { label: "النوم", icon: "2603713" },
+        "kitchen": { label: "المطبخ", icon: "924514" },
+        "bathroom": { label: "الحمام", icon: "2200502" },
+        "decor": { label: "ديكور", icon: "2603800" }
+    };
 
-const grid=document.getElementById('itemsGrid');
-const space=document.getElementById('designSpace');
+    // توليد 100 عنصر (20 لكل فئة)
+    const libraryData = {};
+    Object.keys(categories).forEach(cat => {
+        libraryData[cat] = Array.from({length: 20}, (_, i) => ({
+            name: `${categories[cat].label} ${i+1}`,
+            img: `https://cdn-icons-png.flaticon.com/512/${categories[cat].icon.substring(0,4)}/${categories[cat].icon}.png`
+        }));
+    });
 
-function loadCategory(cat, tabEl){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  tabEl.classList.add('active');
-  grid.innerHTML='';
-  libraryData[cat].forEach(item=>{
-    let card=document.createElement('div');
-    card.className='item-card';
-    card.innerHTML=`<img src="${item.img}"><p>${item.name}</p>`;
-    card.onclick=()=>addItem(item.img);
-    grid.appendChild(card);
-  });
-}
+    const tabsBox = document.getElementById('tabsBox');
+    const itemsGrid = document.getElementById('itemsGrid');
+    const designSpace = document.getElementById('designSpace');
 
-function addItem(imgSrc){
-  let div=document.createElement('div');
-  div.className='placed-item';
-  div.style.width='120px'; div.style.height='120px';
-  div.style.left='50px'; div.style.top='50px';
-  div.innerHTML=`<img src="${imgSrc}"><div class="delete-btn" onclick="this.parentElement.remove()">×</div>`;
-  space.appendChild(div);
-  
-  interact(div).draggable({
-    listeners:{move(event){
-      const target=event.target;
-      const x=(parseFloat(target.getAttribute('data-x'))||0)+event.dx;
-      const y=(parseFloat(target.getAttribute('data-y'))||0)+event.dy;
-      const scale=parseFloat(target.getAttribute('data-scale')||1);
-      const angle=parseFloat(target.getAttribute('data-angle')||0);
-      target.style.transform=`translate(${x}px,${y}px) rotate(${angle}deg) scale(${scale})`;
-      target.setAttribute('data-x',x); target.setAttribute('data-y',y);
-    }}
-  }).gesturable({
-    listeners:{move(event){
-      const target=event.target;
-      const scale=(parseFloat(target.getAttribute('data-scale'))||1)*(1+event.ds);
-      const angle=(parseFloat(target.getAttribute('data-angle'))||0)+event.da;
-      const x=parseFloat(target.getAttribute('data-x')||0);
-      const y=parseFloat(target.getAttribute('data-y')||0);
-      target.style.transform=`translate(${x}px,${y}px) rotate(${angle}deg) scale(${scale})`;
-      target.setAttribute('data-scale',scale); target.setAttribute('data-angle',angle);
-    }}
-  });
-}
+    // إنشاء التابات
+    Object.keys(categories).forEach((cat, index) => {
+        const tab = document.createElement('div');
+        tab.className = `tab ${index === 0 ? 'active' : ''}`;
+        tab.innerText = categories[cat].label;
+        tab.onclick = (e) => loadCategory(cat, e.target);
+        tabsBox.appendChild(tab);
+    });
 
-function openLeadModal(){document.getElementById('leadModal').style.display='flex';}
-function submitLead(){alert('تم الإرسال بنجاح! فريق ركن ديزاين هيتواصل معاك.'); location.reload();}
+    function loadCategory(cat, tabEl) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tabEl.classList.add('active');
+        itemsGrid.innerHTML = '';
+        libraryData[cat].forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'item-card';
+            card.innerHTML = `<img src="${item.img}"><p>${item.name}</p>`;
+            card.onclick = () => addItem(item.img);
+            itemsGrid.appendChild(card);
+        });
+    }
 
-window.onload=()=>loadCategory('living',document.querySelector('.tab'));
+    function addItem(imgSrc) {
+        const div = document.createElement('div');
+        div.className = 'placed-item';
+        div.style.width = '120px'; div.style.height = '120px';
+        div.style.left = '100px'; div.style.top = '100px';
+        div.innerHTML = `<img src="${imgSrc}"><div class="delete-btn" onclick="this.parentElement.remove()">×</div>`;
+        designSpace.appendChild(div);
+
+        interact(div).draggable({
+            listeners: { move(event) {
+                const target = event.target;
+                const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+                const angle = parseFloat(target.getAttribute('data-angle') || 0);
+                const scale = parseFloat(target.getAttribute('data-scale') || 1);
+                target.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${scale})`;
+                target.setAttribute('data-x', x); target.setAttribute('data-y', y);
+            }}
+        }).gesturable({
+            listeners: { move(event) {
+                const target = event.target;
+                const scale = (parseFloat(target.getAttribute('data-scale')) || 1) * (1 + event.ds);
+                const angle = (parseFloat(target.getAttribute('data-angle')) || 0) + event.da;
+                const x = parseFloat(target.getAttribute('data-x') || 0);
+                const y = parseFloat(target.getAttribute('data-y') || 0);
+                target.style.transform = `translate(${x}px, ${y}px) rotate(${angle}deg) scale(${scale})`;
+                target.setAttribute('data-scale', scale); target.setAttribute('data-angle', angle);
+            }}
+        });
+    }
+
+    // زرار الـ 3D
+    document.getElementById('toggle3D').onclick = function() {
+        document.body.classList.toggle('view-3d');
+        this.innerHTML = document.body.classList.contains('view-3d') ? 
+            '<i class="fas fa-th"></i> عرض 2D' : '<i class="fas fa-cube"></i> عرض 3D';
+    };
+
+    function openLeadModal() { document.getElementById('leadModal').style.display = 'flex'; }
+    function submitLead() { 
+        const name = document.getElementById('custName').value;
+        if(!name) return alert('برجاء إدخال الاسم');
+        alert('تم إرسال تصميمك لمهندسي ركن ديزاين بنجاح!'); 
+        location.reload(); 
+    }
+
+    window.onload = () => loadCategory('living', document.querySelector('.tab'));
 </script>
-
 </body>
 </html>
