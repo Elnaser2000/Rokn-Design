@@ -12,49 +12,105 @@
         header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
         header h1 { color: #d4af37; font-size: 26px; }
         .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .main-img { width: 100%; height: 350px; object-fit: cover; border-radius: 12px; margin-bottom: 30px; }
+        
+        /* تحديث تنسيق الصورة لتظهر بشكل كامل واحترافي */
+        .main-img { 
+            width: 100%; 
+            height: auto; 
+            max-height: 450px; /* تحديد أقصى ارتفاع للحفاظ على التناسق */
+            object-fit: cover; /* جعل الصورة تغطي المساحة بذكاء */
+            border-radius: 12px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
         h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
-        .wood-types { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
-        .type-card { flex: 1; min-width: 200px; background: #fdfaf0; padding: 20px; border-radius: 10px; border: 1px solid #eee; }
-        .type-card h4 { color: #d4af37; margin-bottom: 10px; }
-        .cta-rokn { background: #111; color: white; padding: 30px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
-        .btn-calc { background: #d4af37; color: #111; padding: 12px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; margin-top: 15px; }
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+
+        .wood-types { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
+        .type-card { flex: 1; min-width: 250px; background: #fdfaf0; padding: 25px; border-radius: 10px; border: 1px solid #eee; transition: 0.3s; }
+        .type-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .type-card h4 { color: #d4af37; margin-bottom: 12px; font-size: 19px; display: flex; align-items: center; }
+        .type-card h4 i { margin-left: 10px; font-size: 16px; }
+        .type-card p { font-size: 15px; margin-bottom: 0; color: #555; }
+
+        .check-list { background: #eef2f7; border-right: 5px solid #2980b9; padding: 25px; border-radius: 8px; margin: 30px 0; }
+        .check-list h3 { color: #111; margin-bottom: 15px; }
+        .check-list ul { list-style: none; }
+        .check-list li { margin-bottom: 12px; position: relative; padding-right: 30px; }
+        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #2980b9; }
+
+        .cta-rokn { background: #111; color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
+        .cta-rokn h3 { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
+        .cta-rokn p { color: #eee; margin-bottom: 25px; font-size: 16px; }
+        .btn-calc { background: #d4af37; color: #111; padding: 15px 35px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 18px; transition: 0.3s; }
+        .btn-calc:hover { transform: scale(1.05); background: #fff; }
+
+        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { color: #d4af37; }
+
+        @media (max-width: 768px) {
+            .main-img { max-height: 250px; }
+            .article-container { padding: 20px; margin: -20px 15px 30px; }
+        }
     </style>
 </head>
 <body>
+
 <header>
     <h1>أكاديمية ركن ديزاين</h1>
     <p>بوابة بيتك هي عنوان فخامته</p>
 </header>
+
 <div class="article-container">
-    <img src="https://images.unsplash.com/photo-1515263487990-61b0082665df" class="main-img" alt="أبواب خشب مودرن">
-    <h1>أبواب الخشب: كيف تفرق بين "الزان" و"السويدي" و"الكبس"؟</h1>
-    <p>اختيار أبواب الغرف لا يعتمد فقط على الشكل الخارجي، بل على "قلب" الباب ونوع الخشب المستخدم. في <b>ركن ديزاين</b>، نؤمن أن الباب الجيد هو الذي يجمع بين المتانة والعزل الصوتي والشكل الجمالي.</p>
+    <img src="https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png" class="main-img" alt="فحص جودة أبواب الخشب في ركن ديزاين">
     
-    <h2>أنواع الأبواب الأكثر شيوعاً</h2>
+    <h1 style="font-size: 32px; margin-bottom: 20px;">أبواب الخشب: كيف تفرق بين "الزان" و"السويدي" و"الكبس"؟</h1>
+    
+    <p>اختيار أبواب الغرف لا يعتمد فقط على الشكل الخارجي ودهان الـ Vanilla Latte؛ بل على "قلب" الباب ونوع الخشب المستخدم في تجميعه. في <b>ركن ديزاين</b>، نؤمن أن الباب الجيد هو الذي يجمع بين المتانة، العزل الصوتي، والشكل الجمالي الراقي الذي يدوم لسنوات.</p>
+    
+    <h2>أنواع الأبواب الأكثر شيوعاً وأسرارها</h2>
+    <p>الصورة في الأعلى تظهر فنيينا وهم يفحصون ملمس عروق قشرة خشب الجوز الطبيعي على باب "كبس" تحت الإنشاء. هذا هو المستوى من التفاصيل الذي نضمنه لك. إليك أهم الأنواع:</p>
+
     <div class="wood-types">
         <div class="type-card">
-            <h4>خشب الزان</h4>
-            <p>يستخدم غالباً في "الحلوق" والقوائم لقوته الشديدة ومقاومته للخدش، وهو الخيار الأفضل للأبواب الخارجية.</p>
+            <h4><i class="fas fa-tree"></i> خشب الزان (Beech)</h4>
+            <p>يستخدم غالباً في "الحلوق" والقوائم الرئيسية لقوته الشديدة ومقاومته العالية للخدش والابتلال، وهو الخيار الأفضل للأبواب الخارجية وأبواب الشقق الرئيسية.</p>
         </div>
         <div class="type-card">
-            <h4>خشب السويدي</h4>
-            <p>خيار اقتصادي وعملي، يتميز بمرونته وشكله الطبيعي الجميل، ويستخدم بكثرة في تشكيل الهيكل الداخلي.</p>
+            <h4><i class="fas fa-tree"></i> خشب السويدي (Pine)</h4>
+            <p>خيار اقتصادي وعملي، يتميز بمرونته وشكله الطبيعي الجميل، ويستخدم بكثرة في تشكيل الهيكل الداخلي (الشاسيه) للأبواب نظراً لخفته المقبولة.</p>
         </div>
         <div class="type-card">
-            <h4>أبواب الكبس</h4>
-            <p>تعتمد على هيكل داخلي من الموسكي مغطى بطبقات من الـ MDF أو القشرة الطبيعية، وهي الأنسب للتصاميم المودرن.</p>
+            <h4><i class="fas fa-layer-group"></i> أبواب الكبس (Flush)</h4>
+            <p>تعتمد على هيكل داخلي من الموسكي مغطى بطبقات من الـ MDF أو القشرة الطبيعية (مثل الجوز أو البلوط). هي الأنسب للتصاميم المودرن وتوفر عزلاً ممتازاً للصوت.</p>
         </div>
     </div>
 
-    <h2>نصيحة ركن ديزاين عند الاستلام</h2>
-    <p>تأكد من "وزنة" الباب؛ افتحه لنصف المسافة واتركه، إذا تحرك الباب وحده للفتح أو الغلق فهذا يعني وجود عيب في التركيب (الباب شاتر). كما يجب التأكد من دهان الأطراف العلوية والسفلية للباب لحمايته من الرطوبة.</p>
+    <div class="check-list">
+        <h3><i class="fas fa-vial"></i> نصيحة ركن ديزاين عند الاستلام:</h3>
+        <ul>
+            <li><b>فحص "الشاترة":</b> افتح الباب لنصف المسافة واتركه؛ إذا تحرك وحده للفتح أو الغلق فهذا يعني وجود عيب في "وزنة" التركيب.</li>
+            <li><b>دهان الأطراف:</b> التأكد من دهان الأطراف العلوية والسفلية للباب لحمايته من الرطوبة والتمدد، وهي منطقة ينساها الكثيرون.</li>
+            <li><b>ملمس القشرة:</b> كما في الصورة، المس القشرة للتأكد من استوائها وعدم وجود أي "فقاعات" هوائية تحتها.</li>
+        </ul>
+    </div>
 
     <div class="cta-rokn">
         <h3>اجعل دخولك لبيتك تجربة فاخرة</h3>
         <p>نحن نهتم بأدق تفاصيل النجارة لضمان عمر افتراضي أطول لأبوابك.</p>
-        <a href="../calculator.html" class="btn-calc">احسب تكلفة نجارة بيتك</a>
+        <a href="../calculator.html" class="btn-calc">
+            <i class="fas fa-calculator" style="margin-left: 8px;"></i>
+            احسب تكلفة نجارة بيتك الآن
+        </a>
     </div>
+
+    <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
+
+<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
+    جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
+</footer>
+
 </body>
 </html>
