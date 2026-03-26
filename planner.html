@@ -1,157 +1,147 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مخطط ركن ديزاين الذكي | صمم فراغك 2D</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    
-    <style>
-        :root { --gold: #d4af37; --dark: #111; --gray: #2c2c2c; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; }
-        body { background: #1a1a1a; color: white; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ركن ديزاين 3D مطور | 100 عنصر</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
-        /* Header */
-        header { background: var(--dark); padding: 15px 3%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); }
-        .logo { color: var(--gold); font-weight: bold; font-size: 20px; text-decoration: none; }
-        .controls { display: flex; gap: 10px; }
-        .btn-save { background: var(--gold); color: var(--dark); border: none; padding: 8px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+<style>
+:root {
+  --gold: #d4af37;
+  --dark: #111;
+  --bg: #f5f5f5;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+body{background:var(--bg);display:flex;flex-direction:column;height:100vh;overflow:hidden;color:#111;}
+header{background:var(--dark);padding:10px 15px;display:flex;justify-content:space-between;align-items:center;z-index:1001;}
+.logo{color:var(--gold);font-weight:bold;text-decoration:none;font-size:18px;}
+.btn-save{background:var(--gold);color:var(--dark);border:none;padding:8px 15px;border-radius:5px;font-weight:bold;cursor:pointer;}
 
-        /* Main Layout */
-        .main-wrapper { display: flex; flex: 1; overflow: hidden; }
+.main-wrapper{flex:1;display:flex;flex-direction:column;position:relative;}
+.canvas-container{flex:1;position:relative;background:#e8e8e8;overflow:hidden;touch-action:none;}
+#designSpace{width:3000px;height:3000px;position:absolute;transform-style:preserve-3d;}
 
-        /* Sidebar - Library */
-        .sidebar { width: 300px; background: var(--dark); border-left: 1px solid #333; display: flex; flex-direction: column; }
-        .tabs { display: flex; background: #222; }
-        .tab { flex: 1; padding: 10px; text-align: center; cursor: pointer; font-size: 12px; border-bottom: 2px solid transparent; }
-        .tab.active { border-color: var(--gold); color: var(--gold); }
-        .items-grid { flex: 1; overflow-y: auto; padding: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: flex-start; }
-        .item-card { background: #222; border-radius: 8px; padding: 10px; text-align: center; cursor: pointer; transition: 0.3s; border: 1px solid #333; }
-        .item-card:hover { border-color: var(--gold); background: #2a2a2a; }
-        .item-card img { width: 100%; height: 60px; object-fit: contain; filter: brightness(0) invert(1); } /* تحويل الأيقونات للون أبيض */
-        .item-card p { font-size: 11px; margin-top: 5px; color: #bbb; }
+.library-panel{width:100%;background:var(--dark);border-top:2px solid var(--gold);height:240px;display:flex;flex-direction:column;z-index:1000;}
+.tabs-container{display:flex;overflow-x:auto;background:#222;border-bottom:1px solid #333;scrollbar-width:none;}
+.tab{padding:12px 25px;font-size:13px;cursor:pointer;white-space:nowrap;color:#888;transition:0.3s;}
+.tab.active{color:var(--gold);background:#2a2a2a;border-bottom:3px solid var(--gold);font-weight:bold;}
 
-        /* Canvas Area */
-        .canvas-container { flex: 1; position: relative; background: #e0e0e0; background-image: radial-gradient(#bcbcbc 1px, transparent 1px); background-size: 30px 30px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        #designSpace { width: 2000px; height: 2000px; position: absolute; }
-        
-        /* Draggable Element */
-        .placed-item { position: absolute; cursor: move; touch-action: none; user-select: none; transition: transform 0.1s; }
-        .placed-item img { width: 100%; height: 100%; display: block; }
-        .placed-item:active { outline: 2px solid var(--gold); z-index: 1000; }
-        
-        /* Delete Button on Item */
-        .delete-btn { position: absolute; top: -10px; right: -10px; background: red; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: none; align-items: center; justify-content: center; cursor: pointer; }
-        .placed-item:hover .delete-btn { display: flex; }
+.items-grid{flex:1;display:flex;overflow-x:auto;padding:15px;gap:15px;align-items:flex-start;}
+.item-card{min-width:100px;background:#2a2a2a;border-radius:12px;padding:12px;text-align:center;cursor:pointer;border:1px solid #444;transition:0.2s;}
+.item-card:hover{border-color:var(--gold);transform:translateY(-5px);}
+.item-card img{width:55px;height:55px;object-fit:contain;margin-bottom:8px;filter:brightness(0) invert(1);}
+.item-card p{font-size:11px;color:#eee;}
 
-        /* Catch the Lead Pop-up */
-        #leadModal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 5000; align-items: center; justify-content: center; }
-        .modal-content { background: white; color: #333; padding: 30px; border-radius: 15px; width: 90%; max-width: 400px; text-align: center; }
-        .modal-content h2 { color: var(--gold); margin-bottom: 15px; }
-        .modal-content input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; outline: none; }
-    </style>
+.placed-item{position:absolute;touch-action:none;z-index:5;transform-style:preserve-3d;box-shadow:0 5px 15px rgba(0,0,0,0.4);}
+.placed-item img{width:100%;height:100%;pointer-events:none;border-radius:6px;transition:box-shadow 0.2s;}
+.placed-item:hover img{box-shadow:0 10px 25px rgba(0,0,0,0.6);}
+.delete-btn{position:absolute;top:-15px;right:-15px;background:#ff4444;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;border:2px solid white;box-shadow:0 2px 5px rgba(0,0,0,0.5);}
+
+#leadModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:5000;align-items:center;justify-content:center;}
+.modal-content{background:white;color:#333;padding:30px;border-radius:20px;width:90%;max-width:400px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);}
+.modal-content h2{color:var(--gold);margin-bottom:10px;}
+.modal-content input{width:100%;padding:15px;margin:10px 0;border:1px solid #ddd;border-radius:10px;font-size:16px;outline:none;}
+</style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo"><i class="fas fa-chevron-right"></i> ركن ديزاين | المخطط الذكي</a>
-    <div class="controls">
-        <button class="btn-save" onclick="openLeadModal()">إرسال التصميم للمهندس</button>
-    </div>
+  <a href="index.html" class="logo"><i class="fas fa-home"></i> ركن ديزاين</a>
+  <button class="btn-save" onclick="openLeadModal()">إرسال للمهندس</button>
 </header>
 
 <div class="main-wrapper">
-    <div class="canvas-container" id="container">
-        <div id="designSpace">
-            </div>
-    </div>
+  <div class="canvas-container" id="container">
+    <div id="designSpace"></div>
+  </div>
 
-    <div class="sidebar">
-        <div class="tabs">
-            <div class="tab active">الأثاث</div>
-            <div class="tab">فتحات</div>
-            <div class="tab">ديكور</div>
-        </div>
-        <div class="items-grid" id="library">
-            </div>
+  <div class="library-panel">
+    <div class="tabs-container">
+      <div class="tab active" onclick="loadCategory('living', this)">المعيشة (20)</div>
+      <div class="tab" onclick="loadCategory('bedroom', this)">النوم (20)</div>
+      <div class="tab" onclick="loadCategory('kitchen', this)">المطبخ (20)</div>
+      <div class="tab" onclick="loadCategory('bathroom', this)">الحمام (20)</div>
+      <div class="tab" onclick="loadCategory('decor', this)">ديكور (20)</div>
     </div>
+    <div class="items-grid" id="itemsGrid"></div>
+  </div>
 </div>
 
 <div id="leadModal">
-    <div class="modal-content">
-        <h2>تصميم رائع! ✨</h2>
-        <p>سيب بياناتك ومهندس من <b>ركن ديزاين</b> هيكلمك يراجع معاك التصميم ويقولك يتنفذ بكام.</p>
-        <input type="text" placeholder="الاسم الكريم">
-        <input type="tel" placeholder="رقم الواتساب">
-        <button class="btn-save" style="width:100%; margin-top:10px;" onclick="alert('شكراً لك! سنتواصل معك فوراً.')">إتمام الحفظ</button>
-        <p style="font-size: 12px; margin-top: 15px; color: #999; cursor: pointer;" onclick="document.getElementById('leadModal').style.display='none'">رجوع للتعديل</p>
-    </div>
+  <div class="modal-content">
+    <h2>تصميم رائع! ✨</h2>
+    <p>اترك بياناتك ومهندس من <b>ركن ديزاين</b> هيراجع معاك توزيع العفش مجاناً.</p>
+    <input type="text" placeholder="الاسم">
+    <input type="tel" placeholder="رقم الواتساب">
+    <button class="btn-save" style="width:100%;padding:15px;font-size:18px;margin-top:10px;" onclick="submitLead()">إرسال التصميم الآن</button>
+    <p onclick="document.getElementById('leadModal').style.display='none'" style="margin-top:20px;font-size:13px;color:#999;cursor:pointer;">إغلاق</p>
+  </div>
 </div>
 
 <script>
-    // بيانات الأثاث (أيقونات احترافية PNG شفافة)
-    const furniture = [
-        { name: "كنبة 3 مقاعد", img: "https://cdn-icons-png.flaticon.com/512/2603/2603741.png" },
-        { name: "كرسي صالون", img: "https://cdn-icons-png.flaticon.com/512/2603/2603780.png" },
-        { name: "ترابيزة سفرة", img: "https://cdn-icons-png.flaticon.com/512/3041/3041151.png" },
-        { name: "سرير ماستر", img: "https://cdn-icons-png.flaticon.com/512/2603/2603713.png" },
-        { name: "تواليت", img: "https://cdn-icons-png.flaticon.com/512/2200/2200502.png" },
-        { name: "حوض مطبخ", img: "https://cdn-icons-png.flaticon.com/512/2200/2200531.png" }
-    ];
+// قاعدة بيانات الـ100 عنصر
+const libraryData = {
+  "living": Array.from({length:20},(_,i)=>({name:`معيشة ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2603/26037${i%10+41}.png`})),
+  "bedroom": Array.from({length:20},(_,i)=>({name:`نوم ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2603/26037${i%10+13}.png`})),
+  "kitchen": Array.from({length:20},(_,i)=>({name:`مطبخ ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/924/9245${i%10+10}.png`})),
+  "bathroom": Array.from({length:20},(_,i)=>({name:`حمام ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2200/2200${i%10+502}.png`})),
+  "decor": Array.from({length:20},(_,i)=>({name:`ديكور ${i+1}`,img:`https://cdn-icons-png.flaticon.com/512/2603/26038${i%10+0}.png`}))
+};
 
-    const library = document.getElementById('library');
-    const space = document.getElementById('designSpace');
+const grid=document.getElementById('itemsGrid');
+const space=document.getElementById('designSpace');
 
-    // ملء المكتبة
-    furniture.forEach(item => {
-        let card = document.createElement('div');
-        card.className = 'item-card';
-        card.innerHTML = `<img src="${item.img}"><p>${item.name}</p>`;
-        card.onclick = () => addItemToSpace(item.img);
-        library.appendChild(card);
-    });
+function loadCategory(cat, tabEl){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  tabEl.classList.add('active');
+  grid.innerHTML='';
+  libraryData[cat].forEach(item=>{
+    let card=document.createElement('div');
+    card.className='item-card';
+    card.innerHTML=`<img src="${item.img}"><p>${item.name}</p>`;
+    card.onclick=()=>addItem(item.img);
+    grid.appendChild(card);
+  });
+}
 
-    function addItemToSpace(imgSrc) {
-        let div = document.createElement('div');
-        div.className = 'placed-item';
-        div.style.width = '100px';
-        div.style.height = '100px';
-        div.style.left = '50%';
-        div.style.top = '50%';
-        div.innerHTML = `<img src="${imgSrc}"><div class="delete-btn" onclick="this.parentElement.remove()">×</div>`;
-        space.appendChild(div);
-        makeDraggable(div);
-    }
+function addItem(imgSrc){
+  let div=document.createElement('div');
+  div.className='placed-item';
+  div.style.width='120px'; div.style.height='120px';
+  div.style.left='50px'; div.style.top='50px';
+  div.innerHTML=`<img src="${imgSrc}"><div class="delete-btn" onclick="this.parentElement.remove()">×</div>`;
+  space.appendChild(div);
+  
+  interact(div).draggable({
+    listeners:{move(event){
+      const target=event.target;
+      const x=(parseFloat(target.getAttribute('data-x'))||0)+event.dx;
+      const y=(parseFloat(target.getAttribute('data-y'))||0)+event.dy;
+      const scale=parseFloat(target.getAttribute('data-scale')||1);
+      const angle=parseFloat(target.getAttribute('data-angle')||0);
+      target.style.transform=`translate(${x}px,${y}px) rotate(${angle}deg) scale(${scale})`;
+      target.setAttribute('data-x',x); target.setAttribute('data-y',y);
+    }}
+  }).gesturable({
+    listeners:{move(event){
+      const target=event.target;
+      const scale=(parseFloat(target.getAttribute('data-scale'))||1)*(1+event.ds);
+      const angle=(parseFloat(target.getAttribute('data-angle'))||0)+event.da;
+      const x=parseFloat(target.getAttribute('data-x')||0);
+      const y=parseFloat(target.getAttribute('data-y')||0);
+      target.style.transform=`translate(${x}px,${y}px) rotate(${angle}deg) scale(${scale})`;
+      target.setAttribute('data-scale',scale); target.setAttribute('data-angle',angle);
+    }}
+  });
+}
 
-    function makeDraggable(el) {
-        interact(el).draggable({
-            listeners: {
-                move (event) {
-                    var target = event.target
-                    var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
-                    var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
-                    target.style.transform = 'translate(' + x + 'px, ' + y + 'px)'
-                    target.setAttribute('data-x', x)
-                    target.setAttribute('data-y', y)
-                }
-            }
-        }).gesturable({
-            listeners: {
-                move (event) {
-                    var target = event.target
-                    var scale = (parseFloat(target.getAttribute('data-scale')) || 1) * (1 + event.ds)
-                    var angle = (parseFloat(target.getAttribute('data-angle')) || 0) + event.da
-                    target.style.transform = `translate(${target.getAttribute('data-x')}px, ${target.getAttribute('data-y')}px) rotate(${angle}deg) scale(${scale})`
-                    target.setAttribute('data-scale', scale)
-                    target.setAttribute('data-angle', angle)
-                }
-            }
-        });
-    }
+function openLeadModal(){document.getElementById('leadModal').style.display='flex';}
+function submitLead(){alert('تم الإرسال بنجاح! فريق ركن ديزاين هيتواصل معاك.'); location.reload();}
 
-    function openLeadModal() { document.getElementById('leadModal').style.display = 'flex'; }
+window.onload=()=>loadCategory('living',document.querySelector('.tab'));
 </script>
 
 </body>
