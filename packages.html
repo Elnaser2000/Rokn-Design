@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواصفات باقات ركن ديزاين | الجودة هي المعيار</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root { --gold: #d4af37; --dark: #111; --gray: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background: var(--gray); color: #333; }
+
+        header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--gold); }
+        .logo { color: var(--gold); font-size: 24px; font-weight: bold; text-decoration: none; }
+        .back-btn { color: white; text-decoration: none; font-size: 14px; }
+
+        .hero-small { background: var(--dark); color: white; text-align: center; padding: 60px 20px; }
+        .hero-small h1 { font-size: 32px; color: var(--gold); margin-bottom: 10px; }
+        .hero-small p { opacity: 0.8; font-weight: 300; }
+
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 8%; margin-top: -40px; }
+        
+        .pkg-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #eee; display: flex; flex-direction: column; transition: 0.3s; }
+        .pkg-card:hover { transform: translateY(-10px); }
+        .pkg-card.featured { border: 2px solid var(--gold); transform: scale(1.05); z-index: 10; }
+
+        .pkg-header { padding: 30px; text-align: center; background: #fff; border-bottom: 1px solid #eee; }
+        .pkg-header i { font-size: 40px; color: var(--gold); margin-bottom: 15px; }
+        .pkg-header h3 { font-size: 22px; color: var(--dark); }
+        .pkg-subtitle { font-size: 14px; color: #777; margin-top: 5px; }
+
+        .detail-group { padding: 20px; background: #fff; border-bottom: 1px solid #f9f9f9; }
+        .detail-title { background: #f1f1f1; padding: 5px 15px; font-size: 13px; font-weight: bold; border-radius: 5px; margin-bottom: 12px; display: inline-block; }
+        
+        .feature-item { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; margin-bottom: 10px; color: #555; line-height: 1.4; }
+        .feature-item i { color: var(--gold); font-size: 12px; margin-top: 4px; }
+
+        .cta-btn { display: block; background: var(--dark); color: white; text-align: center; padding: 16px; text-decoration: none; margin: 20px; border-radius: 12px; font-weight: bold; transition: 0.3s; }
+        .pkg-card.featured .cta-btn { background: var(--gold); color: #000; }
+        .cta-btn:hover { filter: brightness(1.2); }
+
+        .popular-badge { position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 5px 25px; font-size: 12px; font-weight: bold; border-radius: 0 0 10px 10px; }
+
+        footer { text-align: center; padding: 40px; color: #999; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">ROKN DESIGN</a>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> الرئيسية</a>
+</header>
+
+<section class="hero-small">
+    <h1>مواصفات باقات التشطيب</h1>
+    <p>اختر المستوى الذي يليق بك، واحسب التكلفة الدقيقة بناءً على مساحة وحدتك</p>
+</section>
+
+<div class="packages-grid">
+    
+    <div class="pkg-card">
+        <div class="pkg-header">
+            <i class="fas fa-home"></i>
+            <h3>باقة Smart</h3>
+            <p class="pkg-subtitle">حلول عملية بجودة هندسية</p>
+        </div>
+        
+        <div class="detail-group">
+            <span class="detail-title">تأسيس البنية التحتية</span>
+            <div class="feature-item"><i class="fas fa-check-double"></i> كهرباء: أسلاك السويدي أصلية بالكامل ومواسير علاء الدين.</div>
+            <div class="feature-item"><i class="fas fa-check-double"></i> سباكة: مواسير BR معتمدة باختبار الشركة والضمان.</div>
+        </div>
+
+        <div class="detail-group">
+            <span class="detail-title">التشطيبات الظاهرة</span>
+            <div class="feature-item"><i class="fas fa-check-double"></i> أرضيات: سيراميك فرز أول (كليوباترا / لابوتيه).</div>
+            <div class="feature-item"><i class="fas fa-check-double"></i> دهانات: سايبس (وجهين معجون + وجه بطانة + وجهين فنش).</div>
+        </div>
+
+        <a href="calculator.html?package=eco" class="cta-btn">احسب تكلفة هذه الباقة</a>
+    </div>
+
+    <div class="pkg-card featured">
+        <div class="popular-badge">الأكثر طلباً</div>
+        <div class="pkg-header">
+            <i class="fas fa-star"></i>
+            <h3>باقة Luxury</h3>
+            <p class="pkg-subtitle">الرفاهية في أدق التفاصيل</p>
+        </div>
+        
+        <div class="detail-group">
+            <span class="detail-title">الديكور واللمسات الفنية</span>
+            <div class="feature-item"><i class="fas fa-check-double"></i> أسقف: بيت نور جبس بورد للريسيبشن والطرقات.</div>
+            <div class="feature-item"><i class="fas fa-check-double"></i> دهانات: جوتن فينوماستيك الأصلي (ألوان عصرية).</div>
+        </div>
+
+        <div class="detail-group">
+            <span class="detail-title">الخامات والمعدات</span>
+            <div class="feature-item"><i class="fas fa-check-double"></i> ريسيبشن: بورسلين فرز أول بمقاسات كبيرة.</div>
+            <div class="feature-item"><i class="fas fa-check-double"></i> صحي: أطقم حمامات ديورافيت أو إيديال ستاندرد.</div>
+        </div>
+
+        <a href="calculator.html?package=silver" class="cta-btn">احسب تكلفة هذه الباقة</a>
+    </div>
+
+    <div class="pkg-card">
+        <div class="pkg-header">
+            <i class="fas fa-crown"></i>
+            <h3>باقة Ultra VIP</h3>
+            <p class="pkg-subtitle">تشطيب فندقي متكامل</p>
+        </div>
+        
+        <div class="detail-group">
+            <span class="detail-title">التصميم الخاص</span>
+            <div class="feature-item"><i class="fas fa-check-double"></i> جبس بورد كامل لكافة الغرف بتصميمات هندسية.</div>
+            <div class="feature-item"><i class="fas fa-check-double"></i> أرضيات: HDF ألماني للغرف وتجاليت خشبية.</div>
+        </div>
+
+        <div class="detail-group">
+            <span class="detail-title">الأنظمة والضمان</span>
+            <div class="feature-item"><i class="fas fa-check-double"></i> تأسيس أنظمة Smart Home وإضاءة Profile Light.</div>
+            <div class="feature-item"><i class="fas fa-check-double"></i> إشراف هندسي مقيم وضمان شامل لمدة 10 سنوات.</div>
+        </div>
+
+        <a href="calculator.html?package=gold" class="cta-btn">احسب تكلفة هذه الباقة</a>
+    </div>
+
+</div>
+
+<footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
+
+</body>
+</html>
