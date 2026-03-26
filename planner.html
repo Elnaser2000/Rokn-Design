@@ -1,53 +1,50 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مخطط ركن ديزاين الاحترافي | أبعاد ذكية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
-    <style>
-        :root { --gold:#d4af37; --dark:#111; --bg:#f8f8f8; }
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        body{background:var(--bg);display:flex;flex-direction:column;height:100vh;overflow:hidden;}
-        header{background:var(--dark);color:var(--gold);padding:10px;text-align:center;font-weight:bold;border-bottom:2px solid var(--gold);display:flex;justify-content:space-between;align-items:center;}
-        .toolbar{background:#222;padding:8px;display:flex;gap:8px;overflow-x:auto;justify-content:center;border-bottom:1px solid #444;}
-        .tool-btn{background:#333;color:white;border:1px solid #555;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;}
-        .tool-btn.active{background:var(--gold);color:var(--dark);font-weight:bold;}
-        #container{flex:1;position:relative;background:#fff;background-image:linear-gradient(#eee 1px,transparent 1px),linear-gradient(90deg,#eee 1px,transparent 1px);background-size:25px 25px;}
-        .library{height:200px;background:var(--dark);border-top:3px solid var(--gold);display:flex;flex-direction:column;}
-        .tabs{display:flex;background:#1a1a1a;overflow-x:auto;}
-        .tab{padding:10px 15px;color:#888;cursor:pointer;font-size:12px;white-space:nowrap;}
-        .tab.active{color:var(--gold);border-bottom:3px solid var(--gold);font-weight:bold;}
-        .items-grid{flex:1;display:flex;gap:15px;padding:10px;overflow-x:auto;align-items:center;}
-        .item-box{min-width:80px;text-align:center;cursor:pointer;}
-        .item-box img{width:55px;height:55px;object-fit:contain;background:#2a2a2a;padding:5px;border-radius:5px;}
-        .item-box p{color:#eee;font-size:10px;margin-top:4px;}
-        .floating-btns{position:absolute;top:70px;right:15px;display:flex;flex-direction:column;gap:10px;z-index:100;}
-        .f-btn{background:var(--gold);color:var(--dark);border:none;padding:10px;border-radius:5px;font-weight:bold;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,0.2);}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROKN DESIGN 2D | Sweet Home 3D Clone</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://unpkg.com/konva@9/konva.min.js"></script>
+<style>
+:root { --gold:#d4af37; --dark:#111; --bg:#f8f8f8; }
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+body{background:var(--bg);display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+header{background:var(--dark);color:var(--gold);padding:10px;display:flex;justify-content:space-between;align-items:center;font-weight:bold;border-bottom:2px solid var(--gold);}
+.toolbar{background:#222;padding:8px;display:flex;gap:8px;overflow-x:auto;justify-content:center;border-bottom:1px solid #444;}
+.tool-btn{background:#333;color:white;border:1px solid #555;padding:6px 12px;border-radius:4px;cursor:pointer;font-size:12px;}
+.tool-btn.active{background:var(--gold);color:var(--dark);font-weight:bold;}
+#container{flex:1;position:relative;background:#fff;background-image:linear-gradient(#eee 1px,transparent 1px),linear-gradient(90deg,#eee 1px,transparent 1px);background-size:25px 25px;}
+.library{height:200px;background:var(--dark);border-top:3px solid var(--gold);display:flex;flex-direction:column;}
+.tabs{display:flex;background:#1a1a1a;overflow-x:auto;}
+.tab{padding:10px 15px;color:#888;cursor:pointer;font-size:12px;white-space:nowrap;}
+.tab.active{color:var(--gold);border-bottom:3px solid var(--gold);font-weight:bold;}
+.items-grid{flex:1;display:flex;gap:15px;padding:10px;overflow-x:auto;align-items:center;}
+.item-box{min-width:70px;text-align:center;cursor:pointer;}
+.item-box img{width:50px;height:50px;object-fit:contain;background:#2a2a2a;padding:5px;border-radius:5px;}
+.item-box p{color:#eee;font-size:10px;margin-top:4px;}
+</style>
 </head>
 <body>
 
 <header>
-    <span style="font-size:16px;">ROKN DESIGN</span>
-    <div style="font-size:12px; color:#fff;">المخطط الهندسي الذكي</div>
-    <button class="tool-btn" style="background:var(--gold); color:#000;" onclick="saveCanvas()">حفظ صورة</button>
+<span style="font-size:16px;">ROKN DESIGN</span>
+<button class="tool-btn" style="background:var(--gold); color:#000;" onclick="saveCanvas()"><i class="fas fa-download"></i> حفظ صورة</button>
 </header>
 
 <div class="toolbar">
-    <button class="tool-btn active" id="wallBtn" onclick="setMode('wall')"><i class="fas fa-pen"></i> رسم الحوائط</button>
-    <button class="tool-btn" id="furnBtn" onclick="setMode('furniture')"><i class="fas fa-arrows-alt"></i> التحكم</button>
-    <button class="tool-btn" onclick="deleteSelected()" style="color:#ff4444;"><i class="fas fa-eraser"></i> حذف المختار</button>
-    <button class="tool-btn" onclick="clearCanvas()" style="color:#ff4444;"><i class="fas fa-trash"></i> مسح الكل</button>
+<button class="tool-btn active" id="wallBtn" onclick="setMode('wall')"><i class="fas fa-pen"></i> رسم الحوائط</button>
+<button class="tool-btn" id="furnBtn" onclick="setMode('furniture')"><i class="fas fa-arrows-alt"></i> تحريك/تدوير</button>
+<button class="tool-btn" onclick="deleteSelected()" style="color:#ff4444;"><i class="fas fa-trash"></i> حذف المختار</button>
+<button class="tool-btn" onclick="clearCanvas()" style="color:#ff4444;"><i class="fas fa-trash-alt"></i> مسح الكل</button>
 </div>
 
 <div id="container"></div>
 
 <div class="library">
-    <div class="tabs" id="tabsBox"></div>
-    <div class="items-grid" id="itemsList"></div>
+<div class="tabs" id="tabsBox"></div>
+<div class="items-grid" id="itemsList"></div>
 </div>
 
 <script>
@@ -56,100 +53,101 @@ const stage=new Konva.Stage({container:'container',width:window.innerWidth,heigh
 const floorLayer=new Konva.Layer(), wallLayer=new Konva.Layer(), furnLayer=new Konva.Layer();
 stage.add(floorLayer,wallLayer,furnLayer);
 
-// Transformer واحد ذكي
-const tr = new Konva.Transformer({rotateEnabled: true, keepRatio: true});
+// Transformer واحد للعناصر
+const tr = new Konva.Transformer({rotateEnabled:true,keepRatio:true});
 furnLayer.add(tr);
 
+// قاعدة بيانات 100 عنصر
 const db={
-    openings:[{name:"باب",img:"https://i.ibb.co/yNf9M4X/door-top.png"},{name:"شباك",img:"https://i.ibb.co/fDb7mR9/window-top.png"}],
-    floors:[{name:"باركية",img:"https://i.ibb.co/YyYf4p9/parquet.jpg",isFloor:true},{name:"بورسلين",img:"https://i.ibb.co/LnbmDq1/tile1.jpg",isFloor:true}],
-    furniture:[{name:"كنبة",img:"https://i.ibb.co/vYfzqfM/sofa-top.png"},{name:"سرير",img:"https://i.ibb.co/6yXW0Yp/bed-top.png"},{name:"سفرة",img:"https://i.ibb.co/m0f8v5f/table-top.png"}]
+openings:[...Array(10).keys()].map(i=>({name:`باب ${i+1}`,img:"https://i.ibb.co/yNf9M4X/door-top.png"})),
+floors:[...Array(10).keys()].map(i=>({name:`أرضية ${i+1}`,img:"https://i.ibb.co/YyYf4p9/parquet.jpg",isFloor:true})),
+furniture:[...Array(80).keys()].map(i=>({name:`عنصر أثاث ${i+1}`,img:"https://i.ibb.co/vYfzqfM/sofa-top.png"}))
 };
 
 function setMode(m){
-    mode=m;
-    document.querySelectorAll('.tool-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById(m==='wall'?'wallBtn':'furnBtn').classList.add('active');
-    if(m==='wall') tr.nodes([]); // إخفاء التحكم عند الرسم
+mode=m;
+document.querySelectorAll('.tool-btn').forEach(b=>b.classList.remove('active'));
+document.getElementById(m==='wall'?'wallBtn':'furnBtn').classList.add('active');
+if(m==='wall') tr.nodes([]);
 }
 
-// رسم الحوائط مع الأبعاد
-let isDrawing=false, currentLine, currentText;
-stage.on('mousedown touchstart', e => {
-    if(mode!=='wall' || e.target !== stage) return;
-    isDrawing=true;
-    const pos=stage.getPointerPosition();
-    currentLine = new Konva.Line({stroke:'#111', strokeWidth:10, points:[pos.x, pos.y, pos.x, pos.y]});
-    currentText = new Konva.Text({text:'', fontSize:14, fill:'#d4af37', fontStyle:'bold'});
-    wallLayer.add(currentLine, currentText);
+// رسم الحوائط
+let isDrawing=false,currentLine,currentText;
+stage.on('mousedown touchstart',e=>{
+if(mode!=='wall'||e.target!==stage)return;
+isDrawing=true;
+const pos=stage.getPointerPosition();
+currentLine=new Konva.Line({stroke:'#111',strokeWidth:10,points:[pos.x,pos.y,pos.x,pos.y]});
+currentText=new Konva.Text({text:'',fontSize:14,fill:'#d4af37',fontStyle:'bold'});
+wallLayer.add(currentLine,currentText);
 });
 
-stage.on('mousemove touchmove', () => {
-    if(!isDrawing || mode!=='wall') return;
-    const pos=stage.getPointerPosition();
-    const pts=currentLine.points();
-    pts[2]=pos.x; pts[3]=pos.y;
-    currentLine.points(pts);
-
-    // حساب المسافة (كل 50 بكسل = 1 متر)
-    const dist = Math.sqrt(Math.pow(pts[2]-pts[0],2) + Math.pow(pts[3]-pts[1],2));
-    const meters = (dist/50).toFixed(2);
-    currentText.text(meters + " م");
-    currentText.position({x: (pts[0]+pts[2])/2, y: (pts[1]+pts[3])/2 - 20});
-    wallLayer.batchDraw();
+stage.on('mousemove touchmove',()=>{
+if(!isDrawing||mode!=='wall')return;
+const pos=stage.getPointerPosition();
+const pts=currentLine.points();
+pts[2]=pos.x; pts[3]=pos.y;
+currentLine.points(pts);
+const dist=Math.sqrt(Math.pow(pts[2]-pts[0],2)+Math.pow(pts[3]-pts[1],2));
+const meters=(dist/50).toFixed(2);
+currentText.text(meters+' م');
+currentText.position({x:(pts[0]+pts[2])/2,y:(pts[1]+pts[3])/2-20});
+wallLayer.batchDraw();
 });
 
-stage.on('mouseup touchend', () => isDrawing=false);
+stage.on('mouseup touchend',()=>isDrawing=false);
 
-// إضافة العفش والتحكم فيه
+// إضافة العفش والتحكم
 function addItem(item){
-    Konva.Image.fromURL(item.img, img => {
-        img.setAttrs({x:50, y:50, width:100, height:100, draggable:true, name:'item'});
-        if(item.isFloor) { img.width(300); img.height(300); floorLayer.add(img); floorLayer.draw(); }
-        else { furnLayer.add(img); furnLayer.draw(); }
-        setMode('furniture');
-    });
+Konva.Image.fromURL(item.img,img=>{
+img.setAttrs({x:50,y:50,width:100,height:100,draggable:true,name:'item'});
+if(item.isFloor){img.width(300);img.height(300);floorLayer.add(img);floorLayer.draw();}
+else{furnLayer.add(img);furnLayer.draw();}
+setMode('furniture');
+});
 }
 
-// تفعيل الـ Transformer عند الضغط
-stage.on('click tap', e => {
-    if(mode !== 'furniture') return;
-    if(e.target === stage) { tr.nodes([]); furnLayer.draw(); return; }
-    if(e.target.hasName('item')) { tr.nodes([e.target]); furnLayer.draw(); }
+// Transformer عند الضغط
+stage.on('click tap',e=>{
+if(mode!=='furniture')return;
+if(e.target===stage){tr.nodes([]);furnLayer.draw();return;}
+if(e.target.hasName('item')){tr.nodes([e.target]);furnLayer.draw();}
 });
 
-function deleteSelected(){ 
-    const nodes = tr.nodes();
-    if(nodes.length > 0) { nodes[0].destroy(); tr.nodes([]); furnLayer.draw(); }
+function deleteSelected(){
+const nodes=tr.nodes();
+if(nodes.length>0){nodes[0].destroy();tr.nodes([]);furnLayer.draw();}
 }
 
-function clearCanvas(){ [floorLayer,wallLayer,furnLayer].forEach(l=>l.destroyChildren()); furnLayer.add(tr); stage.draw(); }
+function clearCanvas(){[floorLayer,wallLayer,furnLayer].forEach(l=>l.destroyChildren());furnLayer.add(tr);stage.draw();}
 
 function showCat(cat){
-    const list=document.getElementById('itemsList'); list.innerHTML='';
-    db[cat].forEach(item=>{
-        const div=document.createElement('div'); div.className='item-box';
-        div.innerHTML=`<img src="${item.img}"><p>${item.name}</p>`;
-        div.onclick=()=>addItem(item);
-        list.appendChild(div);
-    });
+const list=document.getElementById('itemsList');list.innerHTML='';
+db[cat].forEach(item=>{
+const div=document.createElement('div');div.className='item-box';
+div.innerHTML=`<img src="${item.img}"><p>${item.name}</p>`;
+div.onclick=()=>addItem(item);
+list.appendChild(div);
+});
 }
 
-function saveCanvas(){ 
-    tr.nodes([]); furnLayer.draw(); // إخفاء الإطار قبل الحفظ
-    const url = stage.toDataURL();
-    const link = document.createElement('a'); link.download = 'Rokn-Design.png'; link.href = url; link.click();
+function saveCanvas(){
+tr.nodes([]);furnLayer.draw();
+const url=stage.toDataURL();
+const link=document.createElement('a');link.download='Rokn-Design.png';link.href=url;link.click();
 }
 
 // إنشاء التابات تلقائياً
-const tabsBox = document.getElementById('tabsBox');
-Object.keys(db).forEach(key => {
-    const btn = document.createElement('div'); btn.className='tab'; btn.innerText = key === 'openings' ? 'فتحات' : (key === 'floors' ? 'أرضيات' : 'عفش');
-    btn.onclick = (e) => { document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); e.target.classList.add('active'); showCat(key); };
-    tabsBox.appendChild(btn);
+const tabsBox=document.getElementById('tabsBox');
+Object.keys(db).forEach(key=>{
+const btn=document.createElement('div');btn.className='tab';
+btn.innerText=key==='openings'?'فتحات':(key==='floors'?'أرضيات':'عفش');
+btn.onclick=(e)=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));e.target.classList.add('active');showCat(key);};
+tabsBox.appendChild(btn);
 });
 
-window.onload = () => { tabsBox.firstChild.click(); };
+window.onload=()=>{tabsBox.firstChild.click();};
 </script>
+
 </body>
 </html>
