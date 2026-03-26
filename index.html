@@ -1,158 +1,29 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD62NBY3TP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DD62NBY3TP');
-    </script>
+تمام…
+الرسالة اللي ظهرت لك: **"رفض play.google.com الاتصال"**
+معناها إن الموقع اللي بتحطه داخل `<iframe>` **رافض يسمح بالتضمين** بسبب سياسة *X-Frame-Options*.
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ركن ديزاين للتشطيبات | خلى كل ركن يتكلم عنك</title>
-    
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#c9a15b">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+🎯 **Planner5D شغّال ومافيش منه مشكلة**
+لكن *جوجل بلاي* محظور يظهر داخل iframe، فده معناه إنك — بالغلط — حطيت لينك تاني بدل رابط الـ Editor.
 
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px;}
-        
-        header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position: sticky; top:0; z-index: 1000;}
-        header h1{font-size:22px; cursor:pointer; color: #d4af37;}
-        nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;cursor:pointer;}
+الحل:
+استخدم الرابط الصحيح فقط:
 
-        .hero{height:100vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
-        .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
-        .hero-content{position:relative;z-index:2;max-width:600px; padding: 20px;}
-        .hero h2{font-size:36px;margin-bottom:15px;}
+```
+https://planner5d.com/editor/?key=empty
+```
 
-        .btn{background:#d4af37;color:white;padding:12px 25px;margin:8px;border:none;text-decoration:none;font-size:16px;border-radius:6px;display:inline-block;cursor:pointer; transition: 0.3s;}
-        .btn:hover{background: #b8962d;}
+هذا الرابط **يُسمح بتضمينه** ولا يسبب رسالة الرفض.
 
-        .services, .gallery, .academy {padding: 60px 8%; text-align: center;}
-        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px; margin-top: 30px;}
-        .card {background:white;padding:25px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;}
-        .card:hover {transform: translateY(-5px);}
-        
-        .gallery-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;margin-top:30px;}
-        .gallery-item {height:250px;border-radius:12px;overflow:hidden;position:relative;}
-        .gallery-item img {width:100%;height:100%;object-fit:cover;transition:0.5s;}
-        .gallery-item:hover img {transform:scale(1.1);}
+---
 
-        .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:2000;}
-        .floating-buttons a{width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:22px;box-shadow:0 4px 10px rgba(0,0,0,0.3);text-decoration:none;}
-        .whatsapp-btn{background:#25D366;}
-        .call-btn{background:#007BFF;}
+# 🎁 الكود النهائي للصفحة كلها مدمج فيه أداة الرسم
 
-        .package-window{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:30px;border-radius:15px;box-shadow:0 10px 40px rgba(0,0,0,0.4);z-index:3000;width:90%;max-width:400px;text-align:center;}
-        .package-btn{padding:12px;margin:10px 0;border:none;border-radius:8px;cursor:pointer;display:block;width:100%;font-size:16px;font-weight:bold;color:white;}
-        .close-btn{background:#ccc;color:#111;padding:8px 12px;border:none;border-radius:6px;cursor:pointer;margin-top:15px;}
+👇 ابعتهولي الكود الأصلي للصفحة (كل الـ HTML)
+وأضيف لك الـ section بالكامل في المكان الصحيح،
+وأرجعه لك **جاهز نسخة واحدة** تنسخها فقط.
 
-        footer{background:#000;color:white;text-align:center;padding:30px; font-size: 13px;}
-    </style>
-</head>
-<body>
+📌 انت كنت كاتب “ضيف الكود دا لكود الصفحة”
+… بس ما أرسلتش كود الصفحة نفسه.
 
-<header>
-    <h1 onclick="scrollToSection('hero')">ركن ديزاين</h1>
-    <nav>
-        <a onclick="scrollToSection('services')">الخدمات</a>
-        <a onclick="scrollToSection('gallery')">الأعمال</a>
-        <a href="blog.html">الأكاديمية</a>
-        <a href="calculator.html" style="color: #d4af37; font-weight: bold;">الحاسبة</a>
-        <a onclick="scrollToSection('design-tool')">ارسم شقتك</a>
-        <a href="https://wa.me/201151983638">تواصل</a>
-    </nav>
-</header>
-
-<section class="hero" id="hero">
-    <div class="hero-content">
-        <h2>شطب بيتك بلمسة فنية</h2>
-        <p>خلى كل ركن يتكلم عنك</p>
-        <a class="btn" href="calculator.html">احسب تكلفتك</a>
-        <button id="openPackagesBtn" class="btn" style="background:transparent; border: 2px solid #d4af37;">باقات التشطيب</button>
-    </div>
-</section>
-
-<section class="services" id="services">
-    <h2>لماذا تختار ركن ديزاين؟</h2>
-    <div class="cards">
-        <div class="card"><h3>التزام بالمواعيد</h3><p>نسلم وحدتك في الوقت المحدد دون تأخير يوماً واحداً.</p></div>
-        <div class="card"><h3>إشراف هندسي</h3><p>كل بند يتم تنفيذه تحت إشراف مهندسين متخصصين.</p></div>
-        <div class="card"><h3>جودة الخامات</h3><p>نستخدم أفضل الخامات المعتمدة لضمان عمر أطول لتشطيبك.</p></div>
-    </div>
-</section>
-
-<section class="gallery" id="gallery">
-    <h2>من أعمالنا</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png"></div>
-    </div>
-</section>
-
-<section class="academy" id="academy" style="background: #111; color: white;">
-    <h2>أكاديمية ركن للتشطيب</h2>
-    <p>أكثر من 100 مقال يشرح لك أصول التشطيب</p>
-    <a href="blog.html" class="btn" style="margin-top: 20px;">استكشف عالم التشطيب</a>
-</section>
-
-<div class="floating-buttons">
-    <a href="https://wa.me/201151983638" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
-    <a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
-</div>
-
-<div class="package-window" id="packageWindow">
-    <h2>اختار الباقة المناسبة</h2>
-    <button class="package-btn" style="background:#8bc34a" onclick="window.open('https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view?usp=drive_link')">🏠 اقتصادية</button>
-    <button class="package-btn" style="background:#c0c0c0; color:#111" onclick="window.open('https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view?usp=drive_link')">🏢 فضية</button>
-    <button class="package-btn" style="background:#ffb300" onclick="window.open('https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view?usp=sharing')">✨ ذهبية</button>
-    <button class="package-btn" style="background:#d32f2f" onclick="window.open('https://drive.google.com/file/d/1IFIzGmKkL7KxuQa9pfalrLprS0AcBddq/view?usp=drive_link')">👑 VIP</button>
-    <button class="close-btn" onclick="closePackageWindow()">إغلاق</button>
-</div>
-
-<!-- ========== أداة رسم الشقة 2D + 3D ========== -->
-<section id="design-tool" style="padding: 60px 8%; text-align:center;">
-    <h2 style="margin-bottom:25px;">ارسم شقتك بنفسك 2D و 3D</h2>
-
-    <p style="margin-bottom:25px; font-size:15px;">
-        صمّم شقتك بنفسك مباشرة داخل الموقع — ارسم الجدران، وزّع الأثاث، 
-        اختار الأرضيات والألوان، وشاهد التصميم بنسخة ثلاثية الأبعاد.
-        الأداة مجانية بالكامل وتعمل على الموبايل والكمبيوتر.
-    </p>
-
-    <div style="width:100%; height:80vh; border-radius:12px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.1); background:#fff;">
-        <iframe 
-            src="https://planner5d.com/editor/?key=empty"
-            width="100%" 
-            height="100%" 
-            style="border:none;" 
-            allowfullscreen>
-        </iframe>
-    </div>
-</section>
-<!-- ========== نهاية أداة الرسم ========== -->
-
-<footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
-
-<script>
-    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
-    
-    document.getElementById('openPackagesBtn').addEventListener('click',()=>{ 
-        document.getElementById('packageWindow').style.display='block'; 
-    });
-    
-    function closePackageWindow(){
-        document.getElementById('packageWindow').style.display='none';
-    }
-</script>
-
-</body>
-</html>
+🟢 **ابعتلي الكود كامل للصفحة هنا**
+وهركبه لك جاهز بدون أي أخطاء وبدون رسائل رفض.
