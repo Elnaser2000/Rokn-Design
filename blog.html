@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية ركن ديزاين - دليل التشطيب الذكي</title>
+    <title>أكاديمية ركن ديزاين - مرجع التشطيب والديكور في مصر</title>
+    <meta name="description" content="اقرأ مقالات تخصصية في أصول التشطيب الهندي، الديكور، وتأسيس الكهرباء والسباكة. دليلك الشامل من ركن ديزاين لبيت العمر.">
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD62NBY3TP"></script>
     <script>
@@ -17,70 +18,86 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
-        body { font-family: 'Cairo', sans-serif; background: #f4f4f4; margin: 0; padding-bottom: 80px; direction: rtl; }
-        header { background: #111; color: white; padding: 30px 5% 60px; text-align: center; border-bottom: 3px solid #d4af37; }
-        header h1 { color: #d4af37; margin: 0; font-size: 24px; }
-        header p { margin-top: 5px; opacity: 0.7; font-size: 14px; }
+        :root { --gold: #d4af37; --dark: #111; --light: #f4f4f4; }
+        body { font-family: 'Cairo', sans-serif; background: var(--light); margin: 0; padding-bottom: 100px; direction: rtl; color: #333; }
+        
+        /* Header Section */
+        header { background: var(--dark); color: white; padding: 40px 5% 70px; text-align: center; border-bottom: 4px solid var(--gold); }
+        header h1 { color: var(--gold); margin: 0; font-size: 28px; font-weight: 700; }
+        header p { margin-top: 10px; opacity: 0.8; font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
+        /* Navigation Tabs */
         .category-tabs {
             display: flex; overflow-x: auto; white-space: nowrap;
-            padding: 15px 5%; gap: 10px; background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 5%; gap: 12px; background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
         }
-        .category-tabs::-webkit-scrollbar { height: 4px; }
-        .category-tabs::-webkit-scrollbar-thumb { background: #d4af37; border-radius: 10px; }
+        .category-tabs::-webkit-scrollbar { height: 5px; }
+        .category-tabs::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
 
         .tab-btn {
-            padding: 8px 20px; border-radius: 20px; background: #eee;
-            border: none; font-family: 'Cairo', sans-serif; font-size: 13px;
-            cursor: pointer; transition: 0.3s;
+            padding: 10px 25px; border-radius: 25px; background: #f0f0f0;
+            border: none; font-family: 'Cairo', sans-serif; font-size: 14px;
+            cursor: pointer; transition: 0.3s; font-weight: 600;
         }
-        .tab-btn.active { background: #d4af37; color: #111; font-weight: bold; }
+        .tab-btn.active { background: var(--gold); color: var(--dark); box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); }
 
+        /* Search Box */
         .search-wrapper { 
-            max-width: 280px; margin-right: 5%; margin-left: auto; 
-            position: relative; top: -25px; z-index: 1100;
+            max-width: 350px; margin-right: 5%; margin-left: auto; 
+            position: relative; top: -30px; z-index: 1100;
         }
         .search-box { 
-            width: 100%; padding: 12px 15px 12px 45px; border-radius: 30px; 
-            border: 2px solid #d4af37; box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
-            font-size: 14px; outline: none; text-align: right; background: white;
+            width: 100%; padding: 15px 20px 15px 50px; border-radius: 40px; 
+            border: 3px solid var(--gold); box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            font-size: 15px; outline: none; text-align: right; background: white;
         }
-        .search-wrapper i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #d4af37; }
+        .search-wrapper i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 18px; }
 
+        /* Grid Layout */
         .container { 
-            padding: 10px 5% 40px; 
+            padding: 20px 5% 50px; 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
         }
-        .blog-card { 
-            background: white; border-radius: 12px; overflow: hidden; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); transition: 0.3s; 
-            text-decoration: none; color: inherit; display: block;
-            border-bottom: 3px solid transparent;
-        }
-        .blog-card:hover { transform: translateY(-5px); border-color: #d4af37; }
-        .blog-card img { width: 100%; height: 180px; object-fit: cover; }
-        .blog-card-content { padding: 15px; }
-        .blog-card-content h3 { margin: 0 0 8px; font-size: 17px; color: #111; }
-        .blog-card-content p { font-size: 13px; color: #666; line-height: 1.5; margin: 0; }
 
-        .back-home-fab { position: fixed; bottom: 25px; left: 25px; width: 55px; height: 55px; background: #d4af37; color: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none; z-index: 2000; }
-        footer { background:#000; color:#fff; text-align:center; padding:25px; font-size:12px; }
+        /* Card Design */
+        .blog-card { 
+            background: white; border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: 0.4s; 
+            text-decoration: none; color: inherit; display: flex; flex-direction: column;
+            border-bottom: 4px solid transparent;
+        }
+        .blog-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .blog-card img { width: 100%; height: 210px; object-fit: cover; transition: 0.5s; }
+        .blog-card:hover img { scale: 1.05; }
+        
+        .blog-card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-card-content span { color: var(--gold); font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .blog-card-content h3 { margin: 0 0 12px; font-size: 19px; color: var(--dark); line-height: 1.4; }
+        .blog-card-content p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 15px; }
+        
+        .read-more { margin-top: auto; color: var(--gold); font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 5px; }
+
+        /* Floating Button */
+        .back-home-fab { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background: var(--gold); color: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-decoration: none; z-index: 2000; transition: 0.3s; }
+        .back-home-fab:hover { transform: rotate(360deg) scale(1.1); }
+        
+        footer { background: var(--dark); color: #888; text-align: center; padding: 40px; font-size: 13px; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>ركن ديزاين .. خلى كل ركن يتكلم عنك</h1>
-    <p>أكاديمية التشطيب الاحترافي (دليلك لأصول التنفيذ)</p>
+    <h1>أكاديمية ركن ديزاين</h1>
+    <p>تعلم أصول التشطيب الهندي والديكور من خبراء التنفيذ. مقالات تفصيلية لكل بند في شقتك.</p>
 </header>
 
 <div class="search-wrapper">
     <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن موضوع..." onkeyup="runFilter()">
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث عن بند تشطيب (سباكة، نقاشة...)" onkeyup="runFilter()">
 </div>
 
 <div class="category-tabs" id="tabsParent">
@@ -93,12 +110,23 @@
 
 <div class="container" id="articlesGrid"></div>
 
-<a href="index.html" class="back-home-fab"><i class="fas fa-home"></i></a>
+<a href="index.html" class="back-home-fab"><i class="fas fa-home fa-lg"></i></a>
 
-<footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
+<footer>
+    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 15px; filter: grayscale(1); opacity: 0.5;">
+    <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
+    <p style="margin-top: 5px;">خلى كل ركن يتكلم عنك</p>
+</footer>
 
 <script>
     const allArticles = [
+        {
+            id: 12,
+            title: "دليل النقاشة والدهانات الشامل 2026 - أسرار الفنش",
+            desc: "تعرف على خطوات النقاشة الاحترافية من المعجون حتى الفنش النهائي، وأفضل أنواع الدهانات (جوتن وجي ال سي) في السوق المصري.",
+            img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Paint.png",
+            cat: "ديكور"
+        },
         {
             id: 11,
             title: "سحر الإضاءة: كيف تحول منزلك للوحة فنية؟",
@@ -130,7 +158,7 @@
         {
             id: 7,
             title: "أسرار اختيار وتركيب السيراميك والبورسلين",
-            desc: "كيف تختار الأرضية المناسبة لمنزلك؟ تعرف على الفرق بين السيراميك والبورسلين ومعايير ركن ديزاين في الاستلام لمنع التطبيل.",
+            desc: "كيف تختار الأرضية المناسبة لمنزلك؟ تعرف على الفرق بين السيراميك والبورسلين ومعايير ركن ديزاين في الاستلام.",
             img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e",
             cat: "ديكور"
         },
@@ -185,7 +213,6 @@
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
 
-        // ترتيب المقالات تنازلياً (الأحدث فوق)
         const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
 
         sortedArticles.forEach(art => {
@@ -197,8 +224,10 @@
                     <a href="articles/article${art.id}.html" class="blog-card">
                         <img src="${art.img}" alt="${art.title}">
                         <div class="blog-card-content">
+                            <span>#${art.cat}</span>
                             <h3>${art.title}</h3>
                             <p>${art.desc}</p>
+                            <div class="read-more">إقرأ المقال كاملاً <i class="fas fa-chevron-left"></i></div>
                         </div>
                     </a>
                 `;
@@ -206,7 +235,7 @@
         });
 
         if (grid.innerHTML === '') {
-            grid.innerHTML = '<p style="text-align:center; padding:40px; color:#666; grid-column: 1/-1;">لا توجد مقالات تطابق بحثك حالياً.</p>';
+            grid.innerHTML = '<div style="text-align:center; padding:50px; grid-column: 1/-1;"><i class="fas fa-search fa-3x" style="color:#ddd; margin-bottom:15px;"></i><p style="color:#666;">لم نجد مقالات بهذا الاسم، جرب كلمة أخرى.</p></div>';
         }
     }
 
@@ -217,10 +246,7 @@
         render();
     }
 
-    function runFilter() {
-        render();
-    }
-
+    function runFilter() { render(); }
     window.onload = render;
 </script>
 
