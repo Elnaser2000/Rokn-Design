@@ -24,8 +24,8 @@
         /* Header Section */
         header { background: var(--dark); color: var(--white); padding: 40px 5% 70px; text-align: center; border-bottom: 4px solid var(--gold); }
         header h1 { color: var(--gold); margin: 0; font-size: 28px; font-weight: 700; }
-        /* تعديل اللون هنا للأبيض الواضح */
-        header p { margin-top: 10px; color: var(--white); font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9; }
+        /* الجملة دي بقت باللون الأبيض الصريح */
+        header p { margin-top: 10px; color: var(--white); font-size: 16px; max-width: 600px; margin-left: auto; margin-right: auto; opacity: 1; font-weight: 400; }
 
         /* Navigation Tabs */
         .category-tabs {
@@ -75,7 +75,7 @@
         .blog-card img { width: 100%; height: 210px; object-fit: cover; transition: 0.5s; }
         
         .blog-card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .blog-card-content span { color: var(--gold); font-size: 12px; font-weight: bold; margin-bottom: 8px; display: block; }
+        .blog-card-content span { color: var(--gold); font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px; display: block; }
         .blog-card-content h3 { margin: 0 0 12px; font-size: 19px; color: var(--dark); line-height: 1.4; }
         .blog-card-content p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 15px; }
         
@@ -84,9 +84,9 @@
         /* Floating Button */
         .back-home-fab { position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background: var(--gold); color: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-decoration: none; z-index: 2000; transition: 0.3s; }
         
-        /* Footer التعديل هنا للأبيض الواضح */
+        /* Footer */
         footer { background: var(--dark); color: var(--white); text-align: center; padding: 40px; font-size: 13px; border-top: 1px solid #333; }
-        footer p { opacity: 0.9; margin: 5px 0; color: var(--white); }
+        footer p { color: var(--white); margin: 8px 0; opacity: 1; font-weight: 400; }
     </style>
 </head>
 <body>
@@ -114,7 +114,7 @@
 <a href="index.html" class="back-home-fab"><i class="fas fa-home fa-lg"></i></a>
 
 <footer>
-    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 15px; filter: brightness(0) invert(1); opacity: 0.8;">
+    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 15px; filter: brightness(0) invert(1);">
     <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
     <p>خلى كل ركن يتكلم عنك</p>
 </footer>
@@ -122,34 +122,111 @@
 <script>
     const allArticles = [
         {
+            id: 13,
+            title: "دليل ألوان 2026: باليتة السعادة والهدوء لمنزلك",
+            desc: "اكتشف أحدث صيحات ألوان الدهانات لعام 2026، من ألوان الطبيعة الدافئة إلى الـ Greige المطور، وكيفية تنسيقها مع الإضاءة.",
+            img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Colors2026.png",
+            cat: "ديكور"
+        },
+        {
             id: 12,
             title: "دليل النقاشة والدهانات الشامل 2026 - أسرار الفنش",
             desc: "تعرف على خطوات النقاشة الاحترافية من المعجون حتى الفنش النهائي، وأفضل أنواع الدهانات (جوتن وجي ال سي) في السوق المصري.",
             img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Paint.png",
             cat: "ديكور"
         },
-        // ... باقي المقالات هنا (نفس المصفوفة السابقة)
-        { id: 11, title: "سحر الإضاءة: كيف تحول منزلك للوحة فنية؟", desc: "تعرف على طبقات الإضاءة الثلاث وكيفية توزيع السبوتات والليد بروفايل لإبراز جمال ديكورات منزلك.", img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png", cat: "ديكور" },
-        { id: 10, title: "أبواب الخشب: كيف تفرق بين الزان والسويدي والكبس؟", desc: "دليل ركن ديزاين لاختيار أبواب الغرف، الفرق بين أنواع الخشب، وأسرار الاستلام لضمان عدم تريح الأبواب.", img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png", cat: "فرش" },
-        { id: 9, title: "تأسيس التكييف: تجنب التكسير وتنقيط المياه", desc: "كيف تحمي حوائط منزلك ودهاناتك من مشاكل صرف التكييف وتأسيس النحاس الخاطئ؟ دليل ركن ديزاين الشامل.", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473", cat: "تأسيس" },
-        { id: 8, title: "أصول تركيب الجبس بورد واستلام الأسقف", desc: "تعرف على كيفية تجنب شروخ الجبس بورد وأهمية الهيكل المعدني في ضمان استواء السقف للأبد.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f", cat: "استلام" },
-        { id: 7, title: "أسرار اختيار وتركيب السيراميك والبورسلين", desc: "كيف تختار الأرضية المناسبة لمنزلك؟ تعرف على الفرق بين السيراميك والبورسلين ومعايير ركن ديزاين في الاستلام.", img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e", cat: "ديكور" },
-        { id: 6, title: "أصول تأسيس السباكة واختبار الضغط", desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة؟ تعرف على معايير ركن ديزاين في الاستلام والضمان.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a", cat: "تأسيس" },
-        { id: 5, title: "بديل الرخام والخشب: فخامة ذكية", desc: "كيف تحصل على مظهر الرخام الطبيعي ودفء الخشب بتكلفة اقتصادية ومميزات عملية.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6", cat: "ديكور" },
-        { id: 4, title: "تأسيس الكهرباء وأمان منزلك", desc: "دليل توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية بيتك من مخاطر الكهرباء.", img: "https://images.unsplash.com/photo-1558002038-1055907df827", cat: "تأسيس" },
-        { id: 3, title: "أسرار المحارة الهندسية", desc: "لماذا نصر في ركن ديزاين على المحارة الهندسية لضمان زوايا قائمة وحوائط مستوية.", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f", cat: "تأسيس" },
-        { id: 2, title: "سحر لون الفانيلا لاتيه 2026", desc: "لماذا يتربع هذا اللون على عرش الدهانات وكيف تنسقه مع الإضاءة والأثاث بشكل احترافي.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" },
-        { id: 1, title: "دليل العزل المائي الشامل", desc: "تعرف على أصول العزل المائي للحمامات والمطابخ وكيفية تجنب تسريبات المياه الخطيرة.", img: "https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png", cat: "تأسيس" }
+        {
+            id: 11,
+            title: "سحر الإضاءة: كيف تحول منزلك للوحة فنية؟",
+            desc: "تعرف على طبقات الإضاءة الثلاث وكيفية توزيع السبوتات والليد بروفايل لإبراز جمال ديكورات منزلك.",
+            img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png",
+            cat: "ديكور"
+        },
+        {
+            id: 10,
+            title: "أبواب الخشب: كيف تفرق بين الزان والسويدي والكبس؟",
+            desc: "دليل ركن ديزاين لاختيار أبواب الغرف، الفرق بين أنواع الخشب، وأسرار الاستلام لضمان عدم تريح الأبواب.",
+            img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png",
+            cat: "فرش"
+        },
+        {
+            id: 9,
+            title: "تأسيس التكييف: تجنب التكسير وتنقيط المياه",
+            desc: "كيف تحمي حوائط منزلك ودهاناتك من مشاكل صرف التكييف وتأسيس النحاس الخاطئ؟ دليل ركن ديزاين الشامل.",
+            img: "https://images.unsplash.com/photo-1563453392212-326f5e854473",
+            cat: "تأسيس"
+        },
+        {
+            id: 8,
+            title: "أصول تركيب الجبس بورد واستلام الأسقف",
+            desc: "تعرف على كيفية تجنب شروخ الجبس بورد وأهمية الهيكل المعدني في ضمان استواء السقف للأبد.",
+            img: "https://images.unsplash.com/photo-1513694203232-719a280e022f",
+            cat: "استلام"
+        },
+        {
+            id: 7,
+            title: "أسرار اختيار وتركيب السيراميك والبورسلين",
+            desc: "كيف تختار الأرضية المناسبة لمنزلك؟ تعرف على الفرق بين السيراميك والبورسلين ومعايير ركن ديزاين في الاستلام.",
+            img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e",
+            cat: "ديكور"
+        },
+        {
+            id: 6,
+            title: "أصول تأسيس السباكة واختبار الضغط",
+            desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة؟ تعرف على معايير ركن ديزاين في الاستلام والضمان.",
+            img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a",
+            cat: "تأسيس"
+        },
+        {
+            id: 5,
+            title: "بديل الرخام والخشب: فخامة ذكية",
+            desc: "كيف تحصل على مظهر الرخام الطبيعي ودفء الخشب بتكلفة اقتصادية ومميزات عملية.",
+            img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+            cat: "ديكور"
+        },
+        {
+            id: 4,
+            title: "تأسيس الكهرباء وأمان منزلك",
+            desc: "دليل توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية بيتك من مخاطر الكهرباء.",
+            img: "https://images.unsplash.com/photo-1558002038-1055907df827",
+            cat: "تأسيس"
+        },
+        {
+            id: 3,
+            title: "أسرار المحارة الهندسية",
+            desc: "لماذا نصر في ركن ديزاين على المحارة الهندسية لضمان زوايا قائمة وحوائط مستوية.",
+            img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f",
+            cat: "تأسيس"
+        },
+        {
+            id: 2,
+            title: "سحر لون الفانيلا لاتيه 2026",
+            desc: "لماذا يتربع هذا اللون على عرش الدهانات وكيف تنسقه مع الإضاءة والأثاث بشكل احترافي.",
+            img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png",
+            cat: "ديكور"
+        },
+        {
+            id: 1,
+            title: "دليل العزل المائي الشامل",
+            desc: "تعرف على أصول العزل المائي للحمامات والمطابخ وكيفية تجنب تسريبات المياه الخطيرة.",
+            img: "https://i.ibb.co/8Lww9B1f/Gemini-Generated-Image-6c2kiw6c2kiw6c2k.png",
+            cat: "تأسيس"
+        }
     ];
+
+    let currentCategory = 'الكل';
 
     function render() {
         const grid = document.getElementById('articlesGrid');
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
+
         const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
+
         sortedArticles.forEach(art => {
             const matchesCat = (currentCategory === 'الكل' || art.cat === currentCategory);
             const matchesSearch = art.title.toLowerCase().includes(searchTerm) || art.desc.toLowerCase().includes(searchTerm);
+
             if (matchesCat && matchesSearch) {
                 grid.innerHTML += `
                     <a href="articles/article${art.id}.html" class="blog-card">
@@ -164,18 +241,20 @@
                 `;
             }
         });
+
         if (grid.innerHTML === '') {
             grid.innerHTML = '<div style="text-align:center; padding:50px; grid-column: 1/-1;"><i class="fas fa-search fa-3x" style="color:#ddd; margin-bottom:15px;"></i><p style="color:#666;">لم نجد مقالات بهذا الاسم.</p></div>';
         }
     }
+
     function filterByCat(cat, btn) {
         currentCategory = cat;
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         render();
     }
+
     function runFilter() { render(); }
-    let currentCategory = 'الكل';
     window.onload = render;
 </script>
 
