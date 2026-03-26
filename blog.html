@@ -103,7 +103,7 @@
             id: 10,
             title: "أبواب الخشب: كيف تفرق بين الزان والسويدي والكبس؟",
             desc: "دليل ركن ديزاين لاختيار أبواب الغرف، الفرق بين أنواع الخشب، وأسرار الاستلام لضمان عدم تريح الأبواب.",
-            img: "https://images.unsplash.com/photo-1515263487990-61b0082665df",
+            img: "https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png",
             cat: "فرش"
         },
         {
@@ -178,6 +178,7 @@
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
 
+        // ترتيب المقالات تنازلياً حسب ID ليظهر الأحدث أولاً
         const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
 
         sortedArticles.forEach(art => {
