@@ -3,158 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مواصفات باقات ركن ديزاين | الجودة هي المعيار</title>
+    <title>باقات تشطيب ركن ديزاين | المواصفات الفنية</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        :root { --gold: #d4af37; --silver: #c0c0c0; --dark: #111; --gray: #f8f9fa; --vip: #2c3e50; }
+        :root { --gold: #d4af37; --dark: #0a0a0a; --card-bg: #151515; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background: var(--gray); color: #333; }
+        body { background: var(--dark); color: #fff; line-height: 1.6; }
 
-        header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--gold); }
+        header { background: rgba(0,0,0,0.9); padding: 20px 8%; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .logo { color: var(--gold); font-size: 24px; font-weight: bold; text-decoration: none; }
-        .back-btn { color: white; text-decoration: none; font-size: 14px; }
 
-        .hero-small { background: var(--dark); color: white; text-align: center; padding: 60px 20px; }
-        .hero-small h1 { font-size: 32px; color: var(--gold); margin-bottom: 10px; }
-        .hero-small p { opacity: 0.8; font-weight: 300; }
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(to bottom, #111, var(--dark)); }
+        .hero h1 { font-size: 36px; color: var(--gold); margin-bottom: 10px; }
+        .hero p { color: #888; font-weight: 300; }
 
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 40px 5%; margin-top: -60px; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 40px 5%; align-items: flex-start; }
         
-        .pkg-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: 0.4s; border: 1px solid #eee; position: relative; }
-        .pkg-card:hover { transform: translateY(-15px); box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
-        
-        .pkg-header { padding: 30px; text-align: center; color: white; position: relative; }
-        .pkg-basic .pkg-header { background: #5d6d7e; }
-        .pkg-silver .pkg-header { background: #bdc3c7; color: #2c3e50; }
-        .pkg-gold .pkg-header { background: var(--gold); }
-        .pkg-vip .pkg-header { background: var(--vip); }
+        .pkg-card { background: var(--card-bg); width: 320px; border-radius: 20px; border: 1px solid #222; position: relative; transition: 0.4s; padding-bottom: 20px; }
+        .pkg-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1); }
 
-        .pkg-header h3 { font-size: 24px; margin-bottom: 5px; }
-        .pkg-subtitle { font-size: 13px; opacity: 0.9; }
+        .pkg-header { padding: 30px 20px; text-align: center; border-bottom: 1px solid #222; }
+        .pkg-header i { font-size: 40px; color: var(--gold); margin-bottom: 15px; }
+        .pkg-header h3 { font-size: 22px; color: white; letter-spacing: 1px; }
 
-        .features-container { padding: 20px; flex-grow: 1; }
-        .feature-category { margin-bottom: 20px; }
-        .cat-title { font-size: 14px; font-weight: bold; color: var(--dark); border-right: 3px solid var(--gold); padding-right: 10px; margin-bottom: 10px; display: block; background: #fdfdfd; }
-        
-        .feature-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; margin-bottom: 8px; color: #555; line-height: 1.5; }
-        .feature-item i { color: #27ae60; font-size: 11px; margin-top: 5px; }
+        .features-list { padding: 25px 20px; min-height: 450px; } /* لضمان تدرج الطول بصرياً */
+        .feature-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; margin-bottom: 12px; color: #bbb; border-bottom: 1px solid #1a1a1a; padding-bottom: 8px; }
+        .feature-item i { color: var(--gold); font-size: 12px; margin-top: 5px; }
+        .feature-item.new { color: #fff; font-weight: bold; } /* لتمييز الإضافات الجديدة */
 
-        .cta-btn { display: block; text-align: center; padding: 16px; text-decoration: none; margin: 20px; border-radius: 12px; font-weight: bold; transition: 0.3s; }
-        .pkg-basic .cta-btn { background: #5d6d7e; color: white; }
-        .pkg-silver .cta-btn { background: #7f8c8d; color: white; }
-        .pkg-gold .cta-btn { background: var(--gold); color: black; }
-        .pkg-vip .cta-btn { background: var(--vip); color: white; border: 1px solid var(--gold); }
-        .cta-btn:hover { filter: brightness(1.2); transform: scale(1.02); }
+        .cta-btn { display: block; background: var(--gold); color: #000; text-align: center; padding: 15px; margin: 0 20px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .cta-btn:hover { background: #fff; transform: scale(1.05); }
 
-        .badge { position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 20px; font-size: 11px; color: white; }
+        /* تمييز الـ VIP */
+        .pkg-vip { border: 2px solid #8e44ad; }
+        .pkg-vip .cta-btn { background: #8e44ad; color: white; }
+        .vip-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #8e44ad; padding: 5px 20px; border-radius: 20px; font-size: 12px; font-weight: bold; }
 
-        footer { text-align: center; padding: 40px; color: #999; font-size: 12px; }
+        footer { text-align: center; padding: 40px; color: #555; font-size: 12px; }
     </style>
 </head>
 <body>
 
 <header>
     <a href="index.html" class="logo">ROKN DESIGN</a>
-    <a href="index.html" class="back-btn"><i class="fas fa-arrow-right"></i> الرئيسية</a>
 </header>
 
-<section class="hero-small">
-    <h1>مواصفات باقات التشطيب</h1>
-    <p>شفافية كاملة في بنود التنفيذ.. قارن المواصفات واختر ما يناسب طموحك</p>
+<section class="hero">
+    <h1>دليل مواصفات التشطيب</h1>
+    <p>قارن بين مستويات الجودة واختر ما يناسب تطلعاتك</p>
 </section>
 
-<div class="packages-grid">
+<div class="container">
     
-    <div class="pkg-card pkg-basic">
+    <div class="pkg-card">
         <div class="pkg-header">
+            <i class="fas fa-tools"></i>
             <h3>الباقة الأساسية</h3>
-            <p class="pkg-subtitle">الأساس المتين بجودة هندسية</p>
         </div>
-        <div class="features-container">
-            <div class="feature-category">
-                <span class="cat-title">تأسيس السباكة والكهرباء</span>
-                <div class="feature-item"><i class="fas fa-check"></i> مواسير التغذية بولي (شهادة ضمان مختومة).</div>
-                <div class="feature-item"><i class="fas fa-check"></i> عزل كيماوي لأرضية الحمام (طبقة لياسة + عزل).</div>
-                <div class="feature-item"><i class="fas fa-check"></i> أسلاك السويدي أصلية بالكامل ومواسير علاء الدين.</div>
-                <div class="feature-item"><i class="fas fa-check"></i> لوحة مفاتيح فينوس/شنايدر وتأسيس 2 نقطة تكييف.</div>
-            </div>
-            <div class="feature-category">
-                <span class="cat-title">الأرضيات والنجارة</span>
-                <div class="feature-item"><i class="fas fa-check"></i> سيراميك فرز أول (كليوباترا/لابوتيه).</div>
-                <div class="feature-item"><i class="fas fa-check"></i> أبواب غرف خشب عمولة (موسكي قشرة أرو).</div>
-                <div class="feature-item"><i class="fas fa-check"></i> شبابيك ألوميتال قطاع PS Small زجاج أبيض.</div>
-            </div>
+        <div class="features-list">
+            <div class="feature-item"><i class="fas fa-check"></i> تأسيس سباكة بولي (شهادة ضمان مختومة).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> عزل كيماوي لأرضيات الحمامات والمطابخ.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> تأسيس كهرباء أسلاك السويدي أصلية 100%.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> دهانات سايبس (وجهين معجون + وجه فنش).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> أرضيات سيراميك فرز أول (كليوباترا/لابوتيه).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> أبواب غرف خشب عمولة (موسكي قشرة أرو).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> شبابيك ألوميتال قطاع PS Small زجاج أبيض.</div>
         </div>
-        <a href="calculator.html?package=basic" class="cta-btn">احسب تكلفة الأساسية</a>
+        <a href="calculator.html?package=basic" class="cta-btn">ابدأ الحساب</a>
     </div>
 
-    <div class="pkg-card pkg-silver">
+    <div class="pkg-card">
         <div class="pkg-header">
+            <i class="fas fa-award"></i>
             <h3>الباقة الفضية</h3>
-            <p class="pkg-subtitle">مظهر عصري وراحة إضافية</p>
         </div>
-        <div class="features-container">
-            <div class="feature-category">
-                <span class="cat-title">الصحي والسباكة (تطوير)</span>
-                <div class="feature-item"><i class="fas fa-plus"></i> أطقم حمامات ديورافيت أو إيديال ستاندرد.</div>
-                <div class="feature-item"><i class="fas fa-plus"></i> عزل كيماوي متطور لعدد (2) حمام.</div>
-                <div class="feature-item"><i class="fas fa-plus"></i> قاطع شاور زجاجي سيكوريت 10 مم (ثابت).</div>
-                <div class="feature-item"><i class="fas fa-plus"></i> وحدة حوض خشبية مقاومة للمياه للمغسلة الرئيسية.</div>
-            </div>
-            <div class="feature-category">
-                <span class="cat-title">الديكور والدهانات</span>
-                <div class="feature-item"><i class="fas fa-plus"></i> كرانيش جبس ماليزي (100 متر طولي).</div>
-                <div class="feature-item"><i class="fas fa-plus"></i> دهانات جوتن فينوماستيك (قابل للغسيل).</div>
-                <div class="feature-item"><i class="fas fa-plus"></i> ديكورات (ورق حائط 3D أو قطيفة) في كل غرفة.</div>
-            </div>
+        <div class="features-list">
+            <div class="feature-item">كل مميزات الأساسية +</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> أطقم حمامات ديورافيت أو إيديال ستاندرد.</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> تأسيس صرف تكييف مخفي (عدد 2 نقطة).</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> كرانيش جبس ماليزي للأسقف (100 متر).</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> دهانات جوتن فينوماستيك (سهلة الغسيل).</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> وحدة حوض خشبية معالجة ضد الرطوبة.</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> قاطع شاور زجاجي سيكوريت 10 مم.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> لوحات مفاتيح فينوس وتأسيس تيار خفيف.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> عتب رخام للأبواب وتجاليد بسيطة.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> ضمان شامل على الأعمال لمدة 3 سنوات.</div>
         </div>
-        <a href="calculator.html?package=silver" class="cta-btn">احسب تكلفة الفضية</a>
+        <a href="calculator.html?package=silver" class="cta-btn">ابدأ الحساب</a>
     </div>
 
-    <div class="pkg-card pkg-gold">
-        <div class="badge">الأكثر طلباً</div>
+    <div class="pkg-card">
         <div class="pkg-header">
+            <i class="fas fa-crown"></i>
             <h3>الباقة الذهبية</h3>
-            <p class="pkg-subtitle">الرفاهية في أبهى صورها</p>
         </div>
-        <div class="features-container">
-            <div class="feature-category">
-                <span class="cat-title">الأنظمة الذكية والسباكة</span>
-                <div class="feature-item"><i class="fas fa-crown"></i> مواسير شركة BR أو الشريف (صرف سمارت).</div>
-                <div class="feature-item"><i class="fas fa-crown"></i> عدد (2) خزان دفن BR للحمامات (شكل فندقي).</div>
-                <div class="feature-item"><i class="fas fa-crown"></i> كابينة شاور سيكوريت كاملة بمفصلات (متحركة).</div>
-            </div>
-            <div class="feature-category">
-                <span class="cat-title">الأسقف والأرضيات</span>
-                <div class="feature-item"><i class="fas fa-crown"></i> جبسوم بورد كناوف ألماني (بيوت نور) للريسبشن والطرقات.</div>
-                <div class="feature-item"><i class="fas fa-crown"></i> أرضيات ريسبشن بورسلين فرز أول مقاسات كبيرة.</div>
-                <div class="feature-item"><i class="fas fa-crown"></i> باب شقة مصفح تركي (جراند) لأمان كامل.</div>
-            </div>
+        <div class="features-list">
+            <div class="feature-item">كل مميزات الفضية +</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> مواسير شركة BR أو الشريف (صرف سمارت).</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> صناديق دفن (خزانات) فندقية للحمامات.</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> جبسوم بورد كناوف ألماني (بيوت نور) متكاملة.</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> أرضيات ريسبشن بورسلين فرز أول مقاسات كبرى.</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> باب شقة مصفح تركي ثقيل (جراند).</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> إضاءة ليد بروفايل (10 متر) بتصميمات عصرية.</div>
+            <div class="feature-item new"><i class="fas fa-plus"></i> كابينة شاور سيكوريت كاملة (أبواب مفصلية).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> تأسيس ساوند سيستم لغرفة المعيشة.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> رخام مطبخ (جرانيت أسود جالاكسي).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> أطقم حمامات بضمان مدى الحياة.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> دهانات قطيفة/سواحيلي للحوائط الرئيسية.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> إشراف هندسي دوري بتقرير أسبوعي.</div>
         </div>
-        <a href="calculator.html?package=gold" class="cta-btn">احسب تكلفة الذهبية</a>
+        <a href="calculator.html?package=gold" class="cta-btn">ابدأ الحساب</a>
     </div>
 
     <div class="pkg-card pkg-vip">
+        <div class="vip-badge">اختيار النخبة</div>
         <div class="pkg-header">
+            <i class="fas fa-gem"></i>
             <h3>باقة الـ VIP</h3>
-            <p class="pkg-subtitle">تشطيب فندقي متكامل بلا تنازلات</p>
         </div>
-        <div class="features-container">
-            <div class="feature-category">
-                <span class="cat-title">التكنولوجيا والرفاهية</span>
-                <div class="feature-item"><i class="fas fa-gem"></i> تأسيس ساوند سيستم كامل (سماعات سقف مخفية).</div>
-                <div class="feature-item"><i class="fas fa-gem"></i> إضاءة ليد بروفايل (30 متر طولي) بتصميمات خاصة.</div>
-                <div class="feature-item"><i class="fas fa-gem"></i> نظام سمارت هوم للتحكم في الإضاءة والتكييف.</div>
-            </div>
-            <div class="feature-category">
-                <span class="cat-title">الخامات الفاخرة</span>
-                <div class="feature-item"><i class="fas fa-gem"></i> جبسوم بورد كامل للمساحة (تصميمات 2026).</div>
-                <div class="feature-item"><i class="fas fa-gem"></i> أرضيات HDF ألماني للغرف وتجاليد خشبية فاخرة.</div>
-                <div class="feature-item"><i class="fas fa-gem"></i> إشراف هندسي مقيم + ضمان شامل 10 سنوات.</div>
-            </div>
+        <div class="features-list">
+            <div class="feature-item">كل مميزات الذهبية +</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> نظام سمارت هوم (تحكم من الموبايل).</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> جبسوم بورد كامل للمساحة (تصميمات 3D).</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> إضاءة ليد بروفايل مكثفة (30 متر طولي).</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> ساوند سيستم مركزي للشقة بالكامل.</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> أرضيات HDF ألماني عالي المقاومة للغرف.</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> تجاليد خشبية فاخرة وبديل رخام للريسبشن.</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> أبواب غرف جاهزة (ماركات عالمية مستوردة).</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> شبابيك ألوميتال جامبو عازلة للصوت والحرارة.</div>
+            <div class="feature-item new"><i class="fas fa-star"></i> إشراف هندسي مقيم بموقع العمل يومياً.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> رخام مستورد للمطابخ والحمامات.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> مفاتيح إضاءة تاتش (Smart Switches).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> ضمان شامل وحقيقي لمدة 10 سنوات.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> خدمات ما بعد البيع (صيانة دورية مجانية).</div>
+            <div class="feature-item"><i class="fas fa-check"></i> استلام الوحدة بنظام Deep Clean جاهزة للسكن.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> تنسيق ألوان وديكور مع مهندس متخصص.</div>
+            <div class="feature-item"><i class="fas fa-check"></i> هدايا ديكورية خاصة عند التعاقد.</div>
         </div>
-        <a href="calculator.html?package=vip" class="cta-btn">احسب تكلفة الـ VIP</a>
+        <a href="calculator.html?package=vip" class="cta-btn">ابدأ الحساب</a>
     </div>
 
 </div>
