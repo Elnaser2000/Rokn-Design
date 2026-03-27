@@ -3,55 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دليل اختيار أبواب الخشب - ركن ديزاين</title>
+    <title>دليل اختيار أبواب الخشب 2026 - ركن ديزاين</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        body{background:#f9f9f9;color:#333;line-height:1.8;}
-        header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
-        header h1 { color: #d4af37; font-size: 26px; }
-        .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        :root { --gold: #d4af37; --dark: #111; --white: #ffffff; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo', sans-serif; }
+        body { background:#f9f9f9; color:#333; line-height:1.8; }
         
-        /* تحديث تنسيق الصورة لتظهر بشكل كامل واحترافي */
+        header { background: var(--dark); color: white; padding: 50px 20px 80px; text-align: center; border-bottom: 5px solid var(--gold); }
+        header h1 { color: var(--gold); font-size: 28px; margin-bottom: 10px; }
+        
+        .article-container { max-width: 900px; margin: -50px auto 60px; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; z-index: 10; }
+        
         .main-img { 
             width: 100%; 
             height: auto; 
-            max-height: 450px; /* تحديد أقصى ارتفاع للحفاظ على التناسق */
-            object-fit: cover; /* جعل الصورة تغطي المساحة بذكاء */
-            border-radius: 12px; 
-            margin-bottom: 30px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-height: 480px; 
+            object-fit: cover; 
+            border-radius: 15px; 
+            margin-bottom: 35px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
-        h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
-        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+        h1.post-title { font-size: 30px; color: var(--dark); margin-bottom: 25px; border-right: 8px solid var(--gold); padding-right: 20px; line-height: 1.4; }
+        h2 { color: var(--dark); margin: 40px 0 20px; font-size: 24px; display: flex; align-items: center; gap: 10px; }
+        h2::after { content: ""; flex: 1; height: 1px; background: #eee; }
 
-        .wood-types { display: flex; gap: 20px; margin: 30px 0; flex-wrap: wrap; }
-        .type-card { flex: 1; min-width: 250px; background: #fdfaf0; padding: 25px; border-radius: 10px; border: 1px solid #eee; transition: 0.3s; }
-        .type-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .type-card h4 { color: #d4af37; margin-bottom: 12px; font-size: 19px; display: flex; align-items: center; }
-        .type-card h4 i { margin-left: 10px; font-size: 16px; }
-        .type-card p { font-size: 15px; margin-bottom: 0; color: #555; }
+        p { margin-bottom: 25px; font-size: 18px; text-align: justify; color: #444; }
 
-        .check-list { background: #eef2f7; border-right: 5px solid #2980b9; padding: 25px; border-radius: 8px; margin: 30px 0; }
-        .check-list h3 { color: #111; margin-bottom: 15px; }
+        .wood-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 35px 0; }
+        .type-card { background: #fffcf5; padding: 25px; border-radius: 15px; border: 1px solid #f1e6c3; transition: 0.3s; }
+        .type-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .type-card h4 { color: var(--gold); margin-bottom: 15px; font-size: 20px; display: flex; align-items: center; gap: 10px; }
+        .type-card p { font-size: 16px; margin-bottom: 0; color: #555; }
+
+        .check-list { background: #f0f4f8; border-right: 6px solid var(--gold); padding: 30px; border-radius: 15px; margin: 40px 0; }
+        .check-list h3 { color: var(--dark); margin-bottom: 20px; font-size: 22px; }
         .check-list ul { list-style: none; }
-        .check-list li { margin-bottom: 12px; position: relative; padding-right: 30px; }
-        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #2980b9; }
+        .check-list li { margin-bottom: 15px; position: relative; padding-right: 35px; font-size: 17px; }
+        .check-list li::before { content: "\f058"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: var(--gold); font-size: 20px; }
 
-        .cta-rokn { background: #111; color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
-        .cta-rokn h3 { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
-        .cta-rokn p { color: #eee; margin-bottom: 25px; font-size: 16px; }
-        .btn-calc { background: #d4af37; color: #111; padding: 15px 35px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 18px; transition: 0.3s; }
+        .cta-box { background: var(--dark); color: white; padding: 50px 30px; border-radius: 20px; text-align: center; margin-top: 60px; border: 2px solid var(--gold); }
+        .cta-box h3 { color: var(--gold); font-size: 26px; margin-bottom: 15px; }
+        .btn-calc { background: var(--gold); color: var(--dark); padding: 18px 45px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 19px; transition: 0.3s; margin-top: 20px; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2); }
         .btn-calc:hover { transform: scale(1.05); background: #fff; }
 
-        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
-        .back-btn:hover { color: #d4af37; }
+        .back-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 40px; color: #666; text-decoration: none; font-weight: bold; }
+        .back-link:hover { color: var(--gold); }
+
+        footer { text-align: center; padding: 40px 20px; background: var(--dark); color: #888; margin-top: 80px; }
 
         @media (max-width: 768px) {
-            .main-img { max-height: 250px; }
-            .article-container { padding: 20px; margin: -20px 15px 30px; }
+            .article-container { padding: 25px 20px; margin: -30px 15px 40px; }
+            h1.post-title { font-size: 24px; }
+            .type-card { min-width: 100%; }
         }
     </style>
 </head>
@@ -59,57 +65,59 @@
 
 <header>
     <h1>أكاديمية ركن ديزاين</h1>
-    <p>بوابة بيتك هي عنوان فخامته</p>
+    <p>دليل النجارة الفنية: بوابة بيتك هي عنوان فخامته</p>
 </header>
 
 <div class="article-container">
-    <img src="https://i.ibb.co/v6yXyXyX/Gemini-Generated-Image-Wood-Door.png" class="main-img" alt="فحص جودة أبواب الخشب في ركن ديزاين">
+    <img src="https://i.ibb.co/FLPW3K1X/Gemini-Generated-Image-et5y8net5y8net5y.png" class="main-img" alt="فحص جودة أبواب الخشب - ركن ديزاين">
     
-    <h1 style="font-size: 32px; margin-bottom: 20px;">أبواب الخشب: كيف تفرق بين "الزان" و"السويدي" و"الكبس"؟</h1>
+    <h1 class="post-title">أبواب الخشب: كيف تفرق بين "الزان" و"السويدي" و"الكبس"؟</h1>
     
-    <p>اختيار أبواب الغرف لا يعتمد فقط على الشكل الخارجي ودهان الـ Vanilla Latte؛ بل على "قلب" الباب ونوع الخشب المستخدم في تجميعه. في <b>ركن ديزاين</b>، نؤمن أن الباب الجيد هو الذي يجمع بين المتانة، العزل الصوتي، والشكل الجمالي الراقي الذي يدوم لسنوات.</p>
+    <p>اختيار أبواب الغرف لا يعتمد فقط على الشكل الخارجي؛ بل على "قلب" الباب ونوع الخشب المستخدم في تجميعه. في <b>ركن ديزاين</b>، نؤمن أن الباب الجيد هو استثمار في خصوصيتك وعزل منزلك صوتياً وحرارياً، وهو ما يكمل جمال دهانات الـ Vanilla Latte في منزلك.</p>
     
-    <h2>أنواع الأبواب الأكثر شيوعاً وأسرارها</h2>
-    <p>الصورة في الأعلى تظهر فنيينا وهم يفحصون ملمس عروق قشرة خشب الجوز الطبيعي على باب "كبس" تحت الإنشاء. هذا هو المستوى من التفاصيل الذي نضمنه لك. إليك أهم الأنواع:</p>
+    <h2>أنواع الأبواب وأسرار تصنيعها</h2>
+    <p>الصورة في الأعلى تبرز أهمية الفحص الفني للقشرة الطبيعية وتطابق العروق. في ركن ديزاين، نركز على 3 أنواع رئيسية تضمن لك الجودة:</p>
 
     <div class="wood-types">
         <div class="type-card">
             <h4><i class="fas fa-tree"></i> خشب الزان (Beech)</h4>
-            <p>يستخدم غالباً في "الحلوق" والقوائم الرئيسية لقوته الشديدة ومقاومته العالية للخدش والابتلال، وهو الخيار الأفضل للأبواب الخارجية وأبواب الشقق الرئيسية.</p>
+            <p>يستخدم في "الحلوق" والقوائم لقوته الشديدة ومقاومته للخدش. هو الخيار الأول للأبواب التي تتعرض لاستخدام شاق.</p>
         </div>
         <div class="type-card">
-            <h4><i class="fas fa-tree"></i> خشب السويدي (Pine)</h4>
-            <p>خيار اقتصادي وعملي، يتميز بمرونته وشكله الطبيعي الجميل، ويستخدم بكثرة في تشكيل الهيكل الداخلي (الشاسيه) للأبواب نظراً لخفته المقبولة.</p>
+            <h4><i class="fas fa-cube"></i> خشب السويدي (Pine)</h4>
+            <p>خيار عملي ومرن، نستخدمه في الهيكل الداخلي نظراً لمقاومته الطبيعية للتمدد والانكماش بفعل الرطوبة.</p>
         </div>
         <div class="type-card">
-            <h4><i class="fas fa-layer-group"></i> أبواب الكبس (Flush)</h4>
-            <p>تعتمد على هيكل داخلي من الموسكي مغطى بطبقات من الـ MDF أو القشرة الطبيعية (مثل الجوز أو البلوط). هي الأنسب للتصاميم المودرن وتوفر عزلاً ممتازاً للصوت.</p>
+            <h4><i class="fas fa-clone"></i> أبواب الكبس (Flush)</h4>
+            <p>الأكثر رواجاً في التصاميم المودرن. تعتمد على شاسيه قوي مغطى بقشرة طبيعية فاخرة وتوفر أعلى درجات العزل الصوتي.</p>
         </div>
     </div>
 
     <div class="check-list">
-        <h3><i class="fas fa-vial"></i> نصيحة ركن ديزاين عند الاستلام:</h3>
+        <h3><i class="fas fa-search"></i> القائمة الذهبية لاستلام الأبواب:</h3>
         <ul>
-            <li><b>فحص "الشاترة":</b> افتح الباب لنصف المسافة واتركه؛ إذا تحرك وحده للفتح أو الغلق فهذا يعني وجود عيب في "وزنة" التركيب.</li>
-            <li><b>دهان الأطراف:</b> التأكد من دهان الأطراف العلوية والسفلية للباب لحمايته من الرطوبة والتمدد، وهي منطقة ينساها الكثيرون.</li>
-            <li><b>ملمس القشرة:</b> كما في الصورة، المس القشرة للتأكد من استوائها وعدم وجود أي "فقاعات" هوائية تحتها.</li>
+            <li><b>اختبار الاتزان (الشاترة):</b> افتح الباب لمنتصف المسافة واتركه؛ إذا تحرك وحده فهذا يعني وجود خطأ في ميزان التركيب.</li>
+            <li><b>عزل الرطوبة:</b> تأكد من دهان الحواف العلوية والسفلية للباب؛ هذه هي المنطقة التي يتسرب منها الماء وتدمر الخشب بمرور الوقت.</li>
+            <li><b>ملمس القشرة:</b> كما يظهر في فحصنا الفني بالصورة، يجب أن تكون القشرة مستوية تماماً بدون أي فقاعات هوائية تحتها.</li>
         </ul>
     </div>
 
-    <div class="cta-rokn">
+    <div class="cta-box">
         <h3>اجعل دخولك لبيتك تجربة فاخرة</h3>
-        <p>نحن نهتم بأدق تفاصيل النجارة لضمان عمر افتراضي أطول لأبوابك.</p>
+        <p>نحن في ركن ديزاين نهتم بأدق تفاصيل النجارة لأننا نعلم أنها عنوان فخامة منزلك.</p>
         <a href="../calculator.html" class="btn-calc">
             <i class="fas fa-calculator" style="margin-left: 8px;"></i>
             احسب تكلفة تشطيب شقتك الآن
         </a>
     </div>
 
-    <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
+    <a href="../blog.html" class="back-link"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
 
-<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
-    جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
+<footer>
+    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+    <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
+    <p>نبني بذكاء.. لنسكن بفخر</p>
 </footer>
 
 </body>
