@@ -2,7 +2,154 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="widt<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية ركن ديزاين | موسوعة التشطيب 2026</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD62NBY3TP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DD62NBY3TP');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root { --gold: #d4af37; --dark: #111; --light: #f4f4f4; --white: #ffffff; }
+        body { font-family: 'Cairo', sans-serif; background: var(--light); margin: 0; padding-bottom: 100px; direction: rtl; color: #333; overflow-x: hidden; }
+        
+        header { background: var(--dark); color: var(--white); padding: 70px 5% 100px; text-align: center; border-bottom: 5px solid var(--gold); }
+        header h1 { color: var(--gold); margin: 0; font-size: 32px; font-weight: 700; }
+        header p { margin-top: 15px; color: var(--white); font-size: 18px; line-height: 1.8; }
+
+        .search-wrapper { width: 90%; max-width: 500px; margin: 0 auto; position: relative; top: -40px; z-index: 1100; }
+        .search-box { width: 100%; padding: 20px 25px 20px 60px; border-radius: 50px; border: 3px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.2); font-size: 17px; outline: none; text-align: right; background: white; box-sizing: border-box; }
+        .search-wrapper i { position: absolute; left: 25px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 22px; }
+
+        .category-tabs { display: flex; overflow-x: auto; white-space: nowrap; padding: 15px 5%; gap: 10px; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; scrollbar-width: none; }
+        .category-tabs::-webkit-scrollbar { display: none; }
+        .tab-btn { padding: 12px 25px; border-radius: 30px; background: #f2f2f2; border: none; font-family: 'Cairo', sans-serif; font-size: 15px; cursor: pointer; transition: 0.3s; font-weight: 600; color: var(--dark); }
+        .tab-btn.active { background: var(--gold); color: var(--dark); }
+
+        .container { padding: 40px 5% 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        .blog-card { background: white; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; border-bottom: 6px solid transparent; }
+        .blog-card:hover { transform: translateY(-12px); border-color: var(--gold); }
+        .blog-card img { width: 100%; height: 230px; object-fit: cover; background: #eee; }
+        
+        .blog-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-card-content span { color: var(--gold); font-size: 13px; font-weight: bold; margin-bottom: 10px; display: block; }
+        .blog-card-content h3 { margin: 0 0 12px; font-size: 21px; color: var(--dark); line-height: 1.5; }
+        .blog-card-content p { font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 20px; height: 80px; overflow: hidden; }
+        
+        .read-more { margin-top: auto; color: var(--gold); font-weight: bold; font-size: 15px; display: flex; align-items: center; gap: 8px; }
+
+        .back-home-fab { position: fixed; bottom: 30px; left: 30px; width: 65px; height: 65px; background: var(--gold); color: var(--dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-decoration: none; z-index: 2000; }
+        
+        footer { background: var(--dark); color: var(--white); text-align: center; padding: 60px 20px; font-size: 15px; border-top: 1px solid #333; }
+        footer p { color: var(--white); margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>أكاديمية ركن ديزاين</h1>
+    <p>الموسوعة الفنية الأكبر للتشطيب والديكور 2026. مقالات هندسية معمقة لحماية استثمارك في بيت العمر.</p>
+</header>
+
+<div class="search-wrapper">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في 20 مقال (سباكة، استلام، مطابخ...)" onkeyup="render()">
+</div>
+
+<div class="category-tabs">
+    <button class="tab-btn active" onclick="filterByCat('الكل', this)">الكل</button>
+    <button class="tab-btn" onclick="filterByCat('تأسيس', this)">تأسيس</button>
+    <button class="tab-btn" onclick="filterByCat('ديكور', this)">ديكور</button>
+    <button class="tab-btn" onclick="filterByCat('استلام', this)">استلام</button>
+    <button class="tab-btn" onclick="filterByCat('فرش', this)">فرش</button>
+</div>
+
+<div class="container" id="articlesGrid"></div>
+
+<a href="index.html" class="back-home-fab"><i class="fas fa-home fa-lg"></i></a>
+
+<footer>
+    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 45px; margin-bottom: 25px; filter: brightness(0) invert(1);">
+    <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
+    <p>نبني بذكاء.. لنسكن بفخر</p>
+</footer>
+
+<script>
+    const allArticles = [
+        { id: 20, title: "الدليل الذهبي لاستلام الشقة 2026", desc: "أكبر مرجع عربي (3000+ كلمة) لاختبار جودة منزلك وكشف عيوب السباكة والكهرباء والدهانات باحترافية المهندسين.", img: "https://i.ibb.co/6cBxqn6W/1774581032131.png", cat: "استلام" },
+        { id: 19, title: "أسرار الحمامات الفندقية 2026", desc: "دليل دسم عن السباكة المعلقة وأنظمة الدفن وكيفية تحويل حمامك لمنتجع صحي فاخر.", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600", cat: "ديكور" },
+        { id: 18, title: "هندسة المطابخ المودرن 2026", desc: "كل ما تود معرفته عن مثلث الحركة وخامات الـ HPL والـ Poly-lac لضمان مطبخ يدوم العمر.", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600", cat: "ديكور" },
+        { id: 17, title: "فن الإكسسوارات والمرايا", desc: "قواعد توزيع المرايا واللوحات لإعطاء فخامة واتساع للمساحات الضيقة بذكاء معماري.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600", cat: "فرش" },
+        { id: 16, title: "دليل الستائر الحديثة والأنظمة الذكية", desc: "مرجع فني عن أقمشة الكتان وتأسيس بيت الستارة المخفي وأنظمة السمارت هوم المتطورة.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600", cat: "ديكور" },
+        { id: 15, title: "أسرار اختيار الأثاث المودرن", desc: "دليل يشرح كيفية اختيار الأخشاب وتوزيع الأثاث بذكاء هندسي لاستغلال الفراغات.", img: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600", cat: "فرش" },
+        { id: 14, title: "دليل الألوميتال والـ PVC", desc: "أسرار عزل الصوت والحرارة والفرق الجوهري بين قطاعات الجامبو والتانجو والـ PVC.", img: "https://images.unsplash.com/photo-1503387762-592dea58ef23?w=600", cat: "تأسيس" },
+        { id: 13, title: "دليل ألوان 2026: باليتة السعادة", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة.", img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600", cat: "ديكور" },
+        { id: 12, title: "دليل النقاشة والدهانات الشامل", desc: "خطوات التنفيذ الهندسي من المعجون حتى الفنش النهائي وأفضل خامات جوتن وجي ال سي.", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600", cat: "ديكور" },
+        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وكيفية توزيع الليد بروفايل والسبوتات بذكاء المعماريين.", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600", cat: "ديكور" },
+        { id: 10, title: "أبواب الخشب: الزان والسويدي", desc: "كيف تفرق بين أنواع الخشب وأسرار استلام النجارة لضمان عدم تريح الأبواب مستقبلاً.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600", cat: "فرش" },
+        { id: 9, title: "تأسيس التكييف وتجنب التكسير", desc: "دليل حماية الحوائط من تنقيط المياه وتأسيس مسارات النحاس بشكل هندسي خفي.", img: "https://images.unsplash.com/photo-1563453392212-326f5e854473?w=600", cat: "تأسيس" },
+        { id: 8, title: "أصول تركيب الجبس بورد", desc: "تجنب شروخ الأسقف وأهمية الهيكل المعدني في استواء السقف للأبد وفق الكود المصري.", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600", cat: "استلام" },
+        { id: 7, title: "السيراميك والبورسلين 2026", desc: "معايير ركن ديزاين في اختيار الأرضيات والفرق الجوهري في طرق التركيب الحديثة.", img: "https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=600", cat: "ديكور" },
+        { id: 6, title: "أصول تأسيس السباكة والضغط", desc: "كيف تضمن سباكة خالية من التسريبات مدى الحياة مع الحصول على شهادات الضمان.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600", cat: "تأسيس" },
+        { id: 5, title: "بديل الرخام والخشب الذكي", desc: "فخامة الرخام ودفء الخشب بتكلفة اقتصادية ومميزات عملية مذهلة لعام 2026.", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600", cat: "ديكور" },
+        { id: 4, title: "تأسيس الكهرباء وأمان المنزل", desc: "توزيع الأحمال واختيار أقطار الأسلاك المناسبة لحماية منزلك من مخاطر التماس الكهربائي.", img: "https://images.unsplash.com/photo-1558002038-1055907df827?w=600", cat: "تأسيس" },
+        { id: 3, title: "أسرار المحارة الهندسية", desc: "لماذا نعتمد المحارة بالأوتار والزوايا لضمان استواء الحوائط تماماً قبل الدهانات.", img: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=600", cat: "تأسيس" },
+        { id: 2, title: "سحر لون الفانيلا لاتيه", desc: "اللون الأكثر طلباً في مصر وكيفية تنسيقه مع الإضاءة والفرش لإعطاء اتساع للمكان.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" },
+        { id: 1, title: "دليل العزل المائي الشامل", desc: "حماية الحمامات والمطابخ من تسريبات المياه الخطيرة باستخدام أحدث المواد الكيميائية.", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600", cat: "تأسيس" }
+    ];
+
+    let currentCategory = 'الكل';
+
+    function render() {
+        const grid = document.getElementById('articlesGrid');
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        grid.innerHTML = '';
+        
+        const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
+        
+        sortedArticles.forEach(art => {
+            const matchesCat = (currentCategory === 'الكل' || art.cat === currentCategory);
+            const matchesSearch = art.title.toLowerCase().includes(searchTerm) || art.desc.toLowerCase().includes(searchTerm);
+            
+            if (matchesCat && matchesSearch) {
+                grid.innerHTML += `
+                    <a href="articles/article${art.id}.html" class="blog-card">
+                        <img src="${art.img}" loading="lazy" alt="${art.title}">
+                        <div class="blog-card-content">
+                            <span>#${art.cat}</span>
+                            <h3>${art.title}</h3>
+                            <p>${art.desc}</p>
+                            <div class="read-more">قراءة المرجع الكامل <i class="fas fa-chevron-left"></i></div>
+                        </div>
+                    </a>`;
+            }
+        });
+    }
+
+    function filterByCat(cat, btn) {
+        currentCategory = cat;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render();
+    }
+
+    window.onload = render;
+</script>
+
+</body>
+</html>h=device-width, initial-scale=1.0">
     <title>أكاديمية ركن ديزاين | موسوعة التشطيب 2026</title>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD62NBY3TP"></script>
