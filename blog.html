@@ -41,7 +41,7 @@
         
         .blog-card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .blog-card-content span { color: var(--gold); font-size: 13px; font-weight: bold; margin-bottom: 10px; display: block; }
-        .blog-card-content h3 { margin: 0 0 12px; font-size: 21px; color: var(--dark); line-height: 1.5; }
+        .blog-card-content h3 { margin: 0 0 12px; font-size: 21px; color: var(--dark); line-height: 1.4; height: 60px; overflow: hidden; }
         .blog-card-content p { font-size: 15px; color: #666; line-height: 1.8; margin-bottom: 20px; height: 80px; overflow: hidden; }
         
         .read-more { margin-top: auto; color: var(--gold); font-weight: bold; font-size: 15px; display: flex; align-items: center; gap: 8px; }
@@ -56,12 +56,12 @@
 
 <header>
     <h1>أكاديمية ركن ديزاين</h1>
-    <p>دليلك الهندسي الشامل لتشطيب بيتك بأعلى معايير الجودة 2026. مقالات معمقة لحماية استثمارك.</p>
+    <p>الموسوعة الفنية الأكبر للتشطيب والديكور 2026. مقالات هندسية لحماية استثمارك.</p>
 </header>
 
 <div class="search-wrapper">
     <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في المقالات (أبواب، إضاءة، دهانات...)" onkeyup="render()">
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في 20 مقال متخصص..." onkeyup="render()">
 </div>
 
 <div class="category-tabs">
@@ -84,19 +84,26 @@
 
 <script>
     const allArticles = [
-        { id: 21, title: "أسرار اختيار أبواب الخشب 2026", desc: "دليل فني يوضح الفرق بين خشب الزان والسويدي وأبواب الكبس، وكيف تضمن متانة وأناقة أبواب بيتك بذكاء.", img: "https://i.ibb.co/FLPW3K1X/Gemini-Generated-Image-et5y8net5y8net5y.png", cat: "تأسيس" },
-        
-        { id: 20, title: "الدليل الذهبي لاستلام الشقة 2026", desc: "المرجع الشامل لكشف عيوب السباكة والكهرباء والدهانات باحترافية المهندسين عند استلام وحدتك السكنية الجديدة.", img: "https://i.ibb.co/6cBxqn6W/1774581032131.png", cat: "استلام" },
-        
-        { id: 13, title: "دليل ألوان 2026: باليتة السعادة", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة وتطوير لون الفانيلا لاتيه الشهير.", img: "https://i.ibb.co/sdfFfRcL/Gemini-Generated-Image-inskawinskawinsk.png", cat: "ديكور" },
-
-        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وكيفية توزيع الليد بروفايل بذكاء المعماريين لإبراز فخامة التفاصيل في منزلك.", img: "https://i.ibb.co/BV90HR8V/Gemini-Generated-Image-xyznknxyznknxyzn.png", cat: "ديكور" },
-
-        { id: 19, title: "أسرار الحمامات الفندقية 2026", desc: "كل ما تود معرفته عن السباكة المعلقة وأنظمة الدفن وكيفية تحويل حمامك لمنتجع صحي فاخر بلمسات هندسية.", img: "https://i.ibb.co/rGVSMvHL/Gemini-Generated-Image-nfqtclnfqtclnfqt.png", cat: "ديكور" },
-        
-        { id: 18, title: "هندسة المطابخ المودرن 2026", desc: "أسرار مثلث الحركة وخامات الـ HPL والـ Poly-lac لضمان مطبخ عملي وأنيق يجمع بين المتانة والشكل العصري.", img: "https://i.ibb.co/Lz9qMh5F/Gemini-Generated-Image-rjp7hirjp7hirjp7-1.png", cat: "ديكور" },
-        
-        { id: 14, title: "دليل الألوميتال والـ PVC", desc: "أسرار عزل الصوت والحرارة والفرق بين قطاعات الجامبو والتانجو والـ PVC في شبابيك وأبواب منزلك.", img: "https://i.ibb.co/KjHybbXZ/Gemini-Generated-Image-83mg5d83mg5d83mg.png", cat: "تأسيس" }
+        { id: 21, title: "أسرار اختيار أبواب الخشب 2026", desc: "كيف تفرق بين الزان والسويدي والكبس وتختار الباب الذي يجمع بين الفخامة والعزل الصوتي.", img: "https://i.ibb.co/FLPW3K1X/Gemini-Generated-Image-et5y8net5y8net5y.png", cat: "تأسيس" },
+        { id: 20, title: "الدليل الذهبي لاستلام الشقة", desc: "مرجع شامل لاختبار جودة السباكة والكهرباء والدهانات باحترافية المهندسين عند استلام بيتك.", img: "https://i.ibb.co/6cBxqn6W/1774581032131.png", cat: "استلام" },
+        { id: 19, title: "أسرار الحمامات الفندقية", desc: "دليل السباكة المعلقة وأنظمة الدفن وكيفية تحويل حمامك لمنتجع صحي فاخر بلمسات بسيطة.", img: "https://i.ibb.co/rGVSMvHL/Gemini-Generated-Image-nfqtclnfqtclnfqt.png", cat: "ديكور" },
+        { id: 18, title: "هندسة المطابخ المودرن 2026", desc: "أسرار مثلث الحركة وخامات الـ HPL والـ Poly-lac لضمان مطبخ عملي وأنيق يدوم لسنوات.", img: "https://i.ibb.co/Lz9qMh5F/Gemini-Generated-Image-rjp7hirjp7hirjp7-1.png", cat: "ديكور" },
+        { id: 17, title: "فن الإكسسوارات والمرايا", desc: "قواعد توزيع المرايا واللوحات لإعطاء فخامة واتساع للمساحات الضيقة بذكاء معماري.", img: "https://i.ibb.co/vCMZzQ8G/Gemini-Generated-Image-ud8m8ud8m8ud8m8u.png", cat: "فرش" },
+        { id: 16, title: "دليل الستائر الحديثة والسمارت", desc: "مرجع فني عن أقمشة الكتان وتأسيس بيت الستارة المخفي وأنظمة السمارت هوم المتطورة.", img: "https://i.ibb.co/Z6jXVP05/Gemini-Generated-Image-drdpiydrdpiydrdp.png", cat: "فرش" },
+        { id: 15, title: "أسرار اختيار الأثاث المودرن", desc: "دليل يشرح كيفية اختيار الأخشاب وتوزيع الأثاث بذكاء هندسي لاستغلال الفراغات.", img: "https://i.ibb.co/tTkHPtC6/Gemini-Generated-Image-59l7of59l7of59l7-1.png", cat: "فرش" },
+        { id: 14, title: "دليل الألوميتال والـ PVC", desc: "أسرار عزل الصوت والحرارة والفرق بين قطاعات الجامبو والتانجو والـ PVC في الشبابيك.", img: "https://i.ibb.co/KjHybbXZ/Gemini-Generated-Image-83mg5d83mg5d83mg.png", cat: "تأسيس" },
+        { id: 13, title: "دليل ألوان 2026 المحدث", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة.", img: "https://i.ibb.co/sdfFfRcL/Gemini-Generated-Image-inskawinskawinsk.png", cat: "ديكور" },
+        { id: 12, title: "أساسيات النجارة الفنية", desc: "كيف تختار نوع الخشب المناسب لكل ركن في بيتك، من غرف النوم وحتى التجاليد الخشبية.", img: "https://i.ibb.co/689N9P9F/Gemini-Generated-Image-Lighting.png", cat: "تأسيس" },
+        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وتوزيع الليد بروفايل لإبراز فخامة التشطيب بذكاء.", img: "https://i.ibb.co/BV90HR8V/Gemini-Generated-Image-xyznknxyznknxyzn.png", cat: "ديكور" },
+        { id: 10, title: "دليل التكييفات المخفية", desc: "تأسيس الكونسيلد والمخفي، وكيف تختار القدرة المناسبة لكل مساحة لتوفير الكهرباء.", img: "https://i.ibb.co/rGVSMvHL/Gemini-Generated-Image-nfqtclnfqtclnfqt.png", cat: "تأسيس" },
+        { id: 9, title: "الباركيه vs البورسلين", desc: "مقارنة شاملة بين مميزات وعيوب الأرضيات الخشبية والسيراميك والبورسلين.", img: "https://i.ibb.co/Lz9qMh5F/Gemini-Generated-Image-rjp7hirjp7hirjp7-1.png", cat: "ديكور" },
+        { id: 8, title: "عزل الصوت في غرف النوم", desc: "تقنيات هندسية بسيطة لعزل الضوضاء الخارجية وضمان نوم هادئ ومريح.", img: "https://i.ibb.co/vCMZzQ8G/Gemini-Generated-Image-ud8m8ud8m8ud8m8u.png", cat: "تأسيس" },
+        { id: 7, title: "تنسيق النباتات الداخلية", desc: "كيف تختار النباتات المناسبة لكل غرفة وطريقة العناية بها لإضافة روح للمكان.", img: "https://i.ibb.co/Z6jXVP05/Gemini-Generated-Image-drdpiydrdpiydrdp.png", cat: "ديكور" },
+        { id: 6, title: "دليل ورق الحائط الحديث", desc: "الفرق بين الـ 3D والحرير والباركيه وكيف تختار النقشة المناسبة لمساحتك.", img: "https://i.ibb.co/tTkHPtC6/Gemini-Generated-Image-59l7of59l7of59l7-1.png", cat: "ديكور" },
+        { id: 5, title: "أسرار الإضاءة الذكية", desc: "تحكم في منزلك من موبايلك.. دليلك لتأسيس الـ Smart Home بأقل التكاليف.", img: "https://i.ibb.co/KjHybbXZ/Gemini-Generated-Image-83mg5d83mg5d83mg.png", cat: "تأسيس" },
+        { id: 4, title: "ديكور المساحات الضيقة", desc: "حيل معمارية لجعل الشقق الصغيرة تبدو واسعة ومنظمة باستخدام الأثاث الذكي.", img: "https://i.ibb.co/sdfFfRcL/Gemini-Generated-Image-inskawinskawinsk.png", cat: "ديكور" },
+        { id: 3, title: "الجبسون بورد: مميزات وعيوب", desc: "كل ما تود معرفته عن الأسقف المعلقة وتوزيع بيت النور والسبوتات بشكل صحيح.", img: "https://i.ibb.co/BV90HR8V/Gemini-Generated-Image-xyznknxyznknxyzn.png", cat: "ديكور" },
+        { id: 2, title: "سحر لون الفانيلا لاتيه", desc: "اللون الأكثر طلباً في مصر وكيفية تنسيقه مع الإضاءة والفرش لإعطاء اتساع.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" }
     ];
 
     let currentCategory = 'الكل';
@@ -106,7 +113,6 @@
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
         
-        // الترتيب من الأحدث للأقدم
         const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
         
         sortedArticles.forEach(art => {
@@ -121,7 +127,7 @@
                             <span>#${art.cat}</span>
                             <h3>${art.title}</h3>
                             <p>${art.desc}</p>
-                            <div class="read-more">قراءة المرجع الكامل <i class="fas fa-chevron-left"></i></div>
+                            <div class="read-more">قراءة التفاصيل <i class="fas fa-chevron-left"></i></div>
                         </div>
                     </a>`;
             }
