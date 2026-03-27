@@ -185,7 +185,7 @@ function sendWhatsApp() {
     
     const pdfLink = driveLinks[pack] || "";
 
-    let message = `طلب معاينة جديد من موقع ركن ديزاين\n` +
+    let message =
                   `أهلاً بك يا ${name}\n` +
                   `الموبايل: ${phone}\n` +
                   `المنطقة: ${region}\n` +
@@ -196,7 +196,7 @@ function sendWhatsApp() {
                   `الباقة: ${pack}\n` +
                   `السعر المتوقع: ${lastCalculatedTotal.toLocaleString()} جنيه\n\n` +
                   `رابط مواصفات باقة (${pack}):\n${pdfLink}\n\n` +
-                  `برجاء ارسال المقايسة الفنية`;
+                  `برجاء تحديد موعد للمعاينة`;
     
     window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
 }
