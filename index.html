@@ -1,245 +1,71 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ركن ديزاين للتشطيبات | خلى كل ركن يتكلم عنك</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+    /* التعديل المظبوط لرفع المحتوى للسنتر البصري */
+    .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                    url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;
+        display: flex;
+        align-items: center; /* سنترة رأسية */
+        justify-content: center; /* سنترة أفقية */
+        text-align: center;
+        color: white;
+        padding: 0 10%;
+        position: relative;
+    }
 
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        html { scroll-behavior: smooth; }
-        body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px; overflow-x: hidden;}
-        
-        /* الهيدر المصقول (رشة الملح) */
-        header{background:#111;color:white;padding:10px 3%;position: sticky; top:0; z-index: 1000; border-bottom: 2px solid #d4af37;}
-        
-        .header-top { 
-            display: flex; 
-            align-items: center; 
-            justify-content: flex-start; /* لزقناهم في اليمين */
-            margin-bottom: 12px; 
-            padding: 0 5px;
-            gap: 10px; /* المسافة بين الاسم والجملة */
-        }
-        
-        header h1 {
-            font-size: 18px; 
-            cursor: pointer; 
-            color: #d4af37; 
-            font-weight: bold;
-            white-space: nowrap;
-        }
+    .hero-content {
+        max-width: 900px;
+        /* رشة الملح: رفع المحتوى لفوق قليلاً لتعويض مساحة الهيدر */
+        transform: translateY(-40px); 
+    }
 
-        .slogan {
-            font-size: 18px; /* نفس مقاس الفونت */
-            color: #fff;    /* اللون الأبيض */
-            font-weight: 300;
-            white-space: nowrap;
-        }
-        
-        /* منيو الأيقونات */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            background: #1a1a1a; 
-            padding: 8px 5px; 
-            border-radius: 8px; 
-            overflow-x: auto; 
-            white-space: nowrap; 
-        }
-        nav a { 
-            color: #ccc; 
-            text-decoration: none; 
-            font-size: 10px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 4px; 
-            min-width: 60px; 
-            cursor: pointer; 
-        }
-        nav a i { font-size: 18px; color: #d4af37; }
-        nav a:hover { color: #fff; }
-        nav::-webkit-scrollbar { display: none; }
+    .hero-logo {
+        font-family: 'Almarai', sans-serif;
+        font-size: 75px; /* كبرنا اللوجو سنة كمان عشان الهيبة */
+        font-weight: 800;
+        color: #d4af37;
+        margin-bottom: 10px;
+        display: block;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
 
-        /* --- Hero Section - التحديث الرئيسي هنا --- */
-        .hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white; padding: 0 10%;}
-        
-        .hero-content{max-width:900px;}
-        
-        /* اللوجو النصي الكبير */
-        .hero-logo {
-            font-family: 'Almarai', sans-serif; /* فونت مميز */
-            font-size: 70px; /* حجم كبير كلوجو */
-            font-weight: 800;
-            color: #d4af37; /* اللون الذهبي */
-            margin-bottom: 20px;
-            text-transform: uppercase; /* لوجو فخم */
-            letter-spacing: 2px;
-            display: block;
-            opacity: 0.95;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* ظل خفيف للعمق */
-        }
-        
-        /* العنوان */
-        .hero h2{
-            font-size:36px; 
-            font-weight: 700; 
-            color: #fff; /* العنوان أبيض */
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-        
-        /* الوصف */
-        .hero p {
-            font-size: 18px;
-            color: rgba(255,255,255,0.7); /* أبيض شفاف */
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
+    .hero h2 {
+        font-size: 38px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
 
-        .btn{background:#d4af37;color:white;padding:14px 30px;margin:10px;border:none;text-decoration:none;font-size:16px;border-radius:8px;display:inline-block;font-weight: bold;}
+    .hero p {
+        font-size: 19px;
+        color: rgba(255,255,255,0.8);
+        font-weight: 300;
+        margin-bottom: 35px;
+    }
 
-        .section-padding {padding: 60px 8%; text-align: center;}
-        .section-title {margin-bottom: 30px; font-size: 26px; position: relative; padding-bottom: 10px;}
-        .section-title::after {content: ''; width: 50px; height: 3px; background: #d4af37; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
+    /* تحسين شكل الزراير عشان تكون متناسقة */
+    .hero .btn {
+        min-width: 160px;
+        margin: 8px;
+    }
 
-        /* السلايدر */
-        .slider-container {
-            position: relative; max-width: 1000px; margin: auto; overflow: hidden;
-            border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); height: 400px; direction: ltr;
-        }
-        .slides { display: flex; width: 100%; height: 100%; transition: transform 0.8s ease-in-out; }
-        .slide { min-width: 100%; height: 100%; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
-        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.4); border-radius: 50%; margin: 5px; display: inline-block; cursor: pointer; }
-        .dot.active { background: #d4af37; width: 22px; border-radius: 10px; }
-
-        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-        .card {background:white;padding:25px;border-radius:15px;text-align: center;}
-        .card i {font-size: 40px; color: #d4af37; margin-bottom: 15px;}
-        .academy {background: #111; color: white; border-top: 4px solid #d4af37;}
-        
-        .floating-buttons{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:15px;z-index:2000;}
-        .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;text-decoration:none;}
-        .whatsapp-btn{background:#25D366;}
-        .call-btn{background:#007BFF;}
-
-        footer{background:#000;color:#777;text-align:center;padding:40px 20px;}
-
-        @media (max-width: 768px) {
-            .slider-container { height: 250px; }
-            .hero h2 { font-size: 24px; }
-            .hero-logo { font-size: 45px; margin-bottom: 15px; } /* تصغير للموبايل */
-            .hero p { font-size: 15px; }
-            .header-top { gap: 5px; }
-            header h1, .slogan { font-size: 15px; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="header-top">
-        <h1 onclick="location.reload()">ركن ديزاين</h1>
-        <span class="slogan">خلى كل ركن يتكلم عنك</span>
-    </div>
-    <nav>
-        <a onclick="scrollToSection('services')"><i class="fas fa-question-circle"></i><span>لماذا نحن؟</span></a>
-        <a onclick="scrollToSection('gallery')"><i class="fas fa-hammer"></i><span>أعمالنا</span></a>
-        <a href="portfolio.html"><i class="fas fa-images"></i><span>المعرض</span></a>
-        <a href="packages.html"><i class="fas fa-layer-group"></i><span>الباقات</span></a>
-        <a href="calculator.html"><i class="fas fa-calculator"></i><span>حساب التكلفة</span></a>
-        <a onclick="scrollToSection('academy')"><i class="fas fa-graduation-cap"></i><span>الأكاديمية</span></a>
-    </nav>
-</header>
+    @media (max-width: 768px) {
+        .hero-content { transform: translateY(-30px); } /* رفعة أخف للموبايل */
+        .hero-logo { font-size: 50px; }
+        .hero h2 { font-size: 26px; }
+        .hero p { font-size: 16px; }
+    }
+</style>
 
 <section class="hero" id="hero">
     <div class="hero-content">
         <span class="hero-logo">ركن ديزاين</span>
         <h2>حوّل مساحة سكنك إلى تحفة فنية</h2>
         <p>تشطيبات هندسية متكاملة بضمان حقيقي يصل لـ 10 سنوات</p>
-        <div style="margin-top: 20px;">
+        <div class="hero-btns">
             <a href="calculator.html" class="btn">إحسب ميزانيتك</a>
-            <a href="packages.html" class="btn" style="background:transparent; border: 1px solid #d4af37;">استعرض الباقات</a>
+            <a href="packages.html" class="btn" style="background:transparent; border: 2px solid #d4af37;">استعرض الباقات</a>
         </div>
     </div>
 </section>
-
-<section class="section-padding" id="services">
-    <h2 class="section-title">لماذا يختارنا العملاء؟</h2>
-    <div class="cards">
-        <div class="card"><i class="fas fa-microscope"></i><h3>دقة المواصفات</h3><p>خامات معتمدة (السويدي وBR) لأمان يدوم.</p></div>
-        <div class="card"><i class="fas fa-user-shield"></i><h3>إشراف هندسي</h3><p>مهندسون متخصصون لمتابعة أدق التفاصيل في التنفيذ.</p></div>
-        <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>ضمان حقيقي</h3><p>نضمن جودة أعمالنا لمدة تصل إلى 10 سنوات.</p></div>
-    </div>
-</section>
-
-<section class="section-padding" id="gallery">
-    <h2 class="section-title">من سابقة أعمالنا</h2>
-    <div class="slider-container">
-        <div class="slides" id="slides">
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg"></div>
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg"></div>
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg"></div>
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png"></div>
-        </div>
-        <div style="margin-top: 15px;">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding academy" id="academy">
-    <h2 class="section-title" style="color: white;">أكاديمية ركن للتشطيب الذكي</h2>
-    <p style="margin-bottom: 25px; opacity: 0.8;">تعلم أصول التشطيب ووفّر ميزانيتك بذكاء مع خبراء ركن ديزاين.</p>
-    <a href="blog.html" class="btn">تصفح المقالات</a>
-</section>
-
-<div class="floating-buttons">
-    <a href="https://wa.me/201151983638" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
-    <a href="tel:+201151983638" class="call-btn"><i class="fas fa-phone"></i></a>
-</div>
-
-<footer>
-    <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
-</footer>
-
-<script>
-    let slideIndex = 0;
-    const slidesContainer = document.getElementById('slides');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = 4;
-
-    function updateSlider() {
-        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === slideIndex);
-        });
-    }
-
-    function startAutoSlide() {
-        setInterval(() => {
-            slideIndex = (slideIndex + 1) % totalSlides;
-            updateSlider();
-        }, 3000);
-    }
-
-    function scrollToSection(id){ 
-        const element = document.getElementById(id);
-        if(element) {
-            window.scrollTo({ top: element.offsetTop - 130, behavior: 'smooth' });
-        }
-    }
-
-    window.onload = startAutoSlide;
-</script>
-</body>
-</html>
