@@ -21,6 +21,7 @@
     <style>
         /* التنسيقات الأساسية */
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+        html { scroll-behavior: smooth; } /* تمرير ناعم */
         body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px; overflow-x: hidden;}
         
         header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position: sticky; top:0; z-index: 1000; border-bottom: 1px solid #333;}
@@ -52,20 +53,19 @@
         .card i {font-size: 45px; color: #d4af37; margin-bottom: 20px;}
         .card h3 {margin-bottom: 15px; font-size: 20px;}
 
-        /* المعرض */
-        .gallery-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;}
-        .gallery-item {height:280px;border-radius:12px;overflow:hidden;position:relative;}
+        /* المعرض المحدث */
+        .gallery-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px; max-width: 1200px; margin: auto;}
+        .gallery-item {height:280px;border-radius:12px;overflow:hidden;position:relative; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
         .gallery-item img {width:100%;height:100%;object-fit:cover;transition:0.6s;}
-        .gallery-item:hover img {transform:scale(1.15);}
+        .gallery-item:hover img {transform:scale(1.1);}
 
-        /* الأكاديمية (المصيدة) */
+        /* الأكاديمية */
         .academy {background: #111; color: white; border-top: 4px solid #d4af37;}
         .academy p {color: #ccc; max-width: 750px; margin: 0 auto 40px; font-size: 17px;}
         
         /* Floating Buttons */
         .floating-buttons{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:15px;z-index:2000;}
         .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none; transition: 0.3s;}
-        .floating-buttons a:hover{transform: scale(1.15) rotate(5deg);}
         .whatsapp-btn{background:#25D366;}
         .call-btn{background:#007BFF;}
 
@@ -120,10 +120,18 @@
 <section class="section-padding gallery" id="gallery">
     <h2 class="section-title">من سابقة أعمالنا</h2>
     <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="تصميم مودرن"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="ديكورات داخلية"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="واجهات ركن"></div>
+        <div class="gallery-item"><img src="https://i.ibb.co/MDvGXF7t/IMG-20240613-WA0007.jpg" alt="تشطيب ركن ديزاين"></div>
+        <div class="gallery-item"><img src="https://i.ibb.co/nqtRNFFN/IMG-20240624-120409.jpg" alt="ديكورات داخلية"></div>
+        <div class="gallery-item"><img src="https://i.ibb.co/s9TYbJgZ/IMG-20240624-120610.jpg" alt="تصميم مودرن"></div>
+        <div class="gallery-item"><img src="https://i.ibb.co/DHr2VNVP/IMG-20240624-120558.jpg" alt="واجهات ركن"></div>
+        <div class="gallery-item"><img src="https://i.ibb.co/YFLJMCXL/IMG-20240624-120856.jpg" alt="أعمال هندسية"></div>
+        <div class="gallery-item"><img src="https://i.ibb.co/MDkNM4MQ/IMG-20240624-120518.jpg" alt="تشطيب فاخر"></div>
+    </div>
+    
+    <div style="margin-top: 40px;">
+        <a href="portfolio.html" class="btn" style="padding: 15px 45px; border-radius: 50px;">
+            عرض المزيد من الأعمال <i class="fas fa-arrow-left" style="margin-right: 10px;"></i>
+        </a>
     </div>
 </section>
 
@@ -142,10 +150,6 @@
             <i class="fas fa-calculator" style="margin-left: 8px;"></i> خطط لميزانيتك الآن
         </a>
     </div>
-
-    <p style="margin-top: 35px; font-size: 14px; color: #d4af37; font-style: italic; opacity: 0.9;">
-        * اكتشف التكلفة الدقيقة بناءً على أحدث أسعار السوق في أقل من دقيقة.
-    </p>
 </section>
 
 <div class="floating-buttons">
