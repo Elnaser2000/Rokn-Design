@@ -6,6 +6,7 @@
     <title>ركن ديزاين للتشطيبات | خلى كل ركن يتكلم عنك</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -13,7 +14,7 @@
         html { scroll-behavior: smooth; }
         body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px; overflow-x: hidden;}
         
-        /* الهيدر المطور - رشة الملح */
+        /* الهيدر المصقول (رشة الملح) */
         header{background:#111;color:white;padding:10px 3%;position: sticky; top:0; z-index: 1000; border-bottom: 2px solid #d4af37;}
         
         .header-top { 
@@ -65,9 +66,42 @@
         nav a:hover { color: #fff; }
         nav::-webkit-scrollbar { display: none; }
 
-        /* باقي الأقسام */
-        .hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;}
-        .hero h2{font-size:36px; font-weight: 700;}
+        /* --- Hero Section - التحديث الرئيسي هنا --- */
+        .hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white; padding: 0 10%;}
+        
+        .hero-content{max-width:900px;}
+        
+        /* اللوجو النصي الكبير */
+        .hero-logo {
+            font-family: 'Almarai', sans-serif; /* فونت مميز */
+            font-size: 70px; /* حجم كبير كلوجو */
+            font-weight: 800;
+            color: #d4af37; /* اللون الذهبي */
+            margin-bottom: 20px;
+            text-transform: uppercase; /* لوجو فخم */
+            letter-spacing: 2px;
+            display: block;
+            opacity: 0.95;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4); /* ظل خفيف للعمق */
+        }
+        
+        /* العنوان */
+        .hero h2{
+            font-size:36px; 
+            font-weight: 700; 
+            color: #fff; /* العنوان أبيض */
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        /* الوصف */
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7); /* أبيض شفاف */
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
         .btn{background:#d4af37;color:white;padding:14px 30px;margin:10px;border:none;text-decoration:none;font-size:16px;border-radius:8px;display:inline-block;font-weight: bold;}
 
         .section-padding {padding: 60px 8%; text-align: center;}
@@ -99,9 +133,11 @@
 
         @media (max-width: 768px) {
             .slider-container { height: 250px; }
-            .hero h2 { font-size: 26px; }
+            .hero h2 { font-size: 24px; }
+            .hero-logo { font-size: 45px; margin-bottom: 15px; } /* تصغير للموبايل */
+            .hero p { font-size: 15px; }
             .header-top { gap: 5px; }
-            header h1, .slogan { font-size: 15px; } /* تصغير بسيط للموبايل */
+            header h1, .slogan { font-size: 15px; }
         }
     </style>
 </head>
@@ -124,6 +160,7 @@
 
 <section class="hero" id="hero">
     <div class="hero-content">
+        <span class="hero-logo">ركن ديزاين</span>
         <h2>حوّل مساحة سكنك إلى تحفة فنية</h2>
         <p>تشطيبات هندسية متكاملة بضمان حقيقي يصل لـ 10 سنوات</p>
         <div style="margin-top: 20px;">
