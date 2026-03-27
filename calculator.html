@@ -179,8 +179,11 @@ function sendWhatsApp() {
     let finish = document.getElementById("finish").value;
     let metal = document.getElementById("metal").value;
     let area = document.getElementById("area").value;
+    
+    // جلب لينك المقايسة بناءً على الباقة المختارة من مصفوفة driveLinks
+    const pdfLink = driveLinks[pack] || "";
 
-let message = `طلب معاينة جديد من موقع ركن ديزاين\n` +
+    let message = `طلب معاينة جديد من موقع ركن ديزاين\n` +
                   `أهلاً بك يا ${name}\n` +
                   `الموبايل: ${phone}\n` +
                   `المنطقة: ${region}\n` +
@@ -191,8 +194,10 @@ let message = `طلب معاينة جديد من موقع ركن ديزاين\n`
                   `الباقة: ${pack}\n` +
                   `السعر المتوقع: ${lastCalculatedTotal.toLocaleString()} جنيه\n\n` +
                   `رابط مواصفات باقة (${pack}):\n${pdfLink}\n\n` +
-                  `برجاء ارسال المقايسة الفنية`;    
+                  `برجاء ارسال المقايسة الفنية`;
+    
     window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
+}
 }
 </script>
 
