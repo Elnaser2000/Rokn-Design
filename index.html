@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* التنسيقات الأساسية */
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
         html { scroll-behavior: smooth; }
         body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px; overflow-x: hidden;}
@@ -19,30 +18,15 @@
         nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;cursor:pointer; transition: 0.3s;}
         nav a:hover{color: #d4af37;}
 
-        /* Hero Section */
         .hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
-        .hero-content{position:relative;z-index:2;max-width:800px; padding: 20px;}
         .hero h2{font-size:42px;margin-bottom:15px; font-weight: 700;}
-        .hero p{font-size: 18px; margin-bottom: 30px; font-weight: 300;}
-
         .btn{background:#d4af37;color:white;padding:14px 30px;margin:10px;border:none;text-decoration:none;font-size:16px;border-radius:8px;display:inline-block;cursor:pointer; transition: 0.3s; font-weight: bold;}
-        .btn:hover{background: #b8962d; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);}
-        .btn-outline{background:transparent; border: 2px solid #d4af37; color: #d4af37;}
-        .btn-outline:hover{background: #d4af37; color: white;}
 
-        /* Sections */
         .section-padding {padding: 80px 8%; text-align: center;}
         .section-title {margin-bottom: 40px; font-size: 30px; position: relative; padding-bottom: 10px;}
         .section-title::after {content: ''; width: 60px; height: 3px; background: #d4af37; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
 
-        /* الخدمات */
-        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px; margin-top: 30px;}
-        .card {background:white;padding:35px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid transparent;}
-        .card:hover {transform: translateY(-10px); border-color: #d4af37;}
-        .card i {font-size: 45px; color: #d4af37; margin-bottom: 20px;}
-        .card h3 {margin-bottom: 15px; font-size: 20px;}
-
-        /* --- السلايدر (3 ثواني) --- */
+        /* تنسيق السلايدر المطور */
         .slider-container {
             position: relative;
             max-width: 1000px;
@@ -51,15 +35,17 @@
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             height: 450px;
+            direction: ltr; /* نخلي السلايدر نفسه LTR عشان الحسابات تظبط لكن الصور والترتيب هيفضل زي ما هو */
         }
         .slides {
             display: flex;
             width: 100%;
             height: 100%;
-            transition: transform 0.8s ease-in-out; /* حركة ناعمة ومريحة */
+            transition: transform 0.8s ease-in-out;
         }
         .slide { min-width: 100%; height: 100%; }
         .slide img { width: 100%; height: 100%; object-fit: cover; }
+        
         .slider-dots {
             position: absolute;
             bottom: 20px;
@@ -71,22 +57,20 @@
         .dot { width: 12px; height: 12px; background: rgba(255,255,255,0.5); border-radius: 50%; cursor: pointer; }
         .dot.active { background: #d4af37; width: 25px; border-radius: 10px; }
 
-        /* الأكاديمية */
+        /* باقي الأقسام */
+        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px; margin-top: 30px;}
+        .card {background:white;padding:35px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.05); text-align: center;}
+        .card i {font-size: 45px; color: #d4af37; margin-bottom: 20px;}
         .academy {background: #111; color: white; border-top: 4px solid #d4af37;}
-        .academy p {color: #ccc; max-width: 750px; margin: 0 auto 40px; font-size: 17px;}
         
-        /* Floating Buttons */
         .floating-buttons{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:15px;z-index:2000;}
-        .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none; transition: 0.3s;}
+        .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;text-decoration:none;}
         .whatsapp-btn{background:#25D366;}
         .call-btn{background:#007BFF;}
 
-        footer{background:#000;color:#777;text-align:center;padding:50px 20px; font-size: 14px; border-top: 1px solid #222;}
-        
-        @media (max-width: 768px) {
-            .slider-container { height: 280px; }
-            .hero h2 { font-size: 32px; }
-        }
+        footer{background:#000;color:#777;text-align:center;padding:50px 20px;}
+
+        @media (max-width: 768px) { .slider-container { height: 280px; } .hero h2 { font-size: 32px; } }
     </style>
 </head>
 <body>
@@ -96,53 +80,51 @@
     <nav>
         <a onclick="scrollToSection('services')">لماذا نحن؟</a>
         <a onclick="scrollToSection('gallery')">أعمالنا</a>
-        <a href="packages.html">الباقات</a>
-        <a href="portfolio.html">المعرض</a>
+        <a href="portfolio.html">المعرض الكامل</a>
     </nav>
 </header>
 
 <section class="hero" id="hero">
     <div class="hero-content">
         <h2>حوّل مساحة سكنك إلى تحفة فنية</h2>
-        <p>تشطيبات هندسية دقيقة بمواصفات الخامات المعتمدة (السويدي وBR)</p>
+        <p>تشطيبات هندسية دقيقة بمواصفات الخامات المعتمدة</p>
         <a href="calculator.html" class="btn">إحسب تكلفتك الآن</a>
     </div>
 </section>
 
-<section class="section-padding services" id="services">
+<section class="section-padding" id="services">
     <h2 class="section-title">لماذا يختارنا العملاء؟</h2>
     <div class="cards">
-        <div class="card"><i class="fas fa-microscope"></i><h3>دقة المواصفات</h3><p>نستخدم خامات معتمدة لضمان أعلى معايير الأمان.</p></div>
-        <div class="card"><i class="fas fa-user-shield"></i><h3>إشراف هندسي</h3><p>فريق متخصص يراقب كل بند من بنود التأسيس.</p></div>
-        <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>ضمان حقيقي</h3><p>نقدم ضمانًا يصل إلى 10 سنوات على كافة الأعمال.</p></div>
+        <div class="card"><i class="fas fa-microscope"></i><h3>دقة المواصفات</h3><p>نستخدم خامات معتمدة لضمان الأمان.</p></div>
+        <div class="card"><i class="fas fa-user-shield"></i><h3>إشراف هندسي</h3><p>فريق متخصص يراقب كل مراحل التنفيذ.</p></div>
+        <div class="card"><i class="fas fa-hand-holding-heart"></i><h3>ضمان حقيقي</h3><p>نقدم ضمانًا يصل إلى 10 سنوات.</p></div>
     </div>
 </section>
 
-<section class="section-padding gallery" id="gallery">
+<section class="section-padding" id="gallery">
     <h2 class="section-title">من سابقة أعمالنا</h2>
     <div class="slider-container">
         <div class="slides" id="slides">
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="تشطيب 1"></div>
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب 2"></div>
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="تشطيب 3"></div>
-            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="تشطيب 4"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="1"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="2"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="3"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="4"></div>
         </div>
         <div class="slider-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </div>
     <div style="margin-top: 30px;">
-        <a href="portfolio.html" class="btn btn-outline">استعرض المعرض بالكامل</a>
+        <a href="portfolio.html" class="btn" style="background:transparent; border: 2px solid #d4af37; color: #d4af37;">استعرض كل الصور</a>
     </div>
 </section>
 
 <section class="section-padding academy" id="academy">
-    <i class="fas fa-graduation-cap" style="font-size: 50px; color: #d4af37; margin-bottom: 25px;"></i>
     <h2 class="section-title" style="color: white;">أكاديمية ركن للتشطيب الذكي</h2>
-    <p>تعلم كيف تختار الأفضل وتوفر ميزانيتك بذكاء من خلال مقالاتنا التعليمية.</p>
+    <p>تعلم كيف تختار الأفضل وتوفر ميزانيتك بذكاء.</p>
     <a href="blog.html" class="btn">استكشف المقالات</a>
 </section>
 
@@ -159,25 +141,27 @@
     let slideIndex = 0;
     const slidesContainer = document.getElementById('slides');
     const dots = document.querySelectorAll('.dot');
+    const totalSlides = 4;
 
-    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+    function updateSlider() {
+        // بما إننا استخدمنا direction: ltr للسلايدر، المعادلة دي هتظبط الصور في مكانها
+        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === slideIndex);
+        });
+    }
 
     function startAutoSlide() {
         setInterval(() => {
-            slideIndex = (slideIndex + 1) % 4; // بيلف بين الـ 4 صور
+            slideIndex = (slideIndex + 1) % totalSlides;
             updateSlider();
-        }, 3000); // 3000ms = 3 ثواني (السرعة المطلوبة)
+        }, 3000); // 3 ثواني
     }
 
-    function currentSlide(n) { slideIndex = n; updateSlider(); }
+    function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 
-    function updateSlider() {
-        slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[slideIndex].classList.add('active');
-    }
-
-    window.onload = startAutoSlide;
+    // تشغيل السلايدر
+    startAutoSlide();
 </script>
 </body>
 </html>
