@@ -56,12 +56,12 @@
 
 <header>
     <h1>أكاديمية ركن ديزاين</h1>
-    <p>الموسوعة الفنية الأكبر للتشطيب والديكور 2026. مقالات هندسية معمقة لحماية استثمارك في بيت العمر.</p>
+    <p>دليلك الهندسي الشامل لتشطيب بيتك بأعلى معايير الجودة 2026. مقالات معمقة لحماية استثمارك.</p>
 </header>
 
 <div class="search-wrapper">
     <i class="fas fa-search"></i>
-    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في 20 مقال (إضاءة، دهانات، مطابخ...)" onkeyup="render()">
+    <input type="text" id="searchInput" class="search-box" placeholder="ابحث في المقالات (أبواب، إضاءة، دهانات...)" onkeyup="render()">
 </div>
 
 <div class="category-tabs">
@@ -84,25 +84,19 @@
 
 <script>
     const allArticles = [
-        { id: 20, title: "الدليل الذهبي لاستلام الشقة 2026", desc: "أكبر مرجع عربي (3000+ كلمة) لاختبار جودة منزلك وكشف عيوب السباكة والكهرباء والدهانات باحترافية المهندسين.", img: "https://i.ibb.co/6cBxqn6W/1774581032131.png", cat: "استلام" },
+        { id: 21, title: "أسرار اختيار أبواب الخشب 2026", desc: "دليل فني يوضح الفرق بين خشب الزان والسويدي وأبواب الكبس، وكيف تضمن متانة وأناقة أبواب بيتك بذكاء.", img: "https://i.ibb.co/FLPW3K1X/Gemini-Generated-Image-et5y8net5y8net5y.png", cat: "تأسيس" },
         
-        { id: 13, title: "دليل ألوان 2026: باليتة السعادة", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة وتطوير لون الفانيلا لاتيه.", img: "https://i.ibb.co/sdfFfRcL/Gemini-Generated-Image-inskawinskawinsk.png", cat: "ديكور" },
-
-        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وكيفية توزيع الليد بروفايل والسبوتات بذكاء المعماريين لإبراز جمال بيتك.", img: "https://i.ibb.co/BV90HR8V/Gemini-Generated-Image-xyznknxyznknxyzn.png", cat: "ديكور" },
-
-        { id: 19, title: "أسرار الحمامات الفندقية 2026", desc: "دليل دسم عن السباكة المعلقة وأنظمة الدفن وكيفية تحويل حمامك لمنتجع صحي فاخر.", img: "https://i.ibb.co/rGVSMvHL/Gemini-Generated-Image-nfqtclnfqtclnfqt.png", cat: "ديكور" },
+        { id: 20, title: "الدليل الذهبي لاستلام الشقة 2026", desc: "المرجع الشامل لكشف عيوب السباكة والكهرباء والدهانات باحترافية المهندسين عند استلام وحدتك السكنية الجديدة.", img: "https://i.ibb.co/6cBxqn6W/1774581032131.png", cat: "استلام" },
         
-        { id: 18, title: "هندسة المطابخ المودرن 2026", desc: "كل ما تود معرفته عن مثلث الحركة وخامات الـ HPL والـ Poly-lac لضمان مطبخ يدوم العمر.", img: "https://i.ibb.co/Lz9qMh5F/Gemini-Generated-Image-rjp7hirjp7hirjp7-1.png", cat: "ديكور" },
+        { id: 13, title: "دليل ألوان 2026: باليتة السعادة", desc: "تنسيق ألوان الدهانات الحديثة من درجات الـ Greige والمواد الطبيعية الدافئة وتطوير لون الفانيلا لاتيه الشهير.", img: "https://i.ibb.co/sdfFfRcL/Gemini-Generated-Image-inskawinskawinsk.png", cat: "ديكور" },
+
+        { id: 11, title: "سحر توزيع الإضاءة الحديثة", desc: "تعلم طبقات الإضاءة الثلاث وكيفية توزيع الليد بروفايل بذكاء المعماريين لإبراز فخامة التفاصيل في منزلك.", img: "https://i.ibb.co/BV90HR8V/Gemini-Generated-Image-xyznknxyznknxyzn.png", cat: "ديكور" },
+
+        { id: 19, title: "أسرار الحمامات الفندقية 2026", desc: "كل ما تود معرفته عن السباكة المعلقة وأنظمة الدفن وكيفية تحويل حمامك لمنتجع صحي فاخر بلمسات هندسية.", img: "https://i.ibb.co/rGVSMvHL/Gemini-Generated-Image-nfqtclnfqtclnfqt.png", cat: "ديكور" },
         
-        { id: 17, title: "فن الإكسسوارات والمرايا", desc: "قواعد توزيع المرايا واللوحات لإعطاء فخامة واتساع للمساحات الضيقة بذكاء معماري.", img: "https://i.ibb.co/vCMZzQ8G/Gemini-Generated-Image-ud8m8ud8m8ud8m8u.png", cat: "فرش" },
+        { id: 18, title: "هندسة المطابخ المودرن 2026", desc: "أسرار مثلث الحركة وخامات الـ HPL والـ Poly-lac لضمان مطبخ عملي وأنيق يجمع بين المتانة والشكل العصري.", img: "https://i.ibb.co/Lz9qMh5F/Gemini-Generated-Image-rjp7hirjp7hirjp7-1.png", cat: "ديكور" },
         
-        { id: 16, title: "دليل الستائر الحديثة والأنظمة الذكية", desc: "مرجع فني عن أقمشة الكتان وتأسيس بيت الستارة المخفي وأنظمة السمارت هوم المتطورة.", img: "https://i.ibb.co/Z6jXVP05/Gemini-Generated-Image-drdpiydrdpiydrdp.png", cat: "ديكور" },
-
-        { id: 15, title: "أسرار اختيار الأثاث المودرن", desc: "دليل يشرح كيفية اختيار الأخشاب وتوزيع الأثاث بذكاء هندسي لاستغلال الفراغات.", img: "https://i.ibb.co/tTkHPtC6/Gemini-Generated-Image-59l7of59l7of59l7-1.png", cat: "فرش" },
-
-        { id: 14, title: "دليل الألوميتال والـ PVC", desc: "أسرار عزل الصوت والحرارة والفرق الجوهري بين قطاعات الجامبو والتانجو والـ PVC.", img: "https://i.ibb.co/KjHybbXZ/Gemini-Generated-Image-83mg5d83mg5d83mg.png", cat: "تأسيس" },
-
-        { id: 2, title: "سحر لون الفانيلا لاتيه", desc: "اللون الأكثر طلباً في مصر وكيفية تنسيقه مع الإضاءة والفرش لإعطاء اتساع للمكان.", img: "https://i.ibb.co/zhgWMbM3/Rokn-Design-Vanilla-Latte.png", cat: "ديكور" }
+        { id: 14, title: "دليل الألوميتال والـ PVC", desc: "أسرار عزل الصوت والحرارة والفرق بين قطاعات الجامبو والتانجو والـ PVC في شبابيك وأبواب منزلك.", img: "https://i.ibb.co/KjHybbXZ/Gemini-Generated-Image-83mg5d83mg5d83mg.png", cat: "تأسيس" }
     ];
 
     let currentCategory = 'الكل';
@@ -112,6 +106,7 @@
         const searchTerm = document.getElementById('searchInput').value.toLowerCase();
         grid.innerHTML = '';
         
+        // الترتيب من الأحدث للأقدم
         const sortedArticles = [...allArticles].sort((a, b) => b.id - a.id);
         
         sortedArticles.forEach(art => {
