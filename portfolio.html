@@ -3,36 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض أعمال ركن ديزاين | الدقة في التنفيذ</title>
+    <title>معرض أعمال ركن ديزاين | سرعة ودقة</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root { --gold: #d4af37; --dark: #0a0a0a; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background: var(--dark); color: white; overflow-x: hidden; }
+        body { background: var(--dark); color: white; }
 
         header { background: #111; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .logo { color: var(--gold); font-size: 20px; font-weight: bold; text-decoration: none; }
-        .back-link { color: #ccc; text-decoration: none; font-size: 13px; }
 
-        .portfolio-hero { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://i.ibb.co/MDvGXF7t/IMG-20240613-WA0007.jpg') center/cover; }
-        .portfolio-hero h1 { font-size: 30px; color: var(--gold); margin-bottom: 10px; }
+        /* شبكة الصور المحسنة */
+        .gallery-container { 
+            padding: 20px 5%; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 8px; 
+        }
+        
+        .gallery-item { 
+            position: relative; 
+            overflow: hidden; 
+            border-radius: 6px; 
+            height: 220px; 
+            cursor: pointer; 
+            background: #151515; /* لون خلفية خفيف يظهر قبل الصورة */
+        }
 
-        .gallery-container { padding: 20px 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
-        .gallery-item { position: relative; overflow: hidden; border-radius: 8px; height: 300px; cursor: pointer; background: #1a1a1a; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s ease; opacity: 0; }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: 0.3s; 
+            opacity: 0; 
+        }
+
         .gallery-item img.loaded { opacity: 1; }
-        .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.7); }
 
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 10px; }
-        .lightbox img { max-width: 95%; max-height: 90%; border-radius: 5px; border: 1px solid var(--gold); }
+        /* Lightbox (نافذة التكبير) */
+        .lightbox { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.98); display: none; 
+            justify-content: center; align-items: center; z-index: 2000; 
+        }
+        .lightbox img { max-width: 95%; max-height: 85%; border: 1px solid var(--gold); }
         .close-btn { position: absolute; top: 20px; right: 25px; color: white; font-size: 40px; cursor: pointer; }
 
-        footer { text-align: center; padding: 30px; color: #444; font-size: 12px; }
-
         @media (max-width: 768px) {
-            .gallery-container { grid-template-columns: repeat(2, 1fr); gap: 5px; }
-            .gallery-item { height: 180px; }
+            .gallery-container { grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 10px; }
+            .gallery-item { height: 120px; }
         }
     </style>
 </head>
@@ -40,25 +59,18 @@
 
 <header>
     <a href="index.html" class="logo">ROKN DESIGN</a>
-    <a href="index.html" class="back-link"><i class="fas fa-chevron-right"></i> العودة للرئيسية</a>
+    <a href="index.html" style="color:#ccc; text-decoration:none; font-size:12px;">إغلاق المعرض ×</a>
 </header>
-
-<section class="portfolio-hero">
-    <h1>سابقة أعمالنا</h1>
-    <p>من التأسيس الهندسي وحتى أرقى لمسات الديكور</p>
-</section>
 
 <div class="gallery-container" id="gallery"></div>
 
 <div class="lightbox" id="lightbox">
     <span class="close-btn" id="close">&times;</span>
     <img id="lightbox-img" src="">
+    <div id="loading-spinner" style="position:absolute; color:var(--gold); display:none;">جاري تحميل الصورة الأصلية...</div>
 </div>
 
-<footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
-
 <script>
-    // تم تصحيح جميع الروابط المعطوبة والتأكد من أنها تنتهي بامتداد صورة صحيح
     const images = [
         "https://i.ibb.co/7d7wj3tr/IMG-20241221-WA0069.jpg", "https://i.ibb.co/d49NPrWL/IMG-20250416-175907.jpg",
         "https://i.ibb.co/Q3Fh8L9x/IMG-20241221-WA0059.jpg", "https://i.ibb.co/FLy9W6fK/IMG-20241221-WA0047.jpg",
@@ -86,25 +98,38 @@
     ];
 
     const container = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const spinner = document.getElementById('loading-spinner');
+
     images.forEach(url => {
         const item = document.createElement('div');
         item.className = 'gallery-item';
+        
         const img = document.createElement('img');
+        // الحيلة هنا: بنخلي المتصفح يحمل الصورة "تدريجياً" وبنصغر حجم الـ Grid
         img.src = url;
-        img.loading = "lazy";
+        img.loading = "lazy"; 
+        
         img.onload = () => img.classList.add('loaded');
         item.appendChild(img);
+        
         item.onclick = () => {
-            document.getElementById('lightbox-img').src = url;
-            document.getElementById('lightbox').style.display = 'flex';
+            spinner.style.display = 'block';
+            lightboxImg.style.opacity = '0.5';
+            lightboxImg.src = url;
+            lightbox.style.display = 'flex';
+            
+            lightboxImg.onload = () => {
+                spinner.style.display = 'none';
+                lightboxImg.style.opacity = '1';
+            };
         };
         container.appendChild(item);
     });
 
-    document.getElementById('close').onclick = () => document.getElementById('lightbox').style.display = 'none';
-    document.getElementById('lightbox').onclick = (e) => {
-        if(e.target !== document.getElementById('lightbox-img')) document.getElementById('lightbox').style.display = 'none';
-    }
+    document.getElementById('close').onclick = () => lightbox.style.display = 'none';
+    lightbox.onclick = (e) => { if(e.target !== lightboxImg) lightbox.style.display = 'none'; };
 </script>
 </body>
 </html>
