@@ -20,7 +20,6 @@
         .btn-calc { background: #d4af37; color: white; width: 100%; padding: 15px; margin-top: 25px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; }
         .btn-calc:hover { background: #b8962d; transform: translateY(-2px); }
 
-        /* منطقة النتائج */
         #resultArea { display: none; margin-top: 25px; padding: 20px; background: #fff; border: 2px solid #d4af37; border-radius: 12px; animation: slideUp 0.5s ease; }
         .res-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #eee; }
         .total-price { font-size: 22px; font-weight: bold; color: #111; text-align: center; margin-top: 15px; }
@@ -76,10 +75,10 @@
         <label>باقة التشطيب</label>
         <select id="package" required>
             <option value="">اختار الباقة المطلوبة</option>
-            <option>اقتصادية</option>
-            <option>فضية</option>
-            <option>ذهبية</option>
-            <option>VIP</option>
+            <option value="اقتصادية">اقتصادية</option>
+            <option value="فضية">فضية</option>
+            <option value="ذهبية">ذهبية</option>
+            <option value="VIP">VIP</option>
         </select>
 
         <label>الألوميتال</label>
@@ -109,6 +108,14 @@
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbzhrH0VWebHuKu9rK4YxWBO0ZnW5iLmbVmGrqX-YTlEwNO8d31in-q_e3Pnppqnw4Gs/exec";
 
+// روابط المقايسات الفنية
+const driveLinks = {
+    "اقتصادية": "https://drive.google.com/file/d/1q6Qjus9R1n77HEeYJt9jZOBQLiCxEJCb/view",
+    "فضية": "https://drive.google.com/file/d/13oWM07jZrzjzwUWoB0QlIdJZ_kbZ4PSI/view",
+    "ذهبية": "https://drive.google.com/file/d/1jwfreY749gKB8MtTjdkECBcHW7NbuP8A/view",
+    "VIP": "https://drive.google.com/file/d/1m6Q_example_vip_link/view"
+};
+
 const prices = {
     "الهرم - فيصل": {اقتصادية:2800, فضية:3500, ذهبية:3800, VIP:4800},
     "أكتوبر": {اقتصادية:3200, فضية:3700, ذهبية:4000, VIP:4800},
@@ -135,7 +142,6 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
     let pack = document.getElementById("package").value;
     let metal = document.getElementById("metal").value;
 
-    // المعادلات الأصلية
     let pricePerMeter = prices[region][pack];
     if(finish == "طوب احمر") pricePerMeter += 500;
     
@@ -149,7 +155,6 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
 
     lastCalculatedTotal = total;
 
-    // إظهار النتيجة في الصفحة
     document.getElementById("resultArea").style.display = "block";
     document.getElementById("resDetails").innerHTML = `
         <div class="res-item"><span>الاسم:</span> <span>${name}</span></div>
@@ -159,14 +164,12 @@ document.getElementById("costForm").addEventListener("submit", function(e) {
     `;
     document.getElementById("resTotal").innerText = `الإجمالي: ${total.toLocaleString()} جنيه`;
 
-    // إرسال البيانات لجوجل شيت (صيد الداتا)
     fetch(scriptURL, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify({name, phone, area, unit, finish, region, package:pack, metal, total})
-    }).then(() => console.log("Data synced to Sheets"));
+    });
 
-    // تمرير الشاشة للنتيجة
     document.getElementById("resultArea").scrollIntoView({behavior:'smooth'});
 });
 
@@ -180,7 +183,6 @@ function sendWhatsApp() {
     let metal = document.getElementById("metal").value;
     let area = document.getElementById("area").value;
     
-    // جلب لينك المقايسة بناءً على الباقة المختارة من مصفوفة driveLinks
     const pdfLink = driveLinks[pack] || "";
 
     let message = `طلب معاينة جديد من موقع ركن ديزاين\n` +
@@ -197,7 +199,6 @@ function sendWhatsApp() {
                   `برجاء ارسال المقايسة الفنية`;
     
     window.open("https://wa.me/201151983638?text=" + encodeURIComponent(message));
-}
 }
 </script>
 
