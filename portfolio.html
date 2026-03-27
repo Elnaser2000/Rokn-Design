@@ -2,70 +2,45 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> <title>معرض أعمال ركن ديزاين | استعرض الصور</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>معرض أعمال ركن ديزاين | استعرض الصور</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root { --gold: #d4af37; --dark: #0a0a0a; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; -webkit-tap-highlight-color: transparent; } /* منع الوميض عند الضغط */
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; 
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none; /* منع ظهور قائمة الحفظ في آيفون */
+            -webkit-user-select: none;   /* منع تحديد النصوص أو الصور */
+            user-select: none;
+        }
         body { background: var(--dark); color: white; overflow-x: hidden; }
 
         header { background: #111; padding: 10px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .logo { color: var(--gold); font-size: 18px; font-weight: bold; text-decoration: none; }
         .back-link { color: #ccc; text-decoration: none; font-size: 12px; }
 
-        /* شبكة الصور */
-        .gallery-container { 
-            padding: 15px 4%; 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* 3 صور في الصف على الموبايل لسرعة العرض */
-            gap: 4px; 
-        }
-        
-        .gallery-item { 
-            position: relative; 
-            overflow: hidden; 
-            border-radius: 4px; 
-            height: 120px; /* طول مناسب على الموبايل */
-            cursor: pointer; 
-            background: #151515; 
-        }
-
-        .gallery-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: 0.3s; 
-            opacity: 0; 
-        }
-
+        .gallery-container { padding: 15px 4%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 4px; height: 120px; cursor: pointer; background: #151515; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; opacity: 0; pointer-events: none; }
         .gallery-item img.loaded { opacity: 1; }
 
-        /* Lightbox (نافذة التكبير) */
-        .lightbox { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.98); display: none; 
-            justify-content: center; align-items: center; z-index: 2000; 
-            touch-action: none; /* منع تمرير الصفحة الخلفية */
-        }
-        .lightbox img { max-width: 95%; max-height: 85%; border: 1px solid var(--gold); user-select: none; }
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); display: none; justify-content: center; align-items: center; z-index: 2000; touch-action: none; }
+        .lightbox img { max-width: 95%; max-height: 85%; border: 1px solid var(--gold); pointer-events: none; }
         .close-btn { position: absolute; top: 15px; right: 20px; color: white; font-size: 35px; cursor: pointer; z-index: 2001; }
 
-        /* أسهم للتنقل على الكمبيوتر (اختياري) */
-        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 30px; cursor: pointer; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; user-select: none; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 30px; cursor: pointer; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; z-index: 2002; }
         .prev-btn { right: 10px; }
         .next-btn { left: 10px; }
 
         @media (min-width: 768px) {
             .gallery-container { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; padding: 20px 5%; }
             .gallery-item { height: 280px; }
-            .logo { font-size: 20px; }
         }
     </style>
 </head>
-<body>
-
-<header>
+<body oncontextmenu="return false;"> <header>
     <a href="index.html" class="logo">ROKN DESIGN</a>
     <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> الرئيسية</a>
 </header>
@@ -74,12 +49,10 @@
 
 <div class="lightbox" id="lightbox">
     <span class="close-btn" id="close" onclick="closeLightbox()">&times;</span>
-    
     <i class="fas fa-chevron-right nav-btn prev-btn" onclick="prevImage()"></i>
-    <img id="lightbox-img" src="" alt="شغل تشطيب ركن ديزاين">
+    <img id="lightbox-img" src="" oncontextmenu="return false;">
     <i class="fas fa-chevron-left nav-btn next-btn" onclick="nextImage()"></i>
-
-    <div id="loading-spinner" style="position:absolute; color:var(--gold); display:none; font-size: 14px;">جاري تحميل الصورة الأصلية...</div>
+    <div id="loading-spinner" style="position:absolute; color:var(--gold); display:none; font-size: 14px;">جاري التحميل...</div>
 </div>
 
 <script>
@@ -115,18 +88,14 @@
     const lightboxImg = document.getElementById('lightbox-img');
     const spinner = document.getElementById('loading-spinner');
 
-    // إنشاء الشبكة
     images.forEach((url, index) => {
         const item = document.createElement('div');
         item.className = 'gallery-item';
-        
         const img = document.createElement('img');
         img.src = url;
-        img.loading = "lazy"; 
-        
+        img.loading = "lazy";
         img.onload = () => img.classList.add('loaded');
         item.appendChild(img);
-        
         item.onclick = () => openLightbox(index);
         container.appendChild(item);
     });
@@ -135,76 +104,41 @@
         currentImageIndex = index;
         updateLightboxImage();
         lightbox.style.display = 'flex';
-        // منع تمرير الصفحة الخلفية
         document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         lightbox.style.display = 'none';
-        // إعادة تمرير الصفحة الخلفية
         document.body.style.overflow = '';
     }
 
     function updateLightboxImage() {
         spinner.style.display = 'block';
-        lightboxImg.style.opacity = '0'; // Fade out
-        
-        // تحميل الصورة الجديدة
+        lightboxImg.style.opacity = '0';
         const tempImg = new Image();
         tempImg.src = images[currentImageIndex];
         tempImg.onload = () => {
             lightboxImg.src = images[currentImageIndex];
             spinner.style.display = 'none';
-            lightboxImg.style.opacity = '1'; // Fade in
+            lightboxImg.style.opacity = '1';
         };
     }
 
-    // وظائف التنقل (الأسهم)
-    function nextImage() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        updateLightboxImage();
-    }
+    function nextImage() { currentImageIndex = (currentImageIndex + 1) % images.length; updateLightboxImage(); }
+    function prevImage() { currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; updateLightboxImage(); }
 
-    function prevImage() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        updateLightboxImage();
-    }
-
-    // --- إضافة ميزة الـ Swipe لعرض الصور بصباعك يمين وشمال ---
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    lightbox.addEventListener('touchstart', e => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    lightbox.addEventListener('touchend', e => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
+    let touchStartX = 0, touchEndX = 0;
+    lightbox.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, { passive: true });
     function handleSwipe() {
-        const swipeThreshold = 50; // الحد الأدنى للمسافة لاعتبارها سحبة
-        if (touchStartX - touchEndX > swipeThreshold) {
-            // سحبة لليسار -> الصورة التالية (بما أن الاتجاه RTL، فالسحبة لليسار تعرض التالي)
-            nextImage();
-        } else if (touchEndX - touchStartX > swipeThreshold) {
-            // سحبة لليمين -> الصورة السابقة
-            prevImage();
-        }
+        if (touchStartX - touchEndX > 50) nextImage();
+        else if (touchEndX - touchStartX > 50) prevImage();
     }
 
-    // إغلاق النافذة عند الضغط خارج الصورة الكبيرة
-    lightbox.onclick = (e) => {
-        if(e.target === lightbox) closeLightbox();
-    };
+    lightbox.onclick = (e) => { if(e.target === lightbox) closeLightbox(); };
 
-    // إغلاق بزر الـ Escape في الكيبورد
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape" && lightbox.style.display === 'flex') closeLightbox();
-        if (e.key === "ArrowRight" && lightbox.style.display === 'flex') prevImage(); // اليمين يعرض السابق في RTL
-        if (e.key === "ArrowLeft" && lightbox.style.display === 'flex') nextImage();
-    });
+    // حماية إضافية: منع سحب الصورة (Drag)
+    document.addEventListener('dragstart', (e) => { if (e.target.tagName === 'IMG') e.preventDefault(); });
 </script>
 </body>
 </html>
