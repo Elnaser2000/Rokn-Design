@@ -2,157 +2,124 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DD62NBY3TP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-DD62NBY3TP');
-    </script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ركن ديزاين للتشطيبات | خلى كل ركن يتكلم عنك</title>
     
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#c9a15b">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* التنسيقات الأساسية */
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
-        html { scroll-behavior: smooth; } /* تمرير ناعم عند الضغط على الروابط */
-        body{background:#f5f5f5;color:#333;line-height:1.6; padding-bottom: 20px; overflow-x: hidden;}
+        :root { --gold: #d4af37; --dark: #111; }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background:#f5f5f5; color:#333; line-height:1.6; overflow-x: hidden; }
         
-        header{background:#111;color:white;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;position: sticky; top:0; z-index: 1000; border-bottom: 1px solid #333;}
-        header h1{font-size:22px; cursor:pointer; color: #d4af37;}
-        nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;cursor:pointer; transition: 0.3s;}
-        nav a:hover{color: #d4af37;}
+        header { background:var(--dark); color:white; padding:15px 8%; display:flex; justify-content:space-between; align-items:center; position: sticky; top:0; z-index: 1000; border-bottom: 1px solid #333; }
+        header h1 { font-size:22px; cursor:pointer; color: var(--gold); }
+        nav a { color:white; margin:0 10px; text-decoration:none; font-size:14px; cursor:pointer; transition: 0.3s; }
+        nav a:hover { color: var(--gold); }
 
         /* Hero Section */
-        .hero{height:100vh;background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:white;position:relative;}
-        .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);}
-        .hero-content{position:relative;z-index:2;max-width:800px; padding: 20px;}
-        .hero h2{font-size:42px;margin-bottom:15px; font-weight: 700;}
-        .hero p{font-size: 18px; margin-bottom: 30px; font-weight: 300;}
+        .hero { height:100vh; background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c") center/cover; display:flex; align-items:center; justify-content:center; text-align:center; color:white; }
+        .hero-content { max-width:800px; padding: 20px; }
+        .hero h2 { font-size:42px; margin-bottom:15px; font-weight: 700; }
+        .btn { background:var(--gold); color:white; padding:14px 30px; margin:10px; border:none; text-decoration:none; font-size:16px; border-radius:8px; display:inline-block; cursor:pointer; transition: 0.3s; font-weight: bold; }
+        .btn:hover { background: #b8962d; transform: translateY(-3px); }
 
-        .btn{background:#d4af37;color:white;padding:14px 30px;margin:10px;border:none;text-decoration:none;font-size:16px;border-radius:8px;display:inline-block;cursor:pointer; transition: 0.3s; font-weight: bold;}
-        .btn:hover{background: #b8962d; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);}
-        .btn-outline{background:transparent; border: 2px solid #d4af37; color: #d4af37;}
-        .btn-outline:hover{background: #d4af37; color: white;}
+        /* Slider Section */
+        .section-padding { padding: 60px 8%; text-align: center; }
+        .section-title { margin-bottom: 40px; font-size: 28px; position: relative; padding-bottom: 10px; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        /* Sections */
-        .section-padding {padding: 80px 8%; text-align: center;}
-        .section-title {margin-bottom: 40px; font-size: 30px; position: relative; padding-bottom: 10px;}
-        .section-title::after {content: ''; width: 60px; height: 3px; background: #d4af37; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
-
-        /* الخدمات */
-        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px; margin-top: 30px;}
-        .card {background:white;padding:35px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid transparent;}
-        .card:hover {transform: translateY(-10px); border-color: #d4af37;}
-        .card i {font-size: 45px; color: #d4af37; margin-bottom: 20px;}
-        .card h3 {margin-bottom: 15px; font-size: 20px;}
-
-        /* المعرض (الصور الأربعة القديمة) */
-        .gallery-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px; max-width: 1000px; margin: auto;}
-        .gallery-item {height:280px;border-radius:12px;overflow:hidden;position:relative; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
-        .gallery-item img {width:100%;height:100%;object-fit:cover;transition:0.6s;}
-        .gallery-item:hover img {transform:scale(1.1);}
-
-        /* الأكاديمية (المصيدة) */
-        .academy {background: #111; color: white; border-top: 4px solid #d4af37;}
-        .academy p {color: #ccc; max-width: 750px; margin: 0 auto 40px; font-size: 17px;}
+        .slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 450px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
         
-        /* Floating Buttons */
-        .floating-buttons{position:fixed;bottom:25px;right:25px;display:flex;flex-direction:column;gap:15px;z-index:2000;}
-        .floating-buttons a{width:55px;height:55px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:white;font-size:24px;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-decoration:none; transition: 0.3s;}
-        .floating-buttons a:hover{transform: scale(1.15) rotate(5deg);}
-        .whatsapp-btn{background:#25D366;}
-        .call-btn{background:#007BFF;}
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            /* التعديل هنا: حركة أسرع (0.4 ثانية) لتناسب التبديل كل ثانية */
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        
+        .slide { min-width: 100%; height: 100%; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        footer{background:#000;color:#777;text-align:center;padding:50px 20px; font-size: 14px; border-top: 1px solid #222;}
-        .footer-logo {color: #d4af37; font-size: 22px; font-weight: bold; margin-bottom: 15px; display: block;}
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--gold); width: 20px; border-radius: 10px; }
+
+        /* Floating Buttons */
+        .floating-buttons { position:fixed; bottom:25px; right:25px; display:flex; flex-direction:column; gap:15px; z-index:2000; }
+        .floating-buttons a { width:55px; height:55px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white; font-size:24px; text-decoration:none; box-shadow:0 5px 15px rgba(0,0,0,0.2); }
+        .whatsapp-btn { background:#25D366; }
+        .call-btn { background:#007BFF; }
+
+        footer { background:#000; color:#666; text-align:center; padding:40px 20px; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .slider-container { height: 280px; }
+            .hero h2 { font-size: 30px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 onclick="scrollToSection('hero')">ركن ديزاين</h1>
+    <h1 onclick="location.reload()">ركن ديزاين</h1>
     <nav>
-        <a onclick="scrollToSection('services')">لماذا نحن؟</a>
-        <a onclick="scrollToSection('gallery')">أعمالنا</a>
-        <a href="packages.html">باقات التشطيب</a>
-        <a href="calculator.html" style="color: #d4af37; font-weight: bold;">حاسبة التكلفة</a>
+        <a href="#gallery">أعمالنا</a>
+        <a href="packages.html">الباقات</a>
+        <a href="portfolio.html">المعرض الكامل</a>
     </nav>
 </header>
 
-<section class="hero" id="hero">
+<section class="hero">
     <div class="hero-content">
-        <h2>حوّل مساحة سكنك إلى تحفة فنية</h2>
-        <p>نحن لا نشطب جدرانًا، بل نصنع تجربة حياة تليق بك بمواصفات هندسية دقيقة</p>
-        <div class="hero-btns">
-            <a href="calculator.html" class="btn">إحسب تكلفتك الآن</a>
-            <a href="packages.html" class="btn btn-outline">استعرض المواصفات</a>
-        </div>
+        <h2>رؤية هندسية.. بلمسة إبداعية</h2>
+        <p>تشطيبات متكاملة بمواصفات "السويدي" و"علاء الدين" لضمان أمان بيتك</p>
+        <a href="calculator.html" class="btn">إحسب تكلفة شقتك</a>
     </div>
 </section>
 
-<section class="section-padding services" id="services">
-    <h2 class="section-title">لماذا يختارنا العملاء؟</h2>
-    <div class="cards">
-        <div class="card">
-            <i class="fas fa-microscope"></i>
-            <h3>دقة المواصفات</h3>
-            <p>نستخدم خامات معتمدة (السويدي، BR، علاء الدين) لضمان أعلى معايير الجودة والأمان.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-user-shield"></i>
-            <h3>إشراف هندسي</h3>
-            <p>فريق من المهندسين المتخصصين يراقب كل بند من بنود التأسيس وحتى تسليم المفتاح.</p>
-        </div>
-        <div class="card">
-            <i class="fas fa-hand-holding-heart"></i>
-            <h3>ضمان حقيقي</h3>
-            <p>نقدم ضمانًا يصل إلى 10 سنوات على كافة الأعمال المنفذة، لأننا نثق فيما نقدمه.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding gallery" id="gallery">
-    <h2 class="section-title">من سابقة أعمالنا</h2>
-    <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg" alt="تصميم مودرن ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg" alt="تشطيب فاخر ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg" alt="ديكورات داخلية ركن ديزاين"></div>
-        <div class="gallery-item"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png" alt="واجهات معمارية ركن ديزاين"></div>
-    </div>
+<section class="section-padding" id="gallery">
+    <h2 class="section-title">إبداعات ركن ديزاين</h2>
     
-    <div style="margin-top: 40px;">
-        <a href="portfolio.html" class="btn" style="padding: 15px 45px; border-radius: 50px;">
-            عرض المزيد من الأعمال <i class="fas fa-arrow-left" style="margin-right: 10px;"></i>
-        </a>
-    </div>
-</section>
-
-<section class="section-padding academy" id="academy">
-    <i class="fas fa-graduation-cap" style="font-size: 50px; color: #d4af37; margin-bottom: 25px;"></i>
-    <h2 class="section-title" style="color: white;">أكاديمية ركن للتشطيب الذكي</h2>
-    <p>
-        أكثر من 100 مقال يشرح لك أصول التشطيب من التأسيس حتى السكن. 
-        لا تجعل أحدًا يخدعك في خاماتك؛ تعلم كيف تختار الأفضل وتوفر ميزانيتك بذكاء.
-    </p>
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
-        <a href="blog.html" class="btn btn-outline" style="border-color: #555; color: #fff;">استكشف المقالات المجانية</a>
+    <div class="slider-container">
+        <div class="slides" id="slides">
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg"></div>
+            <div class="slide"><img src="https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png"></div>
+        </div>
         
-        <a href="calculator.html" class="btn" style="background: #d4af37; color: #111;">
-            <i class="fas fa-calculator" style="margin-left: 8px;"></i> خطط لميزانيتك الآن
+        <div class="slider-dots" id="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <a href="portfolio.html" class="btn" style="background:transparent; border: 1px solid var(--gold); color: var(--gold);">
+            دخول معرض الصور الكامل <i class="fas fa-images" style="margin-right:8px;"></i>
         </a>
     </div>
-
-    <p style="margin-top: 35px; font-size: 14px; color: #d4af37; font-style: italic; opacity: 0.9;">
-        * اكتشف التكلفة الدقيقة بناءً على أحدث أسعار السوق في أقل من دقيقة.
-    </p>
 </section>
 
 <div class="floating-buttons">
@@ -161,17 +128,36 @@
 </div>
 
 <footer>
-    <span class="footer-logo">ركن ديزاين</span>
-    <p>جميع الحقوق محفوظة © 2026 | خلى كل ركن يتكلم عنك</p>
-    <div style="margin-top: 15px; font-size: 12px; opacity: 0.6;">
-        تصميم وتنفيذ فريق عمل ركن ديزاين الهندسي
-    </div>
+    <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
 </footer>
 
 <script>
-    function scrollToSection(id){ 
-        document.getElementById(id).scrollIntoView({behavior:'smooth'}); 
+    let slideIndex = 0;
+    const slidesContainer = document.getElementById('slides');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = 4;
+
+    function startAutoSlide() {
+        setInterval(() => {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            updateSlider();
+        }, 1000); // التبديل كل ثانية واحدة
     }
+
+    function currentSlide(n) {
+        slideIndex = n;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        const offset = -slideIndex * 100;
+        slidesContainer.style.transform = `translateX(${offset}%)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[slideIndex].classList.add('active');
+    }
+
+    // ابدأ الحركة فور تحميل الصفحة
+    window.onload = startAutoSlide;
 </script>
 
 </body>
