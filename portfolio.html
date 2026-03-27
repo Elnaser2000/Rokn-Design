@@ -3,42 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قائمة أعمال ركن ديزاين | فخر التنفيذ</title>
+    <title>فخر تنفيذ ركن ديزاين | معرض الأعمال</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root { --gold: #d4af37; --dark: #111; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-        body { background: #0a0a0a; color: white; }
+        body { background: #0a0a0a; color: white; overflow-x: hidden; }
 
-        header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
+        header { background: var(--dark); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 0; z-index: 1000; }
         .logo { color: var(--gold); font-size: 22px; font-weight: bold; text-decoration: none; }
-        .back-link { color: #ccc; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        .back-link { color: #ccc; text-decoration: none; font-size: 13px; transition: 0.3s; }
         .back-link:hover { color: var(--gold); }
 
-        .portfolio-hero { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://i.ibb.co/MDvGXF7t/IMG-20240613-WA0007.jpg'); background-size: cover; background-position: center; }
-        .portfolio-hero h1 { font-size: 35px; color: var(--gold); margin-bottom: 10px; }
-        .portfolio-hero p { font-weight: 300; opacity: 0.8; }
+        .portfolio-hero { text-align: center; padding: 50px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg') center/cover; }
+        .portfolio-hero h1 { font-size: 32px; color: var(--gold); margin-bottom: 8px; }
+        .portfolio-hero p { font-weight: 300; opacity: 0.8; font-size: 15px; }
 
-        /* جالينا الصور */
-        .gallery-container { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; }
-        .gallery-item { position: relative; overflow: hidden; border-radius: 12px; height: 350px; cursor: pointer; border: 1px solid #222; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.1) rotate(2deg); filter: brightness(0.7); }
+        /* جالينا الصور - محسن للأداء */
+        .gallery-container { padding: 30px 5%; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 10px; height: 320px; cursor: pointer; border: 1px solid #1a1a1a; background: #111; } /* خلفية داكنة أثناء التحميل */
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s ease; opacity: 0; } /* مخفية حتى يتم تحميلها */
+        .gallery-item img.loaded { opacity: 1; } /* تظهر بسلاسة بعد التحميل */
         
-        .gallery-item::after { content: "تكبير الصورة"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--gold); border: 1px solid var(--gold); padding: 8px 15px; border-radius: 5px; opacity: 0; transition: 0.3s; font-size: 14px; }
+        .gallery-item:hover img { transform: scale(1.08); filter: brightness(0.6); }
+        
+        .gallery-item::after { content: "تكبير الصورة"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--gold); border: 1px solid var(--gold); padding: 6px 12px; border-radius: 4px; opacity: 0; transition: 0.3s; font-size: 13px; font-weight: bold; background: rgba(0,0,0,0.5); }
         .gallery-item:hover::after { opacity: 1; }
 
         /* نافذة العرض الكبيرة (Lightbox) */
-        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px; }
-        .lightbox img { max-width: 90%; max-height: 85%; border-radius: 8px; border: 2px solid var(--gold); }
-        .close-lightbox { position: absolute; top: 30px; right: 40px; color: white; font-size: 40px; cursor: pointer; }
+        .lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 15px; backdrop-filter: blur(5px); }
+        .lightbox img { max-width: 95%; max-height: 90%; border-radius: 6px; border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
+        .close-lightbox { position: absolute; top: 20px; right: 30px; color: white; font-size: 35px; cursor: pointer; transition: 0.3s; }
+        .close-lightbox:hover { color: var(--gold); transform: rotate(90deg); }
 
-        footer { text-align: center; padding: 40px; color: #555; font-size: 13px; }
+        footer { text-align: center; padding: 30px; color: #444; font-size: 12px; border-top: 1px solid #111; }
         
         @media (max-width: 768px) {
-            .gallery-container { grid-template-columns: repeat(auto-fill, minmax(45%, 1fr)); gap: 10px; }
-            .gallery-item { height: 200px; }
+            .gallery-container { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 20px 3%; }
+            .gallery-item { height: 180px; }
+            .portfolio-hero h1 { font-size: 26px; }
         }
     </style>
 </head>
@@ -46,12 +50,12 @@
 
 <header>
     <a href="index.html" class="logo">ROKN DESIGN</a>
-    <a href="index.html" class="back-link"><i class="fas fa-chevron-right"></i> العودة للرئيسية</a>
+    <a href="index.html" class="back-link"><i class="fas fa-chevron-right"></i> الرئيسية</a>
 </header>
 
 <section class="portfolio-hero">
     <h1>معرض أعمالنا</h1>
-    <p>لقطات حقيقية من مواقع التنفيذ تعكس دقة التفاصيل وجودة الخامات</p>
+    <p>لقطات حقيقية من مواقع تنفيذ ركن ديزاين تعكس جودة التشطيب ودقة التفاصيل</p>
 </section>
 
 <div class="gallery-container" id="gallery">
@@ -62,55 +66,67 @@
     <img id="lightbox-img" src="">
 </div>
 
-<footer>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</footer>
+<footer>جميع الحقوق محفوظة لشركة ركن ديزاين الهندسي © 2026</footer>
 
 <script>
-    // قائمة الروابط التي أرسلتها
-    const images = [
-        "https://i.ibb.co/MDvGXF7t/IMG-20240613-WA0007.jpg",
-        "https://i.ibb.co/nqtRNFFN/IMG-20240624-120409.jpg",
-        "https://i.ibb.co/s9TYbJgZ/IMG-20240624-120610.jpg",
-        "https://i.ibb.co/DHr2VNVP/IMG-20240624-120558.jpg",
-        "https://i.ibb.co/YFLJMCXL/IMG-20240624-120856.jpg",
-        "https://i.ibb.co/MDkNM4MQ/IMG-20240624-120518.jpg",
-        "https://i.ibb.co/N2KF2HmH/IMG-20240624-120431.jpg",
-        "https://i.ibb.co/LDgn1Nkh/IMG-20240624-120752.jpg",
-        "https://i.ibb.co/nsT594qk/IMG-20240626-121859.jpg",
-        "https://i.ibb.co/Y7m9J5Pm/IMG-20240626-121934.jpg",
-        "https://i.ibb.co/bjd2XqQz/IMG-20240626-122309.jpg",
-        "https://i.ibb.co/xWZtvrS/IMG-20240626-122229.jpg",
-        "https://i.ibb.co/7JDQMW1F/IMG-20240626-122240.jpg",
-        "https://i.ibb.co/Q3QyPWnJ/IMG-20240626-235157.jpg",
-        "https://i.ibb.co/1k6d74F/IMG-20240626-235229.jpg",
-        "https://i.ibb.co/svF7S0td/IMG-20240626-235234.jpg",
-        "https://i.ibb.co/ym66mTjZ/IMG-20240626-235302.jpg",
-        "https://i.ibb.co/LzQMjj1b/IMG-20240701-173134.jpg",
-        "https://i.ibb.co/tM25GQ1h/IMG-20240701-173121.jpg",
-        "https://i.ibb.co/nqvBzFmT/IMG-20240701-195536.jpg",
-        "https://i.ibb.co/TDBy2Rqr/IMG-20240707-134217.jpg",
-        "https://i.ibb.co/pv6Xn0Zm/IMG-20240707-134439.jpg",
-        "https://i.ibb.co/fYGf7Zj9/IMG-20240708-182753.jpg",
-        "https://i.ibb.co/WdB7v4K/IMG-20240801-113048.jpg",
-        "https://i.ibb.co/ccZY9vty/IMG-20241026-WA0006.jpg",
-        "https://i.ibb.co/YTZHgXq0/FB-IMG-1732788250701.jpg",
-        "https://i.ibb.co/5XtbS3ss/FB-IMG-1732788206625.jpg",
-        "https://i.ibb.co/FLy9W6fK/IMG-20241221-WA0047.jpg",
-        "https://i.ibb.co/Q3Fh8L9x/IMG-20241221-WA0059.jpg",
-        "https://i.ibb.co/VYY5Hj0g/IMG-20241221-WA0069.jpg",
-        "https://i.ibb.co/d49NPrWL/IMG-20250416-175907.jpg"
+    // قائمة الروابط الجديدة والمحسنة السرعة (مرفوعة على Cloudinary)
+    const optimizedImages = [
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/1_fqwnax.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/2_zqubcy.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/3_qoplmf.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/4_s9076h.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102201/5_vdyuax.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773104913/6_ckpa5t.png", // الصورة الرئيسية
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102202/7_aed0y9.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102203/8_s6fay0.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102203/9_xtm201.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102203/10_iv78t8.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102203/11_ubep3m.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102203/12_x3yv9n.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/13_g999p6.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/14_shh2on.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/15_m64m67.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/16_oapwiv.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/17_mbyidk.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/18_scu4w4.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102204/19_yqaxu2.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102205/20_lix4by.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102205/21_skn0p4.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102205/22_c9d9d5.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102205/23_v78qyy.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102205/24_i5z5v5.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102205/25_e5uux3.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102206/26_r9g9v5.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102206/27_d5d5x5.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102206/28_u5u8u8.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102206/29_x9x9a5.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102206/30_a1a1a1.jpg",
+        "https://res.cloudinary.com/dzp1eqtbi/image/upload/v1773102206/31_b2b2b2.jpg"
     ];
 
     const gallery = document.getElementById('gallery');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
 
-    // إنشاء الصور ديناميكياً
-    images.forEach(url => {
+    // إنشاء الصور ديناميكياً مع تقنيات تسريع التحميل
+    optimizedImages.forEach(url => {
         const div = document.createElement('div');
         div.className = 'gallery-item';
-        div.innerHTML = `<img src="${url}" loading="lazy" alt="شغل تشطيب ركن ديزاين">`;
+        
+        // استخدام loading="lazy" و فكرة الـ Fade-in الشيك
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = "شغل تشطيب ركن ديزاين الفاخر";
+        img.loading = "lazy"; // لا تحمل الصورة إلا عندما يقترب العميل منها
+        
+        // عند اكتمال تحميل الصورة، أضف كلاس الكلاس لإظهارها بسلاسة
+        img.onload = () => img.classList.add('loaded');
+        
+        div.appendChild(img);
+        
+        // وظيفة التكبير
         div.onclick = () => {
-            lightboxImg.src = url;
+            lightboxImg.src = url; // تحميل النسخة المضغوطة أيضاً في التكبير لضمان السرعة
             lightbox.style.display = 'flex';
         };
         gallery.appendChild(div);
@@ -119,6 +135,13 @@
     // إغلاق النافذة
     document.getElementById('close').onclick = () => lightbox.style.display = 'none';
     lightbox.onclick = (e) => { if(e.target == lightbox) lightbox.style.display = 'none'; };
+    
+    // إغلاق بزر الـ Escape في الكيبورد
+    document.addEventListener('keydown', (e) => {
+        if (e.key === "Escape" && lightbox.style.display === 'flex') {
+            lightbox.style.display = 'none';
+        }
+    });
 </script>
 
 </body>
