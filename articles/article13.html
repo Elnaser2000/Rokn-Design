@@ -15,12 +15,13 @@
         body { background: #f8f9fa; color: #333; line-height: 1.9; }
         
         header { background: var(--dark); color: var(--white); padding: 60px 20px 100px; text-align: center; border-bottom: 5px solid var(--gold); }
-        header h1 { color: var(--gold); font-size: 32px; margin-bottom: 15px; }
+        .brand-name { color: var(--gold); font-size: 32px; margin-bottom: 15px; font-weight: 700; }
         header p { opacity: 0.9; font-size: 18px; max-width: 700px; margin: 0 auto; }
         
         .article-container { max-width: 900px; margin: -60px auto 60px; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); position: relative; z-index: 10; }
         .main-img { width: 100%; height: 450px; object-fit: cover; border-radius: 20px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
+        h1.post-title { font-size: 30px; color: var(--dark); margin-bottom: 25px; border-right: 8px solid var(--gold); padding-right: 20px; line-height: 1.4; }
         h2 { color: var(--dark); margin: 45px 0 25px; font-size: 26px; border-right: 6px solid var(--gold); padding-right: 15px; background: #fffcf0; padding-top: 10px; padding-bottom: 10px; }
         h3 { color: var(--dark); margin: 35px 0 20px; font-size: 22px; display: flex; align-items: center; gap: 10px; }
         h3::before { content: ""; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; display: inline-block; }
@@ -37,7 +38,6 @@
 
         .cta-section { background: var(--dark); color: var(--white); padding: 50px 30px; border-radius: 25px; text-align: center; margin-top: 60px; border: 2px solid var(--gold); }
         .btn-calc { background: var(--gold); color: var(--dark); padding: 18px 50px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 20px; transition: 0.3s; margin-top: 25px; box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
-        .btn-calc:hover { transform: translateY(-3px); background: #e5bd3d; }
         
         .back-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 40px; color: var(--grey-text); text-decoration: none; font-weight: bold; transition: 0.3s; }
         .back-link:hover { color: var(--gold); }
@@ -46,17 +46,25 @@
         ul.codes-list li { background: #fff; padding: 15px 20px; border-radius: 12px; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #f0f0f0; display: flex; align-items: center; gap: 15px; }
         
         footer { background: var(--dark); color: var(--white); text-align: center; padding: 60px 20px; margin-top: 80px; border-top: 1px solid #333; }
+
+        @media (max-width: 768px) {
+            .article-container { padding: 25px 20px; margin: -30px 15px 40px; }
+            h1.post-title { font-size: 24px; }
+            .main-img { height: 300px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>أكاديمية ركن ديزاين</h1>
+    <div class="brand-name">أكاديمية ركن ديزاين</div>
     <p>دليل ألوان 2026: استراتيجيات اختيار باليتة ألوان تزيد من قيمة منزلك الجمالية والنفسية.</p>
 </header>
 
 <div class="article-container">
     <img src="https://i.ibb.co/B22srJJg/Gemini-Generated-Image-a6qopea6qopea6qo.png" class="main-img" alt="تريندات ألوان دهانات 2026 ركن ديزاين">
+
+    <h1 class="post-title">ألوان دهانات 2026: دليلك الكامل للتنسيق الفاخر</h1>
 
     <p>مع بداية عام 2026، نلاحظ تحولاً كبيراً في عالم الديكور؛ حيث بدأ المصممون والعملاء بالابتعاد عن الألوان الباردة والصريحة، والاتجاه نحو ما نسميه في <b>ركن ديزاين</b> "الألوان العضوية" التي تمنح إحساساً بالراحة النفسية والهدوء.</p>
 
@@ -75,7 +83,7 @@
     </div>
 
     <h2>2. ثورة الـ Greige (الرمادي الدافئ)</h2>
-    <p>الرمادي الصريح أصبح من الماضي. التريند الحالي هو الـ Greige وهو مزيج بين الرمادي والبيج. هذا اللون هو "الجوكر"؛ لأنه يتماشى بامتياز مع الرخام الطبيعي، الخشب الدافئ، والمعادن السوداء المطفي (Black Matte).</p>
+    <p>الرمادي الصريح أصبح من الماضي. التريند الحالي هو الـ Greige وهو مزيج بين الرمادي والبيج. هذا اللون هو "الجوكر"؛ لأنه يتماشى بامتياز مع الرخام الطبيعي، الخشب الدافئ، والمعادن السوداء المطفي.</p>
 
     <div class="trend-card">
         <h4><i class="fas fa-lightbulb" style="color:var(--gold)"></i> نصيحة مهندسينا:</h4>
@@ -90,11 +98,11 @@
     </ul>
 
     <h2>3. علاقة اللون بالإضاءة الحديثة</h2>
-    <p>قاعدة ركن ديزاين الذهبية: <b>"اللون لا يكتمل إلا بالضوء"</b>. ننصح دائماً باستخدام الليد بروفايل لإبراز تموجات اللون على الحائط ومنع ظهوره بشكل مسطح وممل، خاصة مع الدهانات "المط" (Matte).</p>
+    <p>قاعدة ركن ديزاين الذهبية: <b>"اللون لا يكتمل إلا بالضوء"</b>. ننصح دائماً باستخدام الليد بروفايل لإبراز تموجات اللون على الحائط ومنع ظهوره بشكل مسطح، خاصة مع الدهانات "المط".</p>
 
     <div class="cta-section">
         <h3>هل اخترت ألوان بيتك ومحتاج تنفيذ احترافي؟</h3>
-        <p>فريق ركن ديزاين جاهز لتحويل الكتالوج لواقع ملموس في شقتك بأحدث تقنيات النقاشة (بدون أتربة).</p>
+        <p>فريق ركن ديزاين جاهز لتحويل الكتالوج لواقع ملموس في شقتك بأحدث تقنيات النقاشة.</p>
         <a href="../calculator.html" class="btn-calc">احسب تكلفة دهاناتك الآن</a>
     </div>
 
@@ -102,7 +110,7 @@
 </div>
 
 <footer>
-    <img src="https://i.ibb.co/B22srJJg/Gemini-Generated-Image-a6qopea6qopea6qo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+    <img src="https://i.ibb.co/zhgWMbM3/Rokn-Design-Logo.png" alt="ركن ديزاين" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
     <p>جميع الحقوق محفوظة لشركة ركن ديزاين © 2026</p>
     <p>نبني بذكاء.. لنسكن بفخر</p>
 </footer>
