@@ -11,76 +11,93 @@
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
         body{background:#f9f9f9;color:#333;line-height:1.8;}
         header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
-        header h1 { color: #d4af37; font-size: 26px; }
+        
+        /* تعديل اسم الأكاديمية ليكون SEO Friendly */
+        .brand-logo { color: #d4af37; font-size: 26px; font-weight: bold; display: block; margin-bottom: 5px; }
+        
         .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
         .main-img { 
             width: 100%; 
-            height: 350px; 
+            height: 400px; 
             object-fit: cover; 
             border-radius: 12px; 
             margin-bottom: 30px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            display: block;
         }
         
+        h1 { color: #111; font-size: 30px; margin-bottom: 20px; line-height: 1.4; }
         h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
-        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; text-justify: inter-word; color: #444; }
         
         .check-list { background: #fdfaf0; border-right: 5px solid #d4af37; padding: 25px; border-radius: 8px; margin: 30px 0; }
         .check-list h3 { color: #111; margin-bottom: 15px; display: flex; align-items: center; }
         .check-list h3 i { margin-left: 10px; color: #d4af37; }
         .check-list ul { list-style: none; }
-        .check-list li { margin-bottom: 12px; padding-right: 30px; position: relative; font-size: 16px; }
-        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #d4af37; }
+        .check-list li { margin-bottom: 12px; padding-right: 35px; position: relative; font-size: 16px; }
+        
+        /* تصحيح الفونت أوسوم للإصدار 6 */
+        .check-list li::before { 
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; 
+            position: absolute; 
+            right: 0; 
+            color: #d4af37; 
+        }
 
         .cta-rokn { background: #111; color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
         .cta-rokn h3 { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
         .cta-rokn p { color: #eee; margin-bottom: 25px; font-size: 16px; text-align: center !important; }
         .btn-calc { background: #d4af37; color: #111; padding: 15px 40px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
-        .btn-calc:hover { transform: scale(1.05); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+        .btn-calc:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
         
-        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
-        .back-btn:hover { color: #d4af37; }
+        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { color: #d4af37; transform: translateX(-5px); }
 
         @media (max-width: 768px) {
             .main-img { height: 250px; }
             .article-container { padding: 20px; margin: -20px 15px 30px; }
+            h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>أكاديمية ركن ديزاين</h1>
+    <span class="brand-logo">أكاديمية ركن ديزاين</span>
     <p>أصول الهندسة في تشطيب شقتك</p>
 </header>
 
 <div class="article-container">
-    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f" class="main-img" alt="استلام المحارة الهندسية">
+    <img src="https://i.ibb.co/0R1fDnZQ/Gemini-Generated-Image-ca4ohaca4ohaca4o.png" class="main-img" alt="استلام المحارة الهندسية - ركن ديزاين">
     
-    <h1 style="font-size: 32px; margin-bottom: 20px;">أسرار المحارة الهندسية: ليه "البؤج والأوتار" مش رفاهية؟</h1>
+    <h1>أسرار المحارة الهندسية: ليه "البؤج والأوتار" مش رفاهية؟</h1>
     
-    <p>بند المحارة (أو اللياسة) هو الأساس الذي تُبنى عليه كل مراحل الديكور اللاحقة. في <b>ركن ديزاين</b>، نعتبر المحارة هي "الهيكل الخارجي" الذي يضمن لك حوائط مستوية تماماً، وزوايا قائمة (90 درجة)، مما يسهل تركيب المطبخ، الدواليب، والكرانيش بدون ظهور عيوب أو فراغات مقززة.</p>
+    <p>بند المحارة هو الأساس الذي تُبنى عليه كل مراحل الديكور اللاحقة. في <b>ركن ديزاين</b>، نعتبر المحارة هي الهيكل الذي يضمن لك حوائط مستوية تماماً وزوايا قائمة، مما يجعل تطبيق ألوان مثل الـ <b>Vanilla Latte</b> يظهر بجماله الكامل بدون عيوب بصرية تحت الإضاءة الجانبية.</p>
+
+    
 
     <h2>لماذا نصرّ على المحارة بالبؤج والأوتار؟</h2>
-    <p>الطريقة العادية (المحارة بالذراع) قد تجعل الحائط يبدو مستوياً بالعين المجردة، لكنها لا تضمن "تربيع" الغرفة. المحارة الهندسية تعتمد على نقاط ارتكاز دقيقة تسمى البؤج، لضمان أن كل حائط موازٍ للآخر ومساوٍ له تماماً.</p>
+    <p>المحارة بالذراع قد تجعل الحائط يبدو مستوياً بالعين، لكنها لا تضمن "تربيع" الغرفة. المحارة الهندسية تعتمد على نقاط ارتكاز دقيقة تسمى البؤج، لضمان أن كل حائط موازٍ للآخر ومساوٍ له تماماً.</p>
 
     <div class="check-list">
         <h3><i class="fas fa-ruler-combined"></i> قائمة استلام ركن ديزاين للمحارة:</h3>
         <ul>
-            <li><b>طرطشة غزيرة:</b> يجب أن تكون الطرطشة خشنة ومدببة (مسمارية) لضمان تماسك المونة.</li>
+            <li><b>طرطشة غزيرة:</b> يجب أن تكون الطرطشة خشنة ومدببة لضمان تماسك المونة.</li>
             <li><b>استخدام سلك الشبك:</b> عند أماكن التقاء الخرسانة بالمباني لمنع ظهور التنميل (الشروخ).</li>
-            <li><b>التربيع والتأكيس:</b> استلام الغرف "بالزاوية" لضمان أن جميع الأركان قائمة.</li>
-            <li><b>اختبار القدة:</b> مراجعة استواء الحائط بمسطرة حديدية (القدة) لضمان عدم وجود "موجات".</li>
+            <li><b>التربيع والتأكيس:</b> استلام الغرف "بالزاوية" لضمان أن جميع الأركان قائمة (90 درجة).</li>
+            <li><b>اختبار القدة:</b> مراجعة استواء الحائط بمسطرة حديدية لضمان عدم وجود أي تموجات.</li>
         </ul>
     </div>
 
     <h2>نصيحة المهندس: السقي بالماء</h2>
-    <p>المحارة مادة أسمنتية، والأسمنت يحتاج للماء ليتفاعل ويصل لأقصى قوة له. يجب "رش" المحارة بالماء مرتين يومياً لمدة 3 إلى 5 أيام بعد التنفيذ، لتجنب حدوث شروخ ناتجة عن جفاف المونة السريع.</p>
+    <p>المحارة تحتاج للماء لتصل لأقصى قوة لها. يجب "رش" الحوائط بالماء مرتين يومياً لمدة 3 إلى 5 أيام بعد التنفيذ، لتجنب حدوث شروخ ناتجة عن جفاف المونة السريع بفعل حرارة الجو.</p>
 
     <div class="cta-rokn">
-        <h3>خلى كل ركن يتكلم عنك</h3>
-        <p>بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
+        <h3>خلّي كل ركن يتكلم عنك</h3>
+        <p>بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق من ركن ديزاين.</p>
         <a href="../calculator.html" class="btn-calc">
             <i class="fas fa-calculator" style="margin-left: 8px;"></i>
             احسب تكلفة تشطيبك الآن
@@ -90,7 +107,7 @@
     <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
 
-<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
+<footer style="text-align:center; padding:30px; color:#999; font-size:13px; background: #f9f9f9;">
     جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
 </footer>
 
