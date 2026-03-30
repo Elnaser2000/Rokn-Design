@@ -11,76 +11,92 @@
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
         body{background:#f9f9f9;color:#333;line-height:1.8;}
         header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
-        header h1 { color: #d4af37; font-size: 26px; }
+        
+        /* استايل اسم البراند بدلاً من h1 */
+        .brand-logo { color: #d4af37; font-size: 26px; font-weight: bold; display: block; margin-bottom: 5px; }
+        
         .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
         .main-img { 
             width: 100%; 
-            height: 350px; 
+            height: 400px; 
             object-fit: cover; 
             border-radius: 12px; 
             margin-bottom: 30px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
         }
         
+        h1 { color: #111; font-size: 30px; margin-bottom: 20px; line-height: 1.4; }
         h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
-        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; text-justify: inter-word; color: #444; }
         
         .check-list { background: #fdfaf0; border-right: 5px solid #d4af37; padding: 25px; border-radius: 8px; margin: 30px 0; }
         .check-list h3 { color: #111; margin-bottom: 15px; display: flex; align-items: center; }
         .check-list h3 i { margin-left: 10px; color: #d4af37; }
         .check-list ul { list-style: none; }
-        .check-list li { margin-bottom: 12px; padding-right: 30px; position: relative; font-size: 16px; }
-        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #d4af37; }
+        .check-list li { margin-bottom: 12px; padding-right: 35px; position: relative; font-size: 16px; }
+        
+        /* تعديل الإصدار لـ 6 */
+        .check-list li::before { 
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; 
+            position: absolute; 
+            right: 0; 
+            color: #d4af37; 
+        }
 
         .cta-rokn { background: #111; color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
         .cta-rokn h3 { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
         .cta-rokn p { color: #eee; margin-bottom: 25px; font-size: 16px; text-align: center !important; }
         .btn-calc { background: #d4af37; color: #111; padding: 15px 40px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
-        .btn-calc:hover { transform: scale(1.05); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+        .btn-calc:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
         
-        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
-        .back-btn:hover { color: #d4af37; }
+        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { color: #d4af37; transform: translateX(-5px); }
 
         @media (max-width: 768px) {
             .main-img { height: 250px; }
             .article-container { padding: 20px; margin: -20px 15px 30px; }
+            h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>أكاديمية ركن ديزاين</h1>
+    <span class="brand-logo">أكاديمية ركن ديزاين</span>
     <p>حلول ذكية لديكور فخم بتكلفة أقل</p>
 </header>
 
 <div class="article-container">
-    <img src="https://i.ibb.co/bxXPm2p/Gemini-Generated-Image-mgnhytmgnhytmgnh.png" class="main-img" alt="ديكور بديل الرخام والخشب">
+    <img src="https://i.ibb.co/bxXPm2p/Gemini-Generated-Image-mgnhytmgnhytmgnh.png" class="main-img" alt="ديكور بديل الرخام والخشب - ركن ديزاين">
     
-    <h1 style="font-size: 32px; margin-bottom: 20px;">بديل الرخام وبديل الخشب: كيف تحصل على "فخامة الفنادق" بميزانية ذكية؟</h1>
+    <h1>بديل الرخام وبديل الخشب: كيف تحصل على "فخامة الفنادق" بميزانية ذكية؟</h1>
     
-    <p>هل تحلم بمظهر الرخام الطبيعي في الريسبشن أو دفء الخشب في غرفة النوم ولكن الميزانية تعيقك؟ في <b>ركن ديزاين</b>، نستخدم تقنيات "البدائل الحديثة" (WPC & PVC Panels) التي تعطي نفس التأثير البصري للفخامة مع مميزات عملية تتفوق أحياناً على الخامات الطبيعية.</p>
+    <p>هل تحلم بمظهر الرخام الطبيعي في الريسبشن أو دفء الخشب في غرفة النوم؟ في <b>ركن ديزاين</b>، نستخدم تقنيات "البدائل الحديثة" التي تعطي نفس التأثير البصري للفخامة، خاصة عند دمجها مع إضاءات ليد مخفية وألوان هادئة مثل الـ <b>Vanilla Latte</b> لخلق تناغم عصري.</p>
+
+    
 
     <h2>مميزات بديل الرخام (PVC Marble Sheet)</h2>
-    <p>ألواح بديل الرخام أصبحت الخيار الأول لتكسيات الحوائط خلف الشاشات وفي المداخل. فهي خفيفة الوزن، سهلة التركيب، ومقاومة تماماً للرطوبة والبكتيريا، والأهم من ذلك أنها لا تحتاج لجلي أو صيانة دورية مثل الرخام الطبيعي.</p>
+    <p>ألواح بديل الرخام أصبحت الخيار الأول لتكسيات الحوائط خلف الشاشات. فهي خفيفة الوزن، سهلة التركيب، ومقاومة تماماً للرطوبة، والأهم أنها تعطي بريقاً يشبه الرخام الإيطالي بجزء بسيط من التكلفة.</p>
 
     <div class="check-list">
         <h3><i class="fas fa-layer-group"></i> أصول التركيب في ركن ديزاين:</h3>
         <ul>
-            <li><b>تأسيس الحائط:</b> يجب أن يكون الحائط "مسطرة" لضمان عدم وجود فراغات خلف اللوح تؤدي لكسره.</li>
+            <li><b>تأسيس الحائط:</b> يجب أن يكون الحائط مستوياً تماماً لضمان عدم وجود فراغات خلف اللوح.</li>
             <li><b>المواد اللاصقة:</b> نستخدم "سليكون عظم" فائق الجودة لضمان الثبات مدى الحياة.</li>
-            <li><b>تنسيق العروق:</b> سر المهنة في ركن ديزاين هو "مطابقة العروق" (Bookmatching) لتبدو الألواح كأنها قطعة رخام واحدة طبيعية.</li>
+            <li><b>تنسيق العروق:</b> سر المهنة هو "مطابقة العروق" لتبدو الألواح كقطعة واحدة طبيعية.</li>
             <li><b>تقفيل الزوايا:</b> استخدام الإستالس (ذهبي أو فضي) لإخفاء اللحامات وإضافة لمسة فنية.</li>
         </ul>
     </div>
 
     <h2>بديل الخشب (WPC Panels)</h2>
-    <p>يعطي بديل الخشب ملمس وشكل "التضليعات" الخشبية التي نراها في أرقى التصميمات العالمية. يتميز بأنه لا يتأثر بالسوس أو الرطوبة، ولا يحتاج لدهان "استر" أو صيانة، مما يجعله مثالياً لحوائط غرف النوم أو حتى الحمامات.</p>
+    <p>يعطي بديل الخشب ملمس وشكل "التضليعات" الخشبية الراقية. يتميز بأنه لا يتأثر بالسوس أو الرطوبة، مما يجعله مثالياً لحوائط غرف النوم أو خلفيات السرير، خاصة الدرجات الفاتحة التي تليق مع الديكور المودرن.</p>
 
     <div class="cta-rokn">
-        <h3>خلى كل ركن يتكلم عنك</h3>
-        <p>بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
+        <h3>خلّي كل ركن يتكلم عنك</h3>
+        <p>بدلاً من المخاطرة بالخامات، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق من ركن ديزاين.</p>
         <a href="../calculator.html" class="btn-calc">
             <i class="fas fa-calculator" style="margin-left: 8px;"></i>
             احسب تكلفة تشطيبك الآن
@@ -90,7 +106,7 @@
     <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
 
-<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
+<footer style="text-align:center; padding:30px; color:#999; font-size:13px; background: #f9f9f9;">
     جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
 </footer>
 
