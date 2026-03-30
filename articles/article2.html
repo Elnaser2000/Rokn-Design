@@ -11,58 +11,70 @@
         *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
         body{background:#f9f9f9;color:#333;line-height:1.8;}
         header { background: #111; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #d4af37; }
-        header h1 { color: #d4af37; font-size: 26px; }
+        
+        /* استايل اسم الأكاديمية بدلاً من H1 */
+        .brand-logo { color: #d4af37; font-size: 26px; font-weight: bold; display: block; margin-bottom: 5px; }
+        
         .article-container { max-width: 850px; margin: -30px auto 50px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
-        /* التعديل الجديد لتحسين جودة الصورة */
         .main-img { 
             width: 100%; 
-            height: 350px; 
+            height: 400px; 
             object-fit: cover; 
             border-radius: 12px; 
             margin-bottom: 30px; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
         }
         
+        h1 { color: #111; font-size: 30px; margin-bottom: 20px; line-height: 1.4; }
         h2 { color: #111; margin: 35px 0 15px; font-size: 24px; border-right: 5px solid #d4af37; padding-right: 15px; }
-        p { margin-bottom: 20px; font-size: 17px; text-align: justify; color: #444; }
+        p { margin-bottom: 20px; font-size: 17px; text-align: justify; text-justify: inter-word; color: #444; }
         
         .check-list { background: #fdfaf0; border-right: 5px solid #d4af37; padding: 25px; border-radius: 8px; margin: 30px 0; }
         .check-list h3 { color: #111; margin-bottom: 15px; display: flex; align-items: center; }
         .check-list h3 i { margin-left: 10px; color: #d4af37; }
         .check-list ul { list-style: none; }
-        .check-list li { margin-bottom: 12px; padding-right: 30px; position: relative; font-size: 16px; }
-        .check-list li::before { content: "\f00c"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: 0; color: #d4af37; }
+        .check-list li { margin-bottom: 12px; padding-right: 35px; position: relative; font-size: 16px; }
+        
+        /* تصحيح إصدار الفونت أوسوم لـ 6 */
+        .check-list li::before { 
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free"; 
+            font-weight: 900; 
+            position: absolute; 
+            right: 0; 
+            color: #d4af37; 
+        }
 
         .cta-rokn { background: #111; color: white; padding: 40px 20px; border-radius: 12px; text-align: center; margin-top: 50px; border: 1px solid #d4af37; }
         .cta-rokn h3 { color: #d4af37; font-size: 24px; margin-bottom: 10px; }
         .cta-rokn p { color: #eee; margin-bottom: 25px; font-size: 16px; text-align: center !important; }
         .btn-calc { background: #d4af37; color: #111; padding: 15px 40px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
-        .btn-calc:hover { transform: scale(1.05); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+        .btn-calc:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
         
-        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; }
-        .back-btn:hover { color: #d4af37; }
+        .back-btn { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .back-btn:hover { color: #d4af37; transform: translateX(-5px); }
 
-        /* موبايل ريسبونسيف */
         @media (max-width: 768px) {
             .main-img { height: 250px; }
             .article-container { padding: 20px; margin: -20px 15px 30px; }
+            h1 { font-size: 24px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>أكاديمية ركن ديزاين</h1>
+    <span class="brand-logo">أكاديمية ركن ديزاين</span>
     <p>أسرار الديكور الحديث بين يديك</p>
 </header>
 
 <div class="article-container">
-    <img src="https://i.ibb.co/rKHGrW8M/Gemini-Generated-Image-dt5otldt5otldt5o.png" class="main-img" alt="لون فانيلا لاتيه في الديكور">
+    <img src="https://i.ibb.co/rKHGrW8M/Gemini-Generated-Image-dt5otldt5otldt5o.png" class="main-img" alt="لون فانيلا لاتيه في الديكور - ركن ديزاين">
     
-    <h1 style="font-size: 32px; margin-bottom: 20px;">لماذا يختار مهندسو الديكور لون "فانيلا لاتيه" كأفضل لون لعام 2026؟</h1>
+    <h1>لماذا يختار مهندسو الديكور لون "فانيلا لاتيه" كأفضل لون لعام 2026؟</h1>
     
-    <p>في عالم التصميم الداخلي، يبحث العميل دائماً عن "الراحة النفسية" و"اتساع المكان". وهنا يظهر لون <b>الفانيلا لاتيه (Vanilla Latte)</b> كحل سحري يجمع بين دفء البيج وحداثة الرمادي (Greige). نحن في <b>ركن ديزاين</b> نعتبر هذا اللون بمثابة "الجوكر" الذي يناسب المساحات الصغيرة والواسعة على حد سواء.</p>
+    <p>في عالم التصميم الداخلي، يبحث العميل دائماً عن "الراحة النفسية" و"اتساع المكان". وهنا يظهر لون <b>الفانيلا لاتيه (Vanilla Latte)</b> كحل سحري يجمع بين دفء البيج وحداثة الرمادي. نحن في <b>ركن ديزاين</b> نعتبر هذا اللون بمثابة "الجوكر" الذي يناسب المساحات الصغيرة والواسعة على حد سواء.</p>
 
     <h2>مميزات لون الفانيلا لاتيه في التشطيب</h2>
     <p>السر في هذا اللون يكمن في حياديته الشديدة، فهو لا يفرض عليك طابعاً واحداً، بل يمتص ألوان الإضاءة والأثاث ليظهر بشكل مختلف في كل مرة:</p>
@@ -70,21 +82,21 @@
     <div class="check-list">
         <h3><i class="fas fa-magic"></i> لماذا الفانيلا لاتيه؟</h3>
         <ul>
-            <li><b>إعطاء اتساع:</b> يعكس الإضاءة بشكل ممتاز، مما يجعل الغرف الضيقة تبدو أوسع.</li>
-            <li><b>المرونة:</b> يتماشى مع الخشب، الرخام، وحتى المعادن السوداء والذهبية.</li>
-            <li><b>عصري وكلاسيكي:</b> يناسب عشاق الـ Modern والـ Neoclassic.</li>
+            <li><b>إعطاء اتساع:</b> يعكس الإضاءة بشكل ممتاز، مما يجعل الغرف الضيقة تبدو أوسع وأكثر إشراقاً.</li>
+            <li><b>المرونة المطلقة:</b> يتماشى مع الخشب الطبيعي، الرخام، وحتى المعادن السوداء والذهبية.</li>
+            <li><b>عصري وكلاسيكي:</b> يناسب عشاق الـ Modern والـ Neoclassic ويحافظ على "قيمته" مع مرور السنين.</li>
         </ul>
     </div>
 
     <h2>نصيحة الإضاءة من ركن ديزاين</h2>
-    <p>لون الفانيلا لاتيه يتأثر جداً بـ "درجة حرارة الإضاءة". إذا استخدمت إضاءة صفراء (Warm)، سيميل اللون للبيج الدافئ، أما مع الإضاءة البيضاء (Cool)، سيظهر أكثر حداثة وميلاً للرمادي الفاتح. لذا، ننصح دائماً بتجربة عينة (Sample) على الحائط قبل البدء في الدهان الكامل.</p>
+    <p>لون الفانيلا لاتيه يتأثر جداً بـ "درجة حرارة الإضاءة". إذا استخدمت إضاءة صفراء (Warm)، سيميل اللون للبيج الدافئ، أما مع الإضاءة البيضاء (Cool)، سيظهر أكثر حداثة وميلاً للرمادي الفاتح. لذا، ننصح دائماً بتجربة عينة (Sample) على الحائط قبل البدء في الدهان الكامل لضمان النتيجة المطلوبة.</p>
 
     <h2>تنسيق الأثاث مع الحوائط الحيادية</h2>
-    <p>لتحصل على نتيجة احترافية، حاول دمج خامات طبيعية مع هذا اللون، مثل الكتان في الستائر والخشب الفاتح في الأثاث. هذا المزيج هو ما نسميه في ركن ديزاين "التصميم المريح للعين".</p>
+    <p>لتحصل على نتيجة احترافية، حاول دمج خامات طبيعية مع هذا اللون، مثل الكتان في الستائر والخشب الفاتح في الأثاث. هذا المزيج هو ما نسميه في <b>ركن ديزاين</b> "التصميم المريح للعين" الذي لا تمل منه أبداً.</p>
 
     <div class="cta-rokn">
-        <h3>خلى كل ركن يتكلم عنك</h3>
-        <p>بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق.</p>
+        <h3>خلّي كل ركن يتكلم عنك</h3>
+        <p>بدلاً من المخاطرة، احسب تكلفة تشطيبك شاملة الإشراف الهندسي الدقيق من ركن ديزاين.</p>
         <a href="../calculator.html" class="btn-calc">
             <i class="fas fa-calculator" style="margin-left: 8px;"></i>
             احسب تكلفة تشطيبك الآن
@@ -94,7 +106,7 @@
     <a href="../blog.html" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للأكاديمية</a>
 </div>
 
-<footer style="text-align:center; padding:30px; color:#999; font-size:13px;">
+<footer style="text-align:center; padding:30px; color:#999; font-size:13px; background: #f9f9f9;">
     جميع الحقوق محفوظة لشركة ركن ديزاين © 2026
 </footer>
 
